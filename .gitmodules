@@ -1,0 +1,3 @@
+[submodule "giai-ycf"]
+	path = giai-ycf
+	url = git@github.com:msobkow/org.msscf.msscf.git
