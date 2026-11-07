@@ -1,0 +1,288 @@
+// Description: Java 25 implementation of a DbKeyHash512Gen history buffer object
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnet.buff;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpub.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprot.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprotobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodel.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelobj.*;
+
+public class BusModelBuffDbKeyHash512GenH extends BusModelBuffDbKeyHash512TypeH
+    implements IBusModelDbKeyHash512GenH
+{
+	protected short requiredSlice;
+	protected int requiredBlockSize;
+
+    public BusModelBuffDbKeyHash512GenH() {
+            super();
+		requiredSlice = IBusModelPubDbKeyHash512Gen.SLICE_INIT_VALUE;
+		requiredBlockSize = IBusModelPubDbKeyHash512Gen.BLOCKSIZE_INIT_VALUE;
+    }
+
+    @Override
+    public int getClassCode() {
+            return( IBusModelDbKeyHash512Gen.CLASS_CODE );
+    }
+
+	@Override
+	public short getRequiredSlice() {
+		return(requiredSlice);
+	}
+
+	@Override
+	public void setRequiredSlice( short value ) {
+		if( value < IBusModelPubDbKeyHash512Gen.SLICE_MIN_VALUE ) {
+			throw new CFArgumentUnderflowException( getClass(),
+				"setRequiredSlice",
+				1,
+				"value",
+				value,
+				IBusModelPubDbKeyHash512Gen.SLICE_MIN_VALUE );
+		}
+		if( value > IBusModelPubDbKeyHash512Gen.SLICE_MAX_VALUE ) {
+			throw new CFArgumentOverflowException( getClass(),
+				"setRequiredSlice",
+				1,
+				"value",
+				value,
+				IBusModelPubDbKeyHash512Gen.SLICE_MAX_VALUE );
+		}
+		requiredSlice = value;
+	}
+
+	@Override
+	public int getRequiredBlockSize() {
+		return(requiredBlockSize);
+	}
+
+	@Override
+	public void setRequiredBlockSize( int value ) {
+		if( value < IBusModelPubDbKeyHash512Gen.BLOCKSIZE_MIN_VALUE ) {
+			throw new CFArgumentUnderflowException( getClass(),
+				"setRequiredBlockSize",
+				1,
+				"value",
+				value,
+				IBusModelPubDbKeyHash512Gen.BLOCKSIZE_MIN_VALUE );
+		}
+		if( value > IBusModelPubDbKeyHash512Gen.BLOCKSIZE_MAX_VALUE ) {
+			throw new CFArgumentOverflowException( getClass(),
+				"setRequiredBlockSize",
+				1,
+				"value",
+				value,
+				IBusModelPubDbKeyHash512Gen.BLOCKSIZE_MAX_VALUE );
+		}
+		requiredBlockSize = value;
+	}
+
+    @Override
+    public boolean equals( Object obj ) {
+        if (obj == null) {
+            return( false );
+        }
+        else if (obj instanceof IBusModelDbKeyHash512Gen) {
+            IBusModelDbKeyHash512Gen rhs = (IBusModelDbKeyHash512Gen)obj;
+        if (!super.equals(obj)) {
+            return( false );
+        }
+			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
+				return( false );
+			}
+			if( getRequiredBlockSize() != rhs.getRequiredBlockSize() ) {
+				return( false );
+			}
+            return( true );
+        }
+        else if (obj instanceof IBusModelDbKeyHash512GenH) {
+			if (!super.equals(obj)) {
+				return( false );
+			}
+            IBusModelDbKeyHash512GenH rhs = (IBusModelDbKeyHash512GenH)obj;
+        if (!super.equals(obj)) {
+            return( false );
+        }
+			if( getRequiredSlice() != rhs.getRequiredSlice() ) {
+				return( false );
+			}
+			if( getRequiredBlockSize() != rhs.getRequiredBlockSize() ) {
+				return( false );
+			}
+            return( true );
+        }
+        else if (obj instanceof IBusModelValueHPKey) {
+			return( super.equals(obj) );
+        }
+        else {
+			return( super.equals(obj) );
+        }
+    }
+    
+    @Override
+    public int hashCode() {
+        int hashCode = super.hashCode();
+		hashCode = ( hashCode * 0x10000 ) + getRequiredSlice();
+		hashCode = hashCode + getRequiredBlockSize();
+        return( hashCode & 0x7fffffff );
+    }
+
+    @Override
+    public int compareTo( Object obj ) {
+        int cmp;
+        if (obj == null) {
+            return( 1 );
+        }
+        else if (obj instanceof IBusModelDbKeyHash512Gen) {
+        cmp = super.compareTo(obj);
+        if (cmp != 0) {
+            return( cmp );
+        }
+        IBusModelDbKeyHash512Gen rhs = (IBusModelDbKeyHash512Gen)obj;
+			if( getRequiredSlice() < rhs.getRequiredSlice() ) {
+				return( -1 );
+			}
+			else if( getRequiredSlice() > rhs.getRequiredSlice() ) {
+				return( 1 );
+			}
+			if( getRequiredBlockSize() < rhs.getRequiredBlockSize() ) {
+				return( -1 );
+			}
+			else if( getRequiredBlockSize() > rhs.getRequiredBlockSize() ) {
+				return( 1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof IBusModelValueHPKey) {
+        return( super.compareTo(obj) );
+        }
+        else if (obj instanceof IBusModelDbKeyHash512GenH) {
+        cmp = super.compareTo(obj);
+        if (cmp != 0) {
+            return( cmp );
+        }
+        IBusModelDbKeyHash512GenH rhs = (IBusModelDbKeyHash512GenH)obj;
+			if( getRequiredSlice() < rhs.getRequiredSlice() ) {
+				return( -1 );
+			}
+			else if( getRequiredSlice() > rhs.getRequiredSlice() ) {
+				return( 1 );
+			}
+			if( getRequiredBlockSize() < rhs.getRequiredBlockSize() ) {
+				return( -1 );
+			}
+			else if( getRequiredBlockSize() > rhs.getRequiredBlockSize() ) {
+				return( 1 );
+			}
+            return( 0 );
+        }
+        else {
+        return( super.compareTo(obj) );
+        }
+    }
+	@Override
+    public void set( IBusModelValue src ) {
+		if( src instanceof BusModelBuffDbKeyHash512Gen ) {
+			setDbKeyHash512Gen( (BusModelBuffDbKeyHash512Gen)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"BusModelBuffDbKeyHash512Gen" );
+		}
+    }
+
+	@Override
+    public void setDbKeyHash512Gen( IBusModelDbKeyHash512Gen src ) {
+        super.setDbKeyHash512Type( src );
+		setRequiredSlice( src.getRequiredSlice() );
+		setRequiredBlockSize( src.getRequiredBlockSize() );
+    }
+
+	@Override
+    public void set( IBusModelValueH src ) {
+		if( src instanceof IBusModelDbKeyHash512GenH ) {
+			setDbKeyHash512Gen( (IBusModelDbKeyHash512GenH)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"IBusModelDbKeyHash512GenH" );
+		}
+    }
+
+	@Override
+    public void setDbKeyHash512Gen( IBusModelDbKeyHash512GenH src ) {
+        super.setDbKeyHash512Type( src );
+		setRequiredSlice( src.getRequiredSlice() );
+		setRequiredBlockSize( src.getRequiredBlockSize() );
+    }
+
+    public String getXmlAttrFragment() {
+        String ret = super.getXmlAttrFragment() 
+			+ " RequiredSlice=" + "\"" + Short.toString( getRequiredSlice() ) + "\""
+			+ " RequiredBlockSize=" + "\"" + Integer.toString( getRequiredBlockSize() ) + "\"";
+        return( ret );
+    }
+
+    public String toString() {
+        String ret = "<BusModelBuffDbKeyHash512GenH" + getXmlAttrFragment() + "/>";
+        return( ret );
+    }
+}

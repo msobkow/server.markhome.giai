@@ -1,0 +1,1112 @@
+// Description: Java 25 JavaFX List of Obj Pane implementation for UuidDef.
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.busmodel.busmodeljavafx;
+
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Parent;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
+import javafx.util.Callback;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.Inz;
+import server.markhome.cf.javafx.*;
+import org.apache.commons.codec.binaryCFCore64;
+import server.markhome.ycf.v3_1.secure.secure.*;
+import server.markhome.ycf.v3_1.intnet.intnet.*;
+import server.markhome.ycf.v3_1.busmodel.busmodel.*;
+import server.markhome.ycf.v3_1.secure.secureobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelobj.*;
+import server.markhome.ycf.v3_1.secure.securejavafx.*;
+import server.markhome.ycf.v3_1.intnet.intnetjavafx.*;
+
+/**
+ *	BusModelJavaFXUuidDefListPane JavaFX List of Obj Pane implementation
+ *	for UuidDef.
+ */
+public class BusModelJavaFXUuidDefListPane
+extends CFBorderPane
+implements IBusModelJavaFXUuidDefPaneList
+{
+	public static String S_FormName = "List UuidDef";
+	protected IBusModelJavaFXSchema javafxSchema = null;
+	protected Collection<IBusModelUuidDefObj> javafxDataCollection = null;
+	protected ObservableList<IBusModelUuidDefObj> observableListOfUuidDef = null;
+	protected ScrollPane scrollMenu = null;
+	protected CFHBox hboxMenu = null;
+	protected ScrollPane scrollMenuAdd = null;
+	protected CFVBox vboxMenuAdd = null;
+	protected CFButton buttonAdd = null;
+	protected CFButton buttonCancelAdd = null;
+	protected CFButton buttonAddUuidType = null;
+	protected CFButton buttonAddUuidGen = null;
+	protected CFButton buttonAddUuidCol = null;
+	protected CFButton buttonViewSelected = null;
+	protected CFButton buttonEditSelected = null;
+	protected CFButton buttonDeleteSelected = null;
+	protected TableView<IBusModelUuidDefObj> dataTable = null;
+	protected TableColumn<IBusModelUuidDefObj,String> tableColumnObjKind = null;
+	protected TableColumn<IBusModelUuidDefObj, ICFKeyHash256> tableColumnId = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnName = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnShortName = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnLabel = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnShortDescription = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnDescription = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnDefaultXmlValue = null;
+	protected TableColumn<IBusModelUuidDefObj, Boolean> tableColumnIsNullable = null;
+	protected TableColumn<IBusModelUuidDefObj, Boolean> tableColumnGenerateId = null;
+	protected TableColumn<IBusModelUuidDefObj, Boolean> tableColumnImplementsPolymorph = null;
+	protected TableColumn<IBusModelUuidDefObj, String> tableColumnDbName = null;
+	protected TableColumn<IBusModelUuidDefObj, UUID> tableColumnInitValue = null;
+	protected TableColumn<IBusModelUuidDefObj, IBusModelSchemaDefObj> tableColumnLookupDefSchema = null;
+
+	public final String S_ColumnNames[] = { "Name" };
+	protected ICFFormManager cfFormManager = null;
+	protected boolean javafxIsInitializing = true;
+	protected boolean javafxSortByChain = false;
+	protected IBusModelScopeObj javafxContainer = null;
+	protected ICFRefreshCallback javafxRefreshCallback = null;
+	class ViewEditClosedCallback implements ICFFormClosedCallback {
+		public ViewEditClosedCallback() {
+		}
+
+		@Override
+		public void formClosed( ICFLibAnyObj affectedObject ) {
+			if( affectedObject != null ) {
+				refreshMe();
+			}
+		}
+	}
+
+	protected ViewEditClosedCallback viewEditClosedCallback = null;
+
+	public ICFFormClosedCallback getViewEditClosedCallback() {
+		if( viewEditClosedCallback == null ) {
+			viewEditClosedCallback = new ViewEditClosedCallback();
+		}
+		return( viewEditClosedCallback );
+	}
+
+	class DeleteCallback implements ICFDeleteCallback {
+		public DeleteCallback() {
+		}
+		@Override
+		public void deleted( ICFLibAnyObj deletedObject ) {
+			if( deletedObject != null ) {
+				refreshMe();
+			}
+		}
+
+		@Override
+		public void formClosed( ICFLibAnyObj affectedObject ) {
+			if( affectedObject != null ) {
+				refreshMe();
+			}
+		}
+	}
+
+	protected DeleteCallback deleteCallback = null;
+
+	public ICFDeleteCallback getDeleteCallback() {
+		if( deleteCallback == null ) {
+			deleteCallback = new DeleteCallback();
+		}
+		return( deleteCallback );
+	}
+
+
+	public BusModelJavaFXUuidDefListPane( ICFFormManager formManager,
+		IBusModelJavaFXSchema argSchema,
+		IBusModelScopeObj argContainer,
+		IBusModelUuidDefObj argFocus,
+		Collection<IBusModelUuidDefObj> argDataCollection,
+		ICFRefreshCallback refreshCallback,
+		boolean sortByChain )
+	{
+		super();
+		final String S_ProcName = "construct-schema-focus";
+		if( formManager == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				1,
+				"formManager" );
+		}
+		cfFormManager = formManager;
+		if( argSchema == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				2,
+				"argSchema" );
+		}
+		// argFocus is optional; focus may be set later during execution as
+		// conditions of the runtime change.
+		javafxSchema = argSchema;
+		javaFXFocus = argFocus;
+		javafxContainer = argContainer;
+		javafxRefreshCallback = refreshCallback;
+		javafxSortByChain = sortByChain;
+		setJavaFXDataCollection( argDataCollection );
+		dataTable = new TableView<IBusModelUuidDefObj>();
+		tableColumnObjKind = new TableColumn<IBusModelUuidDefObj,String>( "Class Code" );
+		tableColumnObjKind.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			@Override public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelUuidDefObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					int classCode = obj.getClassCode();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( Integer.toString(classCode) );
+					return( observable );
+				}
+			}
+		});
+		tableColumnObjKind.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnObjKind );
+		tableColumnId = new TableColumn<IBusModelUuidDefObj,ICFKeyHash256>( "Id" );
+		tableColumnId.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,ICFKeyHash256>,ObservableValue<ICFKeyHash256> >() {
+			public ObservableValue<ICFKeyHash256> call( CellDataFeatures<IBusModelUuidDefObj, ICFKeyHash256> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					ICFKeyHash256 value = obj.getRequiredId();
+					ReadOnlyObjectWrapper<ICFKeyHash256> observable = new ReadOnlyObjectWrapper<ICFKeyHash256>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnId.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,ICFKeyHash256>,TableCell<IBusModelUuidDefObj,ICFKeyHash256>>() {
+			@Override public TableCell<IBusModelUuidDefObj,ICFKeyHash256> call(
+				TableColumn<IBusModelUuidDefObj,ICFKeyHash256> arg)
+			{
+				return new CFDbKeyHash256TableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnId );
+		tableColumnName = new TableColumn<IBusModelUuidDefObj,String>( "Name" );
+		tableColumnName.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getRequiredName();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnName.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnName );
+		tableColumnShortName = new TableColumn<IBusModelUuidDefObj,String>( "Short Name" );
+		tableColumnShortName.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalShortName();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnShortName.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnShortName );
+		tableColumnLabel = new TableColumn<IBusModelUuidDefObj,String>( "Label" );
+		tableColumnLabel.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalLabel();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnLabel.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnLabel );
+		tableColumnShortDescription = new TableColumn<IBusModelUuidDefObj,String>( "Short Description" );
+		tableColumnShortDescription.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalShortDescription();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnShortDescription.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnShortDescription );
+		tableColumnDescription = new TableColumn<IBusModelUuidDefObj,String>( "Description" );
+		tableColumnDescription.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalDescription();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnDescription.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnDescription );
+		tableColumnDefaultXmlValue = new TableColumn<IBusModelUuidDefObj,String>( "DefaultXmlValue" );
+		tableColumnDefaultXmlValue.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalDefaultXmlValue();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnDefaultXmlValue.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnDefaultXmlValue );
+		tableColumnIsNullable = new TableColumn<IBusModelUuidDefObj,Boolean>( "Is Nullable" );
+		tableColumnIsNullable.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,Boolean>,ObservableValue<Boolean> >() {
+			public ObservableValue<Boolean> call( CellDataFeatures<IBusModelUuidDefObj, Boolean> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					boolean value = obj.getRequiredIsNullable();
+					Boolean wrapped = Boolean.valueOf( value );
+					ReadOnlyObjectWrapper<Boolean> observable = new ReadOnlyObjectWrapper<Boolean>();
+					observable.setValue( wrapped );
+					return( observable );
+				}
+			}
+		});
+		tableColumnIsNullable.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,Boolean>,TableCell<IBusModelUuidDefObj,Boolean>>() {
+			@Override public TableCell<IBusModelUuidDefObj,Boolean> call(
+				TableColumn<IBusModelUuidDefObj,Boolean> arg)
+			{
+				return new CFBoolTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnIsNullable );
+		tableColumnGenerateId = new TableColumn<IBusModelUuidDefObj,Boolean>( "Generate Id" );
+		tableColumnGenerateId.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,Boolean>,ObservableValue<Boolean> >() {
+			public ObservableValue<Boolean> call( CellDataFeatures<IBusModelUuidDefObj, Boolean> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					Boolean value = obj.getOptionalGenerateId();
+					ReadOnlyObjectWrapper<Boolean> observable = new ReadOnlyObjectWrapper<Boolean>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnGenerateId.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,Boolean>,TableCell<IBusModelUuidDefObj,Boolean>>() {
+			@Override public TableCell<IBusModelUuidDefObj,Boolean> call(
+				TableColumn<IBusModelUuidDefObj,Boolean> arg)
+			{
+				return new CFBoolTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnGenerateId );
+		tableColumnImplementsPolymorph = new TableColumn<IBusModelUuidDefObj,Boolean>( "ImplementsPolymorph" );
+		tableColumnImplementsPolymorph.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,Boolean>,ObservableValue<Boolean> >() {
+			public ObservableValue<Boolean> call( CellDataFeatures<IBusModelUuidDefObj, Boolean> p ) {
+				IBusModelValueObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					boolean value = obj.getRequiredImplementsPolymorph();
+					Boolean wrapped = Boolean.valueOf( value );
+					ReadOnlyObjectWrapper<Boolean> observable = new ReadOnlyObjectWrapper<Boolean>();
+					observable.setValue( wrapped );
+					return( observable );
+				}
+			}
+		});
+		tableColumnImplementsPolymorph.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,Boolean>,TableCell<IBusModelUuidDefObj,Boolean>>() {
+			@Override public TableCell<IBusModelUuidDefObj,Boolean> call(
+				TableColumn<IBusModelUuidDefObj,Boolean> arg)
+			{
+				return new CFBoolTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnImplementsPolymorph );
+		tableColumnDbName = new TableColumn<IBusModelUuidDefObj,String>( "Db Name" );
+		tableColumnDbName.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,String>,ObservableValue<String> >() {
+			public ObservableValue<String> call( CellDataFeatures<IBusModelUuidDefObj, String> p ) {
+				IBusModelAtomObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					String value = obj.getOptionalDbName();
+					ReadOnlyObjectWrapper<String> observable = new ReadOnlyObjectWrapper<String>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnDbName.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,String>,TableCell<IBusModelUuidDefObj,String>>() {
+			@Override public TableCell<IBusModelUuidDefObj,String> call(
+				TableColumn<IBusModelUuidDefObj,String> arg)
+			{
+				return new CFStringTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnDbName );
+		tableColumnInitValue = new TableColumn<IBusModelUuidDefObj,UUID>( "Init. Value" );
+		tableColumnInitValue.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,UUID>,ObservableValue<UUID> >() {
+			public ObservableValue<UUID> call( CellDataFeatures<IBusModelUuidDefObj, UUID> p ) {
+				IBusModelUuidDefObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					UUID value = obj.getOptionalInitValue();
+					ReadOnlyObjectWrapper<UUID> observable = new ReadOnlyObjectWrapper<UUID>();
+					observable.setValue( value );
+					return( observable );
+				}
+			}
+		});
+		tableColumnInitValue.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,UUID>,TableCell<IBusModelUuidDefObj,UUID>>() {
+			@Override public TableCell<IBusModelUuidDefObj,UUID> call(
+				TableColumn<IBusModelUuidDefObj,UUID> arg)
+			{
+				return new CFUuidTableCell<IBusModelUuidDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnInitValue );
+		tableColumnLookupDefSchema = new TableColumn<IBusModelUuidDefObj, IBusModelSchemaDefObj>( "Defining Schema Definition" );
+		tableColumnLookupDefSchema.setCellValueFactory( new Callback<CellDataFeatures<IBusModelUuidDefObj,IBusModelSchemaDefObj>,ObservableValue<IBusModelSchemaDefObj> >() {
+			public ObservableValue<IBusModelSchemaDefObj> call( CellDataFeatures<IBusModelUuidDefObj, IBusModelSchemaDefObj> p ) {
+				IBusModelUuidDefObj obj = p.getValue();
+				if( obj == null ) {
+					return( null );
+				}
+				else {
+					IBusModelSchemaDefObj ref = obj.getOptionalLookupDefSchema();
+					ReadOnlyObjectWrapper<IBusModelSchemaDefObj> observable = new ReadOnlyObjectWrapper<IBusModelSchemaDefObj>();
+					observable.setValue( ref );
+					return( observable );
+				}
+			}
+		});
+		tableColumnLookupDefSchema.setCellFactory( new Callback<TableColumn<IBusModelUuidDefObj,IBusModelSchemaDefObj>,TableCell<IBusModelUuidDefObj,IBusModelSchemaDefObj>>() {
+			@Override public TableCell<IBusModelUuidDefObj,IBusModelSchemaDefObj> call(
+				TableColumn<IBusModelUuidDefObj,IBusModelSchemaDefObj> arg)
+			{
+				return new CFReferenceTableCell<IBusModelUuidDefObj,IBusModelSchemaDefObj>();
+			}
+		});
+		dataTable.getColumns().add( tableColumnLookupDefSchema );
+		dataTable.getSelectionModel().selectedItemProperty().addListener(
+			new ChangeListener<IBusModelUuidDefObj>() {
+				@Override public void changed( ObservableValue<? extends IBusModelUuidDefObj> observable,
+					IBusModelUuidDefObj oldValue,
+					IBusModelUuidDefObj newValue )
+				{
+					setJavaFXFocus( newValue );
+				}
+			});
+
+		scrollMenu = new ScrollPane();
+		scrollMenu.setVbarPolicy( ScrollBarPolicy.NEVER );
+		scrollMenu.setHbarPolicy( ScrollBarPolicy.AS_NEEDED );
+		scrollMenu.setFitToHeight( true );
+		scrollMenu.setContent( getPanelHBoxMenu() );
+
+		setTop( scrollMenu );
+		setCenter( dataTable );
+		javafxIsInitializing = false;
+		if( observableListOfUuidDef != null ) {
+			dataTable.setItems( observableListOfUuidDef );
+		}
+		adjustListButtons();
+	}
+
+	public ICFFormManager getCFFormManager() {
+		return( cfFormManager );
+	}
+
+	public void setCFFormManager( ICFFormManager value ) {
+		final String S_ProcName = "setCFFormManager";
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				1,
+				"value" );
+		}
+		cfFormManager = value;
+	}
+
+	public IBusModelJavaFXSchema getJavaFXSchema() {
+		return( javafxSchema );
+	}
+
+	public void setPaneMode( CFPane.PaneMode value ) {
+		super.setPaneMode( value );
+		adjustListButtons();
+	}
+
+	public void setJavaFXFocus( ICFLibAnyObj value ) {
+		final String S_ProcName = "setJavaFXFocus";
+		if( ( value == null ) || ( value instanceof IBusModelUuidDefObj ) ) {
+			super.setJavaFXFocus( value );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				S_ProcName,
+				"value",
+				value,
+				"IBusModelUuidDefObj" );
+		}
+		adjustListButtons();
+	}
+
+	public IBusModelUuidDefObj getJavaFXFocusAsUuidDef() {
+		return( (IBusModelUuidDefObj)getJavaFXFocus() );
+	}
+
+	public void setJavaFXFocusAsUuidDef( IBusModelUuidDefObj value ) {
+		setJavaFXFocus( value );
+	}
+
+	public class UuidDefByQualNameComparator
+	implements Comparator<IBusModelUuidDefObj>
+	{
+		public UuidDefByQualNameComparator() {
+		}
+
+		public int compare( IBusModelUuidDefObj lhs, IBusModelUuidDefObj rhs ) {
+			if( lhs == null ) {
+				if( rhs == null ) {
+					return( 0 );
+				}
+				else {
+					return( -1 );
+				}
+			}
+			else if( rhs == null ) {
+				return( 1 );
+			}
+			else {
+				String lhsValue = lhs.getObjQualifiedName();
+				String rhsValue = rhs.getObjQualifiedName();
+				if( lhsValue == null ) {
+					if( rhsValue == null ) {
+						return( 0 );
+					}
+					else {
+						return( -1 );
+					}
+				}
+				else if( rhsValue == null ) {
+					return( 1 );
+				}
+				else {
+					return( lhsValue.compareTo( rhsValue ) );
+				}
+			}
+		}
+	}
+
+	protected UuidDefByQualNameComparator compareUuidDefByQualName = new UuidDefByQualNameComparator();
+
+	public Collection<IBusModelUuidDefObj> getJavaFXDataCollection() {
+		return( javafxDataCollection );
+	}
+
+	public void setJavaFXDataCollection( Collection<IBusModelUuidDefObj> value ) {
+		final String S_ProcName = "setJavaFXDataCollection";
+		javafxDataCollection = value;
+		observableListOfUuidDef = FXCollections.observableArrayList();
+		if( javafxDataCollection != null ) {
+				Iterator<IBusModelUuidDefObj> iter = javafxDataCollection.iterator();
+				while( iter.hasNext() ) {
+					observableListOfUuidDef.add( iter.next() );
+				}
+				observableListOfUuidDef.sort( compareUuidDefByQualName );
+		}
+		if( dataTable != null ) {
+			dataTable.setItems( observableListOfUuidDef );
+			// Hack from stackoverflow to fix JavaFX TableView refresh issue
+			((TableColumn)dataTable.getColumns().get(0)).setVisible( false );
+			((TableColumn)dataTable.getColumns().get(0)).setVisible( true );
+		}
+	}
+
+	protected class CompareCFButtonByText
+	implements Comparator<CFButton>
+	{
+		public CompareCFButtonByText() {
+		}
+
+		@Override public int compare( CFButton lhs, CFButton rhs ) {
+			if( lhs == null ) {
+				if( rhs == null ) {
+					return( 0 );
+				}
+				else {
+					return( -1 );
+				}
+			}
+			else if( rhs == null ) {
+				return( 1 );
+			}
+			else {
+				int retval = lhs.getText().compareTo( rhs.getText() );
+				return( retval );
+			}
+		}
+	}
+
+	public CFHBox getPanelHBoxMenu() {
+		if( hboxMenu == null ) {
+			hboxMenu = new CFHBox( 10 );
+				LinkedList<CFButton> list = new LinkedList<CFButton>();
+
+				vboxMenuAdd = new CFVBox( 10 );
+					buttonAddUuidType = new CFButton();
+					buttonAddUuidType.setMinWidth( 200 );
+					buttonAddUuidType.setText( "Add UuidType" );
+					buttonAddUuidType.setOnAction( new EventHandler<ActionEvent>() {
+						@Override public void handle( ActionEvent e ) {
+							final String S_ProcName = "handle";
+							try {
+								IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+								IBusModelUuidTypeObj obj = (IBusModelUuidTypeObj)schemaObj.getUuidTypeTableObj().newInstance();
+								CFBorderPane frame = javafxSchema.getUuidTypeFactory().newAddForm( cfFormManager, obj, getViewEditClosedCallback(), true );
+								IBusModelUuidTypeEditObj edit = (IBusModelUuidTypeEditObj)( obj.beginEdit() );
+								if( edit == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"edit" );
+								}
+								IBusModelSchemaDefObj container = (IBusModelSchemaDefObj)( getJavaFXContainer() );
+								if( container == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"JavaFXContainer" );
+								}
+								edit.setRequiredContainerSchemaDef( container );
+								IBusModelJavaFXUuidTypePaneCommon jpanelCommon = (IBusModelJavaFXUuidTypePaneCommon)frame;
+								jpanelCommon.setJavaFXFocus( obj );
+								jpanelCommon.setPaneMode( CFPane.PaneMode.Add );
+								cfFormManager.pushForm( frame );
+								setLeft( null );
+								adjustListButtons();
+							}
+							catch( Throwable t ) {
+								CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+							}
+						}
+					});
+					if( javafxContainer instanceof IBusModelSchemaDefObj ) {
+						list.add( buttonAddUuidType );
+					}
+					buttonAddUuidGen = new CFButton();
+					buttonAddUuidGen.setMinWidth( 200 );
+					buttonAddUuidGen.setText( "Add UuidGen" );
+					buttonAddUuidGen.setOnAction( new EventHandler<ActionEvent>() {
+						@Override public void handle( ActionEvent e ) {
+							final String S_ProcName = "handle";
+							try {
+								IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+								IBusModelUuidGenObj obj = (IBusModelUuidGenObj)schemaObj.getUuidGenTableObj().newInstance();
+								CFBorderPane frame = javafxSchema.getUuidGenFactory().newAddForm( cfFormManager, obj, getViewEditClosedCallback(), true );
+								IBusModelUuidGenEditObj edit = (IBusModelUuidGenEditObj)( obj.beginEdit() );
+								if( edit == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"edit" );
+								}
+								IBusModelSchemaDefObj container = (IBusModelSchemaDefObj)( getJavaFXContainer() );
+								if( container == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"JavaFXContainer" );
+								}
+								edit.setRequiredContainerSchemaDef( container );
+								IBusModelJavaFXUuidGenPaneCommon jpanelCommon = (IBusModelJavaFXUuidGenPaneCommon)frame;
+								jpanelCommon.setJavaFXFocus( obj );
+								jpanelCommon.setPaneMode( CFPane.PaneMode.Add );
+								cfFormManager.pushForm( frame );
+								setLeft( null );
+								adjustListButtons();
+							}
+							catch( Throwable t ) {
+								CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+							}
+						}
+					});
+					if( javafxContainer instanceof IBusModelSchemaDefObj ) {
+						list.add( buttonAddUuidGen );
+					}
+					buttonAddUuidCol = new CFButton();
+					buttonAddUuidCol.setMinWidth( 200 );
+					buttonAddUuidCol.setText( "Add UuidCol" );
+					buttonAddUuidCol.setOnAction( new EventHandler<ActionEvent>() {
+						@Override public void handle( ActionEvent e ) {
+							final String S_ProcName = "handle";
+							try {
+								IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+								IBusModelUuidColObj obj = (IBusModelUuidColObj)schemaObj.getUuidColTableObj().newInstance();
+								CFBorderPane frame = javafxSchema.getUuidColFactory().newAddForm( cfFormManager, obj, getViewEditClosedCallback(), true );
+								IBusModelUuidColEditObj edit = (IBusModelUuidColEditObj)( obj.beginEdit() );
+								if( edit == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"edit" );
+								}
+								IBusModelTableObj container = (IBusModelTableObj)( getJavaFXContainer() );
+								if( container == null ) {
+									throw new CFLibNullArgumentException( getClass(),
+										S_ProcName,
+										0,
+										"JavaFXContainer" );
+								}
+								edit.setRequiredContainerTable( container );
+								IBusModelJavaFXUuidColPaneCommon jpanelCommon = (IBusModelJavaFXUuidColPaneCommon)frame;
+								jpanelCommon.setJavaFXFocus( obj );
+								jpanelCommon.setPaneMode( CFPane.PaneMode.Add );
+								cfFormManager.pushForm( frame );
+								setLeft( null );
+								adjustListButtons();
+							}
+							catch( Throwable t ) {
+								CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+							}
+						}
+					});
+					if( javafxContainer instanceof IBusModelTableObj ) {
+						list.add( buttonAddUuidCol );
+					}
+
+				int len = list.size();
+				CFButton arr[] = new CFButton[len];
+				Iterator<CFButton> iter = list.iterator();
+				int idx = 0;
+				while( iter.hasNext() ) {
+					arr[idx++] = iter.next();
+				}
+				Arrays.sort( arr, new CompareCFButtonByText() );
+				for( idx = 0; idx < len; idx ++ ) {
+					vboxMenuAdd.getChildren().add( arr[idx] );
+				}
+
+				buttonCancelAdd = new CFButton();
+				buttonCancelAdd.setMinWidth( 200 );
+				buttonCancelAdd.setText( "Cancel Add..." );
+				buttonCancelAdd.setOnAction( new EventHandler<ActionEvent>() {
+					@Override public void handle( ActionEvent e ) {
+						final String S_ProcName = "handle";
+						try {
+							setLeft( null );
+							adjustListButtons();
+						}
+						catch( Throwable t ) {
+							CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+						}
+					}
+				});
+				vboxMenuAdd.getChildren().add( buttonCancelAdd );
+
+				scrollMenuAdd = new ScrollPane();
+				scrollMenuAdd.setMinWidth( 240 );
+				scrollMenuAdd.setMaxWidth( 240 );
+				scrollMenuAdd.setFitToWidth( true );
+				scrollMenuAdd.setHbarPolicy( ScrollBarPolicy.NEVER );
+				scrollMenuAdd.setVbarPolicy( ScrollBarPolicy.AS_NEEDED );
+				scrollMenuAdd.setContent( vboxMenuAdd );
+
+			buttonAdd = new CFButton();
+			buttonAdd.setMinWidth( 200 );
+			buttonAdd.setText( "Add..." );
+			buttonAdd.setOnAction( new EventHandler<ActionEvent>() {
+				@Override public void handle( ActionEvent e ) {
+					final String S_ProcName = "handle";
+					try {
+						setLeft( scrollMenuAdd );
+						adjustListButtons();
+					}
+					catch( Throwable t ) {
+						CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+					}
+				}
+			});
+			hboxMenu.getChildren().add( buttonAdd );
+
+			buttonViewSelected = new CFButton();
+			buttonViewSelected.setMinWidth( 200 );
+			buttonViewSelected.setText( "View Selected" );
+			buttonViewSelected.setOnAction( new EventHandler<ActionEvent>() {
+				@Override public void handle( ActionEvent e ) {
+					final String S_ProcName = "handle";
+					try {
+						IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+						if( schemaObj == null ) {
+							throw new CFLibNullArgumentException( getClass(),
+								S_ProcName,
+								0,
+								"schemaObj" );
+						}
+						IBusModelUuidDefObj selectedInstance = getJavaFXFocusAsUuidDef();
+						if( selectedInstance != null ) {
+							int classCode = selectedInstance.getClassCode();
+							ISecureSchema.ClassMapEntry entry = IBusModelSchema.getClassMapByRuntimeClassCode(classCode);
+							int backingClassCode = entry.getBackingClassCode();
+							if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidDef.CLASS_CODE ) {
+								CFBorderPane frame = javafxSchema.getUuidDefFactory().newViewEditForm( cfFormManager, selectedInstance, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidDefPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidType.CLASS_CODE ) {
+								IBusModelUuidTypeObj obj = (IBusModelUuidTypeObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidTypeFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidTypePaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidGen.CLASS_CODE ) {
+								IBusModelUuidGenObj obj = (IBusModelUuidGenObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidGenFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidGenPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidCol.CLASS_CODE ) {
+								IBusModelUuidColObj obj = (IBusModelUuidColObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidColFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidColPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else {
+								throw new CFLibUnsupportedClassException( getClass(),
+									S_ProcName,
+									"selectedInstance",
+									selectedInstance,
+									"IBusModelUuidDefObj, IBusModelUuidTypeObj, IBusModelUuidGenObj, IBusModelUuidColObj" );
+							}
+						}
+					}
+					catch( Throwable t ) {
+						CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+					}
+				}
+			});
+			hboxMenu.getChildren().add( buttonViewSelected );
+
+			buttonEditSelected = new CFButton();
+			buttonEditSelected.setMinWidth( 200 );
+			buttonEditSelected.setText( "Edit Selected" );
+			buttonEditSelected.setOnAction( new EventHandler<ActionEvent>() {
+				@Override public void handle( ActionEvent e ) {
+					final String S_ProcName = "handle";
+					try {
+						IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+						if( schemaObj == null ) {
+							throw new CFLibNullArgumentException( getClass(),
+								S_ProcName,
+								0,
+								"schemaObj" );
+						}
+						IBusModelUuidDefObj selectedInstance = getJavaFXFocusAsUuidDef();
+						if( selectedInstance != null ) {
+							int classCode = selectedInstance.getClassCode();
+							ISecureSchema.ClassMapEntry entry = IBusModelSchema.getClassMapByRuntimeClassCode(classCode);
+							int backingClassCode = entry.getBackingClassCode();
+							if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidDef.CLASS_CODE ) {
+								CFBorderPane frame = javafxSchema.getUuidDefFactory().newViewEditForm( cfFormManager, selectedInstance, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidDefPaneCommon)frame).setPaneMode( CFPane.PaneMode.Edit );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidType.CLASS_CODE ) {
+								IBusModelUuidTypeObj obj = (IBusModelUuidTypeObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidTypeFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidTypePaneCommon)frame).setPaneMode( CFPane.PaneMode.Edit );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidGen.CLASS_CODE ) {
+								IBusModelUuidGenObj obj = (IBusModelUuidGenObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidGenFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidGenPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidCol.CLASS_CODE ) {
+								IBusModelUuidColObj obj = (IBusModelUuidColObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidColFactory().newViewEditForm( cfFormManager, obj, getViewEditClosedCallback(), false );
+								((IBusModelJavaFXUuidColPaneCommon)frame).setPaneMode( CFPane.PaneMode.Edit );
+								cfFormManager.pushForm( frame );
+							}
+							else {
+								throw new CFLibUnsupportedClassException( getClass(),
+									S_ProcName,
+									"selectedInstance",
+									selectedInstance,
+									"IBusModelUuidDefObj, IBusModelUuidTypeObj, IBusModelUuidGenObj, IBusModelUuidColObj" );
+							}
+						}
+					}
+					catch( Throwable t ) {
+						CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+					}
+				}
+			});
+			hboxMenu.getChildren().add( buttonEditSelected );
+
+			buttonDeleteSelected = new CFButton();
+			buttonDeleteSelected.setMinWidth( 200 );
+			buttonDeleteSelected.setText( "Delete Selected" );
+			buttonDeleteSelected.setOnAction( new EventHandler<ActionEvent>() {
+				@Override public void handle( ActionEvent e ) {
+					final String S_ProcName = "handle";
+					try {
+						IBusModelSchemaObj schemaObj = (IBusModelSchemaObj)javafxSchema.getSchema();
+						if( schemaObj == null ) {
+							throw new CFLibNullArgumentException( getClass(),
+								S_ProcName,
+								0,
+								"schemaObj" );
+						}
+						IBusModelUuidDefObj selectedInstance = getJavaFXFocusAsUuidDef();
+						if( selectedInstance != null ) {
+							int classCode = selectedInstance.getClassCode();
+							ISecureSchema.ClassMapEntry entry = IBusModelSchema.getClassMapByRuntimeClassCode(classCode);
+							int backingClassCode = entry.getBackingClassCode();
+							if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidDef.CLASS_CODE ) {
+								CFBorderPane frame = javafxSchema.getUuidDefFactory().newAskDeleteForm( cfFormManager, selectedInstance, getDeleteCallback() );
+								((IBusModelJavaFXUuidDefPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidType.CLASS_CODE ) {
+								IBusModelUuidTypeObj obj = (IBusModelUuidTypeObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidTypeFactory().newAskDeleteForm( cfFormManager, obj, getDeleteCallback() );
+								((IBusModelJavaFXUuidTypePaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidGen.CLASS_CODE ) {
+								IBusModelUuidGenObj obj = (IBusModelUuidGenObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidGenFactory().newAskDeleteForm( cfFormManager, obj, getDeleteCallback() );
+								((IBusModelJavaFXUuidGenPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else if( entry.getSchemaName().equals("BusModel") && backingClassCode == IBusModelUuidCol.CLASS_CODE ) {
+								IBusModelUuidColObj obj = (IBusModelUuidColObj)selectedInstance;
+								CFBorderPane frame = javafxSchema.getUuidColFactory().newAskDeleteForm( cfFormManager, obj, getDeleteCallback() );
+								((IBusModelJavaFXUuidColPaneCommon)frame).setPaneMode( CFPane.PaneMode.View );
+								cfFormManager.pushForm( frame );
+							}
+							else {
+								throw new CFLibUnsupportedClassException( getClass(),
+									S_ProcName,
+									"selectedInstance",
+									selectedInstance,
+									"IBusModelUuidDefObj, IBusModelUuidTypeObj, IBusModelUuidGenObj, IBusModelUuidColObj" );
+							}
+						}
+					}
+					catch( Throwable t ) {
+						CFConsole.formException( S_FormName, ((CFButton)e.getSource()).getText(), t );
+					}
+				}
+			});
+			hboxMenu.getChildren().add( buttonDeleteSelected );
+
+		}
+		return( hboxMenu );
+	}
+
+	public IBusModelScopeObj getJavaFXContainer() {
+		return( javafxContainer );
+	}
+
+	public void setJavaFXContainer( IBusModelScopeObj value ) {
+		javafxContainer = value;
+	}
+
+	public void refreshMe() {
+		if( javafxRefreshCallback != null ) {
+			javafxRefreshCallback.refreshMe();
+		}
+	}
+
+	public void adjustListButtons() {
+		boolean enableState;
+		boolean inEditState;
+		boolean allowAdds;
+		boolean inAddMode = false;
+		IBusModelUuidDefObj selectedObj = getJavaFXFocusAsUuidDef();
+		CFPane.PaneMode mode = getPaneMode();
+		if( mode == CFPane.PaneMode.Edit ) {
+			inEditState = true;
+			allowAdds = false;
+		}
+		else {
+			inEditState = false;
+			if( getJavaFXContainer() != null ) {
+				if( getLeft() != null ) {
+					allowAdds = false;
+					inAddMode = true;
+				}
+				else {
+					allowAdds = true;
+				}
+			}
+			else {
+				allowAdds = false;
+			}
+		}
+		if( selectedObj == null ) {
+			enableState = false;
+		}
+		else {
+			if( ( ! inAddMode ) && ( ! inEditState ) ) {
+				enableState = true;
+			}
+			else {
+				enableState = false;
+			}
+		}
+
+		if( buttonViewSelected != null ) {
+			buttonViewSelected.setDisable( ! enableState );
+		}
+		if( buttonEditSelected != null ) {
+			if( inEditState ) {
+				buttonEditSelected.setDisable( true );
+			}
+			else {
+				buttonEditSelected.setDisable( ! enableState );
+			}
+		}
+		if( buttonDeleteSelected != null ) {
+			buttonDeleteSelected.setDisable( ! enableState );
+		}
+
+		if( buttonAdd != null ) {
+			buttonAdd.setDisable( ! allowAdds );
+		}
+	}
+}

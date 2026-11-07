@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!--
+ *	$Revision$
+-->
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+	<META HTTP-EQUIV="CONTENT-SCRIPT-TYPE" content="text/javascript">
+	<META HTTP-EQUIV="CONTENT-STYLE-TYPE" content="text/css">
+	<meta http-equiv="refresh" content="86400">
+	<meta http-equiv="Cache-Control" content="max-age=86400, must-revalidate">
+	<TITLE>Mark Stephen Sobkow's Projects at github.com</TITLE>
+	<LINK rel="stylesheet" HRef="css/cf-content.css" type="text/css">
+</HEAD>
+<BODY>
+<p>
+<CENTER><H1>
+<A Target="_blank" HRef="index.html"><img align=vcenter src="resources/MSS-BadgeLogo-98x80.png" width="100" height="80"/></A>
+&nbsp;&nbsp;&nbsp;Welcome to Yorkton Code Fractal&nbsp;&nbsp;&nbsp;
+</H1></CENTER>
+<p>
+<table cols="3" width="95%" align="center">
+	<tr><td align="left">Prev</td>
+		<td align="center"><A HRef="index.html">Home</A></td>
+		<td align="right"><A HRef="ycf.html">Next</A></td>
+		</tr>
+</table>
+<p>
+Welcome to the Yorkton Code Fractal and MSS (Mark Stephen Sobkow) Code Factory project pages.  Yorkton Code Fractal is the
+successor to MSS Code Factory, a major refresh of the technology and approach used for the code base which really shares
+very little with the prior knowledge base and code structure that produced the 2.13 code architecture.
+<p>
+<strong>2026-11-01 09:00 CST MSS Code Factory alpha16</strong> released at <a href="https://github.com/msobkow/org.msscf.msscf.v2_13-installer/releases/tag/2.13.42-alpha16-202611071400">https://github.com/msobkow/org.msscf.msscf.v2_13-installer/releases/tag/15-202611071400</a>. You can find installation instructions at <a href="https://github.com/msobkow/org.msscf.msscf.v2_13-installer">https://github.com/msobkow/org.msscf.msscf.v2_13-installer</a> and the README.md displayed there. There have also been releases of the 2.13 knowledge base and model set as of 2026-11-01 09:00 CST, tagged as <tt>2.13.42-alpha16-202611071400</tt> which are included in the installer and are required alongside the executable jars to run the tool. Alpha15 continues the TeaVM work, but it doesn't run properly due to inconsistencies.  This version runs clean.
+<p>
+<H2>Current Progress Numbers</H2>
+<p>
+Total Lines of Currently Shared Knowledge Base files: 84,824<br>
+Total Lines in MSS Code Factory 2.13 Code Base: 3,867,020</br>
+Total Lines in Yorkton Code Fractal 3.1 ycf-core (hand-written code being worked on): 45,546
+<p>
+<H2>Overview Of The Technology</H2>
+<p>
+Yorkton Code Fractal (formerly MSS Code Factory) is a tool used to accelerate the production of the repetitive code that comprises 75-95% of the typical enterprise business application - the "glue" between the business logic programmer and the backing data servers and databases. It does so by applying a knowledge base of General Expansion Rule (GEL) files following specific XML document schemas and semantic constraints to a Business Application Model (BAM), which is an enhanced ERD constrained by a customized schema definition available here: <a href="msscf/2.0.13/xsd/mssbam-2.13.xsd">mssbam-2.13.xsd</a>, with 3.1 using an updated ycf/3.0.1/xsd/mssbam-3.1.xsd specification adapted to the new capabilities of the customized CFCore Engine eventualy implemented for the 3.1 BAM.
+<p>
+The BAM defines the tables, indexes, and relationships of an ERD, including Superclass, Container/Component, Parent/Child, and Lookup relationships. It also provides the means of encapsulating customizations of the output source code, with the approach changing radically compared to the old 2.0.12/2.0.13 approach of hard-coded verbs in the custom engine. Both 2.0.13 and 3.1 implement "tweaks" (see prior section on enhancements and improvements.)
+<p>
+I invite you to read through the prototype architecture and philosophies, and through the 2.11 documentation.  Although seriously stale about the details, most of the key concepts and descriptions about how the CFCore engine works as described in the 2.11 documentation are still valid to this day.
+<p>
+The diversion into working on TeaVM support is proving very fruitful and should yield the end results that I want, provided I invest sufficient time in ycf-core and ycf-msscf, especially in the YCFMt objects that underpin all the multithreading of the tool and applications produced by it. In the end, one should be able to connect a TeaVM-compiled JavaScript client to the back end services over both JSON and binary stream protocols, where the JSON form will be used with HTTPS GET/POST requests, and the binary stream protocol will be supported by Web Sockets. A long-in-the-tooth ASN.1 technology is being used to implement the lowest level of the binary stream protocols, and will ensure that the only thing to debug is the message <i>formats</i>, not the binary representation of the message contents.
+<p>
+JSON will rely on the existing Xml type formatting and parsing provided by IYCFXmlUtil/YCFXmlUtil. The goal of the current refresh is to ensure that there is full n-way orthogonal comparison and construction between the various atomic types in the core code base, including the new KeyHash types, and possibly the idea that keys and indexes of all times should generically be treated similar to the atomic types, and exhibit full orthogonal behaviour. The code base is well on its way to implementing full orthogonality, with comparison and assignment between index keys, buffer records, history buffers, primary keys, and history primary keys. If full orthogonality is available, then it becomes possible to more easily stitch together the resulting code with set constructs for easy filtering and processing.
+<p>
+Next up after I'm done working on the core Java and JavaScript code base with JPA support will be support for Rust, and later C-sharp and Python.  There is good support for C++ through existing Rust binding technologies, so no particular special effort will be put into supporting C or C++ - Rust binding will be counted on for those and for all other language bindings.
+<p>
+Rust will be a relatively easy language to support, as it's primitives are clear and understandable and it is at heart an object-procedural language. The binary stream protocol provides a binary Rust implementation which will be used as a template for "how to code the Rust support I need", give or take some heavy focus on porting ycf-core at the start of the effort.  Depending on how things fall out of the binary stream code, the buffer objects and index keys might change over to using the raw binary stream for data storage, and translate that stream to Java objects for manipulation. That would ensure that all objects are ready for instant transmission upon request with no further processing required to produce the desired data streams. Although this would impact the performance of individual server nodes, as they'd be responsible for the most code conversion to perform their task, but you either end up CPU bound on converting to data stream buffers every time you communicate, or you end up CPU bound on converting buffers for data _processing_ except for the core JPA service implementations that are based on raw Java types, but maximimize web throughput for the node. I've opted to optimize web throughput and rely on clustered nodes for scaling the servers.  With this approach, the heaviest CPU load is on the user's web UI running in the browser with the Java/JavaScript TeaVM support code - it not only engages in translation every time a user event is processed, it has to translate each and every field and attribute access in the code base. The web server only does translation on the buffers it is sending or receiving from the JPA layers; the communications to clients are maximally efficient and re-usable, and the web service code runs in the JPA implementation layers that rely on native Java bindings.
+<p>
+So unlike the architecture behind MSS Code Factory 2.13, the code base behind Yorkton Code Fractal 3.1 is based on actual field experience at producing optimal communications and database access implementations.  Everything else just falls out of that as near-optimal and flexible code that makes it easy to use with any web interface framework you choose to leverage that can be counted on to load a large page of JavaScript and then do all it's processing throuh DOM manipulation in the browser via JavaScript. The approach being taken to the JavaScript code means you can even mix and max frameworks for different portions of the final application code base, providing the developer with full freedom to implement their web clients using <i>any</i> web-client technology that leverages JavaScript.
+<p>
+However, the Fractal itself is only the Phase I core of my long term vision for a "Guided Intelligence" system.  It will need to be able to produce code for persisting the information it learns about and processes as automatically as possible, and in as cross-platform a fashion as I can manage.  Fortunately that is something I've just a little bit of practical experience with from my working years.
+<p>
+The knowledge persistence engines for my vision of a Guided Intelligence framework will be based on statistics and confidence values over objects and sets/lists of objects, with filters and event firing based on the confidence in the various attributes of the object in question. I'll use spreadsheet-style logic to fan out changes to the value sets to minimize execution time, but it _is_ going to be relatively expensive to run,  though far cheaper on CPU and memory than an LLM would be.  The fun part comes after I've worked out the details of that framework, as I then have to come up with an enhanced rule base syntax that lets you specify "neurons" as alternatives to the current GenRules.  So you have an IYCFAnyObj which can be an IYCFLearnable, an IYCF[H]Key, IYCF[H]PKey, or IYCF[H]Rec, and last but not lest, an IYCFSpeculation. Learnables track the current confidence value, target confidence value before events fire, and confidence adjustment value to be applied when tweaking the knowledge state data in search of better/optimal solutions to a problem at hand.
+<p>
+The persistent objects are pretty obvious, save for "H" meaning History (_everything_ has a history object form which is used to keep the cache and client data in sync through change sets.)  The Speculation is a new concept - it's a theorum or conceptual idea that starts out in a completely unknown state when first assofiated with an object, that gradually is "learned" until it potentially rises to trigger an event, or drops to be considered a false/failed speculation.
+<p>
+When a Speculation fires, it's own name is the name of the event it fires, but it fires the currently-being-evaluated object as it's payload, potentially with a historical/previous version alongside in the event.  Speculations are then treated as GenRule names in the rule base, but the core engine will be enhanced to evaluate the knowledge confidence and speculations before deciding which rules to eventually apply. This is where the "Guided" comes into it's intelligence.
+<p>
+Up until now, MSS Code Factory has been using static rules that don't evaluate anything more than the loaded model of the application data. It uses best-performing/least-memory algorims and structures to implement a best-default-case coding style.  It's not a bad start, but there a lot of coding alternatives to consider along the way that could improve performance, memory, and disk footprints rather dramatically over time.  The Guided Intelligence enhancements will provide the foundation and framework for implementing knowledge bases over that fractal code object implementation, and using a rather dramatically enhanced version of the CFEngine to process the enhanced knowledge base.
+<p>
+I'm not ambitious! But this <i>has</i> been a lifetime effort that piqued my interest way back in the mid-late 1990's. I've been at it roughly 30 years at this point, trying different approaches, and continuing to learn new software and system coding techniques at the various job sites that employed my services. All the way along, whenever I resumed working on the tool, it was to <i>implement</i> what I'd learned most recently. 3.1 is the peak of those efforts, and as I'm over 60 years old and not done yet, I think I'm done with the feature-creep.
+<p>
+My life's plate is full!  To be honest, I wonder if I'll ever be done with my code base, or if I'll still be working on it the day they strap me into an extra-long-sleeved jacket for permanent residence in a rubber room somewhere... ;)
+<p>
+<CENTER><H2>Table of Contents</H2></CENTER>
+<p>
+<table cols="1" width="50%" align="center">
+	<tr><td><p class=menu0><A HRef="ycf.html">Yorkton Code Fractal</A></td></tr>
+	<tr><td><p class=menu1><A HRef="ycf-prototype.html">Prototype Architecture and Philosophies</A></td></tr>
+	<tr><td><p class=menu1><A HRef="ycf-v3_1-security.html">v3_1 Security Model</A></td></tr>
+	<tr><td><p class=menu1><A HRef="ycf-lessonslearned.html">Lessons Learned</A></td></tr>
+	<tr><td><p class=menu1><A HRef="ycf-devlog.html">Development Log</A></td></tr>
+	<tr><td><p class=menu0><A HRef="about.html">About Mark Sobkow</A></td></tr>
+	<tr><td><p class=menu0><A HRef="msscf.html">MSS Code Factory - The Roots of the Fractal</A></td></tr>
+	<tr><td><p class=menu1><A HRef="documentation-2.11/index.html">Dated MSS Code Factory 2.11 Documentation</A></td></tr>
+</table>
+<p>
+</BODY>
+</HTML>

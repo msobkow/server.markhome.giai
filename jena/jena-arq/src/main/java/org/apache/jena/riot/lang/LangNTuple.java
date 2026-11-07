@@ -1,0 +1,241 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ *   SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.apache.jena.riot.lang;
+
+import java.util.Iterator ;
+
+import org.apache.jena.graph.Node ;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.riot.system.ParserProfile ;
+import org.apache.jena.riot.system.StreamRDF ;
+import org.apache.jena.riot.tokens.StringType;
+import org.apache.jena.riot.tokens.Token ;
+import org.apache.jena.riot.tokens.TokenType ;
+import org.apache.jena.riot.tokens.Tokenizer ;
+import org.apache.jena.sparql.util.Context;
+import org.slf4j.Logger ;
+import org.slf4j.LoggerFactory ;
+
+/** N-Quads, N-triples parser framework, with both push and pull interfaces.
+ *
+ * <ul>
+ * <li>The {@link #parse} method processes the whole stream of tokens,
+ *   sending each to a {@link org.apache.jena.atlas.lib.Sink} object.</li>
+ * <li>The {@code Iterator&lt;X&gt;} interface yields triples one-by-one.</li>
+ *  </ul>
+ *
+ * Normally, bad terms causes the parser to stop (i.e. treat them as errors).
+ * In addition, the NTuples subsystem allows triples/quads with "bad" terms
+ * to be skipped.
+ *
+ * Checking can be switched off completely. If the data is known to be correct,
+ * no checking can be a large performance gain. <i>Caveat emptor</i>.
+ */
+
+public abstract class LangNTuple<X> extends LangBase implements Iterator<X>
+{
+    private static Logger log = LoggerFactory.getLogger(LangNTuple.class) ;
+
+    protected boolean skipOnBadTerm = false ;
+
+    // The depth of nested structure
+    //  * triple terms <<()>>
+    //
+    // These all consume stack so we have one limit to stop stack overflow
+    private final int recursionLimit;
+    private final static int defaultRecursionLimit = 500;
+    private int nestingDepth = 0;
+
+    protected LangNTuple(Tokenizer tokens, ParserProfile profile, StreamRDF dest, Context context) {
+        super(tokens, profile, dest, context);
+        recursionLimit = chooseRecursionLimit(context, defaultRecursionLimit);
+    }
+
+    // Assumes no syntax errors.
+    @Override
+    public final boolean hasNext() {
+        return super.moreTokens();
+    }
+
+    @Override
+    public final X next() {
+        return parseOneStatement();
+    }
+
+    /**
+     * Parse one tuple - return object to be sent to the sink or null for none.
+     * null is returned for VERSION
+     */
+    protected abstract X parseOneStatement() ;
+
+    /** Note a tuple not being output */
+    protected void skipOne(X object, String printForm, long line, long col) {
+        errorHandler.warning("Skip: " + printForm, line, col);
+    }
+
+    protected abstract Node tokenAsNode(Token token) ;
+
+    // NT and NQ VERSION keyword. It must be upper case.
+    protected static String kwVERSION = "VERSION";
+
+    /**
+     * Parse a possible VERSION directive.
+     * Return true for seen keyword,
+     * false for not a keyword, including EOF.
+     * Throw error on bad directive.
+     */
+    protected final boolean parsePossibleVersion() {
+        Token token = peekToken();
+        // Parse version lines.
+        if ( token .isEOF() || ! token.hasType(TokenType.KEYWORD) )
+            return false;
+
+        // Keywords
+        nextToken();
+        String KW = token.getImage();
+        if ( ! KW.equals(kwVERSION) )
+            exception(token, "Keyword at start of triple: %s", token);
+
+        // VERSION
+        Token token2 = peekToken();
+        if ( token2.isEOF() )
+            exception(token, "Expected version string after VERSION keyword");
+        expect("Expected string for VERSION", token2.getType());
+
+        StringType stringType = token2.getStringType();
+        if ( stringType != StringType.STRING2 )
+            exception(token, "Expected \"-quoted string for the version");
+        String versionStr = token2.getImage();
+        dest.version(versionStr);
+        return true;
+    }
+
+    // One triple, not including terminator.
+    protected final Triple parseTriple() {
+        Token token = peekToken();      // Remember for line/column
+        Node s = parseSubject();
+        Node p = parsePredicate();
+        Node o = parseObject();
+        return profile.createTriple(s, p, o, token.getLine(), token.getColumn());
+    }
+
+    protected final Node parseSubject() {
+        // If we allow triple term in the subject position.
+        // These would be rejected when the triple is created by the standard parser profile.
+        //Node s = parseRDFTerm("subject");
+
+        Token sToken = nextToken();
+        if ( sToken.isEOF() )
+            exception(sToken, "Premature end of file: %s", sToken);
+        checkIRIOrBNode(sToken);
+        Node s = tokenAsNode(sToken);
+        return s;
+    }
+
+    // Parse, must be a URI.
+    protected final Node parsePredicate() {
+        Token pToken = nextToken();
+        if ( pToken.isEOF() )
+            exception(pToken, "Premature end of file: %s", pToken);
+        checkIRI(pToken);
+        Node p = tokenAsNode(pToken);
+        return p;
+    }
+
+    // Parse, must be a URI.
+    protected final Node parseObject() {
+        return parseRDFTerm("object");
+    }
+
+    // General subject/object term
+    protected final Node parseRDFTerm(String posn) {
+        Token token = nextToken();
+        if ( token.isEOF() )
+            exception(token, "Premature end of file: %s", token);
+        Node term;
+        if ( token.hasType(TokenType.L_TRIPLE) ) {
+            if ( nestingDepth >= recursionLimit )
+                exception(peekToken(), "Recursion limit exceeded for triple terms ("+nestingDepth+")");
+            nestingDepth++;
+            try {
+                term = parseTripleTerm();
+            } finally { nestingDepth-- ; }
+        } else {
+            checkRDFTerm(posn, token);
+            term = tokenAsNode(token);
+        }
+        return term;
+    }
+
+    // Looking at "<<(" (L_TRIPLE)
+    protected final Node parseTripleTerm() {
+        Triple t = parseTriple();
+        Token x = nextToken();
+        if ( x.getType() != TokenType.R_TRIPLE )
+            exception(x, "Triple term not terminated by )>>: %s", x);
+        return NodeFactory.createTripleTerm(t);
+    }
+
+    protected final void checkIRIOrBNode(Token token) {
+        if ( token.hasType(TokenType.IRI) )
+            return;
+        if ( token.hasType(TokenType.BNODE) )
+            return;
+        exception(token, "Expected BNode or IRI: Got: %s", token);
+    }
+
+    protected final void checkIRI(Token token) {
+        if ( token.hasType(TokenType.IRI) )
+            return;
+        exception(token, "Expected IRI: Got: %s", token);
+    }
+
+    protected final void checkRDFTerm(String posn, Token token) {
+        switch (token.getType()) {
+            case IRI:
+            case BNODE:
+                return;
+            case STRING:
+                checkString(token);
+                return ;
+            case LITERAL_LANG:
+            case LITERAL_DT:
+                checkString(token.getSubToken1());
+                return ;
+            default:
+                exception(token, "Illegal %s: %s", posn, token) ;
+        }
+    }
+
+    private void checkString(Token token) {
+        if ( token.isLongString() )
+            exception(token, "Triple quoted string not permitted: %s", token) ;
+        if ( isStrictMode() && ! token.hasStringType(StringType.STRING2) )
+            exception(token, "Not a \"\"-quoted string: %s", token);
+    }
+
+    /** SkipOnBadTerm - do not output tuples with bad RDF terms */
+    public boolean  getSkipOnBadTerm()                      { return skipOnBadTerm ; }
+    /** SkipOnBadTerm - do not output tuples with bad RDF terms */
+    public void     setSkipOnBadTerm(boolean skipOnBadTerm) { this.skipOnBadTerm = skipOnBadTerm ; }
+}

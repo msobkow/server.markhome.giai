@@ -1,0 +1,179 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.api.monitoring;
+
+import java.util.List;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.javaoperatorsdk.operator.api.reconciler.RetryInfo;
+import io.javaoperatorsdk.operator.processing.Controller;
+import io.javaoperatorsdk.operator.processing.event.Event;
+import io.javaoperatorsdk.operator.processing.event.ResourceID;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+class AggregatedMetricsTest {
+
+  private final Metrics metrics1 = mock();
+  private final Metrics metrics2 = mock();
+  private final Metrics metrics3 = mock();
+  private final Controller<HasMetadata> controller = mock();
+  private final Event event = mock();
+  private final HasMetadata resource = mock();
+  private final RetryInfo retryInfo = mock();
+  private final ResourceID resourceID = mock();
+  private final Metrics.ControllerExecution<String> controllerExecution = mock();
+
+  private final Map<String, Object> metadata = Map.of("kind", "TestResource");
+  private final AggregatedMetrics aggregatedMetrics =
+      new AggregatedMetrics(List.of(metrics1, metrics2, metrics3));
+
+  @Test
+  void constructor_shouldThrowNullPointerExceptionWhenMetricsListIsNull() {
+    assertThatThrownBy(() -> new AggregatedMetrics(null))
+        .isInstanceOf(NullPointerException.class)
+        .hasMessage("metricsList must not be null");
+  }
+
+  @Test
+  void constructor_shouldThrowIllegalArgumentExceptionWhenMetricsListIsEmpty() {
+    assertThatThrownBy(() -> new AggregatedMetrics(List.of()))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("metricsList must contain at least one Metrics instance");
+  }
+
+  @Test
+  void controllerRegistered_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.controllerRegistered(controller);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).controllerRegistered(controller);
+    inOrder.verify(metrics2).controllerRegistered(controller);
+    inOrder.verify(metrics3).controllerRegistered(controller);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void eventReceived_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.eventReceived(event, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).eventReceived(event, metadata);
+    inOrder.verify(metrics2).eventReceived(event, metadata);
+    inOrder.verify(metrics3).eventReceived(event, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void reconciliationSubmitted_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.reconciliationSubmitted(resource, retryInfo, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).reconciliationSubmitted(resource, retryInfo, metadata);
+    inOrder.verify(metrics2).reconciliationSubmitted(resource, retryInfo, metadata);
+    inOrder.verify(metrics3).reconciliationSubmitted(resource, retryInfo, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void reconciliationFailed_shouldDelegateToAllMetricsInOrder() {
+    final var exception = new RuntimeException("Test exception");
+    aggregatedMetrics.reconciliationFailed(resource, retryInfo, exception, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).reconciliationFailed(resource, retryInfo, exception, metadata);
+    inOrder.verify(metrics2).reconciliationFailed(resource, retryInfo, exception, metadata);
+    inOrder.verify(metrics3).reconciliationFailed(resource, retryInfo, exception, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void reconciliationStarted_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.reconciliationStarted(resource, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).reconciliationStarted(resource, metadata);
+    inOrder.verify(metrics2).reconciliationStarted(resource, metadata);
+    inOrder.verify(metrics3).reconciliationStarted(resource, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void reconciliationFinished_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.reconciliationFinished(resource, retryInfo, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).reconciliationFinished(resource, retryInfo, metadata);
+    inOrder.verify(metrics2).reconciliationFinished(resource, retryInfo, metadata);
+    inOrder.verify(metrics3).reconciliationFinished(resource, retryInfo, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void cleanupDone_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.cleanupDone(resourceID, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).cleanupDone(resourceID, metadata);
+    inOrder.verify(metrics2).cleanupDone(resourceID, metadata);
+    inOrder.verify(metrics3).cleanupDone(resourceID, metadata);
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void reconciliationSucceeded_shouldDelegateToAllMetricsInOrder() {
+    aggregatedMetrics.reconciliationSucceeded(resource, metadata);
+
+    final var inOrder = inOrder(metrics1, metrics2, metrics3);
+    inOrder.verify(metrics1).reconciliationSucceeded(resource, metadata);
+    inOrder.verify(metrics2).reconciliationSucceeded(resource, metadata);
+    inOrder.verify(metrics3).reconciliationSucceeded(resource, metadata);
+  }
+
+  @Test
+  void timeControllerExecution_shouldOnlyDelegateToFirstMetrics() throws Exception {
+    final var expectedResult = "execution result";
+    when(metrics1.timeControllerExecution(controllerExecution)).thenReturn(expectedResult);
+
+    final var result = aggregatedMetrics.timeControllerExecution(controllerExecution);
+
+    assertThat(result).isEqualTo(expectedResult);
+    verify(metrics1).timeControllerExecution(controllerExecution);
+    verify(metrics2, never()).timeControllerExecution(any());
+    verify(metrics3, never()).timeControllerExecution(any());
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+
+  @Test
+  void timeControllerExecution_shouldPropagateException() throws Exception {
+    final var expectedException = new RuntimeException("Controller execution failed");
+    when(metrics1.timeControllerExecution(controllerExecution)).thenThrow(expectedException);
+
+    assertThatThrownBy(() -> aggregatedMetrics.timeControllerExecution(controllerExecution))
+        .isSameAs(expectedException);
+
+    verify(metrics1).timeControllerExecution(controllerExecution);
+    verify(metrics2, never()).timeControllerExecution(any());
+    verify(metrics3, never()).timeControllerExecution(any());
+    verifyNoMoreInteractions(metrics1, metrics2, metrics3);
+  }
+}

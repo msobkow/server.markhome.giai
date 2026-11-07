@@ -1,0 +1,330 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.processing.event.source.informer;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.informers.ResourceEventHandler;
+import io.javaoperatorsdk.operator.OperatorException;
+import io.javaoperatorsdk.operator.ReconcilerUtilsInternal;
+import io.javaoperatorsdk.operator.api.config.ControllerConfiguration;
+import io.javaoperatorsdk.operator.api.config.Informable;
+import io.javaoperatorsdk.operator.api.config.informer.InformerConfiguration;
+import io.javaoperatorsdk.operator.health.InformerHealthIndicator;
+import io.javaoperatorsdk.operator.processing.event.ResourceID;
+import io.javaoperatorsdk.operator.processing.event.source.Cache;
+import io.javaoperatorsdk.operator.processing.event.source.IndexerResourceCache;
+import io.javaoperatorsdk.operator.processing.event.source.informer.pool.InformerClassifier;
+import io.javaoperatorsdk.operator.processing.event.source.informer.pool.InformerPool;
+
+import static io.javaoperatorsdk.operator.api.reconciler.Constants.WATCH_ALL_NAMESPACES;
+
+class InformerManager<R extends HasMetadata, C extends Informable<R>>
+    implements IndexerResourceCache<R> {
+
+  private static final Logger log = LoggerFactory.getLogger(InformerManager.class);
+
+  private final Map<String, InformerWrapper<R>> sources = new ConcurrentHashMap<>();
+  private final C configuration;
+  private final ResourceEventHandler<R> eventHandler;
+  // the identity of the event source these informers are managed for, towards the pool and towards
+  // the index names on a shared informer. Deliberately the event source's own name rather than
+  // InformerConfiguration#getName, which is null unless the event source was explicitly named
+  private final String eventSourceName;
+  private final Map<String, Function<R, List<String>>> indexers = new HashMap<>();
+  private ControllerConfiguration<R> controllerConfiguration;
+  private InformerPool informerPool;
+  private KubernetesClient targetClient;
+
+  InformerManager(C configuration, ResourceEventHandler<R> eventHandler, String eventSourceName) {
+    this.configuration = configuration;
+    this.eventHandler = eventHandler;
+    this.eventSourceName = eventSourceName;
+  }
+
+  void setControllerConfiguration(ControllerConfiguration<R> controllerConfiguration) {
+    this.controllerConfiguration = controllerConfiguration;
+    this.informerPool = controllerConfiguration.getConfigurationService().informerPool();
+  }
+
+  public void start() throws OperatorException {
+    initSources();
+    // make sure informers are all started before proceeding further
+    controllerConfiguration
+        .getConfigurationService()
+        .getExecutorServiceManager()
+        .boundedExecuteAndWaitForAllToComplete(
+            sources.values().stream(),
+            wrapper -> {
+              start(wrapper);
+              return null;
+            },
+            iw ->
+                "InformerStarter-"
+                    + iw.getTargetNamespace()
+                    + "-"
+                    + configuration.getResourceClass().getSimpleName());
+  }
+
+  private void initSources() {
+    if (!sources.isEmpty()) {
+      throw new IllegalStateException("Some sources already initialized.");
+    }
+    final var targetNamespaces =
+        configuration.getInformerConfig().getEffectiveNamespaces(controllerConfiguration);
+    if (InformerConfiguration.allNamespacesWatched(targetNamespaces)) {
+      var source = getEventSourceForNamespace(WATCH_ALL_NAMESPACES);
+      log.debug("Registered {} -> {} for any namespace", this, source);
+    } else {
+      targetNamespaces.forEach(
+          ns -> {
+            final var source = getEventSourceForNamespace(ns);
+            log.debug("Registered {} -> {} for namespace: {}", this, source, ns);
+          });
+    }
+  }
+
+  public void changeNamespaces(Set<String> namespaces) {
+    var namespacesToRemove =
+        sources.keySet().stream()
+            .filter(ns -> !namespaces.contains(ns))
+            .collect(Collectors.toSet());
+    log.debug("Stopped informer {} for namespaces: {}", this, namespacesToRemove);
+    namespacesToRemove.forEach(this::releaseSource);
+
+    var newNamespaces = namespaces.stream().filter(ns -> !sources.containsKey(ns)).toList();
+    if (newNamespaces.isEmpty()) {
+      return;
+    }
+
+    // Registering the handler on an already populated shared informer replays its cache to the
+    // handler synchronously, on the registering thread. The event source holds its monitor while
+    // waiting for the informers below to start, so the handler has to be registered on this thread:
+    // a replay from an informer starter thread would block on that monitor and deadlock.
+    var newSources = newNamespaces.stream().map(this::getEventSourceForNamespace).toList();
+    controllerConfiguration
+        .getConfigurationService()
+        .getExecutorServiceManager()
+        .boundedExecuteAndWaitForAllToComplete(
+            newSources.stream(),
+            source -> {
+              // block until the informer's cache is synced (or the sync timeout elapses)
+              start(source);
+              log.debug(
+                  "Registered new {} -> {} for namespace: {}",
+                  this,
+                  source,
+                  source.getTargetNamespace());
+              return null;
+            },
+            source ->
+                "InformerStarter-"
+                    + source.getTargetNamespace()
+                    + "-"
+                    + configuration.getResourceClass().getSimpleName());
+  }
+
+  private void start(InformerWrapper<R> informerWrapper) {
+    informerPool.start(informerWrapper.getInformer(), informerWrapper.getClassifier());
+  }
+
+  private InformerWrapper<R> getEventSourceForNamespace(String namespaceIdentifier) {
+    final InformerWrapper<R> source;
+    InformerClassifier<R> classifier = getClassifier(namespaceIdentifier);
+    var informer =
+        informerPool.getInformer(controllerConfiguration.getName(), eventSourceName, classifier);
+    source =
+        new InformerWrapper<>(
+            informer,
+            namespaceIdentifier,
+            classifier,
+            controllerConfiguration.getName(),
+            eventSourceName);
+    sources.put(namespaceIdentifier, source);
+    source.addIndexers(indexers);
+    source.addEventHandler(eventHandler);
+    return source;
+  }
+
+  private InformerClassifier<R> getClassifier(String namespaceIdentifier) {
+    KubernetesClient targetClient = getTargetClient();
+
+    return new InformerClassifier<>(
+        targetClient,
+        configuration.getInformerConfig().getLabelSelector(),
+        configuration.getInformerConfig().getShardSelector(),
+        namespaceIdentifier,
+        configuration.getResourceClass(),
+        configuration.getInformerConfig().getResourceGroupVersionKind(),
+        configuration.getInformerConfig().getFieldSelector(),
+        configuration.getInformerConfig().getInformerListLimit(),
+        configuration.getInformerConfig().getItemStore());
+  }
+
+  private KubernetesClient getTargetClient() {
+    // resolved once: the client is part of the informer classifier's identity, so every classifier
+    // this manager builds (one per watched namespace, and more when namespaces change later on) has
+    // to see the very same instance. ConfigurationService#getKubernetesClient is expected to return
+    // a stable instance, but its default implementation does create a new client on every call.
+    if (targetClient == null) {
+      targetClient =
+          configuration
+              .getKubernetesClient()
+              .orElseGet(
+                  () -> controllerConfiguration.getConfigurationService().getKubernetesClient());
+    }
+    return targetClient;
+  }
+
+  public void stop() {
+    sources
+        .keySet()
+        .forEach(
+            ns -> {
+              try {
+                log.debug("Stopping informer for namespace: {}", ns);
+                releaseSource(ns);
+              } catch (Exception e) {
+                log.warn("Error stopping informer for namespace: {}", ns, e);
+              }
+            });
+  }
+
+  /**
+   * Gives the informer backing the given namespace back to the pool, but only if this manager still
+   * holds it: removing it from {@link #sources} is what claims the right to release it. {@link
+   * #stop()} and {@link #changeNamespaces(Set)} can run concurrently, and since the pool
+   * reference-counts its informers, releasing the same namespace twice would consume a reference
+   * another controller still holds and make the pool stop an informer that is still in use.
+   */
+  private void releaseSource(String namespaceIdentifier) {
+    var wrapper = sources.remove(namespaceIdentifier);
+    if (wrapper == null) {
+      return;
+    }
+    // the informer may be shared, in which case it keeps running and would otherwise hold on to
+    // this event source's indexers
+    wrapper.removeIndexers();
+    informerPool
+        .releaseInformer(
+            controllerConfiguration.getName(), eventSourceName, wrapper.getClassifier())
+        .ifPresent(i -> i.removeEventHandler(eventHandler));
+  }
+
+  @Override
+  public Stream<R> list(Predicate<R> predicate) {
+    if (predicate == null) {
+      return sources.values().stream().flatMap(IndexerResourceCache::list);
+    }
+    return sources.values().stream().flatMap(i -> i.list(predicate));
+  }
+
+  @Override
+  public Stream<R> list(String namespace, Predicate<R> predicate) {
+    if (isWatchingAllNamespaces()) {
+      return getSource(WATCH_ALL_NAMESPACES)
+          .map(source -> source.list(namespace, predicate))
+          .orElseGet(Stream::empty);
+    } else {
+      return getSource(namespace).map(source -> source.list(predicate)).orElseGet(Stream::empty);
+    }
+  }
+
+  @Override
+  public Optional<R> get(ResourceID resourceID) {
+    return getSource(resourceID.getNamespace().orElse(WATCH_ALL_NAMESPACES))
+        .flatMap(source -> source.get(resourceID))
+        .map(
+            r ->
+                controllerConfiguration
+                        .getConfigurationService()
+                        .cloneSecondaryResourcesWhenGettingFromCache()
+                    ? controllerConfiguration.getConfigurationService().getResourceCloner().clone(r)
+                    : r);
+  }
+
+  @Override
+  public Stream<ResourceID> keys() {
+    return sources.values().stream().flatMap(Cache::keys);
+  }
+
+  private boolean isWatchingAllNamespaces() {
+    return sources.containsKey(WATCH_ALL_NAMESPACES);
+  }
+
+  public boolean isWatchingNamespace(String namespace) {
+    // for cluster scoped resources we can assume
+    // that we watch the whole cluster
+    if (namespace == null) {
+      return true;
+    }
+    if (isWatchingAllNamespaces()) {
+      return true;
+    }
+    return sources.containsKey(namespace);
+  }
+
+  private Optional<InformerWrapper<R>> getSource(String namespace) {
+    namespace = isWatchingAllNamespaces() || namespace == null ? WATCH_ALL_NAMESPACES : namespace;
+    return Optional.ofNullable(sources.get(namespace));
+  }
+
+  String lastSyncResourceVersion(String namespace) {
+    return getSource(namespace).orElseThrow().getLastSyncResourceVersion();
+  }
+
+  @Override
+  public void addIndexers(Map<String, Function<R, List<String>>> indexers) {
+    this.indexers.putAll(indexers);
+  }
+
+  @Override
+  public Stream<R> byIndexStream(String indexName, String indexKey) {
+    return sources.values().stream().flatMap(s -> s.byIndexStream(indexName, indexKey));
+  }
+
+  @Override
+  public List<R> byIndex(String indexName, String indexKey) {
+    return byIndexStream(indexName, indexKey).toList();
+  }
+
+  @Override
+  public String toString() {
+    final var informerConfig = configuration.getInformerConfig();
+    final var labelSelector = informerConfig.getLabelSelector();
+    final var shardSelector = informerConfig.getShardSelector();
+    return "InformerManager ["
+        + ReconcilerUtilsInternal.getResourceTypeNameWithVersion(configuration.getResourceClass())
+        + "] watching: "
+        + informerConfig.getEffectiveNamespaces(controllerConfiguration)
+        + (labelSelector != null ? " label selector: " + labelSelector : "")
+        + (shardSelector != null ? " shard selector: " + shardSelector : "");
+  }
+
+  public Map<String, InformerHealthIndicator> informerHealthIndicators() {
+    return Collections.unmodifiableMap(sources);
+  }
+}

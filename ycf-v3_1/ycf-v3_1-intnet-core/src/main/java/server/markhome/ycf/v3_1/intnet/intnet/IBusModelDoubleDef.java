@@ -1,0 +1,104 @@
+// Description: Java 25 interface for a DoubleDef record declementation
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnet;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+
+import server.markhome.ycf.v3_1.busmodel.busmodelprotobj.*;
+
+/**
+ *	IBusModelDoubleDef persistence instances have CodeVis Public, meaning that any user interface or referencing schema can access it.
+ */
+public interface IBusModelDoubleDef
+	extends IBusModelAtom
+{
+	public static final double INITVALUE_MIN_VALUE = -2.225E307;
+	public static final double MINVALUE_MIN_VALUE = -2.225E307;
+	public static final double MAXVALUE_MIN_VALUE = -2.225E307;
+	public static final double INITVALUE_MAX_VALUE = 2.225E307;
+	public static final double MINVALUE_MAX_VALUE = 2.225E307;
+	public static final double MAXVALUE_MAX_VALUE = 2.225E307;
+	public final static int CLASS_CODE = 0xa820;
+	public final static String S_CLASS_CODE = "a820";
+
+	public Double getOptionalInitValue();
+	public void setOptionalInitValue( Double value );
+	public Double getOptionalMinValue();
+	public void setOptionalMinValue( Double value );
+	public Double getOptionalMaxValue();
+	public void setOptionalMaxValue( Double value );
+	public boolean equals( Object obj );
+
+	public int hashCode();
+
+	public int compareTo( Object obj );
+
+	public void set( IBusModelValue src );
+
+	public void setDoubleDef( IBusModelDoubleDef src );
+
+	public void set( IBusModelValueH src );
+
+	public void setDoubleDef( IBusModelDoubleDefH src );
+
+	public void set( IBusModelProtValue src );
+
+	public void setDoubleDef( IBusModelProtDoubleDef src );
+
+	public void set( IBusModelProtValueH src );
+
+	public void setDoubleDef( IBusModelProtDoubleDefH src );
+
+	public void set( IBusModelPubValue src );
+
+	public void setDoubleDef( IBusModelPubDoubleDef src );
+
+	public void set( IBusModelPubValueH src );
+
+	public void setDoubleDef( IBusModelPubDoubleDefH src );
+
+	public String getXmlAttrFragment();
+
+	public String toString();
+}

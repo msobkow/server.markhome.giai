@@ -1,0 +1,122 @@
+name: Release to Maven Central
+env:
+  MAVEN_ARGS: -V -ntp -e
+on:
+  release:
+    types: [ released ]
+
+# Two releases cut from the same branch must not overlap: both would deploy to
+# Maven Central, then one would lose the branch push and be left with immutable
+# artifacts and no release commit. Serializing means the worst case is instead a
+# release that does not start, which can simply be re-run.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+
+  prepare-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      tmp_version_branch: ''
+      RAW_TAG: ${{ github.event.release.tag_name }}
+    outputs:
+      version_branch: ${{ steps.set-version-branch.outputs.version_branch }}
+      release_tag: ${{ steps.set-release-tag.outputs.release_tag }}
+    steps:
+      - if: ${{ startsWith(github.event.release.tag_name, 'v1.' ) }}
+        run: |
+          echo "Setting version_branch to v1"
+          echo "tmp_version_branch=v1" >> "$GITHUB_ENV"
+      - if: ${{ startsWith(github.event.release.tag_name, 'v2.' ) }}
+        run: |
+          echo "Setting version_branch to v2"
+          echo "tmp_version_branch=v2" >> "$GITHUB_ENV"
+      - if: ${{ startsWith(github.event.release.tag_name, 'v3.' ) }}
+        run: |
+          echo "Setting version_branch to v3"
+          echo "tmp_version_branch=v3" >> "$GITHUB_ENV"
+      - if: ${{ startsWith(github.event.release.tag_name, 'v4.' ) }}
+        run: |
+          echo "Setting version_branch to v4"
+          echo "tmp_version_branch=v4" >> "$GITHUB_ENV"
+      - if: ${{ startsWith(github.event.release.tag_name, 'v5.' ) }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RELEASE_VERSION="${RAW_TAG#v}"
+          RELEASE_MAJOR_MINOR=$(echo "$RELEASE_VERSION" | cut -d. -f1-2)
+
+          # Reject anything that is not a bare major.minor. A tag such as
+          # "v5.3/rc" would otherwise derive the branch "5.3/rc.x", whose slash
+          # splits the API URL path into a non-existent endpoint, and the
+          # resulting 404 would quietly select main.
+          if ! printf '%s' "$RELEASE_MAJOR_MINOR" | grep -Eq '^[0-9]+\.[0-9]+$'; then
+            echo "Cannot derive a release stream from tag '${RAW_TAG}'"
+            exit 1
+          fi
+          MAINTENANCE_BRANCH="${RELEASE_MAJOR_MINOR}.x"
+
+          # A maintenance branch (e.g. 5.3.x) exists only for streams no longer
+          # developed on main, so its absence means main is the stream being
+          # released.
+          echo "Release tag major.minor: $RELEASE_MAJOR_MINOR"
+
+          # Only 404 means "no such branch". Any other outcome is a lookup failure
+          # and must abort: silently falling back to main would release the wrong
+          # stream. Timeouts are bounded so a network stall fails fast.
+          CURL_EXIT=0
+          HTTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' \
+            --connect-timeout 10 --max-time 30 \
+            --retry 3 --retry-delay 2 --retry-all-errors \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${{ github.api_url }}/repos/${{ github.repository }}/branches/${MAINTENANCE_BRANCH}") || CURL_EXIT=$?
+
+          if [ "$CURL_EXIT" -ne 0 ]; then
+            echo "Branch lookup for ${MAINTENANCE_BRANCH} failed (curl exit ${CURL_EXIT})"
+            exit 1
+          fi
+
+          case "$HTTP_STATUS" in
+            200)
+              echo "Setting version_branch to ${MAINTENANCE_BRANCH}"
+              echo "tmp_version_branch=${MAINTENANCE_BRANCH}" >> "$GITHUB_ENV"
+              ;;
+            404)
+              echo "No ${MAINTENANCE_BRANCH} branch, setting version_branch to main"
+              echo "tmp_version_branch=main" >> "$GITHUB_ENV"
+              ;;
+            *)
+              echo "Could not determine whether ${MAINTENANCE_BRANCH} exists (HTTP ${HTTP_STATUS})"
+              exit 1
+              ;;
+          esac
+      - if: ${{ env.tmp_version_branch == '' }}
+        name: Fail if version_branch is not set
+        run: |
+          echo "Failed to find appropriate branch to release ${RAW_TAG} from"
+          exit 1
+      - id: set-version-branch
+        name: Set version_branch if matched
+        run: echo "version_branch=${{ env.tmp_version_branch }}" >> "$GITHUB_OUTPUT"
+      - id: set-release-tag
+        name: Pass release tag
+        run: echo "release_tag=${RAW_TAG}" >> "$GITHUB_OUTPUT"
+
+  release-sdk:
+    needs: prepare-release
+    # The reusable workflow commits and pushes the SNAPSHOT version bump.
+    permissions:
+      contents: write
+    uses: ./.github/workflows/release-project-in-dir.yml
+    secrets: inherit
+    with:
+      version_branch: ${{ needs.prepare-release.outputs.version_branch }}
+      release_tag: ${{ needs.prepare-release.outputs.release_tag }}
+      project_dir: '.'

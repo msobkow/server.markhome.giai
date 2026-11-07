@@ -1,0 +1,281 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.processing.dependent.kubernetes;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.fabric8.zjsonpatch.DiffFlags;
+import io.fabric8.zjsonpatch.JsonDiff;
+import io.javaoperatorsdk.operator.api.reconciler.Context;
+import io.javaoperatorsdk.operator.processing.dependent.Matcher;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
+public class GenericKubernetesResourceMatcher<R extends HasMetadata, P extends HasMetadata> {
+
+  private static final String SPEC = "/spec";
+  private static final String STATUS = "/status";
+  private static final String METADATA = "/metadata";
+  private static final String ADD = "add";
+  private static final String OP = "op";
+  private static final List<String> IGNORED_FIELDS = List.of("/apiVersion", "/kind", "/status");
+  public static final String METADATA_LABELS = "/metadata/labels";
+  public static final String METADATA_ANNOTATIONS = "/metadata/annotations";
+
+  private static final List<String> SPEC_PREFIX = List.of(SPEC);
+  private static final List<String> STATUS_PREFIX = List.of(STATUS);
+  private static final List<String> METADATA_PREFIX = List.of(METADATA);
+  private static final List<String> LABELS_AND_ANNOTATIONS_PREFIX =
+      List.of(METADATA_LABELS, METADATA_ANNOTATIONS);
+
+  private static final String PATH = "path";
+  private static final String[] EMPTY_ARRAY = {};
+
+  /**
+   * Determines whether the specified actual resource matches the specified desired resource,
+   * possibly considering metadata and deeper equality checks.
+   *
+   * @param desired the desired resource
+   * @param actualResource the actual resource
+   * @param labelsAndAnnotationsEquality if true labels and annotation match exactly in the actual
+   *     and desired state if false, additional elements are allowed in actual annotations.
+   *     Considered only if considerLabelsAndAnnotations is true.
+   * @param valuesEquality if {@code false}, the algorithm checks if the properties in the desired
+   *     resource spec (or other non metadata value) are same as in the actual resource spec. The
+   *     reason is that admission controllers and default Kubernetes controllers might add default
+   *     values to some properties which are not set in the desired resources' spec and comparing it
+   *     with simple equality check would mean that such resource will not match (while conceptually
+   *     should). However, there is an issue with this for example if desired spec contains a list
+   *     of values and a value is removed, this still will match the actual state from previous
+   *     reconciliation. Setting this parameter to {@code true}, will match the resources only if
+   *     all properties and values are equal. This could be implemented also by overriding equals
+   *     method of spec, should be done as an optimization - this implementation does not require
+   *     that.
+   * @param <R> resource
+   * @return results of matching
+   */
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      R desired,
+      R actualResource,
+      boolean labelsAndAnnotationsEquality,
+      boolean valuesEquality,
+      Context<P> context) {
+    return match(
+        desired,
+        actualResource,
+        labelsAndAnnotationsEquality,
+        valuesEquality,
+        context,
+        EMPTY_ARRAY);
+  }
+
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      R desired, R actualResource, Context<P> context) {
+    return match(desired, actualResource, false, false, context, EMPTY_ARRAY);
+  }
+
+  /**
+   * Determines whether the specified actual resource matches the specified desired resource,
+   * possibly considering metadata and deeper equality checks.
+   *
+   * @param desired the desired resource
+   * @param actualResource the actual resource
+   * @param labelsAndAnnotationsEquality if true labels and annotation match exactly in the actual
+   *     and desired state if false, additional elements are allowed in actual annotations.
+   *     Considered only if considerLabelsAndAnnotations is true.
+   * @param ignorePaths are paths in the resource that are ignored on matching (basically an ignore
+   *     list). All changes with a target prefix path on a calculated JSON Patch between actual and
+   *     desired will be ignored. If there are other changes, non-present on ignore list match
+   *     fails.
+   * @param <R> resource
+   * @return results of matching
+   */
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      R desired,
+      R actualResource,
+      boolean labelsAndAnnotationsEquality,
+      Context<P> context,
+      String... ignorePaths) {
+    return match(
+        desired, actualResource, labelsAndAnnotationsEquality, false, context, ignorePaths);
+  }
+
+  /**
+   * Determines whether the specified actual resource matches the desired state defined by the
+   * specified {@link KubernetesDependentResource} based on the observed state of the associated
+   * specified primary resource.
+   *
+   * @param dependentResource the {@link KubernetesDependentResource} implementation used to compute
+   *     the desired state associated with the specified primary resource
+   * @param actualResource the observed dependent resource for which we want to determine whether it
+   *     matches the desired state or not
+   * @param primary the primary resource from which we want to compute the desired state
+   * @param context the {@link Context} instance within which this method is called
+   * @param labelsAndAnnotationsEquality if true labels and annotation match exactly in the actual
+   *     and desired state if false, additional elements are allowed in actual annotations.
+   *     Considered only if considerLabelsAndAnnotations is true.
+   * @param <R> the type of resource we want to determine whether they match or not
+   * @param <P> the type of primary resources associated with the secondary resources we want to
+   *     match
+   * @param ignorePaths are paths in the resource that are ignored on matching (basically an ignore
+   *     list). All changes with a target prefix path on a calculated JSON Patch between actual and
+   *     desired will be ignored. If there are other changes, non-present on ignore list match
+   *     fails.
+   * @return a {@link io.javaoperatorsdk.operator.processing.dependent.Matcher.Result} object
+   */
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      KubernetesDependentResource<R, P> dependentResource,
+      R actualResource,
+      P primary,
+      Context<P> context,
+      boolean labelsAndAnnotationsEquality,
+      String... ignorePaths) {
+    final var desired = dependentResource.getOrComputeDesired(context);
+    return match(desired, actualResource, labelsAndAnnotationsEquality, context, ignorePaths);
+  }
+
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      KubernetesDependentResource<R, P> dependentResource,
+      R actualResource,
+      P primary,
+      Context<P> context,
+      boolean specEquality,
+      boolean labelsAndAnnotationsEquality,
+      String... ignorePaths) {
+    final var desired = dependentResource.getOrComputeDesired(context);
+    return match(
+        desired, actualResource, labelsAndAnnotationsEquality, specEquality, context, ignorePaths);
+  }
+
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> match(
+      R desired,
+      R actualResource,
+      boolean labelsAndAnnotationsEquality,
+      boolean valuesEquality,
+      Context<P> context,
+      String... ignoredPaths) {
+    final List<String> ignoreList =
+        ignoredPaths != null && ignoredPaths.length > 0
+            ? Arrays.asList(ignoredPaths)
+            : Collections.emptyList();
+
+    if (valuesEquality && !ignoreList.isEmpty()) {
+      throw new IllegalArgumentException(
+          "Equality should be false in case of ignore list provided");
+    }
+
+    final var kubernetesSerialization = context.getClient().getKubernetesSerialization();
+    var desiredNode = kubernetesSerialization.convertValue(desired, JsonNode.class);
+    var actualNode = kubernetesSerialization.convertValue(actualResource, JsonNode.class);
+    var wholeDiffJsonPatch = JsonDiff.asJson(desiredNode, actualNode);
+
+    boolean matched = true;
+    for (int i = 0; i < wholeDiffJsonPatch.size() && matched; i++) {
+      var node = wholeDiffJsonPatch.get(i);
+      if (nodeIsChildOf(node, SPEC_PREFIX)) {
+        matched = match(valuesEquality, node, ignoreList);
+      } else if (nodeIsChildOf(node, METADATA_PREFIX)) {
+        // conditionally consider labels and annotations
+        if (nodeIsChildOf(node, LABELS_AND_ANNOTATIONS_PREFIX)) {
+          matched = match(labelsAndAnnotationsEquality, node, Collections.emptyList());
+        }
+      } else if (!nodeIsChildOf(node, IGNORED_FIELDS)) {
+        matched = match(valuesEquality, node, ignoreList);
+      }
+    }
+
+    return Matcher.Result.computed(matched, desired);
+  }
+
+  /**
+   * Determines whether the {@code status} subresource of the specified actual resource matches the
+   * {@code status} of the specified desired resource. Unlike {@link #match(HasMetadata,
+   * HasMetadata, Context)}, which ignores the status, this method considers <em>only</em> the
+   * {@code /status} subtree; all other differences (spec, metadata, ...) are ignored.
+   *
+   * @param desired the desired resource
+   * @param actualResource the actual resource
+   * @param context the {@link Context} instance within which this method is called
+   * @param <R> resource
+   * @return results of matching
+   */
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> matchStatus(
+      R desired, R actualResource, Context<P> context) {
+    return matchStatus(desired, actualResource, false, context);
+  }
+
+  /**
+   * Determines whether the {@code status} subresource of the specified actual resource matches the
+   * {@code status} of the specified desired resource. Unlike {@link #match(HasMetadata,
+   * HasMetadata, Context)}, which ignores the status, this method considers <em>only</em> the
+   * {@code /status} subtree; all other differences (spec, metadata, ...) are ignored.
+   *
+   * @param desired the desired resource
+   * @param actualResource the actual resource
+   * @param valuesEquality if {@code false}, the algorithm only checks that the values present in
+   *     the desired status are the same in the actual status, allowing the actual status to contain
+   *     additional values (for example defaults added by the server). If {@code true}, the statuses
+   *     match only if they are fully equal.
+   * @param context the {@link Context} instance within which this method is called
+   * @param <R> resource
+   * @return results of matching
+   */
+  public static <R extends HasMetadata, P extends HasMetadata> Matcher.Result<R> matchStatus(
+      R desired, R actualResource, boolean valuesEquality, Context<P> context) {
+    final var kubernetesSerialization = context.getClient().getKubernetesSerialization();
+    var desiredNode = kubernetesSerialization.convertValue(desired, JsonNode.class);
+    var actualNode = kubernetesSerialization.convertValue(actualResource, JsonNode.class);
+    var wholeDiffJsonPatch =
+        JsonDiff.asJson(desiredNode, actualNode, DiffFlags.dontNormalizeOpIntoMoveAndCopy());
+
+    boolean matched = true;
+    for (int i = 0; i < wholeDiffJsonPatch.size() && matched; i++) {
+      var node = wholeDiffJsonPatch.get(i);
+      if (nodeIsChildOf(node, STATUS_PREFIX)) {
+        matched = match(valuesEquality, node, Collections.emptyList());
+      }
+    }
+
+    return Matcher.Result.computed(matched, desired);
+  }
+
+  private static boolean match(boolean equality, JsonNode diff, final List<String> ignoreList) {
+    if (equality) {
+      return false;
+    }
+    if (!ignoreList.isEmpty()) {
+      return nodeIsChildOf(diff, ignoreList);
+    }
+    return ADD.equals(diff.get(OP).asText());
+  }
+
+  static boolean nodeIsChildOf(JsonNode n, List<String> prefixes) {
+    var path = getPath(n);
+    for (int i = 0; i < prefixes.size(); i++) {
+      if (path.startsWith(prefixes.get(i))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  static String getPath(JsonNode n) {
+    return n.get(PATH).asText();
+  }
+}

@@ -1,0 +1,31 @@
+---
+title: Documentation
+weight: 40
+---
+
+# JOSDK Documentation
+
+This section contains detailed documentation for all Java Operator SDK features and concepts. Whether you're building your first operator or need advanced configuration options, you'll find comprehensive guides here.
+
+## Core Concepts
+
+- **[Implementing a Reconciler](reconciler/)** - The heart of any operator
+- **[Architecture](architecture/)** - How JOSDK works under the hood
+- **[Dependent Resources & Workflows](dependent-resource-and-workflows/)** - Managing resource relationships
+- **[Configuration](configuration/)** - Customizing operator behavior
+- **[Error Handling & Retries](error-handling-retries/)** - Managing failures gracefully
+- **[Rate Limiting](rate-limiting/)** - Controlling reconciliation frequency per resource
+
+## Testing
+
+- **[Testing](testing/)** - Unit tests, integration tests, and E2E testing strategies
+
+## Advanced Features
+
+- **[Eventing](eventing/)** - Understanding the event-driven model
+- **[Event filters](event-filters/)** - Filtering events and the default filter behavior
+- **[Accessing Resources in Caches](working-with-es-caches/)** - How to access resources in caches
+- **[Operations](operations/)** - Helm chart, metrics, logging, configurations, leader election 
+- **[Other Features](features/)** - Additional capabilities and integrations
+
+Each guide includes practical examples and best practices to help you build robust, production-ready operators.

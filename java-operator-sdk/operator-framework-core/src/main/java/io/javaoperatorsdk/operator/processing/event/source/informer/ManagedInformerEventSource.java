@@ -1,0 +1,492 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.processing.event.source.informer;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.fabric8.kubernetes.client.informers.ResourceEventHandler;
+import io.javaoperatorsdk.operator.OperatorException;
+import io.javaoperatorsdk.operator.ReconcilerUtilsInternal;
+import io.javaoperatorsdk.operator.api.config.ControllerConfiguration;
+import io.javaoperatorsdk.operator.api.config.Informable;
+import io.javaoperatorsdk.operator.api.config.NamespaceChangeable;
+import io.javaoperatorsdk.operator.api.reconciler.Experimental;
+import io.javaoperatorsdk.operator.api.reconciler.dependent.RecentOperationCacheFiller;
+import io.javaoperatorsdk.operator.health.InformerHealthIndicator;
+import io.javaoperatorsdk.operator.health.InformerWrappingEventSourceHealthIndicator;
+import io.javaoperatorsdk.operator.health.Status;
+import io.javaoperatorsdk.operator.processing.MDCUtils;
+import io.javaoperatorsdk.operator.processing.event.ResourceID;
+import io.javaoperatorsdk.operator.processing.event.source.*;
+import io.javaoperatorsdk.operator.processing.event.source.ResourceAction;
+
+import static io.javaoperatorsdk.operator.api.reconciler.Experimental.API_MIGHT_CHANGE;
+
+public abstract class ManagedInformerEventSource<
+        R extends HasMetadata, P extends HasMetadata, C extends Informable<R>>
+    extends AbstractEventSource<R, P>
+    implements ResourceEventHandler<R>,
+        Cache<R>,
+        IndexerResourceCache<R>,
+        RecentOperationCacheFiller<R>,
+        NamespaceChangeable,
+        InformerWrappingEventSourceHealthIndicator<R>,
+        Configurable<C> {
+
+  private static final Logger log = LoggerFactory.getLogger(ManagedInformerEventSource.class);
+  private volatile InformerManager<R, C> cache;
+  private final boolean comparableResourceVersions;
+  private volatile ControllerConfiguration<R> controllerConfiguration;
+  private final C configuration;
+  private final Map<String, Function<R, List<String>>> indexers = new HashMap<>();
+  protected TemporaryResourceCache<R> temporaryResourceCache;
+
+  protected ManagedInformerEventSource(String name, C configuration) {
+    super(configuration.getResourceClass(), name);
+    this.comparableResourceVersions =
+        configuration.getInformerConfig().isComparableResourceVersions();
+    this.configuration = configuration;
+  }
+
+  protected InformerManager<R, C> manager() {
+    return cache;
+  }
+
+  @Override
+  public synchronized void changeNamespaces(Set<String> namespaces) {
+    // a stopped event source has released its informers and its manager holds no sources, so every
+    // requested namespace would look new: it would acquire and start pooled informers that nothing
+    // can ever release, since stop() short-circuits on a non-running event source
+    if (!isRunning() || !allowsNamespaceChanges()) {
+      return;
+    }
+    manager().changeNamespaces(namespaces);
+  }
+
+  /**
+   * Updates the resource and makes sure that the response is available for the next reconciliation.
+   * Also makes sure that the even produced by this update is filtered, thus does not trigger the
+   * reconciliation.
+   */
+  @Experimental(API_MIGHT_CHANGE)
+  @SuppressWarnings("unchecked")
+  public R eventFilteringUpdateAndCacheResource(R resourceToUpdate, UnaryOperator<R> updateMethod) {
+
+    ResourceID id = ResourceID.fromResource(resourceToUpdate);
+    log.debug("Starting event filtering and caching update for id: {}", id);
+    R updatedResource;
+    Set<ResourceID> relatedPrimaryIds = null;
+    try {
+      temporaryResourceCache.startEventFilteringModify(id);
+      updatedResource = updateMethod.apply(resourceToUpdate);
+      relatedPrimaryIds = cacheUpdateAndGetRelatedPrimaryIDs(updatedResource, resourceToUpdate);
+      log.debug(
+          "Caching resource update successful. id={}, rv={}",
+          id,
+          updatedResource.getMetadata().getResourceVersion());
+      return updatedResource;
+    } finally {
+      var res = temporaryResourceCache.doneEventFilterModify(id);
+      if (res.isPresent()) {
+        var event = res.orElseThrow();
+        if (log.isDebugEnabled()) {
+          log.debug(
+              "Propagating not own event after filtering update. id={}, action={}, rv={}",
+              id,
+              event.getAction(),
+              event
+                  .getResource()
+                  .map(rr -> rr.getMetadata().getResourceVersion())
+                  .orElse("[not set]"));
+        }
+        handleEvent(
+            event.getAction(),
+            (R) event.getResource().orElseThrow(),
+            (R) event.getPreviousResource().orElse(null),
+            event.isLastStateUnknown(),
+            relatedPrimaryIds);
+      } else {
+        log.debug("No new event present after the filtering update. id={}", id);
+      }
+    }
+  }
+
+  @Experimental(API_MIGHT_CHANGE)
+  public R updateAndCacheResource(R resourceToUpdate, UnaryOperator<R> updateOperation) {
+    if (log.isDebugEnabled()) {
+      log.debug(
+          "Updating and caching resource without filtering. id: {} type: {}",
+          ResourceID.fromResource(resourceToUpdate),
+          resourceType());
+    }
+    var result = updateOperation.apply(resourceToUpdate);
+    handleRecentResourceUpdate(ResourceID.fromResource(resourceToUpdate), result, resourceToUpdate);
+    return result;
+  }
+
+  protected abstract void handleEvent(
+      ResourceAction action,
+      R resource,
+      R oldResource,
+      Boolean deletedFinalStateUnknown,
+      Set<ResourceID> relatedPrimaryIDs);
+
+  @Override
+  public synchronized void start() {
+    if (isRunning()) {
+      return;
+    }
+    temporaryResourceCache = new TemporaryResourceCache<>(comparableResourceVersions, this);
+    this.cache = new InformerManager<>(configuration, this, name());
+    cache.setControllerConfiguration(controllerConfiguration);
+    cache.addIndexers(indexers);
+    // A dynamically registered event source may join an already-running shared informer whose cache
+    // is already populated. Those pre-existing resources are still delivered to this newly added
+    // handler: the underlying Fabric8 informer replays the current cache contents to every handler
+    // at registration time (see SharedProcessor#addProcessorListener). Replaying them here as well
+    // would deliver every pre-existing resource twice.
+    try {
+      manager().start();
+    } catch (RuntimeException e) {
+      // The manager acquires a pooled informer for every watched namespace before any of them is
+      // started, so a startup failure has to hand those references back here: super.start() is not
+      // reached, which leaves isRunning() false and makes stop() skip the release entirely. The
+      // pooled informer would then be referenced forever (never stopped, even on a clean shutdown)
+      // and a retried start() would acquire it a second time.
+      manager().stop();
+      throw e;
+    }
+    super.start();
+  }
+
+  @Override
+  public synchronized void stop() {
+    if (!isRunning()) {
+      return;
+    }
+    super.stop();
+    manager().stop();
+  }
+
+  @Override
+  public void onList(String resourceVersion, boolean remainedEmpty) {
+    temporaryResourceCache.setRelistFinished();
+    temporaryResourceCache.checkGhostResources();
+  }
+
+  @Override
+  public void onBeforeList(String lastSyncResourceVersion) {
+    temporaryResourceCache.setOngoingRelist();
+  }
+
+  @Override
+  public void handleRecentResourceUpdate(
+      ResourceID resourceID, R resource, R previousVersionOfResource) {
+    temporaryResourceCache.putResource(resource);
+  }
+
+  @Override
+  public void handleRecentResourceCreate(ResourceID resourceID, R resource) {
+    temporaryResourceCache.putResource(resource);
+  }
+
+  /**
+   * Caches the resource updated through {@link #eventFilteringUpdateAndCacheResource} and returns
+   * the primary resource IDs related to that update, so they can be propagated to {@link
+   * #handleEvent}. The base implementation just fills the temporary cache and reports no related
+   * primaries. Subclasses that maintain a primary-to-secondary index override this to surface the
+   * affected primaries even after the secondary's references have changed, keeping that concern
+   * internal to those event sources instead of leaking it into {@link RecentOperationCacheFiller}.
+   */
+  protected Set<ResourceID> cacheUpdateAndGetRelatedPrimaryIDs(
+      R updatedResource, R previousResource) {
+    handleRecentResourceUpdate(null, updatedResource, previousResource);
+    return Collections.emptySet();
+  }
+
+  @Override
+  public Optional<R> get(ResourceID resourceID) {
+    // The order of reading from these caches matters
+    Optional<R> resource = temporaryResourceCache.getResourceFromCache(resourceID);
+    if (comparableResourceVersions
+        && resource.isPresent()
+        && isLaterThanLastSyncResourceVersion(resource.orElseThrow())) {
+      log.debug("Latest resource found in temporary cache for Resource ID: {}", resourceID);
+      return resource;
+    } else {
+      // this needs to happen after comparison to ensure correctness
+      var resFromInformer = cache.get(resourceID);
+      log.debug(
+          "Resource {} in temp cache; {}found in informer cache" + ", for Resource ID: {}",
+          resource.isPresent() ? "obsolete" : "not found",
+          resFromInformer.isPresent() ? "" : "not ",
+          resourceID);
+      return resFromInformer;
+    }
+  }
+
+  /**
+   * A resource from the temporary cache is only preferred over the informer cache if we can tell
+   * that it is newer. The last sync resource version is not available before an informer has
+   * completed its initial list, and the namespace might not be watched anymore after a dynamic
+   * namespace change, in both of which cases the informer cache is used instead.
+   */
+  private boolean isLaterThanLastSyncResourceVersion(R resource) {
+    var namespace = resource.getMetadata().getNamespace();
+    if (!manager().isWatchingNamespace(namespace)) {
+      return false;
+    }
+    final String lastSyncResourceVersion;
+    try {
+      lastSyncResourceVersion = manager().lastSyncResourceVersion(namespace);
+    } catch (java.util.NoSuchElementException e) {
+      return false;
+    }
+    if (lastSyncResourceVersion == null) {
+      return false;
+    }
+    return ReconcilerUtilsInternal.compareResourceVersions(
+            resource.getMetadata().getResourceVersion(), lastSyncResourceVersion)
+        > 0;
+  }
+
+  /**
+   * @deprecated Use {@link #get(ResourceID)} instead.
+   */
+  @Deprecated(forRemoval = true)
+  @SuppressWarnings("unused")
+  public Optional<R> getCachedValue(ResourceID resourceID) {
+    return get(resourceID);
+  }
+
+  void setTemporalResourceCache(TemporaryResourceCache<R> temporaryResourceCache) {
+    this.temporaryResourceCache = temporaryResourceCache;
+  }
+
+  @Override
+  public void addIndexers(Map<String, Function<R, List<String>>> indexers) {
+    if (isRunning()) {
+      throw new OperatorException("Cannot add indexers after InformerEventSource started.");
+    }
+    this.indexers.putAll(indexers);
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * <p>This implementation is read-cache-after-write consistent. Results are merged with the
+   * temporary resource cache to ensure recently written resources are reflected in the output.
+   */
+  @Override
+  public Stream<R> list(String namespace, Predicate<R> predicate) {
+    return mergeWithTempCacheForList(manager().list(namespace), namespace, predicate);
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * <p>This implementation is read-cache-after-write consistent. Results are merged with the
+   * temporary resource cache to ensure recently written resources are reflected in the output.
+   */
+  @Override
+  public Stream<R> list(Predicate<R> predicate) {
+    return mergeWithTempCacheForList(manager().list(), null, predicate);
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * <p>This implementation is read-cache-after-write consistent. Results are merged with the
+   * temporary resource cache to ensure recently written resources are reflected in the output.
+   */
+  @Override
+  public Stream<R> byIndexStream(String indexName, String indexKey) {
+    return mergeWithTempCacheForIndex(
+        manager().byIndexStream(indexName, indexKey), indexName, indexKey);
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * <p>This implementation is read-cache-after-write consistent. Results are merged with the
+   * temporary resource cache to ensure recently written resources are reflected in the output.
+   */
+  @Override
+  public List<R> byIndex(String indexName, String indexKey) {
+    return mergeWithTempCacheForIndex(
+            manager().byIndexStream(indexName, indexKey), indexName, indexKey)
+        .collect(Collectors.toList());
+  }
+
+  // namespace is filtered on informer manager level
+  private Stream<R> mergeWithTempCacheForList(
+      Stream<R> stream, String namespace, Predicate<R> predicate) {
+    if (!comparableResourceVersions || temporaryResourceCache.isEmpty()) {
+
+      return stream.filter(filterResourceByPredicate(predicate));
+    }
+    var tempResources = new HashMap<>(temporaryResourceCache.getResources());
+    if (tempResources.isEmpty()) {
+      return stream.filter(filterResourceByPredicate(predicate));
+    }
+
+    var upToDateList =
+        stream
+            .map(
+                r -> {
+                  var resourceID = ResourceID.fromResource(r);
+                  var tempResource = tempResources.remove(resourceID);
+                  if (tempResource != null
+                      && ReconcilerUtilsInternal.compareResourceVersions(tempResource, r) > 0) {
+                    return tempResource;
+                  }
+                  return r;
+                })
+            // we filter on predicate only since namespace changes would not be detected anyway.
+            .filter(filterResourceByPredicate(predicate))
+            .toList();
+
+    return Stream.concat(
+        tempResources.values().stream()
+            .filter(filterResourceByNamespaceAndPredicate(namespace, predicate)),
+        upToDateList.stream());
+  }
+
+  private Stream<R> mergeWithTempCacheForIndex(
+      Stream<R> stream, String indexName, String indexKey) {
+    if (!comparableResourceVersions || temporaryResourceCache.isEmpty()) {
+      return stream;
+    }
+    var tempResources = new HashMap<>(temporaryResourceCache.getResources());
+    if (tempResources.isEmpty()) {
+      return stream;
+    }
+
+    var indexer = indexers.get(indexName);
+    if (indexer == null) {
+      throw new IllegalArgumentException("Indexer not found for: " + indexName);
+    }
+
+    var upToDateList =
+        stream
+            .map(
+                r -> {
+                  var resourceID = ResourceID.fromResource(r);
+                  var tempResource = tempResources.remove(resourceID);
+                  if (tempResource != null
+                      && ReconcilerUtilsInternal.compareResourceVersions(tempResource, r) > 0) {
+                    if (!indexer.apply(tempResource).contains(indexKey)) {
+                      return null;
+                    }
+                    return tempResource;
+                  }
+                  return r;
+                })
+            .filter(Objects::nonNull)
+            .toList();
+
+    // remaining temp resources are ghost resources — include only those matching the index
+    return Stream.concat(
+        tempResources.values().stream().filter(r -> indexer.apply(r).contains(indexKey)),
+        upToDateList.stream());
+  }
+
+  private static <R extends HasMetadata> Predicate<R> filterResourceByPredicate(
+      Predicate<R> predicate) {
+    return filterResourceByNamespaceAndPredicate(null, predicate);
+  }
+
+  private static <R extends HasMetadata> Predicate<R> filterResourceByNamespaceAndPredicate(
+      String namespace, Predicate<R> predicate) {
+    return r -> {
+      if (namespace != null) {
+        if (!Optional.of(r)
+            .map(rr -> Objects.equals(namespace, rr.getMetadata().getNamespace()))
+            .orElse(false)) {
+          return false;
+        }
+      }
+      if (predicate != null) {
+        return predicate.test(r);
+      }
+      return true;
+    };
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * <p>This implementation is read-cache-after-write consistent. Keys from the temporary resource
+   * cache (ghost resources) are included in the result.
+   */
+  @Override
+  public Stream<ResourceID> keys() {
+    if (!comparableResourceVersions || temporaryResourceCache.isEmpty()) {
+      return manager().keys();
+    }
+    var managerKeys = manager().keys().collect(Collectors.toSet());
+    var tempKeys = temporaryResourceCache.getResources().keySet();
+    return Stream.concat(
+        managerKeys.stream(), tempKeys.stream().filter(k -> !managerKeys.contains(k)));
+  }
+
+  @Override
+  public Map<String, InformerHealthIndicator> informerHealthIndicators() {
+    return cache.informerHealthIndicators();
+  }
+
+  @Override
+  public Status getStatus() {
+    return InformerWrappingEventSourceHealthIndicator.super.getStatus();
+  }
+
+  @Override
+  public C configuration() {
+    return configuration;
+  }
+
+  @Override
+  public String toString() {
+    return getClass().getSimpleName()
+        + "{"
+        + "resourceClass: "
+        + configuration().getResourceClass().getSimpleName()
+        + "}";
+  }
+
+  public void setControllerConfiguration(ControllerConfiguration<R> controllerConfiguration) {
+    this.controllerConfiguration = controllerConfiguration;
+  }
+
+  protected void withMDC(R resource, ResourceAction action, Runnable runnable) {
+    MDCUtils.withMDCForEvent(resource, action, runnable, name());
+  }
+}

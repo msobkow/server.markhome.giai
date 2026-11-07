@@ -1,0 +1,634 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.processing.event;
+
+import java.net.HttpURLConnection;
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ExecutorService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.fabric8.kubernetes.client.KubernetesClientException;
+import io.javaoperatorsdk.operator.OperatorException;
+import io.javaoperatorsdk.operator.api.config.ConfigurationService;
+import io.javaoperatorsdk.operator.api.config.ControllerConfiguration;
+import io.javaoperatorsdk.operator.api.monitoring.Metrics;
+import io.javaoperatorsdk.operator.api.reconciler.Constants;
+import io.javaoperatorsdk.operator.processing.LifecycleAware;
+import io.javaoperatorsdk.operator.processing.MDCUtils;
+import io.javaoperatorsdk.operator.processing.event.rate.RateLimiter;
+import io.javaoperatorsdk.operator.processing.event.rate.RateLimiter.RateLimitState;
+import io.javaoperatorsdk.operator.processing.event.source.Cache;
+import io.javaoperatorsdk.operator.processing.event.source.ResourceAction;
+import io.javaoperatorsdk.operator.processing.event.source.controller.ResourceDeleteEvent;
+import io.javaoperatorsdk.operator.processing.event.source.controller.ResourceEvent;
+import io.javaoperatorsdk.operator.processing.event.source.timer.TimerEventSource;
+import io.javaoperatorsdk.operator.processing.retry.Retry;
+import io.javaoperatorsdk.operator.processing.retry.RetryExecution;
+
+public class EventProcessor<P extends HasMetadata> implements EventHandler, LifecycleAware {
+
+  private static final Logger log = LoggerFactory.getLogger(EventProcessor.class);
+  private static final long MINIMAL_RATE_LIMIT_RESCHEDULE_DURATION = 50;
+
+  /**
+   * Threshold below which an event-driven failed reconciliation that lands inside the current retry
+   * window is allowed to consume a retry attempt (i.e. advance the retry counter). Above this
+   * threshold the existing retry deadline is preserved instead.
+   */
+  private static final long RETRY_DEADLINE_PRESERVE_THRESHOLD_MILLIS = 5_000;
+
+  private volatile boolean running;
+  private final ControllerConfiguration<?> controllerConfiguration;
+  private final ReconciliationDispatcher<P> reconciliationDispatcher;
+  private final Retry retry;
+  private final Metrics metrics;
+  private final Cache<P> cache;
+  private final EventSourceManager<P> eventSourceManager;
+  private final RateLimiter<? extends RateLimitState> rateLimiter;
+  private final ResourceStateManager resourceStateManager;
+  private final Map<String, Object> metricsMetadata;
+  private ExecutorService executor;
+
+  public EventProcessor(
+      EventSourceManager<P> eventSourceManager, ConfigurationService configurationService) {
+    this(
+        eventSourceManager.getController().getConfiguration(),
+        new ReconciliationDispatcher<>(eventSourceManager.getController()),
+        eventSourceManager,
+        configurationService.getMetrics(),
+        eventSourceManager.getControllerEventSource());
+  }
+
+  @SuppressWarnings("rawtypes")
+  EventProcessor(
+      ControllerConfiguration controllerConfiguration,
+      ReconciliationDispatcher<P> reconciliationDispatcher,
+      EventSourceManager<P> eventSourceManager,
+      Metrics metrics) {
+    this(
+        controllerConfiguration,
+        reconciliationDispatcher,
+        eventSourceManager,
+        metrics,
+        eventSourceManager.getControllerEventSource());
+  }
+
+  @SuppressWarnings({"rawtypes", "unchecked"})
+  private EventProcessor(
+      ControllerConfiguration controllerConfiguration,
+      ReconciliationDispatcher<P> reconciliationDispatcher,
+      EventSourceManager<P> eventSourceManager,
+      Metrics metrics,
+      Cache<P> cache) {
+    this.controllerConfiguration = controllerConfiguration;
+    this.running = false;
+    this.reconciliationDispatcher = reconciliationDispatcher;
+    this.retry = controllerConfiguration.getRetry();
+    this.cache = cache;
+    this.metrics = metrics != null ? metrics : Metrics.NOOP;
+    this.eventSourceManager = eventSourceManager;
+    this.rateLimiter = controllerConfiguration.getRateLimiter();
+    this.resourceStateManager =
+        new ResourceStateManager(controllerConfiguration.triggerReconcilerOnAllEvents());
+
+    metricsMetadata =
+        Optional.ofNullable(eventSourceManager.getController())
+            .map(
+                c ->
+                    Map.of(
+                        Constants.RESOURCE_GVK_KEY, c.getAssociatedGroupVersionKind(),
+                        Constants.CONTROLLER_NAME, controllerConfiguration.getName()))
+            .orElseGet(HashMap::new);
+  }
+
+  /**
+   * Receives an {@link Event} from a registered {@link
+   * io.javaoperatorsdk.operator.processing.event.source.EventSource} and either dispatches it for
+   * immediate processing or, if this processor has not been {@link #start() started} yet, marks it
+   * in the resource state so it can be replayed by {@link #handleAlreadyMarkedEvents()} once the
+   * processor starts. Events received during the start-up window between event source readiness and
+   * processor start are therefore deferred rather than dropped.
+   */
+  @Override
+  public synchronized void handleEvent(Event event) {
+    try {
+      log.debug("Received event: {}", event);
+
+      final var optionalState = resourceStateManager.getOrCreateOnResourceEvent(event);
+      if (optionalState.isEmpty()) {
+        log.debug(
+            "Skipping event, since no state present and it is not a resource event. Resource ID:"
+                + " {}",
+            event.getRelatedCustomResourceID());
+        return;
+      }
+      var state = optionalState.orElseThrow();
+      final var resourceID = event.getRelatedCustomResourceID();
+      MDCUtils.addResourceIDInfo(resourceID);
+      metrics.eventReceived(event, metricsMetadata);
+      handleEventMarking(event, state);
+      if (!this.running) {
+        if (state.deleteEventPresent()) {
+          cleanupForDeletedEvent(state.getId());
+        }
+        // events are received and marked, but will be processed when started, see start() method.
+        log.debug("Deferring event: {} until the event processor starts", event);
+        return;
+      }
+      handleMarkedEventForResource(state);
+    } finally {
+      MDCUtils.removeResourceIDInfo();
+    }
+  }
+
+  private void handleMarkedEventForResource(ResourceState state) {
+    if (state.deleteEventPresent() && !triggerOnAllEvents()) {
+      cleanupForDeletedEvent(state.getId());
+    } else if (!state.processedMarkForDeletionPresent()) {
+      submitReconciliationExecution(state);
+    }
+  }
+
+  private void submitReconciliationExecution(ResourceState state) {
+    try {
+      boolean controllerUnderExecution = isControllerUnderExecution(state);
+      final var resourceID = state.getId();
+      Optional<P> maybeLatest = cache.get(resourceID);
+      maybeLatest.ifPresent(MDCUtils::addResourceInfo);
+      if (!controllerUnderExecution
+          && (maybeLatest.isPresent() || isTriggerOnAllEventAndDeleteEventPresent(state))) {
+        var rateLimit = state.getRateLimit();
+        if (rateLimit == null) {
+          rateLimit = rateLimiter.initState();
+          state.setRateLimit(rateLimit);
+        }
+        var rateLimiterPermission = rateLimiter.isLimited(rateLimit);
+        if (rateLimiterPermission.isPresent()) {
+          handleRateLimitedSubmission(resourceID, rateLimiterPermission.get());
+          return;
+        }
+        state.setUnderProcessing(true);
+        final var latest = maybeLatest.orElseGet(() -> getResourceFromState(state));
+        // passing the latest resources for a corner case when delete event received
+        // during processing an event
+        ExecutionScope<P> executionScope =
+            new ExecutionScope<>(
+                latest,
+                state.getRetry(),
+                state.deleteEventPresent(),
+                state.isDeleteFinalStateUnknown());
+        state.unMarkEventReceived();
+        metrics.reconciliationSubmitted(latest, state.getRetry(), metricsMetadata);
+        log.debug("Executing events for custom resource. Scope: {}", executionScope);
+        executor.execute(new ReconcilerExecutor(resourceID, executionScope));
+      } else {
+        log.debug(
+            "Skipping executing controller. Controller in execution: {}. Latest"
+                + " Resource present: {}",
+            controllerUnderExecution,
+            maybeLatest.isPresent());
+        if (maybeLatest.isEmpty()) {
+          // there can be multiple reasons why the primary resource is not present, one is that the
+          // informer is currently disconnected from k8s api server, but will eventually receive the
+          // resource. Other is that simply there is no primary resource present for an event, this
+          // might indicate issue with the implementation, but could happen also naturally, thus
+          // this is not necessarily a problem.
+          log.debug("No primary resource found in cache with resource id: {}", resourceID);
+        }
+      }
+    } finally {
+      MDCUtils.removeResourceInfo();
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  private P getResourceFromState(ResourceState state) {
+    if (triggerOnAllEvents()) {
+      log.debug("Getting resource from state");
+      return (P) state.getLastKnownResource();
+    } else {
+      throw new IllegalStateException(
+          "No resource found, this indicates issue with implementation.");
+    }
+  }
+
+  private void handleEventMarking(Event event, ResourceState state) {
+    if (event instanceof ResourceEvent resourceEvent) {
+      if (resourceEvent.getAction() == ResourceAction.DELETED) {
+        log.debug("Marking delete event received");
+        state.markDeleteEventReceived(
+            resourceEvent.getResource().orElseThrow(),
+            ((ResourceDeleteEvent) resourceEvent).isDeletedFinalStateUnknown());
+      } else {
+        if (state.processedMarkForDeletionPresent() && isResourceMarkedForDeletion(resourceEvent)) {
+          log.debug(
+              "Skipping mark of event received, since already processed mark for deletion and"
+                  + " resource marked for deletion");
+          return;
+        }
+        // Normally when eventMarker is in state PROCESSED_MARK_FOR_DELETION it is expected to
+        // receive a Delete event or an event where resource is marked for deletion. In a rare edge
+        // case however it can happen that the finalizer related to the current controller is
+        // removed, but also the informers websocket is disconnected and later reconnected. So
+        // meanwhile the resource could be deleted and recreated. In this case we just mark a new
+        // event as below.
+        state.markEventReceived();
+      }
+    } else if (!state.deleteEventPresent() && !state.processedMarkForDeletionPresent()) {
+      state.markEventReceived();
+    } else if (isTriggerOnAllEventAndDeleteEventPresent(state)) {
+      state.markAdditionalEventAfterDeleteEvent();
+    } else if (log.isDebugEnabled()) {
+      log.debug(
+          "Skipped marking event as received. Delete event present: {}, processed mark for"
+              + " deletion: {}",
+          state.deleteEventPresent(),
+          state.processedMarkForDeletionPresent());
+    }
+  }
+
+  private boolean isResourceMarkedForDeletion(ResourceEvent resourceEvent) {
+    return resourceEvent.getResource().map(HasMetadata::isMarkedForDeletion).orElse(false);
+  }
+
+  private void handleRateLimitedSubmission(ResourceID resourceID, Duration minimalDuration) {
+    var minimalDurationMillis = minimalDuration.toMillis();
+    log.debug("Rate limited resource; rescheduled in {} millis", minimalDurationMillis);
+    retryEventSource()
+        .scheduleOnce(
+            resourceID, Math.max(minimalDurationMillis, MINIMAL_RATE_LIMIT_RESCHEDULE_DURATION));
+  }
+
+  synchronized void eventProcessingFinished(
+      ExecutionScope<P> executionScope, PostExecutionControl<P> postExecutionControl) {
+    if (!running) {
+      return;
+    }
+    ResourceID resourceID = executionScope.getResourceID();
+    final var state = resourceStateManager.getOrCreate(resourceID);
+    log.debug(
+        "Event processing finished. Scope: {}, PostExecutionControl: {}",
+        executionScope,
+        postExecutionControl);
+    unsetUnderExecution(resourceID);
+
+    logErrorIfNoRetryConfigured(executionScope, postExecutionControl);
+    // If a delete event present at this phase, it was received during reconciliation.
+    // So we either removed the finalizer during reconciliation or we don't use finalizers.
+    // Either way we don't want to retry.
+    if (isRetryConfigured()
+        && postExecutionControl.exceptionDuringExecution()
+        && (!state.deleteEventPresent() || triggerOnAllEvents())) {
+      handleRetryOnException(
+          executionScope,
+          postExecutionControl.getRuntimeException().orElseThrow(),
+          postExecutionControl.isErrorHandledByReconciler());
+      return;
+    }
+    cleanupOnSuccessfulExecution(executionScope);
+    metrics.reconciliationSucceeded(executionScope.getResource(), metricsMetadata);
+    if ((triggerOnAllEvents() && executionScope.isDeleteEvent())
+        || (!triggerOnAllEvents() && state.deleteEventPresent())) {
+      cleanupForDeletedEvent(executionScope.getResourceID());
+    } else if (postExecutionControl.isFinalizerRemoved()) {
+      state.markProcessedMarkForDeletion();
+    } else {
+      if (state.eventPresent() || isTriggerOnAllEventAndDeleteEventPresent(state)) {
+        log.debug("Submitting for reconciliation.");
+        submitReconciliationExecution(state);
+      } else {
+        reScheduleExecutionIfInstructed(postExecutionControl, executionScope.getResource());
+      }
+    }
+  }
+
+  private boolean isTriggerOnAllEventAndDeleteEventPresent(ResourceState state) {
+    return triggerOnAllEvents() && state.deleteEventPresent();
+  }
+
+  /**
+   * In case retry is configured more complex error logging takes place, see handleRetryOnException
+   */
+  private void logErrorIfNoRetryConfigured(
+      ExecutionScope<P> executionScope, PostExecutionControl<P> postExecutionControl) {
+    if (!isRetryConfigured() && postExecutionControl.exceptionDuringExecution()) {
+      // No retry is configured, so this failure is final. Even if the reconciler handled the error
+      // in updateErrorStatus, we keep the higher-severity log so a non-recoverable failure is not
+      // hidden from operators.
+      log.error(
+          "Error during event processing {}",
+          executionScope,
+          postExecutionControl.getRuntimeException().orElseThrow());
+    }
+  }
+
+  private void reScheduleExecutionIfInstructed(
+      PostExecutionControl<P> postExecutionControl, P customResource) {
+
+    postExecutionControl
+        .getReScheduleDelay()
+        .ifPresentOrElse(
+            delay -> {
+              var resourceID = ResourceID.fromResource(customResource);
+              log.debug("Rescheduling event with delay: {}", delay);
+              retryEventSource().scheduleOnce(resourceID, delay);
+            },
+            () -> scheduleExecutionForMaxReconciliationInterval(customResource));
+  }
+
+  private void scheduleExecutionForMaxReconciliationInterval(P customResource) {
+    this.controllerConfiguration
+        .maxReconciliationInterval()
+        .ifPresent(
+            m -> {
+              var resourceID = ResourceID.fromResource(customResource);
+              var delay = m.toMillis();
+              log.debug("Rescheduling event for max reconciliation interval with delay: {}", delay);
+              retryEventSource().scheduleOnce(resourceID, delay);
+            });
+  }
+
+  TimerEventSource<P> retryEventSource() {
+    return eventSourceManager.retryEventSource();
+  }
+
+  /**
+   * Regarding the events there are 2 approaches we can take. Either retry always when there are new
+   * events (received meanwhile retry is in place or already in buffer) instantly or always wait
+   * according to the retry timing if there was an exception.
+   */
+  private void handleRetryOnException(
+      ExecutionScope<P> executionScope, Exception exception, boolean errorHandledByReconciler) {
+    final var state = getOrInitRetryExecution(executionScope);
+    var resourceID = state.getId();
+    boolean eventPresent = isNextReconciliationImminent(state);
+    state.markEventReceived();
+    retryAwareErrorLogging(
+        state.getRetry(), eventPresent, errorHandledByReconciler, exception, executionScope);
+    metrics.reconciliationFailed(
+        executionScope.getResource(), state.getRetry(), exception, metricsMetadata);
+    if (eventPresent) {
+      log.debug("New events exist for resource id");
+      submitReconciliationExecution(state);
+      return;
+    }
+    Optional<Duration> remaining = state.getRetry().remainingDurationUntilNextRetry();
+    if (remaining.isPresent()
+        && remaining.get().toMillis() > RETRY_DEADLINE_PRESERVE_THRESHOLD_MILLIS) {
+      log.debug(
+          "Preserving existing retry deadline; remaining: {} ms. Not consuming a retry attempt.",
+          remaining.get().toMillis());
+      retryEventSource().scheduleOnce(resourceID, remaining.get().toMillis());
+      return;
+    }
+    Optional<Long> nextDelay = state.getRetry().nextDelay();
+    nextDelay.ifPresentOrElse(
+        delay -> {
+          log.debug("Scheduling timer event for retry with delay:{}", delay);
+          retryEventSource().scheduleOnce(resourceID, delay);
+        },
+        () -> {
+          log.error("Exhausted retries for scope {}.", executionScope);
+          scheduleExecutionForMaxReconciliationInterval(executionScope.getResource());
+        });
+  }
+
+  private void retryAwareErrorLogging(
+      RetryExecution retry,
+      boolean eventPresent,
+      boolean errorHandledByReconciler,
+      Exception exception,
+      ExecutionScope<P> executionScope) {
+    if (!retry.isLastAttempt()
+        && exception instanceof KubernetesClientException ex
+        && ex.getCode() == HttpURLConnection.HTTP_CONFLICT) {
+      // The conflict branch is already low-noise (DEBUG + INFO) and provides actionable info, so it
+      // keeps precedence over the handled-error downgrade below.
+      log.debug("Full client conflict error during event processing {}", executionScope, exception);
+      log.info(
+          "Resource Kubernetes Resource Creator/Update Conflict during reconciliation. Message:"
+              + " {} Resource name: {}",
+          ex.getMessage(),
+          ex.getFullResourceName());
+    } else if (errorHandledByReconciler && !retry.isLastAttempt()) {
+      // The reconciler already handled the error in updateErrorStatus (and had the chance to log it
+      // as needed), so while there are retries remaining the framework only logs it on debug level.
+      // On the last attempt we still fall through to the higher-severity logging below, so a final,
+      // non-recoverable failure is not hidden from operators.
+      log.debug(
+          "Error during event processing {}, but was handled by the reconciler",
+          executionScope,
+          exception);
+    } else if (eventPresent || !retry.isLastAttempt()) {
+      log.warn(
+          "Uncaught error during event processing {} - but another reconciliation will be attempted"
+              + " because a superseding event has been received or another retry attempt is"
+              + " pending.",
+          executionScope,
+          exception);
+    } else {
+      log.error(
+          "Uncaught error during event processing {} - no superseding event is present and this is"
+              + " the retry last attempt",
+          executionScope,
+          exception);
+    }
+  }
+
+  private void cleanupOnSuccessfulExecution(ExecutionScope<P> executionScope) {
+    log.debug("Cleanup for successful execution");
+    if (isRetryConfigured()) {
+      resourceStateManager.getOrCreate(executionScope.getResourceID()).setRetry(null);
+    }
+    retryEventSource().cancelOnceSchedule(executionScope.getResourceID());
+  }
+
+  private ResourceState getOrInitRetryExecution(ExecutionScope<P> executionScope) {
+    final var state = resourceStateManager.getOrCreate(executionScope.getResourceID());
+    RetryExecution retryExecution = state.getRetry();
+    if (retryExecution == null) {
+      retryExecution = retry.initExecution();
+      state.setRetry(retryExecution);
+    }
+    return state;
+  }
+
+  private void cleanupForDeletedEvent(ResourceID resourceID) {
+    log.debug("Cleaning up for delete event");
+    resourceStateManager.remove(resourceID);
+    metrics.cleanupDone(resourceID, metricsMetadata);
+  }
+
+  private boolean isControllerUnderExecution(ResourceState state) {
+    return state.isUnderProcessing();
+  }
+
+  private void unsetUnderExecution(ResourceID resourceID) {
+    resourceStateManager.getOrCreate(resourceID).setUnderProcessing(false);
+  }
+
+  private boolean isRetryConfigured() {
+    return retry != null;
+  }
+
+  @Override
+  public synchronized void stop() {
+    this.running = false;
+  }
+
+  @Override
+  public synchronized void start() throws OperatorException {
+    log.debug("Starting event processor: {}", this);
+    // on restart new executor service is created and needs to be set here
+    executor =
+        controllerConfiguration
+            .getConfigurationService()
+            .getExecutorServiceManager()
+            .reconcileExecutorService();
+    this.running = true;
+    handleAlreadyMarkedEvents();
+  }
+
+  public synchronized boolean isNextReconciliationImminent(ResourceID resourceID) {
+    return isNextReconciliationImminent(resourceStateManager.getOrCreate(resourceID));
+  }
+
+  /**
+   * An event that arrives after a delete event is tracked in a dedicated state, so {@link
+   * ResourceState#eventPresent()} alone does not cover it. Such an event triggers a new
+   * reconciliation right after the current one, both when it succeeds (see {@link
+   * #eventProcessingFinished}) and when it fails (see {@link #handleRetryOnException}), so it has
+   * to be reported as imminent too.
+   */
+  private boolean isNextReconciliationImminent(ResourceState state) {
+    return state.eventPresent()
+        || (triggerOnAllEvents() && state.isAdditionalEventPresentAfterDeleteEvent());
+  }
+
+  private void handleAlreadyMarkedEvents() {
+    for (var state : resourceStateManager.resourcesWithEventPresent()) {
+      log.debug("Handling already marked event on start. State: {}", state);
+      handleMarkedEventForResource(state);
+    }
+  }
+
+  private class ReconcilerExecutor implements Runnable {
+    private final ExecutionScope<P> executionScope;
+    private final ResourceID resourceID;
+
+    private ReconcilerExecutor(ResourceID resourceID, ExecutionScope<P> executionScope) {
+      this.executionScope = executionScope;
+      this.resourceID = resourceID;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public void run() {
+      if (!running) {
+        // this is needed for the case when controller stopped, but there is a graceful shutdown
+        // timeout. that should finish the currently executing reconciliations but not the ones
+        // which where submitted but not started yet
+        log.debug("Event processor not running skipping resource processing: {}", resourceID);
+        return;
+      }
+      MDCUtils.addResourceIDInfo(resourceID);
+      log.debug("Running reconcile executor for: {}", executionScope);
+      // change thread name for easier debugging
+      final var thread = Thread.currentThread();
+      final var name = thread.getName();
+      boolean reconciliationStarted = false;
+      try {
+        // we try to get the most up-to-date resource from cache
+        var actualResource = cache.get(resourceID);
+        if (actualResource.isEmpty()) {
+          if (triggerOnAllEvents()) {
+            log.debug("Resource not found in the cache, checking for delete event resource");
+            if (executionScope.isDeleteEvent()) {
+              var state = resourceStateManager.get(resourceID);
+              actualResource =
+                  (Optional<P>)
+                      state
+                          .filter(ResourceState::deleteEventPresent)
+                          .map(ResourceState::getLastKnownResource);
+              if (actualResource.isEmpty()) {
+                throw new IllegalStateException(
+                    "ActualResource should be always present, either from cache or delete event.");
+              }
+            } else {
+              log.debug("Skipping execution since delete event received meanwhile");
+              eventProcessingFinished(executionScope, PostExecutionControl.defaultDispatch());
+              return;
+            }
+          } else {
+            log.debug("Skipping execution; primary resource missing from cache");
+            // the submission has to be completed, otherwise the resource stays marked as under
+            // processing and no further reconciliation would ever be submitted for it
+            eventProcessingFinished(executionScope, PostExecutionControl.defaultDispatch());
+            return;
+          }
+        }
+        actualResource.ifPresent(executionScope::setResource);
+        MDCUtils.addResourceInfo(executionScope.getResource());
+        metrics.reconciliationStarted(executionScope.getResource(), metricsMetadata);
+        reconciliationStarted = true;
+        thread.setName("ReconcilerExecutor-" + controllerName() + "-" + thread.getId());
+        PostExecutionControl<P> postExecutionControl =
+            reconciliationDispatcher.handleExecution(executionScope);
+        eventProcessingFinished(executionScope, postExecutionControl);
+      } finally {
+        // only report the reconciliation as finished if it was reported as started, otherwise
+        // gauges tracking in-flight reconciliations drift on every skipped execution
+        if (reconciliationStarted) {
+          metrics.reconciliationFinished(
+              executionScope.getResource(), executionScope.getRetryInfo(), metricsMetadata);
+        }
+        // restore original name
+        thread.setName(name);
+        MDCUtils.removeResourceInfo();
+      }
+    }
+
+    @Override
+    public String toString() {
+      return controllerName()
+          + " -> "
+          + (executionScope.getResource() != null ? executionScope : resourceID);
+    }
+  }
+
+  private String controllerName() {
+    return controllerConfiguration.getName();
+  }
+
+  public synchronized boolean isUnderProcessing(ResourceID resourceID) {
+    return isControllerUnderExecution(resourceStateManager.getOrCreate(resourceID));
+  }
+
+  public synchronized boolean isRunning() {
+    return running;
+  }
+
+  // shortening
+  private boolean triggerOnAllEvents() {
+    return controllerConfiguration.triggerReconcilerOnAllEvents();
+  }
+}

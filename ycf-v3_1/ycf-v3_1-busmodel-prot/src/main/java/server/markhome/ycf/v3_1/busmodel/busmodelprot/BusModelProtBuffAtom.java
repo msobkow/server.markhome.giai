@@ -1,0 +1,524 @@
+// Description: Java 17 implJustProtementation of a Atom buffer
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.busmodel.busmodel.buff;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpub.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprot.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprotobj.*;
+
+public class BusModelProtBuffAtom
+	extends BusModelProtBuffValue
+	implements IBusModelAtom
+{
+	protected String optionalDbName;
+
+	public BusModelProtBuffAtom() {
+		super();
+		optionalDbName = null;
+	}
+
+	@Override
+	public int getClassCode() {
+		return( IBusModelProtAtom.CLASS_CODE );
+	}
+
+	@Override
+	public String getOptionalDbName() {
+		return(optionalDbName);
+	}
+
+	public void setOptionalDbName( String value ) {
+		if( value != null && value.length() > 32 ) {
+			throw new CFArgumentOverflowException( getClass(),
+				"setOptionalDbName",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		optionalDbName = value;
+	}
+
+	@Override
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof IBusModelProtAtom rhs ) {
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					if( ! getOptionalDbName().equals( rhs.getOptionalDbName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if( obj instanceof IBusModelProtAtomH rhs ) {
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					if( ! getOptionalDbName().equals( rhs.getOptionalDbName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if( obj instanceof IBusModelProtValueHPKey ) {
+			IBusModelProtValueHPKey rhs = (IBusModelProtValueHPKey)obj;
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if( obj instanceof IBusModelPubAtom rhs ) {
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					if( ! getOptionalDbName().equals( rhs.getOptionalDbName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if( obj instanceof IBusModelPubAtomH rhs ) {
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					if( ! getOptionalDbName().equals( rhs.getOptionalDbName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if( obj instanceof IBusModelPubValueHPKey rhs ) {
+			if( getRequiredId() != null ) {
+				if( rhs.getRequiredId() != null ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else {
+			boolean retval = super.equals( obj );
+			return( retval );
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		int hashCode = super.hashCode();
+		if( getOptionalDbName() != null ) {
+			hashCode = hashCode + getOptionalDbName().hashCode();
+		}
+		return( hashCode & 0x7fffffff );
+	}
+
+	@Override
+	public int compareTo( Object obj ) {
+		int cmp;
+		if( obj == null ) {
+			return( -1 );
+		}
+		else if( obj instanceof IBusModelProtAtom rhs ) {
+			cmp = super.compareTo( rhs );
+			if( cmp != 0 ) {
+				return( cmp );
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					cmp = getOptionalDbName().compareTo( rhs.getOptionalDbName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+ 		}
+		else if( obj instanceof IBusModelProtValueHPKey rhs ) {
+			if( getRequiredRevision() < rhs.getRequiredRevision() ) {
+				return( -1 );
+			}
+			else if( getRequiredRevision() > rhs.getRequiredRevision() ) {
+				return( 1 );
+			}
+			if (getRequiredId() != null) {
+				if (rhs.getRequiredId() != null) {
+					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else if( obj instanceof IBusModelProtAtomH rhs ) {
+			cmp = super.compareTo( rhs );
+			if( cmp != 0 ) {
+				return( cmp );
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					cmp = getOptionalDbName().compareTo( rhs.getOptionalDbName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
+		else if( obj instanceof IBusModelPubAtom rhs ) {
+			cmp = super.compareTo( rhs );
+			if( cmp != 0 ) {
+				return( cmp );
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					cmp = getOptionalDbName().compareTo( rhs.getOptionalDbName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
+		else if( obj instanceof IBusModelPubValueHPKey rhs ) {
+			if( getRequiredRevision() < rhs.getRequiredRevision() ) {
+				return( -1 );
+			}
+			else if( getRequiredRevision() > rhs.getRequiredRevision() ) {
+				return( 1 );
+			}
+			if (getRequiredId() != null) {
+				if (rhs.getRequiredId() != null) {
+					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else if( obj instanceof IBusModelPubAtomH rhs ) {
+			cmp = super.compareTo( rhs );
+			if( cmp != 0 ) {
+				return( cmp );
+			}
+			if( getOptionalDbName() != null ) {
+				if( rhs.getOptionalDbName() != null ) {
+					cmp = getOptionalDbName().compareTo( rhs.getOptionalDbName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDbName() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
+		else {
+			cmp = super.compareTo( obj );
+			return( cmp );
+		}
+	}
+
+	@Override
+	public void set( IBusModelProtValue src ) {
+		if( src instanceof BusModelProtBuffAtom ) {
+			setJustProtAtom( (BusModelProtBuffAtom)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"BusModelProtBuffAtom" );
+		}
+	}
+
+	@Override
+	public void setAtom( IBusModelProtAtom src ) {
+		super.setValue( src );
+		setJustProtOptionalDbName(src.getOptionalDbName());
+	}
+
+	@Override
+	public void set( IBusModelProtValueH src ) {
+		if( src instanceof IBusModelPubAtomH ) {
+			setAtom( (IBusModelPubAtomH)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"IBusModelPubAtomH" );
+		}
+	}
+
+	@Override
+	public void setAtom( IBusModelProtAtomH src ) {
+		super.setValue( src );
+		setJustProtOptionalDbName(src.getOptionalDbName());
+	}
+
+	@Override
+	public void set( IBusModelPubValue src ) {
+		if( src instanceof BusModelPubProtBuffAtom ) {
+			setJustProtAtom( (BusModelPubProtBuffAtom)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"BusModelPubProtBuffAtom" );
+		}
+	}
+
+	@Override
+	public void setAtom( IBusModelPubAtom src ) {
+		super.setValue( src );
+		setJustProtOptionalDbName(src.getOptionalDbName());
+	}
+
+	@Override
+	public void set( IBusModelPubValueH src ) {
+		if( src instanceof IBusModelPubAtomH ) {
+			setAtom( (IBusModelPubAtomH)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"IBusModelPubAtomH" );
+		}
+	}
+
+	@Override
+	public void setAtom( IBusModelPubAtomH src ) {
+		super.setValue( src );
+		setJustProtOptionalDbName(src.getOptionalDbName());
+	}
+
+	@Override
+	public String getXmlAttrFragment() {
+		String ret = super.getXmlAttrFragment()  + "\"" + getRequiredId().toString() + "\"" + ( ( getOptionalDbName() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalDbName() ) + "\"" );
+		return( ret );
+	}
+
+	@Override
+	public String toString() {
+		String ret = "<BusModelProtBuffAtom" + getXmlAttrFragment() + "/>";
+		return( ret );
+	}
+}

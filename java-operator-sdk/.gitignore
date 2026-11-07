@@ -1,0 +1,22 @@
+target/
+*.iml
+.idea/
+
+# Eclipse
+.settings/
+.classpath
+.project
+.cache/
+
+#  VSCode
+.factorypath
+
+.mvn/wrapper/maven-wrapper.jar
+
+.java-version
+.aider*
+
+docs/content/en/docs/testindex/
+.claude/
+.DS_Store
+

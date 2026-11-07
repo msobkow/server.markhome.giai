@@ -1,0 +1,88 @@
+# Integration and end to end tests which runs locally and deploys the Operator to a Kubernetes
+# (Minikube) cluster and creates custom resources to verify the operator's functionality
+name: End to End tests
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - 'adr/**'
+    branches: [ main, next ]
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - 'adr/**'
+    branches:
+      - main
+      - next
+
+jobs:
+  sample_operators_tests:
+    strategy:
+      matrix:
+        sample:
+          - "sample-operators/mysql-schema"
+          - "sample-operators/tomcat-operator"
+          - "sample-operators/webpage"
+          - "sample-operators/leader-election"
+          - "sample-operators/operations"
+          - "sample-operators/kotlin-operator"
+    runs-on: ubuntu-latest
+    env:
+      MINIKUBE_VERSION: v1.39.0
+      # Use the latest versions supported by minikube, otherwise GitHub it will
+      # end up in a throttling requests from minikube and workflow will fail.
+      # Minikube does such requests only if a version is not officially supported.
+      KUBERNETES_VERSION: v1.37.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # minikube downloads its base image and the preloaded Kubernetes images on every start,
+      # which regularly times out when many matrix jobs start at once
+      - name: Cache Minikube downloads
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}/.minikube/cache
+          key: minikube-${{ runner.os }}-${{ env.MINIKUBE_VERSION }}-${{ env.KUBERNETES_VERSION }}-docker
+
+      - name: Setup Minikube-Kubernetes
+        id: minikube
+        continue-on-error: true
+        uses: manusa/actions-setup-minikube@v2.19.0
+        with:
+          minikube version: ${{ env.MINIKUBE_VERSION }}
+          kubernetes version: ${{ env.KUBERNETES_VERSION }}
+          github token: ${{ secrets.GITHUB_TOKEN }}
+          driver: docker
+
+      - name: Clean up failed Minikube setup
+        if: steps.minikube.outcome == 'failure'
+        run: '"$MINIKUBE_HOME/minikube" delete || true'
+
+      - name: Setup Minikube-Kubernetes (retry)
+        if: steps.minikube.outcome == 'failure'
+        uses: manusa/actions-setup-minikube@v2.19.0
+        with:
+          minikube version: ${{ env.MINIKUBE_VERSION }}
+          kubernetes version: ${{ env.KUBERNETES_VERSION }}
+          github token: ${{ secrets.GITHUB_TOKEN }}
+          driver: docker
+
+      - name: Set up Java and Maven
+        uses: actions/setup-java@v6
+        with:
+          java-version: 25
+          distribution: temurin
+          cache: 'maven'
+
+      - name: Build SDK
+        run: ./mvnw install -DskipTests
+
+      - name: Run integration tests in local mode
+        run: |
+          ./mvnw test -P end-to-end-tests -pl ${{ matrix.sample }}
+
+      - name: Run E2E tests as a deployment
+        run: |
+          eval $(minikube -p minikube docker-env)
+          ./mvnw jib:dockerBuild test -P end-to-end-tests -Dtest.deployment=remote -pl ${{ matrix.sample }}

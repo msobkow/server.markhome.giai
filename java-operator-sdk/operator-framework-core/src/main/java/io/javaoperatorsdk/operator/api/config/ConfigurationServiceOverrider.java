@@ -1,0 +1,388 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.api.config;
+
+import java.time.Duration;
+import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.function.Function;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import io.fabric8.kubernetes.api.model.HasMetadata;
+import io.fabric8.kubernetes.client.KubernetesClient;
+import io.javaoperatorsdk.operator.Operator;
+import io.javaoperatorsdk.operator.api.event.EventRecorder;
+import io.javaoperatorsdk.operator.api.monitoring.Metrics;
+import io.javaoperatorsdk.operator.api.reconciler.Experimental;
+import io.javaoperatorsdk.operator.api.reconciler.dependent.DependentResourceFactory;
+import io.javaoperatorsdk.operator.processing.event.source.informer.pool.InformerPool;
+
+@SuppressWarnings({"unused", "UnusedReturnValue"})
+public class ConfigurationServiceOverrider {
+
+  private static final Logger log = LoggerFactory.getLogger(ConfigurationServiceOverrider.class);
+  private final ConfigurationService original;
+  private Metrics metrics;
+  private Boolean checkCR;
+  private Integer concurrentReconciliationThreads;
+  private Integer concurrentWorkflowExecutorThreads;
+  private Cloner cloner;
+  private Boolean closeClientOnStop;
+  private KubernetesClient client;
+  private ExecutorService executorService;
+  private ExecutorService workflowExecutorService;
+  private LeaderElectionConfiguration leaderElectionConfiguration;
+  private String clusterScopedEventNamespace;
+  private EventRecorder eventRecorder;
+  private InformerStoppedHandler informerStoppedHandler;
+  private Boolean stopOnInformerErrorDuringStartup;
+  private Duration cacheSyncTimeout;
+  private Duration reconciliationTerminationTimeout;
+  private Boolean ssaBasedCreateUpdateMatchForDependentResources;
+  private Set<Class<? extends HasMetadata>> defaultNonSSAResource;
+  private Boolean useSSAToPatchPrimaryResource;
+  private Boolean cloneSecondaryResourcesWhenGettingFromCache;
+  private InformerPool informerPool;
+
+  @SuppressWarnings("rawtypes")
+  private DependentResourceFactory dependentResourceFactory;
+
+  ConfigurationServiceOverrider(ConfigurationService original) {
+    this.original = original;
+  }
+
+  public ConfigurationServiceOverrider checkingCRDAndValidateLocalModel(boolean check) {
+    this.checkCR = check;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withConcurrentReconciliationThreads(int threadNumber) {
+    this.concurrentReconciliationThreads = threadNumber;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withConcurrentWorkflowExecutorThreads(int threadNumber) {
+    this.concurrentWorkflowExecutorThreads = threadNumber;
+    return this;
+  }
+
+  @SuppressWarnings("rawtypes")
+  public ConfigurationServiceOverrider withDependentResourceFactory(
+      DependentResourceFactory dependentResourceFactory) {
+    this.dependentResourceFactory = dependentResourceFactory;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withResourceCloner(Cloner cloner) {
+    this.cloner = cloner;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withMetrics(Metrics metrics) {
+    this.metrics = metrics;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withCloseClientOnStop(boolean close) {
+    this.closeClientOnStop = close;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withExecutorService(ExecutorService executorService) {
+    this.executorService = executorService;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withWorkflowExecutorService(
+      ExecutorService workflowExecutorService) {
+    this.workflowExecutorService = workflowExecutorService;
+    return this;
+  }
+
+  /**
+   * Replaces the default {@link KubernetesClient} instance by the specified one. This is the
+   * preferred mechanism to configure which client will be used to access the cluster.
+   *
+   * <p>Note that when {@link Operator#stop()} is called, by default the client is closed even if
+   * explicitly provided with this method. Use {@link #withCloseClientOnStop(boolean)} to change
+   * this behavior.
+   *
+   * @param client the fully configured client to use for cluster access
+   * @return this {@link ConfigurationServiceOverrider} for chained customization
+   */
+  public ConfigurationServiceOverrider withKubernetesClient(KubernetesClient client) {
+    this.client = client;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withLeaderElectionConfiguration(
+      LeaderElectionConfiguration leaderElectionConfiguration) {
+    this.leaderElectionConfiguration = leaderElectionConfiguration;
+    return this;
+  }
+
+  /**
+   * Sets the namespace in which Kubernetes events about cluster scoped resources are recorded. Use
+   * this when the operator is not allowed to create events in the {@code default} namespace,
+   * passing for example the namespace the operator itself runs in.
+   *
+   * @param namespace the namespace to record events about cluster scoped resources in
+   * @return this {@link ConfigurationServiceOverrider} for chained customization
+   */
+  public ConfigurationServiceOverrider withClusterScopedEventNamespace(String namespace) {
+    this.clusterScopedEventNamespace = namespace;
+    return this;
+  }
+
+  /**
+   * Replaces the {@link EventRecorder} the controllers of the operator record their Kubernetes
+   * events through by the specified one, which is then shared by all of them. Use this to record
+   * events differently, for example through a subclass of {@link
+   * io.javaoperatorsdk.operator.api.event.DefaultEventRecorder} that assembles them another way, or
+   * by delegating to another system (e.g. emitting events to an external store).
+   *
+   * <p>When not set, every controller records its events through a recorder of its own, which
+   * attributes them to that controller.
+   *
+   * @param eventRecorder the event recorder to use for the whole operator
+   * @return this {@link ConfigurationServiceOverrider} for chained customization
+   */
+  @Experimental(Experimental.API_MIGHT_CHANGE)
+  public ConfigurationServiceOverrider withEventRecorder(EventRecorder eventRecorder) {
+    this.eventRecorder = eventRecorder;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withInformerStoppedHandler(InformerStoppedHandler handler) {
+    this.informerStoppedHandler = handler;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withStopOnInformerErrorDuringStartup(
+      boolean stopOnInformerErrorDuringStartup) {
+    this.stopOnInformerErrorDuringStartup = stopOnInformerErrorDuringStartup;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withCacheSyncTimeout(Duration cacheSyncTimeout) {
+    this.cacheSyncTimeout = cacheSyncTimeout;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withReconciliationTerminationTimeout(
+      Duration reconciliationTerminationTimeout) {
+    this.reconciliationTerminationTimeout = reconciliationTerminationTimeout;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withSSABasedCreateUpdateMatchForDependentResources(
+      boolean value) {
+    this.ssaBasedCreateUpdateMatchForDependentResources = value;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withDefaultNonSSAResource(
+      Set<Class<? extends HasMetadata>> defaultNonSSAResource) {
+    this.defaultNonSSAResource = defaultNonSSAResource;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withUseSSAToPatchPrimaryResource(boolean value) {
+    this.useSSAToPatchPrimaryResource = value;
+    return this;
+  }
+
+  public ConfigurationServiceOverrider withCloneSecondaryResourcesWhenGettingFromCache(
+      boolean value) {
+    this.cloneSecondaryResourcesWhenGettingFromCache = value;
+    return this;
+  }
+
+  /**
+   * Overrides the informer pool strategy used to create/share the informers backing the event
+   * sources. When not set, the default (informer-sharing) pool is used.
+   *
+   * <p>Custom strategies implement {@link InformerPool}, which already takes care of creating and
+   * starting the informers.
+   */
+  @Experimental(
+      "Only the configuration API around informer pooling could still change in a"
+          + " non-backwards-compatible way, the pooling itself is prod ready.")
+  public ConfigurationServiceOverrider withInformerPool(InformerPool informerPool) {
+    this.informerPool = informerPool;
+    return this;
+  }
+
+  public ConfigurationService build() {
+    return new BaseConfigurationService(original.getVersion(), cloner, client) {
+      @Override
+      public Set<String> getKnownReconcilerNames() {
+        return original.getKnownReconcilerNames();
+      }
+
+      private <T> T overriddenValueOrDefault(
+          T value, Function<ConfigurationService, T> defaultValue) {
+        return value != null ? value : defaultValue.apply(original);
+      }
+
+      @Override
+      public boolean checkCRDAndValidateLocalModel() {
+        return overriddenValueOrDefault(
+            checkCR, ConfigurationService::checkCRDAndValidateLocalModel);
+      }
+
+      @SuppressWarnings("rawtypes")
+      @Override
+      public DependentResourceFactory dependentResourceFactory() {
+        return overriddenValueOrDefault(
+            dependentResourceFactory, ConfigurationService::dependentResourceFactory);
+      }
+
+      @Override
+      public int concurrentReconciliationThreads() {
+        return Utils.ensureValid(
+            overriddenValueOrDefault(
+                concurrentReconciliationThreads,
+                ConfigurationService::concurrentReconciliationThreads),
+            "maximum reconciliation threads",
+            1,
+            original.concurrentReconciliationThreads());
+      }
+
+      @Override
+      public int concurrentWorkflowExecutorThreads() {
+        return Utils.ensureValid(
+            overriddenValueOrDefault(
+                concurrentWorkflowExecutorThreads,
+                ConfigurationService::concurrentWorkflowExecutorThreads),
+            "maximum workflow execution threads",
+            1,
+            original.concurrentWorkflowExecutorThreads());
+      }
+
+      @Override
+      public Metrics getMetrics() {
+        return overriddenValueOrDefault(metrics, ConfigurationService::getMetrics);
+      }
+
+      @Override
+      public boolean closeClientOnStop() {
+        return overriddenValueOrDefault(closeClientOnStop, ConfigurationService::closeClientOnStop);
+      }
+
+      @Override
+      public ExecutorService getExecutorService() {
+        if (executorService != null) {
+          return executorService;
+        } else {
+          return super.getExecutorService();
+        }
+      }
+
+      @Override
+      public ExecutorService getWorkflowExecutorService() {
+        if (workflowExecutorService != null) {
+          return workflowExecutorService;
+        } else {
+          return super.getWorkflowExecutorService();
+        }
+      }
+
+      @Override
+      public Optional<LeaderElectionConfiguration> getLeaderElectionConfiguration() {
+        return leaderElectionConfiguration != null
+            ? Optional.of(leaderElectionConfiguration)
+            : original.getLeaderElectionConfiguration();
+      }
+
+      @Override
+      public String clusterScopedEventNamespace() {
+        return clusterScopedEventNamespace != null
+            ? clusterScopedEventNamespace
+            : original.clusterScopedEventNamespace();
+      }
+
+      @Override
+      public Optional<EventRecorder> eventRecorder() {
+        return eventRecorder != null ? Optional.of(eventRecorder) : original.eventRecorder();
+      }
+
+      @Override
+      public Optional<InformerStoppedHandler> getInformerStoppedHandler() {
+        return informerStoppedHandler != null
+            ? Optional.of(informerStoppedHandler)
+            : original.getInformerStoppedHandler();
+      }
+
+      @Override
+      public boolean stopOnInformerErrorDuringStartup() {
+        return overriddenValueOrDefault(
+            stopOnInformerErrorDuringStartup,
+            ConfigurationService::stopOnInformerErrorDuringStartup);
+      }
+
+      @Override
+      public Duration cacheSyncTimeout() {
+        return overriddenValueOrDefault(cacheSyncTimeout, ConfigurationService::cacheSyncTimeout);
+      }
+
+      @Override
+      public Duration reconciliationTerminationTimeout() {
+        return overriddenValueOrDefault(
+            reconciliationTerminationTimeout,
+            ConfigurationService::reconciliationTerminationTimeout);
+      }
+
+      @Override
+      public boolean ssaBasedCreateUpdateMatchForDependentResources() {
+        return overriddenValueOrDefault(
+            ssaBasedCreateUpdateMatchForDependentResources,
+            ConfigurationService::ssaBasedCreateUpdateMatchForDependentResources);
+      }
+
+      @Override
+      public Set<Class<? extends HasMetadata>> defaultNonSSAResources() {
+        return overriddenValueOrDefault(
+            defaultNonSSAResource, ConfigurationService::defaultNonSSAResources);
+      }
+
+      @Override
+      public boolean useSSAToPatchPrimaryResource() {
+        return overriddenValueOrDefault(
+            useSSAToPatchPrimaryResource, ConfigurationService::useSSAToPatchPrimaryResource);
+      }
+
+      @Override
+      public boolean cloneSecondaryResourcesWhenGettingFromCache() {
+        return overriddenValueOrDefault(
+            cloneSecondaryResourcesWhenGettingFromCache,
+            ConfigurationService::cloneSecondaryResourcesWhenGettingFromCache);
+      }
+
+      @Override
+      public synchronized InformerPool informerPool() {
+        if (informerPool == null) {
+          return super.informerPool();
+        }
+        informerPool.setConfigurationService(this);
+        return informerPool;
+      }
+    };
+  }
+}

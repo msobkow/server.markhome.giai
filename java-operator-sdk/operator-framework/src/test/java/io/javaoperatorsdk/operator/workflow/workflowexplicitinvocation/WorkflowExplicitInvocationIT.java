@@ -1,0 +1,94 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.workflow.workflowexplicitinvocation;
+
+import java.time.Duration;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
+
+import io.fabric8.kubernetes.api.model.ConfigMap;
+import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
+import io.javaoperatorsdk.annotation.Sample;
+import io.javaoperatorsdk.operator.junit.LocallyRunOperatorExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
+
+@Sample(
+    tldr = "Workflow Explicit Invocation",
+    description =
+        """
+        Demonstrates how to explicitly control when a workflow is invoked rather than having it \
+        run automatically on every reconciliation. This test shows how to programmatically \
+        trigger workflow execution and how cleanup is still performed even with explicit \
+        invocation.
+        """)
+public class WorkflowExplicitInvocationIT {
+
+  public static final String RESOURCE_NAME = "test1";
+
+  @RegisterExtension
+  LocallyRunOperatorExtension extension =
+      LocallyRunOperatorExtension.builder()
+          .withReconciler(WorkflowExplicitInvocationReconciler.class)
+          .build();
+
+  @Test
+  void workflowInvokedExplicitly() {
+    var res = extension.create(testResource());
+    var reconciler = extension.getReconcilerOfType(WorkflowExplicitInvocationReconciler.class);
+
+    await()
+        .untilAsserted(
+            () -> {
+              assertThat(reconciler.getNumberOfExecutions()).isEqualTo(1);
+              assertThat(extension.get(ConfigMap.class, RESOURCE_NAME)).isNull();
+            });
+
+    reconciler.setInvokeWorkflow(true);
+
+    // trigger reconciliation
+    res.getSpec().setValue("changed value");
+    res = extension.replace(res);
+
+    await()
+        .untilAsserted(
+            () -> {
+              assertThat(reconciler.getNumberOfExecutions()).isEqualTo(2);
+              assertThat(extension.get(ConfigMap.class, RESOURCE_NAME)).isNotNull();
+            });
+
+    extension.delete(res);
+
+    // The ConfigMap is not garbage collected, this tests that even if the cleaner is not
+    // implemented the workflow cleanup still called even if there is explicit invocation
+    await()
+        .timeout(Duration.ofSeconds(30))
+        .untilAsserted(
+            () -> {
+              assertThat(extension.get(ConfigMap.class, RESOURCE_NAME)).isNull();
+            });
+  }
+
+  WorkflowExplicitInvocationCustomResource testResource() {
+    var res = new WorkflowExplicitInvocationCustomResource();
+    res.setMetadata(new ObjectMetaBuilder().withName(RESOURCE_NAME).build());
+    res.setSpec(new WorkflowExplicitInvocationSpec());
+    res.getSpec().setValue("initial value");
+    return res;
+  }
+}

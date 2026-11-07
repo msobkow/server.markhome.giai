@@ -1,26 +1,26 @@
 
 <project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd" root="true">
 	<modelVersion>4.1.0</modelVersion>
-	<artifactId>server.markhome.giai</artifactId>
-	<version>1.1.42-202611071400</version>
+	<artifactId>server.markhome.ycf</artifactId>
+	<version>3.1.42-alpha17-202611140000</version>
 	<groupId>server.markhome</groupId>
-	<name>server.markhome.giai</name>
-	<description>Guided Intelligence Architecture Implementation</description>
+	<name>server.markhome.ycf</name>
+	<description>Yorkton Code Fractal</description>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>giai-ycf</module>
+		<module>ycf-core</module>
 	</modules>
 
 	<properties>
 		<rat.skip>true</rat.skip>
-		<url>git://git.giai.markhome.server/msobkow/server.markhome.giai</url>
-		<project.url>https://www.giai.markhome.server/server.markhome.giai/</project.url>
-		<project.scm.url>git://git.giai.markhome.server/msobkow/server.markhome.giai/</project.scm.url>
+		<url>git://git.ycf.markhome.server/msobkow/server.markhome.ycf</url>
+		<project.url>https://www.ycf.markhome.server/server.markhome.ycf/</project.url>
+		<project.scm.url>git://git.ycf.markhome.server/msobkow/server.markhome.ycf/</project.scm.url>
 		<project.build.outputTimestamp>202611071400</project.build.outputTimestamp>
-		<package.mainClass>server.markhome.giai.YCFLibEntry</package.mainClass>
-		<package.testMainClass>server.markhome.giai.testYCFLibEntry</package.testMainClass>
-		<giai.version>3.1.42-snapshot-202611071400</giai.version>
+		<package.mainClass>server.markhome.ycf.YCFLibEntry</package.mainClass>
+		<package.testMainClass>server.markhome.ycf.testYCFLibEntry</package.testMainClass>
+		<ycf.version>3.1.42-alpha17-202611140000</ycf.version>
 		<commons.rc.version>YCFRC1</commons.rc.version>
 		<changes.announcementDirectory>.</changes.announcementDirectory>
 		<changes.announcementFile>RELEASE-NOTES.txt</changes.announcementFile>
@@ -107,10 +107,10 @@
 		<commons.native-plugin.version>1.1.10</commons.native-plugin.version>
 		<commons.osgi.dynamicImport />
 		<commons.osgi.excludeDependencies>true</commons.osgi.excludeDependencies>
-		<commons.osgi.export>server.markhomegiai.*;version=${project.version};-noimport:=true</commons.osgi.export>
+		<commons.osgi.export>server.markhomeycf.*;version=${project.version};-noimport:=true</commons.osgi.export>
 		<commons.osgi.import>*</commons.osgi.import>
 		<commons.osgi.private />
-		<commons.osgi.symbolicName>server.markhome.giai.${commons.packageId}</commons.osgi.symbolicName>
+		<commons.osgi.symbolicName>server.markhome.ycf.${commons.packageId}</commons.osgi.symbolicName>
 		<commons.packageId>${project.artifactId}</commons.packageId>
 		<commons.pmd-core.version>${commons.pmd.version}</commons.pmd-core.version>
 		<commons.pmd-impl.version>${commons.pmd.version}</commons.pmd-impl.version>
@@ -518,7 +518,7 @@
 					</executions>
 					<configuration>
 						<serverId>nexus</serverId>
-						<nexusUrl>http://nexus3.giai.markhome.server:8081/repository/giai.markhome.server-hosted/</nexusUrl>
+						<nexusUrl>http://nexus3.ycf.markhome.server:8081/repository/ycf.markhome.server-hosted/</nexusUrl>
 								<skipStaging>true</skipStaging>
 							</configuration>
 						</plugin>

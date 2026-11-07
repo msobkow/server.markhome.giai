@@ -1,0 +1,87 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ *   SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.apache.jena.sparql.function.library;
+
+import java.math.BigInteger;
+
+import org.apache.jena.sparql.ARQInternalErrorException;
+import org.apache.jena.sparql.expr.NodeValue;
+import org.apache.jena.sparql.expr.nodevalue.XSDFuncOp;
+import org.apache.jena.sparql.function.FunctionBase2;
+import org.apache.jena.sparql.function.MathLimits;
+
+// math:pow($x as xs:double?, $y as xs:numeric) as xs:double?
+//    except pow(integer,+ve integer) is an integer 
+public class Math_pow extends FunctionBase2 {
+
+    @Override
+    public NodeValue exec(NodeValue v1, NodeValue v2) {
+        switch (XSDFuncOp.classifyNumeric("pow", v1, v2)) {
+            case OP_INTEGER:
+                BigInteger x = v1.getInteger();
+                int y = v2.getInteger().intValue();
+                if (y >= 0) {
+                    MathLimits.preValidateExponentCalculation(x, v2.getInteger());
+                    return NodeValue.makeInteger(x.pow(y));
+                }
+                // Anything else -> double
+                //$FALL-THROUGH$
+            case OP_DECIMAL:
+            case OP_FLOAT:
+            case OP_DOUBLE:
+                double d1 = v1.getDouble();
+                double d2 = v2.getDouble();
+
+                // Various special cases short circuit actual evaluation
+                if (Double.isNaN(d1)) {
+                    // NaN raised to a power is either 1 if power 0 or NaN otherwise
+                    if (d2 == 0) {
+                        return NodeValue.makeDouble(1);
+                    } else {
+                        return NodeValue.nvDoubleNaN;
+                    }
+                } else if (Math.abs(d1) == 1 && Double.isInfinite(d2)) {
+                    // 1 raised to INF is always 1
+                    if (v1.isInteger()) {
+                        return NodeValue.nvONE;
+                    } else {
+                        return NodeValue.makeDouble(1);
+                    }
+                } else if (Double.isInfinite(d1)) {
+                    // INF raised to a power is 1 if the power is zero or itself if the power is 1
+                    if (d2 == 0) {
+                        return NodeValue.makeDouble(1);
+                    } else if (d2 == 1) {
+                        return NodeValue.makeDouble(d1);
+                    }
+                }
+
+                // If we get this far pre-validate that calculating the power won't require too many digits and if not
+                // actually calculate
+                MathLimits.preValidateExponentCalculation(d1, d2);
+                return NodeValue.makeDouble(Math.pow(v1.getDouble(), v2.getDouble()));
+            default:
+                throw new ARQInternalErrorException("Unrecognized numeric operation : " + v1);
+        }
+    }
+
+}

@@ -1,0 +1,152 @@
+// Description: Java 25 interface for a MinorVersion record declementation
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnet;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+
+import server.markhome.ycf.v3_1.intnet.intnetprotobj.*;
+
+/**
+ *	IIntNetMinorVersion persistence instances have CodeVis Public, meaning that any user interface or referencing schema can access it.
+ */
+public interface IIntNetMinorVersion
+{
+	public static final String S_INIT_CREATED_BY = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final CFDbKeyHash256 INIT_CREATED_BY = CFDbKeyHash256.fromHex(S_INIT_CREATED_BY);
+	public static final String S_INIT_UPDATED_BY = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final CFDbKeyHash256 INIT_UPDATED_BY = CFDbKeyHash256.fromHex(S_INIT_UPDATED_BY);
+	public static final String S_ID_INIT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final CFDbKeyHash256 ID_INIT_VALUE = CFDbKeyHash256.fromHex( S_ID_INIT_VALUE );
+	public static final String S_TENANTID_INIT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final CFDbKeyHash256 TENANTID_INIT_VALUE = CFDbKeyHash256.fromHex( S_TENANTID_INIT_VALUE );
+	public static final String S_MAJORVERSIONID_INIT_VALUE = "0000000000000000000000000000000000000000000000000000000000000000";
+	public static final CFDbKeyHash256 MAJORVERSIONID_INIT_VALUE = CFDbKeyHash256.fromHex( S_MAJORVERSIONID_INIT_VALUE );
+	public static final String NAME_INIT_VALUE = new String( "" );
+	public static final String DESCRIPTION_INIT_VALUE = new String( "" );
+	public final static int CLASS_CODE = 0xa104;
+	public final static String S_CLASS_CODE = "a104";
+
+	public int getClassCode();
+
+	public CFDbKeyHash256 getCreatedByUserId();
+
+	public void setCreatedByUserId( CFDbKeyHash256 value );
+
+	public LocalDateTime getCreatedAt();
+
+	public void setCreatedAt( LocalDateTime value );
+
+	public CFDbKeyHash256 getUpdatedByUserId();
+
+	public void setUpdatedByUserId( CFDbKeyHash256 value );
+
+	public LocalDateTime getUpdatedAt();
+
+	public void setUpdatedAt( LocalDateTime value );
+
+	public $implCommaIJavaOptAtomType$ getPKey();
+	public void setPKey($implCommaIJavaOptAtomType$ requiredId);
+	public ICFKeyHash256 getRequiredId();
+	public void setRequiredId( ICFKeyHash256 value );
+	public int getRequiredRevision();
+	public void setRequiredRevision( int value );
+
+	public ISecureTenant getRequiredOwnerTenant();
+
+	public void setRequiredOwnerTenant(ICFKeyHash256 argTenantId);
+
+	public void setRequiredOwnerTenant(ISecurePubTenant argObj);
+
+	public IIntNetMajorVersion getRequiredContainerParentMajVer();
+
+	public void setRequiredContainerParentMajVer(ICFKeyHash256 argMajorVersionId);
+
+	public void setRequiredContainerParentMajVer(IIntNetMajorVersion argObj);
+
+	public void setRequiredContainerParentMajVer(IIntNetProtMajorVersion argObj);
+
+	public void setRequiredContainerParentMajVer(IIntNetPubMajorVersion argObj);
+
+	public ICFKeyHash256 getRequiredTenantId();
+	public void setRequiredTenantId( ICFKeyHash256 value );
+	public ICFKeyHash256 getRequiredMajorVersionId();
+	public void setRequiredMajorVersionId( ICFKeyHash256 value );
+	public String getRequiredName();
+	public void setRequiredName( String value );
+	public String getOptionalDescription();
+	public void setOptionalDescription( String value );
+	public boolean equals( Object obj );
+
+	public int hashCode();
+
+	public int compareTo( Object obj );
+
+	public void set( IIntNetMinorVersion src );
+
+	public void setMinorVersion( IIntNetMinorVersion src );
+
+	public void set( IIntNetMinorVersionH src );
+
+	public void setMinorVersion( IIntNetMinorVersionH src );
+
+	public void set( IIntNetProtMinorVersion src );
+
+	public void setMinorVersion( IIntNetProtMinorVersion src );
+
+	public void set( IIntNetProtMinorVersionH src );
+
+	public void setMinorVersion( IIntNetProtMinorVersionH src );
+
+	public void set( IIntNetPubMinorVersion src );
+
+	public void setMinorVersion( IIntNetPubMinorVersion src );
+
+	public void set( IIntNetPubMinorVersionH src );
+
+	public void setMinorVersion( IIntNetPubMinorVersionH src );
+
+	public String getXmlAttrFragment();
+
+	public String toString();
+}

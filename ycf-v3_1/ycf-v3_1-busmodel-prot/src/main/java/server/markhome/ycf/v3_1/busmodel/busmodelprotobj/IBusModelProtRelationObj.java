@@ -1,0 +1,335 @@
+// Description: Java 25 Object interface for BusModelProt Relation.
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.busmodel.busmodelprotobj;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpub.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelprot.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.busmodel.busmodelpubobj.*;
+
+public interface IBusModelProtRelationObj
+	extends IBusModelProtScopeObj
+{
+	/**
+	 *	Get the current edition of this Relation instance as a IBusModelProtRelationEditObj.
+	 *
+	 *	@return	The IBusModelProtRelationEditObj edition of this instance.
+	 */
+	IBusModelProtRelationEditObj getEditAsRelation();
+
+	/**
+	 *	Get the IBusModelProtRelationTableObj table cache which manages this instance.
+	 *
+	 *	@return	IBusModelProtRelationTableObj table cache which manages this instance.
+	 */
+	IBusModelProtRelationTableObj getRelationTable();
+
+	/**
+	 *	Get the IBusModelProtRelation instance which currently backs this instance.
+	 *	<p>
+	 *	This value <i>will</i> change for read-only instances, so you should
+	 *	not hold on to the value as a reference anywhere outside the current call stack.
+	 *
+	 *	@return	IBusModelProtRelation instance which currently backs this object.
+	 */
+	IBusModelProtRelation getRelationRec();
+
+	/**
+	 *	Get the optional IBusModelProtSchemaDefObj instance referenced by the DefSchema key.
+	 *
+	 *	@return	The optional IBusModelProtSchemaDefObj instance referenced by the DefSchema key.
+	 */
+	IBusModelProtSchemaDefObj getOptionalLookupDefSchema();
+
+	/**
+	 *	Get the optional IBusModelProtSchemaDefObj instance referenced by the DefSchema key.
+	 *
+	 *	@return	The optional IBusModelProtSchemaDefObj instance referenced by the DefSchema key.
+	 */
+	IBusModelProtSchemaDefObj getOptionalLookupDefSchema( boolean forceRead );
+
+	/**
+	 *	Get the required IBusModelProtTableObj instance referenced by the FromTable key.
+	 *
+	 *	@return	The required IBusModelProtTableObj instance referenced by the FromTable key.
+	 */
+	IBusModelProtTableObj getRequiredContainerFromTable();
+
+	/**
+	 *	Get the required IBusModelProtTableObj instance referenced by the FromTable key.
+	 *
+	 *	@return	The required IBusModelProtTableObj instance referenced by the FromTable key.
+	 */
+	IBusModelProtTableObj getRequiredContainerFromTable( boolean forceRead );
+
+	/**
+	 *	Get the array of optional IBusModelProtRelationColObj array of instances referenced by the Columns key.
+	 *
+	 *	@return	The optional IBusModelProtRelationColObj[] array of instances referenced by the Columns key.
+	 */
+	List<IBusModelProtRelationColObj> getOptionalComponentsColumns();
+
+	/**
+	 *	Get the array of optional IBusModelProtRelationColObj array of instances referenced by the Columns key.
+	 *
+	 *	@return	The optional IBusModelProtRelationColObj[] array of instances referenced by the Columns key.
+	 */
+	List<IBusModelProtRelationColObj> getOptionalComponentsColumns( boolean forceRead );
+
+	/**
+	 *	Get the array of optional IBusModelProtPopTopDepObj array of instances referenced by the PopDep key.
+	 *
+	 *	@return	The optional IBusModelProtPopTopDepObj[] array of instances referenced by the PopDep key.
+	 */
+	List<IBusModelProtPopTopDepObj> getOptionalComponentsPopDep();
+
+	/**
+	 *	Get the array of optional IBusModelProtPopTopDepObj array of instances referenced by the PopDep key.
+	 *
+	 *	@return	The optional IBusModelProtPopTopDepObj[] array of instances referenced by the PopDep key.
+	 */
+	List<IBusModelProtPopTopDepObj> getOptionalComponentsPopDep( boolean forceRead );
+
+	/**
+	 *	Get the required IBusModelProtIndexObj instance referenced by the FromIndex key.
+	 *
+	 *	@return	The required IBusModelProtIndexObj instance referenced by the FromIndex key.
+	 */
+	IBusModelProtIndexObj getRequiredLookupFromIndex();
+
+	/**
+	 *	Get the required IBusModelProtIndexObj instance referenced by the FromIndex key.
+	 *
+	 *	@return	The required IBusModelProtIndexObj instance referenced by the FromIndex key.
+	 */
+	IBusModelProtIndexObj getRequiredLookupFromIndex( boolean forceRead );
+
+	/**
+	 *	Get the required IBusModelProtTableObj instance referenced by the ToTable key.
+	 *
+	 *	@return	The required IBusModelProtTableObj instance referenced by the ToTable key.
+	 */
+	IBusModelProtTableObj getRequiredLookupToTable();
+
+	/**
+	 *	Get the required IBusModelProtTableObj instance referenced by the ToTable key.
+	 *
+	 *	@return	The required IBusModelProtTableObj instance referenced by the ToTable key.
+	 */
+	IBusModelProtTableObj getRequiredLookupToTable( boolean forceRead );
+
+	/**
+	 *	Get the required IBusModelProtIndexObj instance referenced by the ToIndex key.
+	 *
+	 *	@return	The required IBusModelProtIndexObj instance referenced by the ToIndex key.
+	 */
+	IBusModelProtIndexObj getRequiredLookupToIndex();
+
+	/**
+	 *	Get the required IBusModelProtIndexObj instance referenced by the ToIndex key.
+	 *
+	 *	@return	The required IBusModelProtIndexObj instance referenced by the ToIndex key.
+	 */
+	IBusModelProtIndexObj getRequiredLookupToIndex( boolean forceRead );
+
+	/**
+	 *	Get the optional IBusModelProtRelationObj instance referenced by the Narrowed key.
+	 *
+	 *	@return	The optional IBusModelProtRelationObj instance referenced by the Narrowed key.
+	 */
+	IBusModelProtRelationObj getOptionalLookupNarrowed();
+
+	/**
+	 *	Get the optional IBusModelProtRelationObj instance referenced by the Narrowed key.
+	 *
+	 *	@return	The optional IBusModelProtRelationObj instance referenced by the Narrowed key.
+	 */
+	IBusModelProtRelationObj getOptionalLookupNarrowed( boolean forceRead );
+
+	/**
+	 *	Get the required ICFKeyHash256 attribute TableId.
+	 *
+	 *	@return	The required ICFKeyHash256 attribute TableId.
+	 */
+	ICFKeyHash256 getRequiredTableId();
+
+	/**
+	 *	Get the required ICFKeyHash256 attribute Id.
+	 *
+	 *	@return	The required ICFKeyHash256 attribute Id.
+	 */
+	ICFKeyHash256 getRequiredId();
+
+	/**
+	 *	Get the optional CFDbKeyHash256 attribute DefSchemaId.
+	 *
+	 *	@return	The optional CFDbKeyHash256 attribute DefSchemaId.
+	 */
+	CFDbKeyHash256 getOptionalDefSchemaId();
+
+	/**
+	 *	Get the required String attribute Name.
+	 *
+	 *	@return	The required String attribute Name.
+	 */
+	String getRequiredName();
+
+	/**
+	 *	Get the optional String attribute ShortName.
+	 *
+	 *	@return	The optional String attribute ShortName.
+	 */
+	String getOptionalShortName();
+
+	/**
+	 *	Get the optional String attribute Label.
+	 *
+	 *	@return	The optional String attribute Label.
+	 */
+	String getOptionalLabel();
+
+	/**
+	 *	Get the optional String attribute ShortDescription.
+	 *
+	 *	@return	The optional String attribute ShortDescription.
+	 */
+	String getOptionalShortDescription();
+
+	/**
+	 *	Get the optional String attribute Description.
+	 *
+	 *	@return	The optional String attribute Description.
+	 */
+	String getOptionalDescription();
+
+	/**
+	 *	Get the required IBusModelPubSchema.RelationTypeEnum attribute RelationType.
+	 *
+	 *	@return	The required IBusModelPubSchema.RelationTypeEnum attribute RelationType.
+	 */
+	IBusModelPubSchema.RelationTypeEnum getRequiredRelationType();
+
+	/**
+	 *	Get the optional String attribute DbName.
+	 *
+	 *	@return	The optional String attribute DbName.
+	 */
+	String getOptionalDbName();
+
+	/**
+	 *	Get the optional String attribute Suffix.
+	 *
+	 *	@return	The optional String attribute Suffix.
+	 */
+	String getOptionalSuffix();
+
+	/**
+	 *	Get the required ICFKeyHash256 attribute FromIndexId.
+	 *
+	 *	@return	The required ICFKeyHash256 attribute FromIndexId.
+	 */
+	ICFKeyHash256 getRequiredFromIndexId();
+
+	/**
+	 *	Get the required ICFKeyHash256 attribute ToTableId.
+	 *
+	 *	@return	The required ICFKeyHash256 attribute ToTableId.
+	 */
+	ICFKeyHash256 getRequiredToTableId();
+
+	/**
+	 *	Get the required ICFKeyHash256 attribute ToIndexId.
+	 *
+	 *	@return	The required ICFKeyHash256 attribute ToIndexId.
+	 */
+	ICFKeyHash256 getRequiredToIndexId();
+
+	/**
+	 *	Get the required boolean attribute IsRequired.
+	 *
+	 *	@return	The required boolean attribute IsRequired.
+	 */
+	boolean getRequiredIsRequired();
+
+	/**
+	 *	Get the required boolean attribute IsXsdContainer.
+	 *
+	 *	@return	The required boolean attribute IsXsdContainer.
+	 */
+	boolean getRequiredIsXsdContainer();
+
+	/**
+	 *	Get the required boolean attribute IsLateResolver.
+	 *
+	 *	@return	The required boolean attribute IsLateResolver.
+	 */
+	boolean getRequiredIsLateResolver();
+
+	/**
+	 *	Get the required boolean attribute AllowAddendum.
+	 *
+	 *	@return	The required boolean attribute AllowAddendum.
+	 */
+	boolean getRequiredAllowAddendum();
+
+	/**
+	 *	Get the optional CFDbKeyHash256 attribute NarrowedId.
+	 *
+	 *	@return	The optional CFDbKeyHash256 attribute NarrowedId.
+	 */
+	CFDbKeyHash256 getOptionalNarrowedId();
+
+	/**
+	 *	Get the required IBusModelPubSchema.CodeVisibilityEnum attribute CodeVis.
+	 *
+	 *	@return	The required IBusModelPubSchema.CodeVisibilityEnum attribute CodeVis.
+	 */
+	IBusModelPubSchema.CodeVisibilityEnum getRequiredCodeVis();
+
+}

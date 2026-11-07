@@ -1,0 +1,62 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ *   SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.apache.jena.rdf.model;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedClass;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.io.StringReader;
+
+import org.apache.jena.graph.GraphEvents;
+import org.apache.jena.rdf.model.helpers.RecordingModelListener;
+
+/**
+ * TestReaderEvents - test that reader events are issued
+ */
+@ParameterizedClass(name = "{0}")
+@MethodSource("org.apache.jena.rdf.model.helpers.ModelCreators#creators")
+public class TestReaderEvents extends AbstractModelTestBase {
+
+    @Test
+    public void testNTriplesReaderEvents() {
+        testReaderEvent("N-TRIPLE", "");
+    }
+
+    public void testReaderEvent(final String language, final String emptyModel) {
+        final RecordingModelListener L = new RecordingModelListener();
+        model.register(L);
+        @SuppressWarnings("deprecation")
+        final RDFReaderI r = model.getReader(language);
+        final StringReader stringReader = new StringReader(emptyModel);
+        r.read(model, stringReader, "");
+        L.assertHasStart(new Object[]{"someEvent", model, GraphEvents.startRead});
+        L.assertHasEnd(new Object[]{"someEvent", model, GraphEvents.finishRead});
+    }
+
+    @Test
+    public void testXMLReaderEvents() {
+        final String emptyModel = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'></rdf:RDF>";
+        testReaderEvent("RDF/XML", emptyModel);
+    }
+
+}

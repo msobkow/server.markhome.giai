@@ -1,0 +1,70 @@
+/**
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*
+
+Add styles or override variables from the theme here.
+
+*/
+
+$primary: #da5504;
+$secondary: #fc9c62;
+$info: #c0e0de;
+$light: rgb(13, 110, 253);
+$dark: #403f4c;
+$link-color: rgb(13, 110, 253);
+$link-hover-color: darken($link-color, 15%);
+
+
+// Override link colors only in document content
+.td-content {
+  a:not(.btn) {
+    color: $link-color !important;
+
+    &:hover {
+      color: $link-hover-color !important;
+    }
+  }
+}
+
+// Navbar styling - this is the correct way for Docsy 0.14.2
+.td-navbar {
+   background-color: $primary !important;
+   border-color: $primary !important;
+  .navbar-brand {
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+  .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.90) !important;
+    }
+  }
+}
+
+// RSS button styling
+.td-rss-button {
+  color: rgba(85, 85, 85, 0.9) !important;
+  background-color: $info !important;
+  border-color: $info !important;
+  &:hover {
+    color: darken(rgba(85, 85, 85, 0.9), 100%) !important;
+  }
+}

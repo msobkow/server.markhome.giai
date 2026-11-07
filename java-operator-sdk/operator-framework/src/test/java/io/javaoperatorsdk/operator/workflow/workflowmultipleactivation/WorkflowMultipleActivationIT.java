@@ -1,0 +1,204 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.workflow.workflowmultipleactivation;
+
+import java.time.Duration;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
+
+import io.fabric8.kubernetes.api.model.ConfigMap;
+import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
+import io.fabric8.kubernetes.api.model.Secret;
+import io.javaoperatorsdk.annotation.Sample;
+import io.javaoperatorsdk.operator.junit.LocallyRunOperatorExtension;
+
+import static io.javaoperatorsdk.operator.workflow.workflowactivationcondition.ConfigMapDependentResource.DATA_KEY;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
+
+@Sample(
+    tldr = "Dynamic Workflow Activation and Deactivation",
+    description =
+        """
+        Tests dynamic activation and deactivation of workflow dependents based on changing \
+        conditions. Demonstrates that dependents can be conditionally activated or deactivated \
+        during the resource lifecycle, with proper cleanup and recreation, and verifies that \
+        inactive dependents don't trigger reconciliation or maintain informers.
+        """)
+public class WorkflowMultipleActivationIT {
+
+  public static final String INITIAL_DATA = "initial data";
+  public static final String TEST_RESOURCE1 = "test1";
+  public static final String TEST_RESOURCE2 = "test2";
+  public static final String CHANGED_VALUE = "changed value";
+  public static final int POLL_DELAY = 300;
+
+  @RegisterExtension
+  LocallyRunOperatorExtension extension =
+      LocallyRunOperatorExtension.builder()
+          .withReconciler(WorkflowMultipleActivationReconciler.class)
+          .build();
+
+  @Test
+  void deactivatingAndReactivatingDependent() {
+    ActivationCondition.MET = true;
+    var cr1 = extension.create(testResource());
+
+    await()
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              var secret = extension.get(Secret.class, TEST_RESOURCE1);
+              assertThat(cm).isNotNull();
+              assertThat(secret).isNotNull();
+              assertThat(cm.getData()).containsEntry(DATA_KEY, INITIAL_DATA);
+            });
+
+    extension.delete(cr1);
+
+    await()
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              assertThat(cm).isNull();
+              var cr =
+                  extension.get(WorkflowMultipleActivationCustomResource.class, TEST_RESOURCE1);
+              assertThat(cr).isNull();
+            });
+
+    ActivationCondition.MET = false;
+    cr1 = extension.create(testResource());
+
+    await()
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              var secret = extension.get(Secret.class, TEST_RESOURCE1);
+              assertThat(cm).isNull();
+              assertThat(secret).isNotNull();
+            });
+
+    ActivationCondition.MET = true;
+    cr1.getSpec().setValue(CHANGED_VALUE);
+    extension.replace(cr1);
+
+    await()
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              assertThat(cm).isNotNull();
+              assertThat(cm.getData()).containsEntry(DATA_KEY, CHANGED_VALUE);
+            });
+
+    ActivationCondition.MET = false;
+    cr1.getSpec().setValue(INITIAL_DATA);
+    extension.replace(cr1);
+
+    await()
+        .pollDelay(Duration.ofMillis(POLL_DELAY))
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              assertThat(cm).isNotNull();
+              // data not changed
+              assertThat(cm.getData()).containsEntry(DATA_KEY, CHANGED_VALUE);
+            });
+
+    var numOfReconciliation = awaitStableReconciliationCount();
+    var actualCM = extension.get(ConfigMap.class, TEST_RESOURCE1);
+    actualCM.getData().put("data2", "additionaldata");
+    extension.replace(actualCM);
+    await()
+        .pollDelay(Duration.ofMillis(POLL_DELAY))
+        .untilAsserted(
+            () -> {
+              // change in config map does not induce reconciliation if inactive (thus informer is
+              // not
+              // present)
+              assertThat(
+                      extension
+                          .getReconcilerOfType(WorkflowMultipleActivationReconciler.class)
+                          .getNumberOfReconciliationExecution())
+                  .isEqualTo(numOfReconciliation);
+            });
+
+    extension.delete(cr1);
+    await()
+        .pollDelay(Duration.ofMillis(POLL_DELAY))
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              assertThat(cm).isNotNull();
+            });
+  }
+
+  /**
+   * Snapshots the reconciliation count only once it has stopped changing. The framework adds the
+   * finalizer with a cache-only (non event-filtered) write, so each (re)creation of the resource
+   * emits a finalizer-add event that drives a follow-up reconciliation. A few of these may still be
+   * trailing from the preceding create/delete/recreate and spec changes; capturing the count before
+   * they settle would race with them and inflate the later assertion.
+   */
+  private int awaitStableReconciliationCount() {
+    var reconciler = extension.getReconcilerOfType(WorkflowMultipleActivationReconciler.class);
+    var lastSeen = new AtomicInteger(-1);
+    await()
+        .pollInterval(Duration.ofMillis(POLL_DELAY))
+        .atMost(Duration.ofSeconds(10))
+        .until(
+            () -> {
+              int current = reconciler.getNumberOfReconciliationExecution();
+              return current == lastSeen.getAndSet(current);
+            });
+    return lastSeen.get();
+  }
+
+  WorkflowMultipleActivationCustomResource testResource(String name) {
+    var res = new WorkflowMultipleActivationCustomResource();
+    res.setMetadata(new ObjectMetaBuilder().withName(name).build());
+    res.setSpec(new WorkflowMultipleActivationSpec());
+    res.getSpec().setValue(INITIAL_DATA);
+    return res;
+  }
+
+  WorkflowMultipleActivationCustomResource testResource() {
+    return testResource(TEST_RESOURCE1);
+  }
+
+  WorkflowMultipleActivationCustomResource testResource2() {
+    return testResource(TEST_RESOURCE2);
+  }
+
+  @Test
+  void simpleConcurrencyTest() {
+    ActivationCondition.MET = true;
+    extension.create(testResource());
+    extension.create(testResource2());
+
+    await()
+        .untilAsserted(
+            () -> {
+              var cm = extension.get(ConfigMap.class, TEST_RESOURCE1);
+              var cm2 = extension.get(ConfigMap.class, TEST_RESOURCE2);
+              assertThat(cm).isNotNull();
+              assertThat(cm2).isNotNull();
+              assertThat(cm.getData()).containsEntry(DATA_KEY, INITIAL_DATA);
+              assertThat(cm2.getData()).containsEntry(DATA_KEY, INITIAL_DATA);
+            });
+  }
+}

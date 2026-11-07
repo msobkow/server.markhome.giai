@@ -1,0 +1,76 @@
+/*
+ * Copyright Java Operator SDK Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.javaoperatorsdk.operator.sample;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.extension.RegisterExtension;
+
+import io.fabric8.kubernetes.api.model.Container;
+import io.fabric8.kubernetes.api.model.EnvVar;
+import io.fabric8.kubernetes.api.model.apps.Deployment;
+import io.javaoperatorsdk.operator.junit.AbstractOperatorExtension;
+import io.javaoperatorsdk.operator.junit.ClusterDeployedOperatorExtension;
+import io.javaoperatorsdk.operator.junit.LocallyRunOperatorExtension;
+
+import static io.javaoperatorsdk.operator.sample.WebPageOperator.WEBPAGE_MANAGED_DEPENDENT_RESOURCE_ENV_VALUE;
+import static io.javaoperatorsdk.operator.sample.WebPageOperator.WEBPAGE_RECONCILER_ENV;
+
+class WebPageOperatorManagedDependentResourcesE2E extends WebPageOperatorAbstractTest {
+
+  public WebPageOperatorManagedDependentResourcesE2E() throws FileNotFoundException {}
+
+  @RegisterExtension
+  AbstractOperatorExtension operator =
+      isLocal()
+          ? LocallyRunOperatorExtension.builder()
+              .waitForNamespaceDeletion(false)
+              .withDeleteCRDs(false)
+              .withReconciler(new WebPageManagedDependentsReconciler())
+              .build()
+          : ClusterDeployedOperatorExtension.builder()
+              .waitForNamespaceDeletion(false)
+              .withOperatorDeployment(
+                  client.load(new FileInputStream("k8s/operator.yaml")).items(),
+                  resources -> {
+                    Deployment deployment =
+                        (Deployment)
+                            resources.stream()
+                                .filter(r -> r instanceof Deployment)
+                                .findFirst()
+                                .orElseThrow();
+                    Container container =
+                        deployment.getSpec().getTemplate().getSpec().getContainers().get(0);
+                    if (container.getEnv() == null) {
+                      container.setEnv(new ArrayList<>());
+                    }
+                    container
+                        .getEnv()
+                        .add(
+                            new EnvVar(
+                                WEBPAGE_RECONCILER_ENV,
+                                WEBPAGE_MANAGED_DEPENDENT_RESOURCE_ENV_VALUE,
+                                null));
+                  })
+              .build();
+
+  @Override
+  AbstractOperatorExtension operator() {
+    return operator;
+  }
+}

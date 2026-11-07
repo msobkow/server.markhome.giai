@@ -1,0 +1,511 @@
+// Description: Java 25 edit object instance implementation for BusModel SecSysRoleEnables.
+
+/*
+ *	server.markhome.ycf.BusModel
+ *
+ *	Copyright (c) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
+ *	
+ *	Copyright 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This file is part of the Yorkton Code Fractal Business Model.
+ *	
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath and static linking exceptions.
+ *	
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal BusModel.  If not, see <https://www.gnu.org/licenses/>.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package server.markhome.ycf.v3_1.intnet.intnetobj;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.intnet.intnetpub.*;
+import server.markhome.ycf.v3_1.secure.securepub.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+import server.markhome.ycf.v3_1.intnet.intnetpubobj.*;
+import server.markhome.ycf.v3_1.secure.securepubobj.*;
+
+public class BusModelSecSysRoleEnablesEditObj
+	implements IBusModelSecSysRoleEnablesEditObj
+{
+	protected ISecureSecSysRoleEnablesObj orig;
+	protected ISecureSecSysRoleEnables rec;
+	protected ISecureSecUserObj createdBy = null;
+	protected ISecureSecUserObj updatedBy = null;
+	protected ISecureSecSysRoleObj requiredContainerSysRole;
+	protected ISecureSecSysGrpObj requiredParentEnableGroup;
+
+	public BusModelSecSysRoleEnablesEditObj( ISecureSecSysRoleEnablesObj argOrig ) {
+		orig = argOrig;
+		getRec();
+		ISecureSecSysRoleEnables origRec = orig.getRec();
+		rec.set( origRec );
+		requiredContainerSysRole = null;
+		requiredParentEnableGroup = null;
+	}
+
+	@Override
+	public ISecureSecUserObj getCreatedBy() {
+		if( createdBy == null ) {
+			ISecureSecSysRoleEnables rec = getRec();
+			createdBy = ((IBusModelSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( rec.getCreatedByUserId() );
+		}
+		return( createdBy );
+	}
+
+	@Override
+	public LocalDateTime getCreatedAt() {
+		return( getRec().getCreatedAt() );
+	}
+
+	@Override
+	public ISecureSecUserObj getUpdatedBy() {
+		if( updatedBy == null ) {
+			ISecureSecSysRoleEnables rec = getRec();
+			updatedBy = ((IBusModelSchemaObj)getSchema()).getSecUserTableObj().readSecUserByIdIdx( rec.getUpdatedByUserId() );
+		}
+		return( updatedBy );
+	}
+
+	@Override
+	public LocalDateTime getUpdatedAt() {
+		return( getRec().getUpdatedAt() );
+	}
+
+	@Override
+	public void setCreatedBy( ISecureSecUserObj value ) {
+		createdBy = value;
+		if( value != null ) {
+			getRec().setCreatedByUserId( value.getRequiredSecUserId() );
+		}
+	}
+
+	@Override
+	public void setCreatedAt( LocalDateTime value ) {
+		getRec().setCreatedAt( value );
+	}
+
+	@Override
+	public void setUpdatedBy( ISecureSecUserObj value ) {
+		updatedBy = value;
+		if( value != null ) {
+			getRec().setUpdatedByUserId( value.getRequiredSecUserId() );
+		}
+	}
+
+	@Override
+	public void setUpdatedAt( LocalDateTime value ) {
+		getRec().setUpdatedAt( value );
+	}
+
+	@Override
+	public int getClassCode() {
+		return( ((ISecureSchemaObj)orig.getSchema()).getSecSysRoleEnablesTableObj().getClassCode() );
+	}
+
+	@Override
+	public String getGenDefName() {
+		return( "SecSysRoleEnables" );
+	}
+
+	@Override
+	public ICFAnyObj getObjScope() {
+		ISecureSecSysRoleObj scope = getRequiredContainerSysRole();
+		return( scope );
+	}
+
+	@Override
+	public String getObjName() {
+		String objName;
+		objName = getRequiredEnableName();
+		return( objName );
+	}
+
+	@Override
+	public ICFAnyObj getObjQualifier( Class qualifyingClass ) {
+		ICFAnyObj container = this;
+		if( qualifyingClass != null ) {
+			while( container != null ) {
+				if( container instanceof IBusModelClusterObj ) {
+					break;
+				}
+				else if( container instanceof IBusModelTenantObj ) {
+					break;
+				}
+				else if( qualifyingClass.isInstance( container ) ) {
+					break;
+				}
+				container = container.getObjScope();
+			}
+		}
+		else {
+			while( container != null ) {
+				if( container instanceof IBusModelClusterObj ) {
+					break;
+				}
+				else if( container instanceof IBusModelTenantObj ) {
+					break;
+				}
+				container = container.getObjScope();
+			}
+		}
+		return( container );
+	}
+
+	@Override
+	public ICFAnyObj getNamedObject( Class qualifyingClass, String objName ) {
+		ICFAnyObj topContainer = getObjQualifier( qualifyingClass );
+		if( topContainer == null ) {
+			return( null );
+		}
+		ICFAnyObj namedObject = topContainer.getNamedObject( objName );
+		return( namedObject );
+	}
+
+	@Override
+	public ICFAnyObj getNamedObject( String objName ) {
+		String nextName;
+		String remainingName;
+		ICFAnyObj subObj = null;
+		ICFAnyObj retObj;
+		int nextDot = objName.indexOf( '.' );
+		if( nextDot >= 0 ) {
+			nextName = objName.substring( 0, nextDot );
+			remainingName = objName.substring( nextDot + 1 );
+		}
+		else {
+			nextName = objName;
+			remainingName = null;
+		}
+		if( remainingName == null ) {
+			retObj = subObj;
+		}
+		else if( subObj == null ) {
+			retObj = null;
+		}
+		else {
+			retObj = subObj.getNamedObject( remainingName );
+		}
+		return( retObj );
+	}
+
+	@Override
+	public String getObjQualifiedName() {
+		String qualName = getObjName();
+		ICFAnyObj container = getObjScope();
+		String containerName;
+		while( container != null ) {
+			if( container instanceof ISecureClusterObj ) {
+				container = null;
+			}
+			else if( container instanceof ISecureTenantObj ) {
+				container = null;
+			}
+			else {
+				containerName = container.getObjName();
+				qualName = containerName + "." + qualName;
+				container = container.getObjScope();
+			}
+		}
+		return( qualName );
+	}
+
+	@Override
+	public String getObjFullName() {
+		String fullName = getObjName();
+		ICFAnyObj container = getObjScope();
+		String containerName;
+		while( container != null ) {
+			if( container instanceof ISecureClusterObj ) {
+				container = null;
+			}
+			else if( container instanceof ISecureTenantObj ) {
+				container = null;
+			}
+			else {
+				containerName = container.getObjName();
+				fullName = containerName + "." + fullName;
+				container = container.getObjScope();
+			}
+		}
+		return( fullName );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj realise() {
+		// We realise this so that it's record will get copied to orig during realization
+		ISecureSecSysRoleEnablesObj retobj = getSchema().getSecSysRoleEnablesTableObj().realiseSecSysRoleEnables( (IBusModelSecSysRoleEnablesObj)this );
+		return( retobj );
+	}
+
+	@Override
+	public void forget() {
+		getOrigAsSecSysRoleEnables().forget();
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj read() {
+		ISecureSecSysRoleEnablesObj retval = getOrigAsSecSysRoleEnables().read();
+		if( retval != orig ) {
+			throw new CFStaleCacheDetectedException( getClass(),	"read" );
+		}
+		copyOrigToRec();
+		return( retval );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj read( boolean forceRead ) {
+		ISecureSecSysRoleEnablesObj retval = getOrigAsSecSysRoleEnables().read( forceRead );
+		if( retval != orig ) {
+			throw new CFStaleCacheDetectedException( getClass(),	"read" );
+		}
+		copyOrigToRec();
+		return( retval );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj create() {
+		copyRecToOrig();
+		ISecureSecSysRoleEnablesObj retobj = ((IBusModelSchemaObj)getOrigAsSecSysRoleEnables().getSchema()).getSecSysRoleEnablesTableObj().createSecSysRoleEnables( getOrigAsSecSysRoleEnables() );
+		if( retobj == getOrigAsSecSysRoleEnables() ) {
+			copyOrigToRec();
+		}
+		return( retobj );
+	}
+
+	@Override
+	public SecureSecSysRoleEnablesEditObj update() {
+		getSchema().getSecSysRoleEnablesTableObj().updateSecSysRoleEnables( (ISecureSecSysRoleEnablesObj)this );
+		return( null );
+	}
+
+	@Override
+	public SecureSecSysRoleEnablesEditObj deleteInstance() {
+		if( getIsNew() ) {
+			throw new CFCannotDeleteNewInstanceException( getClass(), "delete" );
+		}
+		getSchema().getSecSysRoleEnablesTableObj().deleteSecSysRoleEnables( getOrigAsSecSysRoleEnables() );
+		return( null );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesTableObj getSecSysRoleEnablesTable() {
+		return( orig.getSchema().getSecSysRoleEnablesTableObj() );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesEditObj getEdit() {
+		return( (ISecureSecSysRoleEnablesEditObj)this );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesEditObj getEditAsSecSysRoleEnables() {
+		return( (ISecureSecSysRoleEnablesEditObj)this );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesEditObj beginEdit() {
+		throw new CFEditAlreadyOpenException( getClass(), "beginEdit" );
+	}
+
+	@Override
+	public void endEdit() {
+		orig.endEdit();
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj getOrig() {
+		return( orig );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesObj getOrigAsSecSysRoleEnables() {
+		return( (ISecureSecSysRoleEnablesObj)orig );
+	}
+
+	@Override
+	public ISecureSchemaObj getSchema() {
+		return( orig.getSchema() );
+	}
+
+	@Override
+	public void setSchema( ISecureSchemaObj value ) {
+		orig.setSchema(value);
+	}
+
+	@Override
+	public ISecureSecSysRoleEnables getRec() {
+		if( rec == null ) {
+			rec = getOrigAsSecSysRoleEnables().getSchema().getSecureBackingStore().getSecureFactory().getFactorySecSysRoleEnables().newRec();
+			rec.set( orig.getRec() );
+		}
+		return( rec );
+	}
+
+	@Override
+	public void setRec( ISecureSecSysRoleEnables value ) {
+		if( rec != value ) {
+			rec = value;
+			requiredContainerSysRole = null;
+			requiredParentEnableGroup = null;
+		}
+	}
+
+	@Override
+	public ISecureSecSysRoleEnables getSecSysRoleEnablesRec() {
+		return( (ISecureSecSysRoleEnables)getRec() );
+	}
+
+	@Override
+	public ISecureSecSysRoleEnablesPKey getPKey() {
+		return( orig.getPKey() );
+	}
+
+	@Override
+	public void setPKey( ISecureSecSysRoleEnablesPKey value ) {
+		orig.setPKey( value );
+		copyPKeyToRec();
+	}
+
+	@Override
+	public boolean getIsNew() {
+		return( orig.getIsNew() );
+	}
+
+	@Override
+	public void setIsNew( boolean value ) {
+		orig.setIsNew( value );
+	}
+
+	@Override
+	public ICFKeyHash256 getRequiredSecSysRoleId() {
+		return( getPKey().getRequiredSecSysRoleId() );
+	}
+
+	@Override
+	public String getRequiredEnableName() {
+		return( getPKey().getRequiredEnableName() );
+	}
+
+	@Override
+	public ISecureSecSysRoleObj getRequiredContainerSysRole() {
+		return( getRequiredContainerSysRole( false ) );
+	}
+
+	@Override
+	public ISecureSecSysRoleObj getRequiredContainerSysRole( boolean forceRead ) {
+		if( forceRead || ( requiredContainerSysRole == null ) ) {
+			boolean anyMissing = false;
+			if( ! anyMissing ) {
+				ISecureSecSysRoleObj obj = ((IBusModelSchemaObj)getOrigAsSecSysRoleEnables().getSchema()).getSecSysRoleTableObj().readSecSysRoleByIdIdx( getPKey().getRequiredSecSysRoleId() );
+				requiredContainerSysRole = obj;
+				if( obj != null ) {
+					requiredContainerSysRole = obj;
+				}
+			}
+		}
+		return( requiredContainerSysRole );
+	}
+
+	@Override
+	public void setRequiredContainerSysRole( ISecureSecSysRoleObj value ) {
+		if( rec == null ) {
+			getSecSysRoleEnablesRec();
+		}
+		if( value != null ) {
+			requiredContainerSysRole = value;
+			getSecSysRoleEnablesRec().setRequiredContainerSysRole(value.getSecSysRoleRec());
+		}
+		requiredContainerSysRole = value;
+	}
+
+	@Override
+	public ISecureSecSysGrpObj getRequiredParentEnableGroup() {
+		return( getRequiredParentEnableGroup( false ) );
+	}
+
+	@Override
+	public ISecureSecSysGrpObj getRequiredParentEnableGroup( boolean forceRead ) {
+		if( forceRead || ( requiredParentEnableGroup == null ) ) {
+			boolean anyMissing = false;
+			if( ! anyMissing ) {
+				ISecureSecSysGrpObj obj = ((IBusModelSchemaObj)getOrigAsSecSysRoleEnables().getSchema()).getSecSysGrpTableObj().readSecSysGrpByUNameIdx( getPKey().getRequiredEnableName() );
+				requiredParentEnableGroup = obj;
+			}
+		}
+		return( requiredParentEnableGroup );
+	}
+
+	@Override
+	public void setRequiredParentEnableGroup( ISecureSecSysGrpObj value ) {
+		if( rec == null ) {
+			getSecSysRoleEnablesRec();
+		}
+		if( value != null ) {
+			requiredParentEnableGroup = value;
+			getSecSysRoleEnablesRec().setRequiredParentEnableGroup(value.getSecSysGrpRec());
+		}
+		else {
+			requiredParentEnableGroup = null;
+			getSecSysRoleEnablesRec().setRequiredParentEnableGroup((ISecureSecSysGrp)null);
+		}
+		requiredParentEnableGroup = value;
+	}
+
+	@Override
+	public void copyPKeyToRec() {
+		if( rec != null ) {
+			rec.getPKey().setRequiredSecSysRoleId(getPKey().getRequiredSecSysRoleId());
+			rec.getPKey().setRequiredEnableName(getPKey().getRequiredEnableName());
+		}
+	}
+
+	@Override
+	public void copyRecToPKey() {
+		if( rec != null ) {
+			getPKey().setRequiredSecSysRoleId(rec.getPKey().getRequiredSecSysRoleId());
+			getPKey().setRequiredEnableName(rec.getPKey().getRequiredEnableName());
+		}
+	}
+
+	@Override
+	public void copyRecToOrig() {
+		ISecureSecSysRoleEnables origRec = getOrigAsSecSysRoleEnables().getSecSysRoleEnablesRec();
+		ISecureSecSysRoleEnables myRec = getSecSysRoleEnablesRec();
+		origRec.set( myRec );
+	}
+
+	@Override
+	public void copyOrigToRec() {
+		ISecureSecSysRoleEnables origRec = getOrigAsSecSysRoleEnables().getSecSysRoleEnablesRec();
+		ISecureSecSysRoleEnables myRec = getSecSysRoleEnablesRec();
+		myRec.set( origRec );
+	}
+}
