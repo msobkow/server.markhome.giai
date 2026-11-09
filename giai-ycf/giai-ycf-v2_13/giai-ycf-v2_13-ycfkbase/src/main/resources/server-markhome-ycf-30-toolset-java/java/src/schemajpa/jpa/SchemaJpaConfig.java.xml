@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schema/jpa/SchemaJpaConfig.java"
+	Revision="3.0"
+	Descr="Java 25 JPA implementation of a $SchemaName$ connection configuration">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaJpaConfigJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-jpa/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa"
+		ExpansionClassName="$SchemaName$JpaConfigJava"
+		ExpansionKeyName="$SchemaName$JpaConfigJava"
+		ExpansionFileName="$SchemaName$JpaConfig.java"
+>// Description: Java 25 JPA implementation of a $SchemaName$ connection configuration
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa;
+//package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower MfgSchemaName$.jpa;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+import javax.sql.DataSource;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$
+import $reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.*;$poptop SchemaDef iterate SchemaRefs( each importJavaJpaPackageSchemaName empty empty )$
+$implJpaSchemaConfigPart01$</GenFile>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart01">
+@Configuration
+@EntityScan(basePackages = "$reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.jpa")
+@EnableTransactionManagement
+@EnableJpaRepositories(
+    basePackages = "$reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.jpa",
+    entityManagerFactoryRef = "$lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory",
+    transactionManagerRef = "$lower reference ManufacturingSchema DbSchemaName$TransactionManager"
+)
+public class $SchemaName$JpaConfig
+{
+	@Autowired
+	@Qualifier("appMergedProperties")
+	private Properties appMergedProperties;
+
+    public final static String persistenceUnitName = "$lower reference ManufacturingSchema DbSchemaName$PU";
+
+    private static final AtomicReference&lt;DataSource&gt; ref$reference ManufacturingSchema DbSchemaName$DataSource = new AtomicReference&lt;&gt;(null);
+    private static final AtomicReference&lt;Properties&gt; $lower reference ManufacturingSchema DbSchemaName$JpaProperties = new AtomicReference&lt;&gt;(null);
+    private static final AtomicReference&lt;LocalContainerEntityManagerFactoryBean&gt; ref$reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean = new AtomicReference&lt;&gt;(null);
+
+    @Bean(name = "$lower reference ManufacturingSchema DbSchemaName$DataSource")
+    @Primary
+    public DataSource $lower reference ManufacturingSchema DbSchemaName$DataSource() {
+        if (ref$reference ManufacturingSchema DbSchemaName$DataSource.get() == null) {
+            Properties props = appMergedProperties;
+
+            HikariConfig config = new HikariConfig();
+            config.setDriverClassName(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.driver", props.getProperty("jakarta.persistence.jdbc.driver", "org.postgresql.Driver")));
+            config.setJdbcUrl(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.url", props.getProperty("jakarta.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/yourdb")));
+            config.setUsername(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.user", props.getProperty("jakarta.persistence.jdbc.user", "postgres")));
+            config.setPassword(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.password", props.getProperty("jakarta.persistence.jdbc.password", "pgpassword")));
+
+            config.setMaximumPoolSize(Integer.parseInt(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hikari.maximumPoolSize", props.getProperty("hikari.maximumPoolSize", "10"))));
+            config.setMinimumIdle(Integer.parseInt(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hikari.minimumIdle", props.getProperty("hikari.minimumIdle", "5"))));
+            config.setPoolName(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hikari.poolName", props.getProperty("hikari.poolName", "$reference ManufacturingSchema DbSchemaName$HikariCP")));
+            config.setAutoCommit(Boolean.getBoolean(props.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hikari.auto-commit", props.getProperty("hikari.auto-commit", "true"))));
+
+            DataSource ds = new HikariDataSource(config);
+
+            ref$reference ManufacturingSchema DbSchemaName$DataSource.compareAndSet(null, ds);
+        }
+        return ref$reference ManufacturingSchema DbSchemaName$DataSource.get();
+    }
+$implJpaSchemaConfigPart02$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart02">
+    @Bean(name = "$lower reference ManufacturingSchema DbSchemaName$JpaProperties")
+    @Primary
+    public Properties $lower reference ManufacturingSchema DbSchemaName$JpaProperties() {
+        if ($lower reference ManufacturingSchema DbSchemaName$JpaProperties.get() == null) {
+            // Build the effective properties for $lower reference ManufacturingSchema DbSchemaName$
+            // The persistence unit name must match the one in your persistence.xml, or you can use a dynamic unit
+            Properties merged = appMergedProperties;
+            String jakartaPersistenceJdbcDriver = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.driver", merged.getProperty("jakarta.persistence.jdbc.driver", null));
+            String jakartaPersistenceJdbcUrl = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.url", merged.getProperty("jakarta.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/dbtestdb"));
+            String jakartaPersistenceJdbcUser = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.user", merged.getProperty("jakarta.persistence.jdbc.user", "postgres"));
+            String jakartaPersistenceJdbcPassword = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jdbc.password", merged.getProperty("jakarta.persistence.jdbc.password", "pgpassword"));
+            String jakartaPersistenceSchemaGenerationDatabaseAction = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.schema-generation.database.action", merged.getProperty("jakarta.persistence.schema-generation.database.action", null));
+            String jakartaPersistenceSchemaGenerationScriptsAction = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.schema-generation.scripts.action", merged.getProperty("jakarta.persistence.schema-generation.scripts.action", null));
+            String jakartaPersistenceSchemaGenerationCreateSource = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.schema-generation.create-source", merged.getProperty("jakarta.persistence.schema-generation.create-source", "metadata"));
+            String jakartaPersistenceSchemaGenerationDropSource = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.schema-generation.drop-source", merged.getProperty("jakarta.persistence.schema-generation.drop-source", "metadata"));
+            String jakartaPersistenceCreateDatabaseSchemas = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.create-database-schemas", merged.getProperty("jakarta.persistence.create-database-schemas", "true"));
+            // String jakartaNonJtaDataSource = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.nonJtaDataSource", merged.getProperty("jakarta.persistence.nonJtaDataSource", null));
+            // String jakartaJtaDataSource = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.jakarta.persistence.jtaDataSource", merged.getProperty("jakarta.persistence.jtaDataSource", null));
+            String hibernateDialect = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.dialect", merged.getProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect"));
+            String hibernateHbm2ddlAuto = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.hbm2ddl.auto", merged.getProperty("hibernate.hbm2ddl.auto", "update"));
+            String hibernateShowSql = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.show_sql", merged.getProperty("hibernate.show_sql", "false"));
+            String hibernateFormatSql = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.format_sql", merged.getProperty("hibernate.format_sql", "false"));
+            String hibernateConnectionPoolSize = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.connection_pool_size", merged.getProperty("hibernate.connection_pool_size", "10"));
+            String hibernateConnectionDatasource = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.connection_datasource", merged.getProperty("hibernate.connection_datasource", null));
+            String hibernateCacheRegionFactoryClass = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.cache.region.factory_class", merged.getProperty("hibernate.cache.region.factory_class", null));
+            String hibernateDefaultSchema = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.default_schema", "$lower reference ManufacturingSchema DbSchemaName$");
+            // String hibernateTransactionJTAPlatform = merged.getProperty("$lower reference ManufacturingSchema DbSchemaName$.hibernate.transaction.jta.platform", merged.getProperty("hibernate.transaction.jta.platform", "org.hibernate.engine.transaction.jta.platform.internal.SpringJtaPlatform"));
+$implJpaSchemaConfigPart03$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart03">
+
+            Properties applicable = new Properties();
+            if (persistenceUnitName != null &amp;&amp; !persistenceUnitName.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.unitName", persistenceUnitName);
+            }
+            if (jakartaPersistenceJdbcDriver != null &amp;&amp; !jakartaPersistenceJdbcDriver.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.jdbc.driver", jakartaPersistenceJdbcDriver);
+            }
+            if (jakartaPersistenceJdbcUrl != null &amp;&amp; !jakartaPersistenceJdbcUrl.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.jdbc.url", jakartaPersistenceJdbcUrl);
+            }
+            if (jakartaPersistenceJdbcUser != null &amp;&amp; !jakartaPersistenceJdbcUser.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.jdbc.user", jakartaPersistenceJdbcUser);
+            }
+            if (jakartaPersistenceJdbcPassword != null &amp;&amp; !jakartaPersistenceJdbcPassword.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.jdbc.password", jakartaPersistenceJdbcPassword);
+            }
+            if (jakartaPersistenceSchemaGenerationDatabaseAction != null &amp;&amp; !jakartaPersistenceSchemaGenerationDatabaseAction.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.schema-generation.database.action", jakartaPersistenceSchemaGenerationDatabaseAction);
+            }
+            if (jakartaPersistenceSchemaGenerationScriptsAction != null &amp;&amp; !jakartaPersistenceSchemaGenerationScriptsAction.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.schema-generation.scripts.action", jakartaPersistenceSchemaGenerationScriptsAction);
+            }
+            if (jakartaPersistenceSchemaGenerationCreateSource != null &amp;&amp; !jakartaPersistenceSchemaGenerationCreateSource.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.schema-generation.create-source", jakartaPersistenceSchemaGenerationCreateSource);
+            }
+            if (jakartaPersistenceSchemaGenerationDropSource != null &amp;&amp; !jakartaPersistenceSchemaGenerationDropSource.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.schema-generation.drop-source", jakartaPersistenceSchemaGenerationDropSource);
+            }
+            if (jakartaPersistenceCreateDatabaseSchemas != null &amp;&amp; !jakartaPersistenceCreateDatabaseSchemas.isEmpty()) {
+                applicable.setProperty("jakarta.persistence.create-database-schemas", jakartaPersistenceCreateDatabaseSchemas);
+            }
+$implJpaSchemaConfigPart04$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart04">
+            if (hibernateDialect != null &amp;&amp; !hibernateDialect.isEmpty()) {
+                applicable.setProperty("hibernate.dialect", hibernateDialect);
+            }
+            if (hibernateHbm2ddlAuto != null &amp;&amp; !hibernateHbm2ddlAuto.isEmpty()) {
+                applicable.setProperty("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
+            }
+            if (hibernateShowSql != null &amp;&amp; !hibernateShowSql.isEmpty()) {
+                applicable.setProperty("hibernate.show_sql", hibernateShowSql);
+            }
+            if (hibernateFormatSql != null &amp;&amp; !hibernateFormatSql.isEmpty()) {
+                applicable.setProperty("hibernate.format_sql", hibernateFormatSql);
+            }
+            if (hibernateConnectionPoolSize != null &amp;&amp; !hibernateConnectionPoolSize.isEmpty()) {
+                applicable.setProperty("hibernate.connection_pool_size", hibernateConnectionPoolSize);
+            }
+            if (hibernateConnectionDatasource != null &amp;&amp; !hibernateConnectionDatasource.isEmpty()) {
+                applicable.setProperty("hibernate.connection.datasource", hibernateConnectionDatasource);
+            }
+            if (hibernateCacheRegionFactoryClass != null &amp;&amp; !hibernateCacheRegionFactoryClass.isEmpty()) {
+                applicable.setProperty("hibernate.cache.region.factory_class", hibernateCacheRegionFactoryClass);
+            }
+            if (hibernateDefaultSchema != null &amp;&amp; !hibernateDefaultSchema.isEmpty()) {
+                applicable.setProperty("hibernate.default_schema", hibernateDefaultSchema);
+            }
+$implJpaSchemaConfigPart05$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart05">
+            // // A JTA implementation is required as a standalone application, but you can use implementations for specific J2EE servers, such as WebLogic, too
+            // if (hibernateTransactionJTAPlatform != null &amp;&amp; !hibernateTransactionJTAPlatform.isEmpty()) {
+            //     applicable.setProperty("hibernate.transaction.jta.platform", hibernateTransactionJTAPlatform);
+            // }
+            // // If you want to use a JTA DataSource, you can set it here
+            // if (jakartaJtaDataSource != null &amp;&amp; !jakartaJtaDataSource.isEmpty()) {
+            //     applicable.setProperty("jakarta.persistence.jtaDataSource", jakartaJtaDataSource);
+            // }
+            // // If you want to use a non-JTA DataSource, you can set it here
+            // if (jakartaNonJtaDataSource != null &amp;&amp; !jakartaNonJtaDataSource.isEmpty()) {
+            //     applicable.setProperty("jakarta.persistence.nonJtaDataSource", jakartaNonJtaDataSource);
+            // }
+ 
+            $lower reference ManufacturingSchema DbSchemaName$JpaProperties.compareAndSet(null, applicable);
+        }
+        return $lower reference ManufacturingSchema DbSchemaName$JpaProperties.get();
+    }
+$implJpaSchemaConfigPart06$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart06">
+    @Bean(name = "$lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory")
+    @Primary
+    public LocalContainerEntityManagerFactoryBean $lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory(
+        @Qualifier("$lower reference ManufacturingSchema DbSchemaName$DataSource") DataSource $lower reference ManufacturingSchema DbSchemaName$DataSource,
+        @Qualifier("$lower reference ManufacturingSchema DbSchemaName$JpaProperties") Properties $lower reference ManufacturingSchema DbSchemaName$JpaProperties) {
+        // if (ref$reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean.get() == null) {
+            // Create the EntityManagerFactory using the Jakarta Persistence API
+            try {
+                System.err.println("Creating $lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory with properties:");
+                $lower reference ManufacturingSchema DbSchemaName$JpaProperties.forEach((key, value) -&gt; {
+                    if (value instanceof String) {
+                        String s = (String)value;
+                        System.err.println("  " + key + " = " + s);
+                    }
+                    else {
+                        String classname = value.getClass().getName();
+                        System.err.println("  " + key + " = instanceof(" + classname + ")");
+                    }
+                });
+
+                // Configure EntityManagerFactoryBean
+                LocalContainerEntityManagerFactoryBean emfBean = new LocalContainerEntityManagerFactoryBean();
+                emfBean.setDataSource($lower reference ManufacturingSchema DbSchemaName$DataSource);
+                emfBean.setPackagesToScan("$reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.jpa");
+                emfBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+                emfBean.setJpaProperties($lower reference ManufacturingSchema DbSchemaName$JpaProperties);
+                emfBean.setPersistenceUnitName(persistenceUnitName);
+                return emfBean;
+                // ref$reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean.compareAndSet(null, emfBean);
+            } catch (Exception e) {
+                System.err.println("ERROR: Persistence.createEntityManagerFactory(\"" + persistenceUnitName + "\", emfProperties) threw " + e.getClass().getName() + ": " + e.getMessage());
+                e.printStackTrace(System.err);
+                throw e;
+            }
+        // }
+        // return ref$reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean.get();
+    }
+$implJpaSchemaConfigPart07$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="implJpaSchemaConfigPart07">
+    @Bean(name = "$lower reference ManufacturingSchema DbSchemaName$TransactionManager")
+    @Primary
+    public JpaTransactionManager $lower reference ManufacturingSchema DbSchemaName$TransactionManager(
+        @Qualifier("$lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory") LocalContainerEntityManagerFactoryBean $lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory) {
+            EntityManagerFactory f = $lower reference ManufacturingSchema DbSchemaName$EntityManagerFactory.getObject();
+            if (f != null) {
+                return new JpaTransactionManager(f);
+            }
+            else {
+                System.err.println("ERROR: $reference ManufacturingSchema DbSchemaName$JpaConfig.$lower reference ManufacturingSchema DbSchemaName$TransactionManager() $lower reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean.getObject() returned null");
+				throw new CFNullArgumentException(getClass(), "$lower reference ManufacturingSchema DbSchemaName$TransactionManater", 0, "$lower reference ManufacturingSchema DbSchemaName$EntityManagerFactoryBean.getObject()");
+            }
+    }
+}
+</GenRule>
+
+</RuleSet>

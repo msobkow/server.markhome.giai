@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *
+ *	This program is part of MSS Code Factory 2.13, available under
+ *	a dual GPLv3/commercial license.
+ *
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleSet
+	xmlns="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+msscf"
+	Name="src/SchemaMssCF/SchemaMssCFIterateTableSuffix.java"
+	Revision="2.13"
+	Descr="Java 11 SchemaMssCFIterateTableSuffix">
+
+	<GenFile GenDef="Relation" Name="fileSchemaMssCFIterateTableSuffixJava"
+			GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$msscf"
+		SourceBundle="java"
+		BasePackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$msscf/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$msscf"
+		ExpansionClassName="$SchemaName$MssCFIterate$popto Table TableName$$Suffix$Java"
+		ExpansionKeyName="$SchemaName$MssCFIterate$popto Table TableName$$Suffix$Java"
+		ExpansionFileName="$SchemaName$MssCFIterate$popto Table TableName$$Suffix$.java">
+// Description: Java 11 MssCF Iterator for $popto Table TableName$ Relationship $Suffix$.
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$msscf;
+
+import java.io.*;
+import java.lang.reflect.*;
+import java.net.*;
+import java.sql.*;
+import java.rmi.*;
+import java.text.*;
+import java.util.*;
+import org.msscf.msscf.cflib.CFLib.*;
+import org.msscf.msscf.cfcore.MssCF.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$poptop SchemaDef importJavaPackageSchemaName$$poptop SchemaDef importJavaPackageSchemaNameObj$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaNameObj empty empty )$
+import org.msscf.msscf.cfcore.CFGenKb.*;
+import org.msscf.msscf.cfcore.CFGenKbObj.*;
+
+/**
+ *	$SchemaName$MssCFIterate$popto Table TableName$$Suffix$ binds $popto Table TableName$.$Suffix$
+ *	as an instance of MssCFGenIteratorObj.
+ */
+public class $SchemaName$MssCFIterate$popto Table TableName$$Suffix$
+	extends MssCFGenIteratorObj
+{
+	private static final long serialVersionUID = 1L;
+
+	public $SchemaName$MssCFIterate$popto Table TableName$$Suffix$() {
+		super();
+	}
+
+	public $SchemaName$MssCFIterate$popto Table TableName$$Suffix$( MssCFEngine argEngine ) {
+		super( argEngine,
+			"any",
+			null,
+			"$popto Table Name$",
+			"$Suffix$",
+			"$reference ToTable Name$" );
+	}
+$implSchemaIterateTableSuffixEnumerateDetails$}
+</GenFile>
+
+	<GenRule GenDef="Relation" Name="implSchemaIterateTableSuffixEnumerateDetails">
+	public ListIterator&lt;ICFLibAnyObj&gt; enumerateDetails( MssCFGenContext genContext ) {
+		final String S_ProcName = "$SchemaName$MssCFIterate$popto Table Name$$Suffix$.enumerateDetails() ";
+
+		if( genContext == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				1,
+				"genContext" );
+		}
+
+		ICFLibAnyObj genDef = genContext.getGenDef();
+		if( genDef == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				1,
+				"genContext.getGenDef()" );
+		}
+
+		List&lt;ICFLibAnyObj&gt; list = new LinkedList&lt;ICFLibAnyObj&gt;();
+
+		if( genDef instanceof I$popto Table SchemaName$$popto Table Name$Obj ) {
+			Iterator&lt;I$reference ToTable DefSchemaName$$reference ToTable Name$Obj&gt; elements = ((I$popto Table SchemaName$$popto Table Name$Obj)genDef).get$OptionalOrRequired$$RelationTypeTag$$Suffix$().iterator();
+			while( elements.hasNext() ) {
+				list.add( elements.next() );
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				S_ProcName,
+				"genContext.getGenDef()",
+				genDef,
+				"I$reference ToTable SchemaName$$popto Table TableName$Obj" );
+		}
+
+		return( list.listIterator() );
+	}</GenRule>
+
+</RuleSet>

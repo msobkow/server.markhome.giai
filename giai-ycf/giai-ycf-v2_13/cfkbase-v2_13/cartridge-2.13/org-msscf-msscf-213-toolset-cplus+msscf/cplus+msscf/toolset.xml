@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *
+ *	This program is part of MSS Code Factory 2.13, available under
+ *	a dual GPLv3/commercial license.
+ *
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<ToolSet
+	xmlns="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	Name="cplus+msscf"
+	Revision="2.13"
+	Descr="C++18 implementing MSS Code Factory library">
+	<RuleSet Name="Top" />
+	<RuleSet Name="CleanSchemaMssCF-wsl.bash" />
+	<RuleSet Name="BuildSchemaMssCF-wsl.bash" />
+	<RuleSet Name="CompileSchemaMssCF-wsl.bash" />
+	<RuleSet Name="InstallSchemaMssCF-wsl.bash" />
+	<RuleSet Name="MssCFProjectGitIgnore" />
+	<RuleSet Name="libschemamsscf/GitIgnore" />
+	<RuleSet Name="libschemamsscf/configure.ac" />
+	<RuleSet Name="libschemamsscf/Makefile.am" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFBindTableCol.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFBindTableCol.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFBindHasTableCol.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFBindHasTableCol.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFIterateTableSuffix.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFIterateTableSuffix.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFReferenceTableSuffix.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFReferenceTableSuffix.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFBindHasTableSuffix.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFBindHasTableSuffix.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFEngine.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFEngine.cpp" />
+	<RuleSet Name="libschemamsscf/schemamsscf/SchemaMssCFPublic.hpp" />
+	<RuleSet Name="libschemamsscf/SchemaMssCFPublic.cpp" />
+</ToolSet>

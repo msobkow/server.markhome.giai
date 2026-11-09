@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapub/SchemaPubAuthorization.java"
+	Revision="3.0"
+	Descr="Java SchemaName Public Authorization Implementation">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaPubAuthorizationJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-pub/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pub"
+		ExpansionClassName="$SchemaName$PubAuthorizationJava"
+		ExpansionKeyName="$SchemaName$PubAuthorizationJava"
+		ExpansionFileName="$SchemaName$PubAuthorization.java"
+>// Description: Java 25 $SchemaName$ Public Authorization Implementation
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pub;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.net.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+
+/*
+ *	A $SchemaName$PubAuthorization is a public authorization ticket
+ *	for the system providing services.  Most modern authorizations
+ *	are based on OAuth2 tickets, but I haven't gotten there yet.
+ */
+public class $SchemaName$PubAuthorization implements I$SchemaName$PubAuthorization, Serializable
+{$SchemaPubAuthorizationImplBody$}
+</GenFile>
+
+	<GenRule GenDef="SchemaDef" Name="SchemaPubAuthorizationImplBody"
+		>$implPubAuthorizationAttrICFUuid6$$implPubAuthorizationAttrSecId$$implPubAuthorizationConstructor$$implPubAuthorizationICFUuid6Accessors$$implPubAuthorizationSecIdAccessors$</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implPubAuthorizationAttrSecId">
+	protected CFDbKeyHash256 secSessionId;
+	protected CFDbKeyHash256 secUserId;
+	protected CFDbKeyHash256 secClusterId;
+	protected CFDbKeyHash256 secTenantId;
+</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implPubAuthorizationAttrICFUuid6">
+	protected ICFUuid6 authUuid6;
+	protected String authUuid6Str;
+</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implPubAuthorizationConstructor">
+	public $DefSchemaName$PubAuthorization() {
+		authUuid6 = CFUuid6.generateUuid6();
+		authUuid6Str = authUuid6.toString();
+		secSessionId = CFDbKeyHash256.nullGet();
+		secUserId = CFDbKeyHash256.nullGet();
+		secClusterId = CFDbKeyHash256.nullGet();
+		secTenantId = CFDbKeyHash256.nullGet();
+	}
+
+	public $DefSchemaName$PubAuthorization(ICFUuid6 authUuid6, CFDbKeyHash256 secSessionId, CFDbKeyHash256 secUserId, CFDbKeyHash256 secClusterId, CFDbKeyHash256 secTenantId) {
+		this.authUuid6 = authUuid6;
+		this.authUuid6Str = this.authUuid6.toString();
+		this.secSessionId = secSessionId;
+		this.secUserId = secUserId;
+		this.secClusterId = secClusterId;
+		this.secTenantId = secTenantId;
+	}
+
+	public $DefSchemaName$PubAuthorization(I$DefSchemaName$PubAuthorization src) {
+		authUuid6 = new CFUuid6(src.getAuthUuid6().getBytes());
+		authUuid6Str = authUuid6.toString();
+		secSessionId = new CFDbKeyHash256(src.getSecSessionId());
+		secUserId = new CFDbKeyHash256(src.getSecUserId());
+		secClusterId = new CFDbKeyHash256(src.getSecClusterId());
+		secTenantId = new CFDbKeyHash256(src.getSecTenantId());
+	}
+</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implPubAuthorizationSecIdAccessors">
+	public CFDbKeyHash256 getSecSessionId() {
+		return( secSessionId );
+	}
+
+	public CFDbKeyHash256 getSecUserId() {
+		return( secUserId );
+	}
+
+	public CFDbKeyHash256 getSecClusterId() {
+		return( secClusterId );
+	}
+
+	public CFDbKeyHash256 getSecTenantId() {
+		return( secTenantId );
+	}
+</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implPubAuthorizationICFUuid6Accessors">
+	public ICFUuid6 getAuthUuid6() {
+		return( authUuid6 );
+	}
+
+	public String getAuthUuid6Str() {
+		return( authUuid6Str );
+	}
+</GenRule>
+
+</RuleSet>

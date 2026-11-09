@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *
+ *	This program is part of MSS Code Factory 2.13, available under
+ *	a dual GPLv3/commercial license.
+ *
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleSet
+		xmlns="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+javafx"
+	Name="src/ISchemaJavaFXTablePageCallback.java"
+	Revision="2.13"
+	Descr="Java 11 JavaFX Pane Common Interface for Table">
+
+	<GenFile GenDef="Table" Name="fileISchemaJavaFXTablePageCallbackJava"
+			GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx"
+		SourceBundle="java"
+		BasePackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx"
+		ExpansionClassName="I$SchemaName$JavaFX$TableName$PageCallbackJava"
+		ExpansionKeyName="I$SchemaName$JavaFX$TableName$PageCallbackJava"
+		ExpansionFileName="I$SchemaName$JavaFX$TableName$PageCallback.java"
+>// Description: Java 11 JavaFX Pane Common Interface for $TableName$.
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$javafx;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import org.msscf.msscf.cflib.CFLib.*;
+import org.msscf.msscf.cflib.CFLib.JavaFX.*;
+import org.apache.commons.codec.binary.Base64;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$poptop SchemaDef importJavaPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaNameObj empty empty )$$poptop SchemaDef importJavaPackageSchemaNameObj$
+
+/**
+ *	I$SchemaName$JavaFX$TableName$PageCallback JavaFX Interface
+ *	for $TableName$.
+ */
+public interface I$SchemaName$JavaFX$TableName$PageCallback
+{
+	public List&lt;I$DefSchemaName$$TableName$Obj&gt; pageData( $reference BaseClass reference PrimaryKeyIndex iterate Columns( first declOptPriorArg each declCommaOptPriorArg )$ );
+}
+</GenFile>
+
+</RuleSet>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *	Yorkton Code Fractal GIntel 3.1 Guided Intelligence (Gi)
+ *
+ *	Copyright 2026 Mark Stephen Sobkow
+ *
+ *	This file is part of the Yorkton Code Fractal Guided Intelligence (Gi).
+ *
+ *	Yorkton Code Fractal GIntel is available under dual commercial license from
+ *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+ *	Version 3 or later with classpath exception.
+ *
+ *	Yorkton Code Fractal GIntel is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	Yorkton Code Fractal GIntel is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with Yorkton Code Fractal GIntel.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com</CommonLicense>
+ *-->
+<MSSBam
+		xmlns="http://msscf.org/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="http://msscf.org/msscf/2.0.13/xsd/mssbam-2.13.xsd http://msscf.org/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		Name="GIntel"
+		Revision="3.1"
+		Description="Yorkton Code Fractal GIntel - Guided Intelligence (Gi)"
+		ProjectRoot="server.markhome.ycf.GIntel.3.1" >
+	<Tld Name="server" >
+		<TopDomain Name="markhome" >
+			<TopProject Name="ycf" >
+				<SubProject Name="GIntel" >
+					<MajorVersion Name="3" >
+						<MinorVersion Name="1" >
+<SchemaDef Name="GIntel"
+		DbName="GIntel31"
+		ShortName="Gi"
+		Description="Yorkton Code Fractal Guided Intelligence (Gi)"
+		CopyrightHolder="Mark Stephen Sobkow"
+		CopyrightPeriod="2026"
+		AuthorEMail="mark.sobkow@gmail.com"
+		ProjectURL="https://msobkow.github.io/"
+		PublishURI="https://msobkow.github.io/index.html#gintel31"
+		CommonLicenseName="Dual GPLv3/Commercial" CommonLicenseCode="DualGPLv3" >
+			<CommonLicense>
+Yorkton Code Fractal GIntel 3.1 Guided Intelligence (Gi)
+
+Copyright 2026 Mark Stephen Sobkow
+
+This file is part of the Yorkton Code Fractal Guided Intelligence (Gi).
+
+Yorkton Code Fractal GIntel is available under dual commercial license from
+Mark Stephen Sobkow, or under the terms of the GNU General Public License,
+Version 3 or later with classpath exception.
+
+Yorkton Code Fractal GIntel is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Yorkton Code Fractal GIntel is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Yorkton Code Fractal GIntel.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+
+If you wish to modify and use this code without publishing your changes,
+or integrate it with proprietary code, please contact Mark Stephen Sobkow
+for a commercial license at mark.sobkow@gmail.com</CommonLicense>
+
+	<SchemaRef Name="Secure"
+			RefModelName="server-markhome-ycf-Secure-3-1-Secure"
+			IncludeRoot="server.markhome.ycf.Secure.3.1.Secure" />
+
+	<SchemaRef Name="IntNet"
+			RefModelName="server-markhome-ycf-IntNet-3-1-IntNet"
+			IncludeRoot="server.markhome.ycf.IntNet.3.1.IntNet" />
+
+	<DbKeyHash256Gen Name="GiLearnableIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="1100"
+			BlockSize="1" />
+
+	<NumberDef Name="GiConfidence"
+			IsNullable="false"
+			Digits="6"
+			Precision="5"
+			MinValue="0.00000"
+			MaxValue="1.00000" />
+			
+	<Table Name="GiLearnable"
+			TableClassCode="b001"
+			DbName="lrnabl"
+			Label="Learnable Valuation"
+			Description="Learnable values track current, target, and adjustment towards target confidence values.  A learnable value can usually be improved on through experimental adjustments up and down, so history of the learnables is tracked to see how many iterations it took to settle the value."
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			LoaderBehaviour="Update"
+			SecScope="Tenant" >
+		<TableCol Name="Id"
+				DbName="kid"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="GiLearnableIdGen" />
+		<TableCol Name="TenantId"
+				DbName="tentid"
+				Label="Tenant Id"
+				IsNullable="false"
+				DataType="TenantIdGen" />
+		<TableCol Name="CurConfidence"
+				DbName="curcnfdnc"
+				Label="Current Confidence"
+				IsNullable="false"
+				DataType="GiConfidence" />
+		<TableCol Name="TargetConfidence"
+				DbName="trgcnfdnc"
+				Label="Target Confidence"
+				IsNullable="false"
+				DataType="GiConfidence" />
+		<TableCol Name="AdjustConfidence"
+				DbName="adjcnfdnc"
+				Label="Adjustment Confidence"
+				IsNullable="false"
+				DataType="GiConfidence" />
+		<PrimaryIndex Name="LearnableIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="lrnabl_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="LearnableTenantIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="lrnabl_tenantidx"
+				ShortName="Tenant"
+				Suffix="TenantIdx"
+				Label="TenantIdx" >
+			<IndexCol Name="TenantId" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<TableAddendum FromTable="GiLearnable">
+		<Relation Name="Tenant"
+				RelationType="Container"
+				DbName="lrnabltent"
+				Label="Tenant"
+				Suffix="Tenant"
+				FromIndex="GiLearnableTenantIdx"
+				ToIndex="Tenant.TenantIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="Tenant">
+		<Relation Name="LearnableValues"
+				RelationType="Component"
+				DbName="tentlrnabl"
+				Label="Learnable Values"
+				Suffix="LearnValues"
+				FromIndex="TenantIdIdx"
+				ToIndex="GiLearnable.GiLearnableTenantIdx"
+				IsRequired="false" >
+			<RelationCol Name="Id" ToCol="TenantId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="Learnable">
+		<ClearDep Name="ClearTableRelationNarrowed" ClearDepChain="Tables.TableRelation.NarrowedRelation" />
+	</TableAddendum>
+
+	<TableAddendum FromTable="Tenant">
+		<DelDep Name="DelLearnValues" DelDepChain="LearnableValues" />
+	</TableAddendum>
+
+</SchemaDef>
+						</MinorVersion>
+					</MajorVersion>
+				</SubProject>
+			</TopProject>
+		</TopDomain>
+	</Tld>
+</MSSBam>

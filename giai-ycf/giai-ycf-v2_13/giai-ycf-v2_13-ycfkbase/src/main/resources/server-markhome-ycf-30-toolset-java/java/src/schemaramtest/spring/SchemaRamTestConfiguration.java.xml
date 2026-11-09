@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemaramtest/spring/SchemaRamTestConfiguration.java"
+	Revision="3.0"
+	Descr="Java 25 Configuration of the RamTest application">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaRamTestConfigurationJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-ramtest/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$ramtest.spring"
+		ExpansionClassName="$SchemaName$RamTestConfigurationJava"
+		ExpansionKeyName="$SchemaName$RamTestConfigurationJava"
+		ExpansionFileName="$SchemaName$RamTestConfiguration.java">
+// Description: Java 25 Configuration of the RamTest application
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$ramtest.spring;
+
+import java.util.Properties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$importJavaPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaRamPackageSchemaName empty empty )$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaRamPackageSchemaName$
+import $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$ramtest.$SchemaName$RamTest;
+
+@Configuration
+public class $SchemaName$RamTestConfiguration {
+	
+	@Bean(name = "appApplicationProperties")
+	public Properties appApplicationProperties() {
+		return( $SchemaName$RamTest.getApplicationProperties() );
+	}
+	
+	@Bean(name = "appSystemProperties")
+	public Properties appSystemProperties() {
+		return( $SchemaName$RamTest.getSystemProperties() );
+	}
+
+	@Bean(name = "appUserDefaultProperties")
+	public Properties appUserDefaultProperties() {
+		return( $SchemaName$RamTest.getUserDefaultProperties() );
+	}
+	
+	@Bean(name = "appUserProperties")
+	public Properties appUserProperties() {
+		return( $SchemaName$RamTest.getUserProperties() );
+	}
+	
+	@Bean(name = "appMergedProperties")
+	public Properties appMergedProperties() {
+		return( $SchemaName$RamTest.getMergedProperties() );
+	}
+}
+</GenFile>
+
+</RuleSet>

@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+saxloader"
+	Revision="3.0"
+	Name="xsd/project-schema-version.xsd"
+	Descr="Java 25 XML SAX XSD specification file">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaStructuredXsd"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-saxloader/src/main/resources"
+		SubPackageName="META-INF/xsd"
+		ExpansionClassName="$SchemaName$StructuredXSD"
+		ExpansionKeyName="$SchemaName$StructuredXSD"
+		ExpansionFileName="$lower SchemaName$-structured.xsd"
+>$XsdXmlPreamble$&lt;xsd:schema xmlns="$SchemaLoaderNamespace$" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="$SchemaLoaderNamespace$" version="$reference MinorVersion reference ParentMajVer Name$.$reference MinorVersion Name$"&gt;
+&lt;xs:import namespace="http://ycf.markhome.server/cf/v3_1/xsd/cflibdbutil-3.1.xsd" schemaLocation="http://ycf.markhome.server/cf/v3_1/xsd/cflibdbutil-3.1.xsd"/&gt;
+
+$SchemaAnnotation$$iterate Types( first CommentDeclAtomType each DeclAtomType empty empty )$$iterate SchemaTables( first CommentDeclTableColTypes each DeclTableColTypes empty empty )$$iterate SchemaTables( first CommentDeclIndexType each DeclIndexType empty empty )$$CommentTableObjTypes$$iterate SchemaTables( each DeclTableRootObjType empty empty )$$DeclRootDocument$
+&lt;/xsd:schema&gt;
+</GenFile>
+
+	<GenRule GenDef="SchemaDef" Name="SchemaLoaderNamespace"
+		>http://$lower SchemaHostName$/$lower reference MinorVersion reference ParentMajVer reference ParentSPrj reference ParentTPrj Name$/v$reference MinorVersion reference ParentMajVer Name$_$reference MinorVersion Name$/xsd/$lower SchemaName$-structured.xsd</GenRule>
+
+	<GenRule GenDef="Object" Name="XsdXmlPreamble"
+>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</GenRule>
+
+	<GenRule GenDef="MajorVersion" Name="DashPackedVersion">-$lower PackedVersion$</GenRule>
+
+	<GenRule GenDef="MinorVersion" Name="DashPackedVersion">-$lower PackedVersion$</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="DashPackedVersion">-$lower PackedVersion$</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="DeclRootDocument">
+&lt;!-- ************************************************************************
+ *
+ *	Schema Root Document
+ *
+ **************************************************************************--&gt;
+
+&lt;xsd:complexType name="$SchemaName$Type" mixed="true"&gt;
+	&lt;xsd:sequence&gt;
+		&lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;$iterate SchemaTables( each DeclRootObjElement empty empty )$
+		&lt;/xsd:choice&gt;
+	&lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;
+
+&lt;xsd:element name="$SchemaName$" type="$SchemaName$Type" /&gt;
+</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclRootObjElement"
+		>$switch HasContainer yes empty default DeclInstantiableObjElements$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclInstantiableObjElements"
+		>$switch IsInstantiable yes DeclObjElement default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclObjElement">
+			&lt;xsd:element name="$TableName$" type="$TableName$ObjType" /&gt;</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="SchemaAnnotation">
+&lt;xsd:annotation&gt;
+	&lt;xsd:documentation xml:lang="en"&gt;
+		$EffectiveProjectName$ schema $SchemaName$
+	&lt;/xsd:documentation&gt;
+&lt;/xsd:annotation&gt;
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="CommentDeclAtomType">
+&lt;!-- ************************************************************************
+ *
+ *	Schema Atomic Types
+ *
+ **************************************************************************--&gt;
+$DeclAtomType$</GenRule>
+
+	<GenRule GenDef="Table" Name="CommentDeclTableColTypes">
+&lt;!-- ************************************************************************
+ *
+ *	Table Column Types
+ *
+ **************************************************************************--&gt;
+$DeclTableColTypes$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableColTypes"
+		>$iterate Columns( each DeclTableColType empty empty )$$DeclTableColRevisionType$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableColRevisionType">
+&lt;xsd:simpleType name="$Name$RevisionType"&gt;
+	&lt;xsd:restriction base="xsd:integer"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="BlobDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="BoolDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="EnumDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Int16Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Int32Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Int64Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt16Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt32Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt64Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="FloatDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DoubleDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NumberDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="StringDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;xsd:maxLength value="$MaxLen$"/&gt;
+		&lt;xsd:whiteSpace value="preserve"/&gt;
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TokenDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NmTokenDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NmTokensDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TextDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;xsd:maxLength value="$MaxLen$"/&gt;
+		&lt;xsd:whiteSpace value="preserve"/&gt;
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DateDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TimeDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TimestampDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZDateDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZTimeDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZTimestampDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UuidDef" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash128Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash160Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash224Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash256Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash384Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash512Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Uuid6Def" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TableCol" Name="DeclTableColType">
+&lt;xsd:simpleType name="$TableName$$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;$switch BaseModelAtomClass StringDef DeclTableColMaxLenPreserveWhitespace TextDef DeclTableColMaxLenPreserveWhitespace default empty$
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="DeclTableColMaxLenPreserveWhitespace">
+		&lt;xsd:maxLength value="$MaxLen$"/&gt;
+		&lt;xsd:whiteSpace value="preserve"/&gt;</GenRule>
+
+	<GenRule GenDef="Table" Name="CommentDeclIndexType">
+&lt;!-- ************************************************************************
+ *
+ *	Schema Primary Index Types
+ *
+ **************************************************************************--&gt;
+$DeclIndexType$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclIndexType"
+		>$reference PrimaryKeyIndex DeclIndexType$</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="CommentTableObjTypes">
+&lt;!-- ************************************************************************
+ *
+ *	Schema Table Object Types
+ *
+ **************************************************************************--&gt;
+</GenRule>
+
+	<GenRule GenDef="BoolDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="EnumDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;xsd:minLength value="1"/&gt;
+		&lt;xsd:maxLength value="127"/&gt;
+		&lt;xsd:whiteSpace value="collapse"/&gt;$iterate Tag( each declEnumTypeEnumerationTag )$
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="EnumTag" Name="declEnumTypeEnumerationTag">
+		&lt;xsd:enumeration value="$Name$"/&gt;</GenRule>
+
+	<GenRule GenDef="Int16Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Int32Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Int64Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt16Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt32Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UInt64Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="FloatDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DoubleDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NumberDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="StringDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;xsd:maxLength value="$MaxLen$"/&gt;
+		&lt;xsd:whiteSpace value="preserve"/&gt;
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TokenDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NmTokenDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="NmTokensDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$" /&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TextDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;xsd:maxLength value="$MaxLen$"/&gt;
+		&lt;xsd:whiteSpace value="preserve"/&gt;
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DateDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TimeDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TimestampDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZDateDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZTimeDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="TZTimestampDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash128Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash160Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash224Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash256Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash384Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="DbKeyHash512Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Uuid6Def" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="UuidDef" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"/&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+	<GenRule GenDef="Atom" Name="DeclAtomType">
+&lt;xsd:simpleType name="$Name$Type"&gt;
+	&lt;xsd:restriction base="$XsCFCoreType$"&gt;
+		&lt;!-- WORKING: Need the constraints here --&gt;
+	&lt;/xsd:restriction&gt;
+&lt;/xsd:simpleType&gt;
+</GenRule>
+
+	<GenRule GenDef="BlobDef" Name="XsCFCoreType"
+		>xsd:base64Binary</GenRule>
+	<GenRule GenDef="BoolDef" Name="XsCFCoreType"
+		>xsd:boolean</GenRule>
+	<GenRule GenDef="StringDef" Name="XsCFCoreType"
+		>xsd:string</GenRule>
+	<GenRule GenDef="TextDef" Name="XsCFCoreType"
+		>xsd:string</GenRule>
+	<GenRule GenDef="EnumDef" Name="XsCFCoreType"
+		>xsd:token</GenRule>
+	<GenRule GenDef="Int16Def" Name="XsCFCoreType"
+		>xsd:short</GenRule>
+	<GenRule GenDef="Int32Def" Name="XsCFCoreType"
+		>xsd:integer</GenRule>
+	<GenRule GenDef="Int64Def" Name="XsCFCoreType"
+		>xsd:long</GenRule>
+	<GenRule GenDef="UInt16Def" Name="XsCFCoreType"
+		>xsd:unsignedShort</GenRule>
+	<GenRule GenDef="UInt32Def" Name="XsCFCoreType"
+		>xsd:unsignedInt</GenRule>
+	<GenRule GenDef="UInt64Def" Name="XsCFCoreType"
+		>xsd:unsignedLong</GenRule>
+	<GenRule GenDef="FloatDef" Name="XsCFCoreType"
+		>xsd:decimal</GenRule>
+	<GenRule GenDef="DoubleDef" Name="XsCFCoreType"
+		>xsd:double</GenRule>
+	<GenRule GenDef="NumberDef" Name="XsCFCoreType"
+		>xsd:decimal</GenRule>
+	<GenRule GenDef="DateDef" Name="XsCFCoreType"
+		>xsd:date</GenRule>
+	<GenRule GenDef="TimeDef" Name="XsCFCoreType"
+		>xsd:time</GenRule>
+	<GenRule GenDef="TimestampDef" Name="XsCFCoreType"
+		>xsd:dateTime</GenRule>
+	<GenRule GenDef="TZDateDef" Name="XsCFCoreType"
+		>xsd:date</GenRule>
+	<GenRule GenDef="TZTimeDef" Name="XsCFCoreType"
+		>xsd:time</GenRule>
+	<GenRule GenDef="TZTimestampDef" Name="XsCFCoreType"
+		>xsd:dateTime</GenRule>
+	<GenRule GenDef="TokenDef" Name="XsCFCoreType"
+		>xsd:token</GenRule>
+	<GenRule GenDef="NmTokenDef" Name="XsCFCoreType"
+		>xsd:NMTOKEN</GenRule>
+	<GenRule GenDef="NmTokensDef" Name="XsCFCoreType"
+		>xsd:NMTOKENS</GenRule>
+	<GenRule GenDef="UuidDef" Name="XsCFCoreType"
+		>xsd:string</GenRule>
+	<GenRule GenDef="DbKeyHash128Def" Name="XsCFCoreType"
+		>DbKeyHash128</GenRule>
+	<GenRule GenDef="DbKeyHash160Def" Name="XsCFCoreType"
+		>DbKeyHash160</GenRule>
+	<GenRule GenDef="DbKeyHash224Def" Name="XsCFCoreType"
+		>DbKeyHash224</GenRule>
+	<GenRule GenDef="DbKeyHash256Def" Name="XsCFCoreType"
+		>DbKeyHash256</GenRule>
+	<GenRule GenDef="DbKeyHash384Def" Name="XsCFCoreType"
+		>DbKeyHash384</GenRule>
+	<GenRule GenDef="DbKeyHash512Def" Name="XsCFCoreType"
+		>DbKeyHash512</GenRule>
+	<GenRule GenDef="Uuid6Def" Name="XsCFCoreType"
+		>Uuid6</GenRule>
+	<GenRule GenDef="TableCol" Name="XsCFCoreType"
+		>$reference DataType Name$Type</GenRule>
+	<GenRule GenDef="IndexCol" Name="XsCFCoreType"
+		>$reference DataType IndexColXsCFCoreType$</GenRule>
+	<GenRule GenDef="Atom" Name="IndexColXsCFCoreType"
+		>$XsCFCoreType$</GenRule>
+	<GenRule GenDef="TableCol" Name="IndexColXsCFCoreType"
+		>$reference DataType Name$Type</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableRootObjType"
+		>$switch HasSuperClassRelation yes empty default DeclTableObjType$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObjType">
+&lt;xsd:complexType name="$Name$ObjType" mixed="true"&gt;$switch HasSuperClassRelation yes DeclTableObjTypeExtensioCFCore default DeclTableObjTypCFCore$
+&lt;/xsd:complexType&gt;
+$iterate TableSubClasses( each DeclTableObjType empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObjTypeExtensioCFCore">
+	&lt;xsd:complexContent&gt;
+		&lt;xsd:extension base="$reference SuperClassRelation reference ToTable TableName$ObjType"&gt;
+			&lt;xsd:sequence&gt;
+				&lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;$iterate Relation( each DeclTableObjTypeExtensionChoiceElement empty empty )$$iterate Columns( each DeclTableObjTypeExtensionChoiceXmlElementName empty empty )$
+				&lt;/xsd:choice&gt;
+			&lt;/xsd:sequence&gt;$iterate Columns( each DeclExtensionColAttribute empty empty )$$iterate Relation( each DeclTableObjExtensionColMaybeParseRelationAttr empty empty )$
+		&lt;/xsd:extension&gt;
+	&lt;/xsd:complexContent&gt;</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObjTypCFCore">
+	&lt;xsd:sequence&gt;
+		&lt;xsd:choice minOccurs="0" maxOccurs="unbounded"&gt;$iterate Relation( each DeclTableObjTypCFCoreChoiceElement empty empty )$$iterate Columns( each DeclTableObjTypeExtensionChoiceXmlElementName empty empty )$
+		&lt;/xsd:choice&gt;
+	&lt;/xsd:sequence&gt;$switch PrimaryKeyIsConstEnum yes DeclTableObCFCorePKeyAttrs default empty$$iterate Columns( each DecCFCoreColAttribute empty empty )$$iterate Relation( each DeclTableObCFCoreColMaybeParseRelationAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObCFCorePKeyAttrs"
+		>$reference PrimaryKeyIndex iterate Columns( each DeclObCFCorePKeyAttr )$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="DeclObCFCorePKeyAttr"
+		>$reference Column DecCFCoreColNonIdAttribute$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObCFCoreColMaybeParseRelationAttr"
+		>$switch RelationTypeTag
+			Superclass empty
+			Container empty
+			Owner empty
+			Lookup DeclTableObCFCoreParseSingletonRelationAttr
+			Parent DeclTableObCFCoreParseSingletonRelationAttr
+			Master DeclTableObCFCoreParseSingletonRelationAttr
+			default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObCFCoreParseSingletonRelationAttr"
+		>$switch IsToIndexUnique yes DeclTableObCFCoreParseNonChainRelationAttr default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObCFCoreParseNonChainRelationAttr"
+		>$switch IsChainRelation yes empty default DeclTableObCFCoreParseNamedRelationAttr$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObCFCoreParseNamedRelationAttr"
+		>$switch ToTableHasLookupIndex yes DeclTableObCFCoreParseRelationAttr default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObCFCoreParseRelationAttr">
+	&lt;xsd:attribute name="$Suffix$" type="xsd:string" use="$DeclTableObjRelationAttrRequiredOrOptional$"/&gt;</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjRelationAttrRequiredOrOptional"
+		>$lower switch IsRequired yes Required default Optional$</GenRule>
+
+	<GenRule GenDef="Object" Name="Required">Required</GenRule>
+	<GenRule GenDef="Object" Name="Optional">Optional</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjExtensionColMaybeParseRelationAttr"
+		>$switch RelationTypeTag
+			Superclass empty
+			Container empty
+			Owner empty
+			Lookup DeclTableObjExtensionParseSingletonRelationAttr
+			Parent DeclTableObjExtensionParseSingletonRelationAttr
+			Master DeclTableObjExtensionParseSingletonRelationAttr
+			default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjExtensionParseSingletonRelationAttr"
+		>$switch IsToIndexUnique yes DeclTableObjExtensionParseNamedRelationAttr default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjExtensionParseNamedRelationAttr"
+		>$switch ToTableHasLookupIndex yes DeclTableObjExtensionParseRelationAttr default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjExtensionParseRelationAttr">
+			&lt;xsd:attribute name="$Suffix$" type="xsd:string" use="$DeclTableObjRelationAttrRequiredOrOptional$"/&gt;</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypeExtensionChoiceElement"
+		>$switch RelationTypeTag Components DeclTableObjTypeExtensionChoiceElementConsider default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypeExtensionChoiceElementConsider"
+		>$switch IsXsdContainer yes DeclTableObjTypeExtensionChoiceElementWalk default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypeExtensionChoiceElementWalk"
+		>$iterate ComponentCandidates( each DeclTableObjTypeExtensionChoiceElement empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObjTypeExtensionChoiceElement">
+					&lt;xsd:element name="$TableName$" type="$TableName$ObjType" /&gt;</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclTableObjTypeExtensionChoiceXmlElementName"
+		>$switch HasXmlElementName yes DeclTableObjTypeExtensionChoiceXmlElement default empty$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclTableObjTypeExtensionChoiceXmlElement">
+					&lt;xsd:element name="$XmlElementName$" type="$TableName$$Name$Type" /&gt;</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypCFCoreChoiceElement"
+		>$switch RelationTypeTag Components DeclTableObjTypCFCoreChoiceElementConsider default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypCFCoreChoiceElementConsider"
+		>$switch IsXsdContainer yes DeclTableObjTypCFCoreChoiceElementWalk default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="DeclTableObjTypCFCoreChoiceElementWalk"
+		>$iterate ComponentCandidates( each DeclTableObjTypCFCoreChoiceElement empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="DeclTableObjTypCFCoreChoiceElement">
+			&lt;xsd:element name="$TableName$" type="$TableName$ObjType" /&gt;</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclExtensionColAttribute"
+		>$switch ColumnInPrimaryIndex yes empty default DeclExtensionColNonIdAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclExtensionColNonIdAttribute"
+		>$switch Name Id empty default DeclExtensionColUnhiddenAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclExtensionColUnhiddenAttribute"
+		>$switch ColumnInContainerOrNamedLookupRelation yes empty default DeclExtensionColNotXmlElementNameAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclExtensionColNotXmlElementNameAttribute"
+		>$switch HasXmlElementName yes empty default DeclIndent3ColAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclIndent3ColAttribute">
+			&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclKeyColRequiredOrOptional$"/&gt;</GenRule>
+
+	<GenRule GenDef="Value" Name="DecCFCoreColAttribute"
+		>$switch ColumnInPrimaryIndex yes empty default DecCFCoreColNonIdAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DecCFCoreColNonIdAttribute"
+		>$switch Name Id empty default DecCFCoreColUnhiddenAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DecCFCoreColUnhiddenAttribute"
+		>$switch ColumnInContainerOrNamedLookupRelation yes empty default DeclIndentColAttribute$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclIndentColAttribute">
+	&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclKeyColRequiredOrOptional$"/&gt;</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclKeyColRequiredOrOptional"
+		>$switch ColumnInComponentsRelation yes DeclColOptional default DeclColRequiredOrOptional$</GenRule>
+
+	<GenRule GenDef="Value" Name="DeclIndentPKeyAttribute">
+	&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclColOptional$"/&gt;</GenRule>
+
+	<GenRule GenDef="Index" Name="DeclIndexType">
+&lt;xsd:complexType name="$Name$Type" mixed="true"&gt;
+	&lt;xsd:sequence&gt;
+	&lt;/xsd:sequence&gt;
+$iterate Columns( each DeclColAttribute empty empty )
+$&lt;/xsd:complexType&gt;
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="DeclColAttribute"
+>	&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclColRequiredOrOptional$"/&gt;
+</GenRule>
+	<GenRule GenDef="Atom" Name="DeclColAttribute"
+>	&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclColRequiredOrOptional$"/&gt;
+</GenRule>
+	<GenRule GenDef="TableCol" Name="DeclColAttribute"
+>	&lt;xsd:attribute name="$Name$" type="$TableName$$Name$Type" use="$DeclColRequiredOrOptional$"/&gt;
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="DeclColRequiredOrOptional"
+		>$switch IsNullable yes DeclColOptional default DeclColRequired$</GenRule>
+	<GenRule GenDef="Atom" Name="DeclColRequiredOrOptional"
+		>$switch IsNullable yes DeclColOptional default DeclColRequired$</GenRule>
+	<GenRule GenDef="TableCol" Name="DeclColRequiredOrOptional"
+		>$switch IsNullable yes DeclColOptional default DeclColRequired$</GenRule>
+
+	<GenRule GenDef="Atom" Name="DeclColRequired">required</GenRule>
+	<GenRule GenDef="TableCol" Name="DeclColRequired">required</GenRule>
+	<GenRule GenDef="IndexCol" Name="DeclColRequired">required</GenRule>
+
+	<GenRule GenDef="Atom" Name="DeclColOptional">optional</GenRule>
+	<GenRule GenDef="TableCol" Name="DeclColOptional">optional</GenRule>
+	<GenRule GenDef="IndexCol" Name="DeclColOptional">optional</GenRule>
+
+</RuleSet>

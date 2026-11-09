@@ -1,0 +1,1712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemaprotbuff/buff/SchemaPubBuffTable.java"
+	Revision="3.0"
+	Descr="Java 17 protected implementation of a $TableName$ buffer">
+
+	<GenRule GenDef="Table" Name="fileSchemaPubBuffTableJava">$switch IsPublic yes reallyFileSchemaPubBuffTableJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileSchemaPubBuffTableJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot"
+		ExpansionClassName="$SchemaName$PubBuff$TableName$Java"
+		ExpansionKeyName="$SchemaName$PubBuff$TableName$Java"
+		ExpansionFileName="$SchemaName$PubBuff$TableName$.java"
+>// Description: Java 17 implJustPubementation of a $TableName$ buffer
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.buff;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaPubPackageSchemaName$$importJavaPubPackageSchemaNameObj$$tabletweak CafeTableImport$
+
+public class $SchemaName$PubBuff$TableName$$switch HasDefSchema yes buffExtendDefSchemaPubBuffTable default buffExtendDefSchemaPubBuffTableSuperPubBuff$$switch HasDefSchema yes empty default maybeJustPubImplementSchemaPubBuffTableComparable$
+{$switch HasDefSchemaOrSuper no implJustPubCompactedPrimaryIndexClassPubBuffAttr default empty$$switch HasDefSchema yes empty default declJustPubSchemaPubBuffTableColumns$
+$switch HasDefSchemaOrSuper yes implJustPubSchemaPubBuffTableInhConstruct default implJustPubSchemaPubBuffTablCFCoreConstruct$$switch HasSuperClassRelation no implJustPubColumnAttrPubBuffPKeyAccessors default empty$$switch HasDefSchemaOrSuper no implJustPubBuffColumnOptAuditGetterSetters default empty$$switch HasDefSchemaOrSuper no implRevisionGetterSetter default empty$$implJustPubBuffGetClassCode$$implJustPubSchemaPubBuffTableSuperiorRelations$$implJustPubSchemaPubBuffTableSubservientRelations$$switch HasDefSchema no implJustPubBuffDataGetterSetters default empty$$implJustPubBuffEquals$$implJustPubBuffGetHashCode$$implJustPubBuffCompareTo$$implJustPubBuffSet$$implJustPubSchemaPubBuffTableToString$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+	<GenRule GenDef="Index" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+	<GenRule GenDef="Param" Name="implJustPubToStringEmitPKeyXmlAttrFragment">pkey.getXmlAttrFragment()</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetter">$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetter default actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterWithArgs">$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterWithArgs default actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterWithArgs$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetter">$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterMaybeSetter">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterMaybeSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterMaybeSetterWithArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterMaybeSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterMaybeSetter">$switch IsToIndexUnique yes implJustPubSchemaPubBuffTablePubGetterPubSetter default implJustPubSchemaPubBuffTablePubRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterMaybeSetterWithArgs">$switch IsToIndexUnique yes reallyImplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default reallyImplJustPubSchemaPubBuffTablePubRelationGetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubGetterPubSetter">$switch ToTableIsPublic yes reallyImplJustPubSchemaPubBuffTablePubGetterPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubGetterPubSetter">$implJustPubSchemaPubBuffTablePubRelationGetter$$implJustPubSchemaPubBuffTablePubRelationSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubGetterPubSetterWithArgs">$implJustPubSchemaPubBuffTablePubRelationGetterWithArgs$$implJustPubSchemaPubBuffTablePubRelationSetterWithArgs$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterSetter">$switch IsPublic yes reallyimplJustPubSchemaPubBuffTablePubRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyimplJustPubSchemaPubBuffTablePubRelationGetterSetter">$switch ToIndexIsPublic yes implJustPubSchemaPubBuffTablePubRelationGetterMaybeSetter default implJustPubSchemaPubBuffTablePubRelationGetterMaybeSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetter">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSetter">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterWithArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSetterWithArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterSetterWithArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterSetterWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterSetterWithArgs">$implJustPubSchemaPubBuffTablePubRelationGetterWithArgs$$switch ToIndexIsUnique yes implJustPubSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterWithArgs">$switch ToIndexIsUnique yes actuallyImplJustPubSchemaPubBuffTablePubRelationPubSetterWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubIJavaAtomType">$switch IsPublic yes implIJavaAtomType default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubIJavaAtomType">$reference Column implJustPubIJavaAtomType$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubHPKeyCompareToRequiredRevision">$implHPKeyCompareToRequiredRevision$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubColumnGetter">$switch IsPublic yes implColumnGetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubColumnSetter">$switch IsPublic yes implColumnSetter default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubHPubBuffSetWithCast">$switch IsPublic yes implHPubBuffSetWithCast default empty$</GenRule>
+
+    <GenRule GenDef="Table" Name="implHPubBuffSetWithCast">
+		if( src instanceof I$DefSchemaName$Pub$TableName$H ) {
+			set$TableName$( (I$DefSchemaName$Pub$TableName$H)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+					"set",
+					"src",
+					src,
+					"I$DefSchemaName$Pub$TableName$H" );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubConstructorInitAttr">$switch IsPublic yes reallyImplJustPubConstructorInitAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubConstructorInitAttr">$implConstructorInitAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubConstructorInitAttr">$reference Column implJustPubConstructorInitAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubConstructorInitAttr">$reference FromCol reference Column implJustPubConstructorInitAttr$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubHPubBuffSetWithCast">$switch IsPublic yes reallyImplJustPubHPubBuffSetWithCast default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubHPubBuffSetWithCast">$implHPubBuffSetWithCast$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubHPubBuffSetWithCast">$reference Column implJustPubHPubBuffSetWithCast$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubHPubBuffSetWithCast">$reference FromCol reference Column implJustPubHPubBuffSetWithCast$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubHPubBuffSetWithCast">$switch IsPublic yes implHPubBuffSetWithCast default empty$</GenRule>
+	<GenRule GenDef="Index" Name="implJustPubHPubBuffSetWithCast">$switch IsPublic yes implHPubBuffSetWithCast default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubHPubBuffSetWithCast">$switch IsPublic yes implHPubBuffSetWithCast default empty$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubColumnGetterSetter">$switch IsPublic yes reallyImplJustPubColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubColumnGetterSetter">$implColumnGetterSetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubColumnGetterSetter">$switch IsPublic yes reallyImplJustPubColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubColumnGetterSetter">$implColumnGetterSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubColumnGetterSetter">$reference Column implJustPubColumnGetterSetter$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubColumnGetterSetter">$reference FromCol reference Column implJustPubColumnGetterSetter$</GenRule>
+
+	<GenRule GenDef="Atom" Name="implJustPubToStringEmitXmlAttr">$switch IsPublic yes reallyImplJustPubToStringEmitXmlAttr default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubToStringEmitXmlAttr">$switch IsPublic yes reallyImplJustPubToStringEmitXmlAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubToStringEmitXmlAttr">$reference Column implJustPubToStringEmitXmlAttr$</GenRule>
+
+	<GenRule GenDef="Value" Name="declJustPubSetArgColumn">$switch IsPublic yes declSetArgColumn default empty$</GenRule>
+	<GenRule GenDef="Value" Name="declJustPubCommaSetArgColumn">$switch IsPublic yes declCommaSetArgColumn default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="declJustPubSetArgColumn">$switch IsPublic yes declSetArgColumn default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="declJustPubCommaSetArgColumn">$switch IsPublic yes declCommaSetArgColumn default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declJustPubSetArgColumn">$reference Column declJustPubSetArgColumn$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declJustPubCommaSetArgColumn">$reference Column declJustPubCommaSetArgColumn$</GenRule>
+	<GenRule GenDef="RelationCol" Name="declJustPubSetArgColumn">$reference FromCol declJustPubSetArgColumn$</GenRule>
+	<GenRule GenDef="RelationCol" Name="declJustPubCommaSetArgColumn">$reference FromCol declJustPubCommaSetArgColumn$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubGetHashCodeAttr">$switch IsPublic yes reallyImplJustPubGetHashCodeAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubGetHashCodeAttr">$implGetHashCodeAttr$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubGetHashCodeAttr">$switch IsPublic yes reallyImplJustPubGetHashCodeAttr default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubGetHashCodeAttr">$implGetHashCodeAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubGetHashCodeAttr">$reference Column implJustPubGetHashCodeAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubGetHashCodeAttr">$reference FromCol reference Column implJustPubGetHashCodeAttr$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubCompareToAttr">$switch IsPublic yes reallyImplJustPubPubCompareToAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubCompareToAttr">$implCompareToAttr$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubCompareToAttr">$switch IsPublic yes reallyImplJustPubPubCompareToAttr default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubCompareToAttr">$implCompareToAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubCompareToAttr">$reference Column implJustPubCompareToAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubCompareToAttr">$reference FromCol reference Column implJustPubCompareToAttr$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubPubCompareToAttr">$switch IsPublic yes reallyImplJustPubPubCompareToAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubPubCompareToAttr">$implPubCompareToAttr$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubPubCompareToAttr">$switch IsPublic yes reallyImplJustPubPubCompareToAttr default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubPubCompareToAttr">$implPubCompareToAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubPubCompareToAttr">$reference Column implJustPubPubCompareToAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubPubCompareToAttr">$reference FromCol reference Column implJustPubPubCompareToAttr$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubConstructorInitValue">$switch IsPublic yes reallyImplJustPubConstructorInitValue default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubConstructorInitValue">$implConstructorInitValue$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubConstructorInitValue">$switch IsPublic yes reallyImplJustPubConstructorInitValue default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubConstructorInitValue">$implConstructorInitValue$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubConstructorInitValue">$reference Column implJustPubConstructorInitValue$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubConstructorInitValue">$reference FromCol reference Column implJustPubConstructorInitValue$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubIJavaOptAtomType">$switch IsPublic yes reallyImplJustPubIJavaOptAtomType default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubIJavaOptAtomType">$implIJavaOptAtomType$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubIJavaOptAtomType">$switch IsPublic yes reallyImplJustPubIJavaOptAtomType default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubIJavaOptAtomType">$reference DataType implIJavaOptAtomType$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubIJavaOptAtomType">$reference Column implJustPubIJavaOptAtomType$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubIJavaOptAtomType">$reference FromCol reference Column implJustPubIJavaOptAtomType$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubColumnAttrOptionality">$switch IsPublic yes reallyImplJustPubColumnAttrOptionality default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubColumnAttrOptionality">$implColumnAttrOptionality$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubColumnAttrOptionality">$switch IsPublic yes reallyImplJustPubColumnAttrOptionality default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubColumnAttrOptionality">$implColumnAttrOptionality$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubColumnAttrOptionality">$reference Column implJustPubColumnAttrOptionality$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubColumnAttrOptionality">$reference FromCol reference Column implJustPubColumnAttrOptionality$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubDirectGetterSetter">$switch IsPublic yes reallyImplJustPubDirectGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubDirectGetterSetter">$implDirectGetterSetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="implJustPubDirectGetterSetter">$switch IsPublic yes reallyImplJustPubDirectGetterSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubDirectGetterSetter">$implDirectGetterSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubDirectGetterSetter">$reference Column implJustPubDirectGetterSetter$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubDirectGetterSetter">$reference FromCol reference Column implJustPubDirectGetterSetter$</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubCommaSetPassAttrArgColumn">$switch IsPublic yes reallyImplJustPubCommaSetPassAttrArgColumn default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubCommaSetPassAttrArgColumn">, get$reference FromCol implColumnAttrOptionality$$reference FromCol Name$()</GenRule>
+
+	<GenRule GenDef="Object" Name="pkeyJustPubGetter">$switch IsPublic yes reallyPKeyJustPubGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubGetter">$switch IsPublic yes pkeyJustPubGetter default maybeJustPubPKeyPubGetter$</GenRule>
+	<GenRule GenDef="Object" Name="maybeJustPubPKeyPubGetter">$switch IsPublic yes pkeyJustPubPubGetter default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="pkeyDeferJustPubGetter">$switch IsPublic yes reallyPKeyDeferJustPubGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyDeferJustPubGetter">$switch IsPublic yes pkeyDeferJustPubGetter default maybeDeferJustPubPKeyPubGetter$</GenRule>
+	<GenRule GenDef="Object" Name="maybeDeferJustPubPKeyPubGetter">$switch IsPublic yes pkeyDeferJustPubPubGetter default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="pkeyJustPubSetter">$switch IsPublic yes reallyPKeyJustPubSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubSetter">$switch IsPublic yes pkeyJustPubSetter default maybeJustPubPKeyPubSetter$</GenRule>
+	<GenRule GenDef="Object" Name="maybeJustPubPKeyPubSetter">$switch IsPublic yes pkeyJustPubPubSetter default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="pkeyDeferJustPubSetter">$switch IsPublic yes reallyPKeyDeferJustPubSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyDeferJustPubSetter">$switch IsPublic yes pkeyDeferJustPubSetter default maybeDeferJustPubPKeyPubSetter$</GenRule>
+	<GenRule GenDef="Object" Name="maybeDeferJustPubPKeyPubSetter">$switch IsPublic yes pkeyDeferJustPubPubSetter default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="actualJustPubPubDeferPKeyGetter">return(getPKey().get$implJustPubColumnAttrOptionality$$Name$())</GenRule>
+	<GenRule GenDef="Object" Name="pkeyJustPubPrivGetter">$switch IsPublic yes reallyPKeyJustPubPrivGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubPrivGetter">$actualJustPubPubDeferPKeyGetter$</GenRule>
+	<GenRule GenDef="Object" Name="pkeyJustPubPubGetter">$switch IsPublic yes reallyPKeyJustPubPubGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubPubGetter">$actualJustPubPubDeferPKeyGetter$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubPubDeferGetter">$pkeyDeferJustPubGetter$</GenRule>
+
+	<GenRule GenDef="Object" Name="deferJustPubPKeyPrivGetter">$switch IsPublic yes reallyDeferJustPubPKeyPrivGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeferJustPubPKeyPrivGetter">$actualJustPubPubDeferPKeyGetter$</GenRule>
+	<GenRule GenDef="Object" Name="deferJustPubPKeyPubGetter">$switch IsPublic yes reallyDeferJustPubPKeyPubGetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeferJustPubPKeyPubGetter">$actualJustPubPubDeferPKeyGetter$</GenRule>
+
+	<GenRule GenDef="Object" Name="actualJustPubPubDeferPKeySetter">getPKey().set$implJustPubColumnAttrOptionality$$Name$(value)</GenRule>
+	<GenRule GenDef="Object" Name="pkeyJustPubPrivSetter">$switch IsPublic yes reallyPKeyJustPubPrivSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubPrivSetter">$actualJustPubPubDeferPKeySetter$</GenRule>
+	<GenRule GenDef="Object" Name="pkeyJustPubPubSetter">$switch IsPublic yes reallyPKeyJustPubPubSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyPKeyJustPubPubSetter">$actualJustPubPubDeferPKeySetter$</GenRule>
+
+	<GenRule GenDef="Object" Name="deferJustPubPKeyPrivSetter">$switch IsPublic yes reallyDeferJustPubPKeyPrivSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeferJustPubPKeyPrivSetter">$actualJustPubPubDeferPKeySetter$</GenRule>
+	<GenRule GenDef="Object" Name="deferJustPubPKeyPubSetter">$switch IsPublic yes reallyDeferJustPubPKeyPubSetter default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeferJustPubPKeyPubSetter">$actualJustPubPubDeferPKeySetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeJustPubPKeyPubGetter">$switch IsPublic yes reallyMaybeJustPubPKeyPubGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubPKeyPubGetter">$reference Column maybeJustPubPKeyPubGetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="pkeyDeferJustPubGetter">$switch IsPublic yes reallyPKeyJustPubPubDeferGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubPubDeferGetter">$reference Column pkeyDeferJustPubGetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="maybeJustPubPKeyPubPubDeferGetter">$switch IsPublic yes reallyMaybeJustPubPKeyPubPubDeferGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubPKeyPubPubDeferGetter">$reference Column maybeJustPubPKeyPubPubDeferGetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="pkeyJustPubSetter">$switch IsPublic yes reallyPKeyJustPubSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubSetter">$reference Column pkeyJustPubSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="maybeJustPubPKeyPubSetter">$switch IsPublic yes reallyMaybeJustPubPKeyPubSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubPKeyPubSetter">$reference Column maybeJustPubPKeyPubSetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="pkeyDeferJustPubSetter">$switch IsPublic yes reallyPKeyJustPubPubDeferSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubPubDeferSetter">$reference Column pkeyDeferJustPubPubSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="maybeJustPubPKeyPubPubDeferSetter">$switch IsPublic yes reallyMaybeJustPubPKeyPubPubDeferSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubPKeyPubPubDeferSetter">$reference Column maybeJustPubPKeyPubPubDeferSetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="pkeyJustPubPrivGetter">$switch IsPublic yes reallyPKeyJustPubPrivGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubPrivGetter">$reference Column pkeyJustPubPrivGetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="pkeyJustPubGetter">$switch IsPublic yes reallyPKeyJustPubGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubGetter">$reference Column pkeyJustPubGetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="pkeyJustPubPubGetter">$switch IsPublic yes reallyPKeyJustPubPubGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyPKeyJustPubPubGetter">$reference Column pkeyJustPubPubGetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="deferJustPubPKeyPrivGetter">$switch IsPublic yes reallyDeferJustPubPKeyPrivGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyDeferJustPubPKeyPrivGetter">$reference Column deferJustPubPKeyPrivGetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="deferJustPubPKeyPubGetter">$switch IsPublic yes reallyDeferJustPubPKeyPubGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyDeferJustPubPKeyPubGetter">$reference Column deferJustPubPKeyPubGetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="deferJustPubPKeyPrivSetter">$switch IsPublic yes reallyDeferJustPubPKeyPrivSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyDeferJustPubPKeyPrivSetter">$reference Column deferJustPubPKeyPrivSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="deferJustPubPKeyPubSetter">$switch IsPublic yes reallyDeferJustPubPKeyPubSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyDeferJustPubPKeyPubSetter">$reference Column deferJustPubPKeyPubSetter$</GenRule>
+
+	<GenRule GenDef="Object" Name="implJustPubSetterCheckMinValue">$switch IsPublic yes reallyImplJustPubSetterCheckMinValue default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyImplJustPubSetterCheckMinValue">$switch IsPublic yes implJustPubPubSetterCheckMinValue default implJustPubSetterCheckPrivMinValue$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJustPubSetterCheckMinValue">$switch IsPublic yes reallyImplJustPubSetterCheckMinValue default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubSetterCheckMinValue">$reference Column maybeJustPubSetterCheckPubMinValue$</GenRule>
+
+	<GenRule GenDef="Object" Name="implJustPubSetterCheckMaxValue">$switch IsPublic yes reallyImplJustPubSetterCheckMaxValue default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyImplJustPubSetterCheckMaxValue">$switch IsPublic yes implJustPubSetterCheckPubMaxValue default implJustPubSetterCheckPrivMaxValue$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJustPubSetterCheckMaxValue">$switch IsPublic yes reallyImplJustPubSetterCheckMaxValue default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubSetterCheckMaxValue">$reference Column implJustPubSetterCheckMaxValue$</GenRule>
+	<GenRule GenDef="IndexCol" Name="maybeJustPubSetterCheckPubMaxValue">$switch IsPublic yes reallyMaybeJustPubSetterCheckPubMaxValue default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubSetterCheckPubMaxValue">$reference Column maybeJustPubSetterCheckPubMaxValue$</GenRule>
+	
+	<GenRule GenDef="Table" Name="implJustPubColumnAttrPubBuffPKeyAccessors">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubColumnAttrPubBuffPKeyAccessors">$switch IsPrimaryIndexKeyAtomic yes implJustPubColumnAttrPubBuffPKeyColumnAccessors default implJustPubColumnAttrPubBuffPKeyInstanceAccessors$$reference BaseClass reference PrimaryIndex iterate Columns( lone implJustPubDirectGetterSetter each implJustPubColumnGetterSetter empty empty )$$iterate SuperiorPrimaryKeyRelations( each implJustPubSchemaPubBuffTablePubRelationGetterSetterWithArgs empty empty )$$iterate SubservientPrimaryKeyRelations( each implJustPubSchemaPubBuffTablePubRelationGetterWithArgs empty empty )$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubColumnAttr">$implColumnAttr$</GenRule>
+	<GenRule GenDef="Value" Name="implIJustPubColumnAttr">$implIColumnAttr$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubColumnAttrPubBuffPKeyInstanceAccessors">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyInstanceAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubColumnAttrPubBuffPKeyInstanceAccessors">
+	@Override
+	public I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Pub$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey getPKey() {
+		return(pkey);
+	}
+
+	@Override
+	public void setPKey(I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Pub$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey pkey ) {
+		if (pkey == null) {
+			throw new CFNullArgumentException(getClass(), "setPKey", 1, "pkey");
+		}
+		else {
+			this.pkey = pkey;
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationSetter">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTablePubRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTablePubRelationSetter">$switch ToIndexIsUnique yes reimplJustPubNarrowedPubRelationSetterInst default reimplJustPubNarrowedPubSetterList$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationGetter">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTablePubRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTablePubRelationGetter">$switch ToIndexIsUnique yes reimplJustPubNarrowedSchemaPubBuffTablePubRelationGetterInst default reimplJustPubNarrowedPubGetterList$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationGetterWithArgs">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTablePubRelationGetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTablePubRelationGetterWithArgs">$switch ToIndexIsUnique yes empty default reimplJustPubNarrowedPubRelationSetterListWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationSetterWithArgs">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTablePubRelationSetterWithArgs">$switch ToIndexIsUnique yes reimplJustPubNarrowedPubRelationSetterInstWithArgs default reimplJustPubNarrowedPubRelationSetterListWithArgs$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubNarrowedPubRelationSetterInstWithArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterSingletonWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubNarrowedPubRelationSetterInstWithArgs">$reimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs$$reimplJustPubNarrowedPubRelationSetterInst$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubNarrowedPubRelationSetterInst">$switch ToIndexIsPublic yes reallyReimplJustPubNarrowedPubRelationSetterInst default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubNarrowedPubRelationSetterInst">
+	@Override
+	public void set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable Name$ argObj) {
+$switch IsRequired yes implJustPubSchemaPubBuffTableNarrowedPubRelationSetterRequired default implJustPubSchemaPubBuffTableNarrowedPubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubPubRelationSetterInst">$switch ToIndexIsPublic yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable Name$ argObj) {
+$switch IsRequired yes implJustPubSchemaPubBuffTablePubRelationSetterRequired default implJustPubSchemaPubBuffTablePubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs">
+	@Override
+	public void set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody$
+	}
+$reimplJustPubSchemaPubBuffTableNarrowedPubRelationSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSetterArgs">$switch ToIndexIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubGetter">$switch ToTableIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapSingletonPubGetter default actuallyImplJustPubColumnAttrPubBuffPKeyWrapDuplicatePubGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterList default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterWithArgs">$switch IsPublic yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterWithArgs">
+	@Override
+	public List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable Name$&gt; get$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$switch HasNarrowed yes reallyImplSchemaPubBuffTablePubRelationGetterArgsBody default reallyImplSchemaPubBuffTablePubRelationGetterArgsBody$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterOne default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterWithArgs">$switch IsPublic yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterWithArgs">
+	@Override
+	public I$reference ToTable DefSchemaName$Pub$reference ToTable Name$ get$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$switch HasNarrowed yes reallyImplSchemaPubBuffTablePubRelationGetterArgsBody default reallyImplSchemaPubBuffTablePubRelationGetterArgsBody$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterListWithArgs">$switch ToTableIsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterListWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubNarrowedSchemaPubBuffTablePubRelationGetterList">
+	@Override
+	public List&lt;I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable Name$&gt; get$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$() {$implJustPubSchemaPubBuffTableRelationDuplicatePubNarrowedGetter$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterList">
+	@Override
+	public List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable Name$&gt; get$OptionalOrRequired$$RelationType$$Suffix$() {$implJustPubSchemaPubBuffTableRelationDuplicatePubGetter$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubNarrowedSchemaPubBuffTablePubRelationGetterInst">
+	@Override
+	public I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable Name$ get$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$() {$implJustPubSchemaPubBuffTableRelationSingletonPubNarrowedGetter$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationDuplicatePubNarrowedGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationDuplicatePubNarrowedGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationDuplicatePubNarrowedGetter">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$[] targetArr = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$;
+		if( targetArr != null ) {
+			List&lt;I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;(targetArr.length);
+			for (int idx = 0; idx &lt; targetArr.length; idx++) {
+				results.add(targetArr[idx]);
+			}
+			return(results);
+		}
+		else {
+			List&lt;I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;();
+			return(results);
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationNarrowedGetterList">
+	public List&lt;I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable Name$&gt; get$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$() {$implJustPubSchemaPubBuffTableRelationDuplicatePubNarrowedGetter$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableSuperiorRelations">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableSuperiorRelations default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableSuperiorRelations">$iterate SuperiorDataRelations( each maybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableSubservientRelations">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableSubservientRelations default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableSubservientRelations">$iterate SubservientDataRelations( each implJustPubSchemaPubBuffTablePubRelationGetterWithArgs empty empty )$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$switch HasDefSchema yes implJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs default implJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTableRelationPubGetterPubSetter">$switch HasDefSchema yes implJustPubSchemaPubBuffTableRelationPubGetterPubSetter default implJustPubSchemaPubBuffTableRelationPubGetterPubSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$implJustPubSchemaPubBuffTablePubRelationGetterWithArgs$$switch ToIndexIsUnique yes implJustPubSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$switch ToIndexIsPublic yes reallyImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTableRelationPubGetterPubSetterWithArgs">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default implJustPubSchemaPubBuffTablePubRelationPubGetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch HasDefSchema yes implJustPubSchemaPubBuffTableRelationGetterPubSetterWithArgs default implJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetter">$switch HasDefSchema yes implJustPubSchemaPubBuffTableRelationPubGetterPubSetter default implJustPubSchemaPubBuffTableRelationPubGetterPubSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationPubGetterPubSetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationGetterPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationPubGetterPubSetter">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTablePubRelationPubGetterPubSetter default implJustPubSchemaPubBuffTablePubRelationPubGetter$</GenRule>
+	
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationPubSetterWithArgs">$switch IsPublic yes maybeJustPubImplSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="reimplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch ToIndexIsPublic yes reallyReimplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyReimplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$reimplJustPubSchemaPubBuffTablePubRelationPubGetterWithArgs$$reimplJustPubSchemaPubBuffTablePubRelationPubSetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch ToIndexIsPublic yes reallyImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default empty$$implJustPubSchemaPubBuffTablePubRelationPubGetterWithArgs$$switch IsToIndexUnique yes maybeJustPubImplSchemaPubBuffTablePubRelationPubSetterWithArgs default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTableRelationSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTableRelationSetter">$switch ToIndexHasDefSchema yes maybeJustPubImplSchemaPubBuffTablePubRelationSetter default maybeJustPubImplSchemaPubBuffTablePubRelationSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTablePubRelationSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTablePubRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTablePubRelationSetter">$switch ToIndexIsPublic yes reallyImplSchemaPubBuffTablePubRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationSetter">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTablePubRelationSetterWithArgs">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSuperiorSchemaPubBuffTablePubRelationPubGetterPubSetterWithArgs">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationPubGetterPubSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTablePubRelationSetterWithArgs">$switch ToIndexIsPublic yes reallyImplSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationSetterWithArgs">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetterWithArgs">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubSetterWithArgs">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs default empty$
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$switch HasNarrowed yes useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody default useSchemaPubBuffTableRelationSetterArgsBody$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSetterArgs">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSetterArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationSetterArgs">$switch ToIndexHasDefSchema yes implJustPubSchemaPubBuffTablePubRelationSetterArgs default implJustPubSchemaPubBuffTablePubRelationSetterArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubSchemaPubBuffTablePubRelationPubSetterWithArgs">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTableNarrowedPubRelationSetterArgs default empty$
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$switch HasNarrowed yes useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody default useSchemaPubBuffTableRelationSetterArgsBody$
+	}
+$implJustPubSchemaPubBuffTablePubRelationSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="useSchemaPubBuffTableNarrowedRelationSetterArgsBody">$switch ToIndexHasDefSchema yes useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody default useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody$</GenRule>
+	<GenRule GenDef="Relation" Name="useSchemaPubBuffTableRelationSetterArgsBody">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$Schema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ found = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaArgs default derefPubBuffTableRelationDataReadDerivedViaArgs$;$switch IsRequired yes implJustPubUseArgsRequired default implJustPubUseArgsOptional$</GenRule>
+	<GenRule GenDef="Relation" Name="useSchemaPubBuffTableNarrowedPubRelationSetterArgsBody">
+		I$reference Narrowed reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference Narrowed reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", 0, "I$reference Narrowed reference ToTable DefSchemaName$Schema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference Narrowed reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$", 0, "I$reference Narrowed reference ToTable DefSchemaName$Schema.getBacking$reference ToTable DefSchemaName$().getTable$reference Narrowed reference ToTable TableName$()");
+		}
+		I$reference Narrowed reference ToTable DefSchemaName$Pub$reference Narrowed reference ToTable TableName$ found = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationNarrowedPKeyReadDerivedViaArgs default derefPubBuffTableRelationNarrowedDataReadDerivedViaArgs$;$switch IsRequired yes implJustPubUseNarrowedArgsRequired default implJustPubUseNarrowedArgsOptional$</GenRule>
+
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationNarrowedPKeyReadDerivedViaArgs">readDerived(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each commaPassArg empty empty)$)</GenRule>
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationNarrowedDataReadDerivedViaArgs">readDerivedBy$reference Narrowed reference ToIndex declReadTableSuffix$(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each commaPassArg empty empty)$)</GenRule>
+
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationPKeyReadDerivedViaArgs">readDerived(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each commaPassArg empty empty)$)</GenRule>
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationDataReadDerivedViaArgs">readDerivedBy$reference ToIndex declReadTableSuffix$(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each commaPassArg empty empty)$)</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseNarrowedArgsRequired">$switch IsPublic yes reallyImplJustPubUseNarrowedArgsRequired default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseNarrowedArgsRequired">
+		if (found == null) {
+			throw new CFNullArgumentException(getClass(), "set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$-args", 0, "found");
+		}
+		else if (found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$) {
+			super.set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$($iterate Columns( first passArg each commaPassArg empty empty )$);$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseNarrowedArgsOptional">$switch IsPublic yes reallyImplJustPubUseNarrowedArgsOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseNarrowedArgsOptional">
+		if (found == null || (found != null &amp;&amp; ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$))) {
+			super.set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$($iterate Columns( first passArg each commaPassArg empty empty )$);$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$reference Narrowed OptionalOrRequired$$reference Narrowed RelationType$$reference Narrowed Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseArgsBodyRequired">$switch IsPublic yes reallyImplJustPubUseArgsBodyRequired default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseArgsBodyRequired">$switch ToIndexHasDefSchema yes implJustPubPubUseArgsBodyRequired default ImplJustPubUseArgsBodyRequired$</GenRule>
+	<GenRule GenDef="Relation" Name="ImplJustPubUseArgsBodyRequired">
+		if (found == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", 0, "found");
+		}
+		else if ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$) {$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubPubUseArgsBodyRequired">$switch IsPublic yes reallyImplJustPubPubUseArgsBodyRequired default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubPubUseArgsBodyRequired">
+		if (found == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", 0, "found");
+		}
+		else if ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$) {$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseArgsBodyOptional">$switch IsPublic yes reallyImplJustPubUseArgsBodyOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseArgsBodyOptional">
+		if (found == null || (found != null &amp;&amp; ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$))) {$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubPubUseArgsBodyOptional">$switch IsPublic yes reallyImplJustPubPubUseArgsBodyOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubPubUseArgsBodyOptional">
+		if (found == null || (found != null &amp;&amp; ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$))) {$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubCheckIfArgNullAndApplyToAllNull">$switch IsPublic yes reallyImplJustPubCheckIfArgNullAndApplyToAllNull default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubCheckIfArgNullAndApplyToAllNull">
+		if(arg$Name$ == null$reference FromCol reference Column switch BaseModelAtomClass
+			DbKeyHash128Gen emitCheckDbArgIsNull
+			DbKeyHash160Gen emitCheckDbArgIsNull
+			DbKeyHash224Gen emitCheckDbArgIsNull
+			DbKeyHash256Gen emitCheckDbArgIsNull
+			DbKeyHash384Gen emitCheckDbArgIsNull
+			DbKeyHash512Gen emitCheckDbArgIsNull
+			DbKeyHash128Def emitCheckDbArgIsNull
+			DbKeyHash160Def emitCheckDbArgIsNull
+			DbKeyHash224Def emitCheckDbArgIsNull
+			DbKeyHash256Def emitCheckDbArgIsNull
+			DbKeyHash384Def emitCheckDbArgIsNull
+			DbKeyHash512Def emitCheckDbArgIsNull
+			default empty$) {
+				allNull = false;
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSetterPub">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationSetterPub">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTablePubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationGetterWithArgs">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTablePubRelationGetterWithArgs default empty$$implJustPubSchemaPubBuffTablePubRelationGetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationGetter">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTablePubRelationGetter default empty$$implJustPubSchemaPubBuffTablePubRelationGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColRelationGetterSetter">$switch IsPublic yes implJustPubSchemaPubBuffTableRelationGetterSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationGetterSetterWithArgs">$switch ToTableIsPublic yes reallyImplJustPubSchemaPubBuffTableRelationGetterSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationGetterSetterWithArgs">$switch ToIndexHasDefSchema yes implJustPubSchemaPubBuffTableRelationGetterSetterWithArgs default reallyImplJustPubSchemaPubBuffTableRelationGetterWithArgs$</GenRule>
+
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubSchemaPubBuffTableRelationGetter">
+	@Override
+	public $emitPubInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$() {$switch IsToIndexUnique yes actuallyImplJustPubSchemaPubBuffTableSingletonRelationGetterBody default actuallyImplJustPubSchemaPubBuffTableRelationGetterBody$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationGetterWithArgs">$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterWithArgs default actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterWithArgs$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationGetterSetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationGetterSetter">$actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubGetter$$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationPubSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTablePubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColPubRelationSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTablePubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetterPub">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetterPub">$switch HasNarrowed yes reimplJustPubSchemaPubBuffTablePubRelationSetter default empty$
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTablePubRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubBuffPKeyColRelationGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubBuffPKeyColRelationGetter">
+	@Override
+	public $emitPubInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$() {$switch IsToIndexUnique yes implJustPubSchemaPubBuffTableRelationSingletonGetter default implJustPubSchemaPubBuffTableRelationGetterList$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTablePubBuffPKeyColRelationSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTablePubBuffPKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTablePubBuffPKeyColRelationSetter">$switch HasDefSchema yes implJustPubSuperiorSchemaPubBuffTablePubBuffPKeyColPubRelationSetterWithArgs default implJustPubSuperiorSchemaPubBuffTablePubBuffPKeyColPubRelationSetterWithArgs$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubPrimarySchemaPubBuffTablePubBuffPKeyColRelationSetter">$switch IsPublic yes reallyImplJustPubPrimarySchemaPubBuffTablePubBuffPKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubPrimarySchemaPubBuffTablePubBuffPKeyColRelationSetter">$implJustPubSchemaPubBuffTablePubBuffPKeyColRelationSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTableDataRelationGetterSetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTableDataRelationGetterSetter">$switch IsRelationInPrimaryIndex no implJustPubSchemaPubBuffTablePubRelationGetterSetter default implJustPubSchemaPubBuffTableRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSuperiorSchemaPubBuffTableDataRelationGetterSetter">$switch IsPublic yes reallyImplJustPubSuperiorSchemaPubBuffTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSuperiorSchemaPubBuffTableDataRelationGetterSetter">$switch IsSuperiorRelation yes implJustPubDataSchemaPubBuffTableDataRelationGetterSetter default implJustPubDataSchemaPubBuffTableDataRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubDataSchemaPubBuffTableDataRelationGetterSetter">$switch IsPublic yes reallyImplJustPubDataSchemaPubBuffTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubDataSchemaPubBuffTableDataRelationGetterSetter">$switch IsRelationInPrimaryIndex no implJustPubSchemaPubBuffTablePubRelationGetterSetter default implJustPubSchemaPubBuffTableRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubDataSchemaPubBuffTableDataRelationGetterWithArgs">$switch ToTableIsPublic yes reallyImplJustPubDataSchemaPubBuffTableDataRelationGetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubDataSchemaPubBuffTableDataRelationSetterWithArgs">$switch ToTableIsPublic yes reallyImplJustPubDataSchemaPubBuffTableDataRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableDataRelationGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableDataRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableDataRelationGetter">$switch IsRelationInPrimaryIndex no implJustPubSchemaPubBuffTableRelationGetter default empty$</GenRule>
+	
+	<GenRule GenDef="Value" Name="maybeJustPubImplPubBuffTableConstructorInitPubBuffAttr">$switch IsPublic yes reallyMaybeJustPubImplPubBuffTableConstructorInitPubBuffAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyMaybeJustPubImplPubBuffTableConstructorInitPubBuffAttr">$implJustPubConstructorInitPubBuffAttr$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSuperiorSchemaPubBuffTableRelationSetter">$switch IsPublic yes reallyImplJustPubSuperiorSchemaPubBuffTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSuperiorSchemaPubBuffTableRelationSetter">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSuperiorPubBuffTableRelationSetter">$switch IsPublic yes reallyImplJustPubSuperiorPubBuffTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSuperiorPubBuffTableRelationSetter">$switch IsSuperiorRelation yes implJustPubSchemaRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declJustPubSetArgColumn each declJustPubCommaSetArgColumn)$) {$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+	}
+
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTableRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTablePubRelationSetterClearPubBuffAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterClearPubBuffAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterClearPubBuffAttr">$switch IsPublic yes implJustPubSchemaPubBuffTableRelationSetterClearPubBuffAttr default empty$</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTablePubRelationSetterCopyToPubBuffAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterCopyToPubBuffAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterCopyToPubBuffAttr">$switch IsPublic yes implJustPubSchemaPubBuffTableRelationSetterCopyToPubBuffAttr default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubColumnAttrPubBuffPKeyColumnAccessors">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubColumnAttrPubBuffPKeyColumnAccessors">
+	@Override
+	public $reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubIJavaOptAtomType first empty each empty empty empty )$ getPKey() {
+		return ($lower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$);
+	}
+
+	@Override
+	public void setPKey($reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubIJavaOptAtomType first empty each empty empty empty )$ $leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$) {$switch IsAtomicPrimaryIndexKeyNullable yes implJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrDirect default implJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrOnlyIfNotNull$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubColumnAttrPubBuffPKeyPubBuffAttrAccessors">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyPubBuffAttrAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubColumnAttrPubBuffPKeyPubBuffAttrAccessors">$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJustPubColumnGetterSetter empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubColumnAttrPubBuffPKeyColumnWrappers">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyColumnWrappers default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubColumnAttrPubBuffPKeyColumnWrappers">$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJustPubBuffPKeyWrapColumnGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationGetterSetter">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationGetterSetter">$switch IsToIndexUnique yes implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonGetterSetter default implJustPubColumnAttrPubBuffPKeyWrapRelationGetterList$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonGetterSetter">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonGetterSetter">$implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationGetterList">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationGetterList default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationGetterList">$implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterSetter">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterSetter">
+	@Override
+	public I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ get$OptionalOrRequired$$RelationType$$Suffix$() {$implJustPubSchemaPubBuffTableRelationSingletonGetter$
+	}
+$implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubSetter">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubSetter">$switch ToIndexIsUnique yes actuallyImplJustPubColumnAttrPubBuffPKeyWrapSingletonPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapSingletonPubSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTableRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonSetterPub">$switch IsPublic yes reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonSetterPub">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTableRelationSetterOptional$
+	}
+</GenRule>
+	<GenRule GenDef="Relation" Name="actuallyImplJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubSetter">
+	@Override
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj) {$switch IsRequired yes implJustPubSchemaPubBuffTableRelationSetterRequired default implJustPubSchemaPubBuffTableRelationSetterOptional$
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffPKeyWrapColumnGetterSetter">$switch IsPublic yes reallyImplJustPubBuffPKeyWrapColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffPKeyWrapColumnGetterSetter">$implJustPubBuffColumnSetter$</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubBuffPKeyWrapColumnGetterSetter">$switch IsPublic yes reallyImplJustPubBuffPKeyWrapColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubBuffPKeyWrapColumnGetterSetter">$implJustPubBuffColumnSetter$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecMinValues"
+		>$switch HasSuperClassRelation yes implJustPubSchemaPubBuffTableRecDataMinValues default implJustPubSchemaPubBuffTableRecAllMinValues$</GenRule>
+	
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecDataMinValues">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRecDataMinValues default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableRecDataMinValues">$iterate DataColumns( each maybeJustPubImplMinValue empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecAllMinValues">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRecAllMinValues default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableRecAllMinValues">$iterate Columns( each maybeJustPubImplMinValue empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecMaxValues"
+		>$switch HasSuperClassRelation yes implJustPubSchemaPubBuffTableRecDataMaxValues default implJustPubSchemaPubBuffTableRecAllMaxValues$</GenRule>
+	
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecDataMaxValues">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRecDataMaxValues default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableRecDataMaxValues">$iterate DataColumns( each maybeJustPubImplMaxValue empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableRecAllMaxValues">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRecAllMaxValues default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableRecAllMaxValues">$iterate Columns( each maybeJustPubImplMaxValue empty empty )$</GenRule>
+
+	<GenRule GenDef="Object" Name="implJustPubSchemaPubBuffTableRecColumns"
+		>$popto PubBuffTable implJustPubSchemaPubBuffTableRecColumns$</GenRule>
+
+	<GenRule GenDef="Table" Name="extendSchemaRecPubBuffTableRec"> extends I$reference DefSchema SchemaName$$TableName$</GenRule>
+
+	<GenRule GenDef="Object" Name="extendSchemaRecPubBuffTableRecSuperRec">$popto PubBuffTable extendSchemaRecPubBuffTableRecSuperRec$</GenRule>
+
+	<GenRule GenDef="Table" Name="extendSchemaRecPubBuffTableRecSuperRec">$switch HasSuperClassRelation yes implJustPubInheritSuper default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeJustPubImplRecOptImplAuditColumnAccessors">$switch IsPublic yes reallyMaybeJustPubImplRecOptImplAuditColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyMaybeJustPubImplRecOptImplAuditColumnAccessors">$switch HasSuperClassRelation no implJustPubRecOptImplAuditColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubRecOptImplAuditColumnAccessors">$switch IsPublic yes reallyImplJustPubRecOptImplAuditColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubRecOptImplAuditColumnAccessors">$switch HasAuditColumns yes implJustPubColumnOptAuditGetterSetters default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeJustPubImplRecOptAuditColumnPubBuffAttrAccessors"
+		>$switch HasAuditColumns yes implJustPubRecAuditColumnPubBuffAttrIfNoSchemaDefOrSuper default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubRecAuditColumnPubBuffAttrIfNoSchemaDefOrSuper">$switch IsPublic yes reallyImplJustPubRecAuditColumnPubBuffAttrIfNoSchemaDefOrSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubRecAuditColumnPubBuffAttrIfNoSchemaDefOrSuper">$switch HasSuperClassRelation yes empty default implJustPubAuditColumnPubBuffAttrAccessorsIfNoDefSchema$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubAuditColumnPubBuffAttrAccessorsIfNoDefSchema">$switch IsPublic yes reallyImplJustPubAuditColumnPubBuffAttrAccessorsIfNoDefSchema default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubAuditColumnPubBuffAttrAccessorsIfNoDefSchema">$switch HasDefSchema yes empty default implJustPubAuditColumnPubBuffAttrAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubImplSchemaPubBuffTableRelationGetter">$switch IsPublic yes reallyMaybeJustPubImplSchemaPubBuffTableRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubImplSchemaPubBuffTableRelationGetter">$switch RelationType Superclass empty Unknown empty default attemptImplSchemaPubBuffTableRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="attemptImplSchemaPubBuffTableRelationGetterWithArgs">$reallyImplJustPubSchemaPubBuffTablePubRelationGetterWithArgs$$switch ToIndexIsUnique yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="attemptImplSchemaPubBuffTableRelationGetter">$reallyImplJustPubSchemaPubBuffTablePubRelationGetter$$switch ToIndexIsUnique yes reallyImplJustPubSchemaPubBuffTablePubRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="buffExtendDefSchemaPubBuffTable">
+	extends $reference DefSchema SchemaName$PubBuff$TableName$
+	implements I$DefSchemaName$Pub$TableName$</GenRule>
+
+	<GenRule GenDef="Object" Name="buffExtendDefSchemaPubBuffTableSuperPubBuff"
+		>$popto Table buffExtendDefSchemaPubBuffTableSuperPubBuff$</GenRule>
+
+	<GenRule GenDef="Table" Name="buffExtendDefSchemaPubBuffTableSuperPubBuff"
+		>$switch HasSuperClassRelation yes implJustPubBuffInheritSuper default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSuperiorSchemaPubBuffTableRelationGetterSetter">$switch IsPublic yes reallyImplJustPubSuperiorSchemaPubBuffTableRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSuperiorSchemaPubBuffTableRelationGetterSetter">$switch IsSuperiorRelation yes implJustPubSchemaPubBuffTableRelationGetterMaybeSetter default implJustPubSchemaPubBuffTableRelationPubGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSetterRequired">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterRequired default empty$</GenRule>
+	
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSetterOptional">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterRequired">
+		if(argObj == null) {
+			throw new CFNullArgumentException(getClass(), "set$RelationType$$Suffix$", 1, "argObj");
+		}
+		else {$iterate Columns(each implJustPubSchemaPubBuffTablePubRelationSetterCopyToAttr)$
+		}</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSetterRequired">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterRequired default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableNarrowedPubRelationSetterRequired">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableNarrowedPubRelationSetterRequired default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableNarrowedPubRelationSetterRequired">
+		if(argObj == null) {
+			throw new CFNullArgumentException(getClass(), "set$RelationType$$Suffix$", 1, "argObj");
+		}
+		else if (argObj instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$) {$iterate Columns(each implJustPubSchemaPubBuffTablePubRelationSetterCopyToAttr)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$RelationType$$Suffix$", "argObj", argObj, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSetterOptional">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterOptional">
+		if(argObj == null) {$iterate Columns(each implJustPubSchemaPubBuffTablePubRelationSetterClearAttr)$
+		}
+		else {$iterate Columns(each implJustPubSchemaPubBuffTablePubRelationSetterCopyToAttr)$
+		}</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTablePubRelationSetterCopyToAttr">
+			set$reference FromCol implColumnAttrOptionality$$reference FromCol Name$(argObj.get$reference ToCol reference Column implColumnAttrOptionality$$reference ToCol reference Column Name$());</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTableRelationSetterClearAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSetterClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTableRelationSetterClearAttr">$switch ToTableHasDefSchema yes implJustPubSchemaPubBuffTablePubRelationSetterClearAttr default implJustPubSchemaPubBuffTablePubRelationSetterClearAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTablePubRelationSetterClearAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterClearAttr">$switch ColumnInPrimaryIndex comment implJustPubSchemaPubBuffTablePubRelationSetterNoClearPKey default implJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTableRelationSetterMaybeClearAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSetterMaybeClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTableRelationSetterMaybeClearAttr">$switch ToTableHasDefSchema yes implJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr default implJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="implJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSetterMaybeClearAttr">$switch IsNullable yes reallyImplSchemaPubBuffTablePubRelationSetterClearAttr default commentImplSchemaPubBuffTablePubRelationSetterNoClearAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplSchemaPubBuffTableRelationSetterClearAttr">$switch ToTableHasDefSchema yes reallyImplSchemaPubBuffTablePubRelationSetterClearAttr default reallyImplSchemaPubBuffTablePubRelationSetterClearAttr$</GenRule>
+	<GenRule GenDef="RelationCol" Name="reallyImplSchemaPubBuffTablePubRelationSetterClearAttr">
+			setJustPub$reference FromCol implJustPubColumnAttrOptionality$$reference FromCol Name$(null);</GenRule>
+	<GenRule GenDef="RelationCol" Name="commentImplSchemaPubBuffTableRelationSetterNoClearPKey">$switch ToTableHasDefSchema yes commentImplSchemaPubBuffTablePubRelationSetterNoClearPKey default commentImplSchemaPubBuffTablePubRelaationSetterNoClearPKey$</GenRule>
+	<GenRule GenDef="RelationCol" Name="commentImplSchemaPubBuffTablePubRelationSetterNoClearPKey">
+			// Leave primary key alone; primary keys are never nullable, even though a nullable object is used for them</GenRule>
+	<GenRule GenDef="RelationCol" Name="commentImplSchemaPubBuffTablePubRelationSetterNoClearAttr">
+			// Leave $reference FromCol reference Column leadlower implJustPubColumnAttrOptionality$$reference FromCol reference Column Name$ alone because it is not nullable</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationSingletonGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationSingletonGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationSingletonGetter">$switch ToIndexHasDefSchema yes implJustPubSchemaPubBuffTablePubRelationSingletonGetter default implJustPubSchemaPubBuffTablePubRelationSingletonGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationSingletonGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationSingletonGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationSingletonGetter">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ targetRec = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$;
+		return(targetRec);</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationGetterList">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationGetterList default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationGetterList">$switch ToIndexHasDefSchema yes implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetter default implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterBody">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterListBody default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterListBody">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$[] targetArr = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$;
+		if( targetArr != null ) {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;(targetArr.length);
+			for (int idx = 0; idx &lt; targetArr.length; idx++) {
+				results.add(targetArr[idx]);
+			}
+			return(results);
+		}
+		else {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;();
+			return(results);
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterArgsBody">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterArgsListBody default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterArgsListBody">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$[] targetArr = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$;
+		if( targetArr != null ) {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;(targetArr.length);
+			for (int idx = 0; idx &lt; targetArr.length; idx++) {
+				results.add(targetArr[idx]);
+			}
+			return(results);
+		}
+		else {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;();
+			return(results);
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationPKeyReadDerivedViaAttrs">readDerived(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each implJustPubCommaSetPassAttrArgColumn)$)</GenRule>
+	<GenRule GenDef="Relation" Name="derefPubBuffTableRelationDataReadDerivedViaAttrs">readDerivedBy$reference ToIndex declReadTableSuffix$(I$SecSchemaName$Schema.getAuthorizationCallback().getEffectiveAuthorization()$iterate Columns(each implJustPubCommaSetPassAttrArgColumn)$)</GenRule>
+
+	<GenRule GenDef="Table" Name="declJustPubSchemaPubBuffTableColumns">$switch HasDefSchemaOrSuper no implJustPubBuffRequiredRevisionAttr default empty$$switch HasDefSchemaOrSuper no implJustPubBuffOptAuditColumnAttr default empty$$iterate Columns( each maybeJustPubDeclSchemaPubBuffTableDataColumn )$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeJustPubDeclSchemaPubBuffTableDataColumn">$switch IsPublic yes reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn">$switch ColumnInPrimaryIndex yes empty default implJustPubColumnAttr$</GenRule>
+	<GenRule GenDef="TableCol" Name="maybeJustPubDeclSchemaPubBuffTableDataColumn">$switch IsPublic yes reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn">$switch ColumnInPrimaryIndex yes empty default implJustPubColumnAttr$</GenRule>
+	<GenRule GenDef="Atom" Name="maybeJustPubDeclSchemaPubBuffTableDataColumn">$switch IsPublic yes reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyMaybeJustPubDeclSchemaPubBuffTableDataColumn">$switch ColumnInPrimaryIndex yes empty default implJustPubColumnAttr$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeJustPubImplPubBuffAuditColumnAttr">$switch IsPublic yes reallyMaybeJustPubImplPubBuffAuditColumnAttr default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyMaybeJustPubImplPubBuffAuditColumnAttr">$switch HasAuditColumns yes implJustPubBuffAuditColumnAttr default empty$</GenRule>
+	
+	<GenRule GenDef="Table" Name="implJustPubCompactedPrimaryIndexClassPubBuffAttr">$switch IsPublic yes reallyImplJustPubCompactedPrimaryIndexClassPubBuffAttr default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubCompactedPrimaryIndexClassPubBuffAttr">$reference BaseClass reference PrimaryKeyIndex implJustPubCompactedPrimaryIndexClassPubBuffAttr$</GenRule>
+	<GenRule GenDef="Index" Name="implJustPubCompactedPrimaryIndexClassPubBuffAttr">$switch IsPublic yes reallyImplJustPubCompactedPrimaryIndexClassPubBuffAttr default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubCompactedPrimaryIndexClassPubBuffAttr">$switch IsAtomic yes implJustPubColumnPubBuffIdAttr default implJustPubColumnPubBuffEmbeddedIdAttr$</GenRule>
+	<GenRule GenDef="Index" Name="implJustPubColumnPubBuffIdAttr">$switch IsPublic yes reallyImplJustPubColumnPubBuffIdAttr default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubColumnPubBuffIdAttr">$iterate Columns( lone implJustPubColumnPubBuffIdAttr first empty each empty empty empty )$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubColumnPubBuffIdAttr">$switch IsPublic yes reallyImplJustPubColumnPubBuffIdAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubColumnPubBuffIdAttr">
+	protected $reference Column implJustPubIJavaAtomType$ $lower reference Column implJustPubColumnAttrOptionality$$reference Column Name$;</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTablCFCoreConstruct">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablCFCoreConstruct default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTablCFCoreConstruct">
+	public $poptop SchemaDef SchemaName$PubBuff$TableName$() {$implJustPubBuffConstructorInitColumns$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsSuper">$switch IsPublic yes reallyImplJustPubBuffEqualsSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsSuper">
+			if (!super.equals(obj)) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsReturnSuperEquals">$switch IsPublic yes reallyImplJustPubBuffEqualsReturnSuperEquals default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsReturnSuperEquals">
+			return( super.equals(obj) );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableInhConstruct">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableInhConstruct default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableInhConstruct">
+	public $poptop SchemaDef SchemaName$PubBuff$TableName$() {
+		super();$switch HasDefSchema yes empty default implJustPubBuffConstructorInitDataColumns$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffConstructorInitDataColumns"
+		>$iterate DataColumns( each implJustPubConstructorInitAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffConstructorInitColumns">$switch IsPublic yes reallyImplJustPubBuffConstructorInitColumns default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffConstructorInitColumns">$switch IsPrimaryIndexKeyAtomic yes implJustPubBuffConstructorInitPKeyAttr default implJustPubBuffConstructorInitPKey$$iterate Columns( each implJustPubBuffConstructorMaybeInitAttr empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffConstructorInitPKey">$switch IsPublic yes reallyImplJustPubBuffConstructorInitPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffConstructorInitPKey">
+		pkey = new $SchemaName$PubBuff$TableName$PKey();</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffConstructorInitPKeyAttr">$switch IsPublic yes reallyImplJustPubBuffConstructorInitPKeyAttr default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffConstructorInitPKeyAttr">$leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubConstructorInitValue each empty empty empty )$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="implJustPubBuffConstructorMaybeInitAttr">$switch IsPublic yes reallyImplJustPubBuffConstructorMaybeInitAttr default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyImplJustPubBuffConstructorMaybeInitAttr">$switch ColumnInPrimaryIndex yes empty default implJustPubConstructorInitAttr$</GenRule>
+	<GenRule GenDef="Atom" Name="implJustPubBuffConstructorMaybeInitAttr">$switch IsPublic yes reallyImplJustPubBuffConstructorMaybeInitAttr default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyImplJustPubBuffConstructorMaybeInitAttr">$switch ColumnInPrimaryIndex yes empty default implJustPubConstructorInitAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffConstructorMaybeInitAttr">$switch IsPublic yes reallyImplJustPubBuffConstructorMaybeInitAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffConstructorMaybeInitAttr">$switch ColumnInPrimaryIndex yes empty default implJustPubConstructorInitAttr$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffConstructorInvokeSuper">$switch IsPublic yes reallyImplJustPubBuffConstructorInvokeSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffConstructorInvokeSuper">
+		super();</GenRule>
+
+	<GenRule GenDef="Index" Name="implJustPubColumnPubBuffEmbeddedIdAttr">$switch IsPublic yes reallyImplJustPubColumnPubBuffEmbeddedIdAttr default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubColumnPubBuffEmbeddedIdAttr">
+	protected I$reference Table reference BaseClass DefSchemaName$Pub$reference Table reference BaseClass TableName$PKey pkey = new $reference Table reference BaseClass DefSchemaName$PubBuff$reference Table reference BaseClass TableName$PKey();</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="IsPubBuffGenerated">$reference Column IsPubBuffGenerated$</GenRule>
+	<GenRule GenDef="TableCol" Name="IsPubBuffGenerated">$switch GenerateId yes maybeJustPubBuffGenerated default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="maybeJustPubBuffGenerated"
+		>$switch BaseModelAtomClass
+			Id16Gen yes
+			Id32Gen yes
+			Id64Gen yes
+			default no$</GenRule>
+	<GenRule GenDef="Atom" Name="IsPubBuffGenerated">no</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAttrPKeyAccessors">$switch IsPublic yes reallyImplJustPubBuffColumnAttrPKeyAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffColumnAttrPKeyAccessors">$switch IsPrimaryIndexKeyAtomic yes implJustPubBuffColumnAttrPKeyColumnAccessors default implJustPubBuffColumnAttrPKeyInstanceAccessors$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrOnlyIfNotNull">$switch IsPublic yes reallyImplJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrOnlyIfNotNull default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrOnlyIfNotNull">
+		if($leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns ( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$ != null) {
+			this.$leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$ = $leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$;
+		}</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrDirect">$switch IsPublic yes reallyImplJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrDirect default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffColumnAttrPKeyColumnAccessorsSetAttrDirect">
+		this.$leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$ = $leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implJustPubColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$;</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAttrPKeyInstanceAccessors">$switch IsPublic yes reallyImplJustPubBuffColumnAttrPKeyInstanceAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffColumnAttrPKeyInstanceAccessors">
+	@Override
+	public I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Pub$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey getPKey() {
+		return pkey;
+	}
+
+	@Override
+	public void setPKey(I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Pub$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey pkey ) {
+		if (pkey == null) {
+			throw new CFNullArgumentException(getClass(), "setPKey", 1, "pkey");
+		}
+		else if (!(pkey instanceof $reference BaseClass reference PrimaryKeyIndex DefSchemaName$PubBuff$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey)) {
+			throw new CFUnsupportedClassException(getClass(), "setPKey", "pkey", pkey, "$reference BaseClass reference PrimaryKeyIndex DefSchemaName$PubBuff$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey");
+		}
+		this.pkey = ($reference BaseClass reference PrimaryKeyIndex DefSchemaName$PubBuff$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey)pkey;
+	}
+</GenRule>
+	<GenRule GenDef="Index" Name="maybeJustPubBuffImplEqualsCmpKey">$switch IsPublic yes reallyMaybeJustPubBuffImplEqualsCmpKey default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyMaybeJustPubBuffImplEqualsCmpKey"
+		>$switch IsPrimaryIndex yes empty default implJustPubBuffEqualsCmpKey$</GenRule>
+	<GenRule GenDef="Index" Name="implJustPubBuffEqualsCmpKey">$switch IsPublic yes reallyImplJustPubBuffEqualsCmpKey default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubBuffEqualsCmpKey">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$By$Suffix$Key rhs ) {$iterate Columns( each implJustPubEqualsCmpAttr )$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Object" Name="maybeJustPubBuffImplEqualsCmpAttr"
+		>$switch ColumnInPrimaryIndex yes empty default implJustPubEqualsCmpAttr$</GenRule>
+
+	<GenRule GenDef="Object" Name="declJustPubSchemaPubBuffTableColumns"
+		>$popto Table declJustPubSchemaPubBuffTableColumns$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeJustPubImplementSchemaPubBuffTableComparable">$switch IsPublic yes reallyMaybeJustPubImplementSchemaPubBuffTableComparable default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyMaybeJustPubImplementSchemaPubBuffTableComparable">$switch HasSuperClassRelation yes justImplementISchemaTable default implJustPubementSchemaPubBuffTableComparable$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubementSchemaPubBuffTableComparable">$switch IsPublic yes reallyImplJustPubementSchemaPubBuffTableComparable default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubementSchemaPubBuffTableComparable">
+	implements I$DefSchemaName$Pub$TableName$, Comparable&lt;Object&gt;, Serializable</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeJustPubBuffImplComparableToIndex"
+		>$switch IsPrimaryIndex yes empty default implJustPubBuffComparableToIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJustPubBuffComparableToIndex">$switch IsPublic yes reallyImplJustPubBuffComparableToIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubBuffComparableToIndex">,
+		Comparable&lt;$SchemaName$$TableName$By$Suffix$Key&gt;</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetClassCode">$switch IsPublic yes reallyImplJustPubBuffGetClassCode default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffGetClassCode">
+	@Override
+	public int getClassCode() {
+		return( I$DefSchemaName$Pub$TableName$.CLASS_CODE );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAttr"
+		>$switch HasSuperClassRelation no implJustPubBuffOptAuditColumnAttr default empty$$iterate Columns( each implJustPubColumnAttr )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffDataAttr"
+		>$iterate DataColumns( each implJustPubColumnAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffOptAuditColumnAttr"
+		>$switch HasAuditColumns yes implJustPubBuffAuditColumnAttr default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="emitJustPubScopingMidfix">$maybeJustPubSpecificallyScopingPubected$</GenRule>
+	<GenRule GenDef="Object" Name="maybeJustPubSpecificallyScopingPubected">$switch IsPublic yes reallyMaybeJustPubSpecificallyScopingPubected default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyMaybeJustPubSpecificallyScopingPubected">$switch IsSpecificallyPubected yes Pub default Pub$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="emitJustPubScopingMidfix">$reference Column emitJustPubScopingMidfix$</GenRule>
+	<GenRule GenDef="RelationCol" Name="emitJustPubScopingMidfix">$reference FromCol reference Column emitJustPubScopingMidfix$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffAuditColumnAttr">$switch IsPublic yes reallyImplJustPubBuffAuditColumnAttr default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffAuditColumnAttr">
+	protected CFDbKeyHash256 createdByUserId = CFDbKeyHash256.fromHex(I$DefSchemaName$PubSecUser.S_INIT_CREATED_BY);
+	protected CFDbKeyHash256 createdBySessionId = CFDbKeyHash256.fromHex(I$DefSchemaName$PubSecSession.S_SECSESSIONID_INIT_VALUE);
+	protected LocalDateTime createdAt = LocalDateTime.now();
+	protected CFDbKeyHash256 updatedByUserId = CFDbKeyHash256.fromHex(I$DefSchemaName$PubSecUser.S_INIT_UPDATED_BY);
+	protected CFDbKeyHash256 updatedBySessionId = CFDbKeyHash256.fromHex(I$DefSchemaName$PubSecSession.S_SECSESSIONID_INIT_VALUE);
+	protected LocalDateTime updatedAt = LocalDateTime.now();</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnOptAuditGetterSetters"
+		>$switch HasAuditColumns yes implJustPubBuffColumnAuditGetterSetters default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffColumnAuditGetterSetters">$switch IsPublic yes reallyImplJustPubBuffColumnAuditGetterSetters default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffColumnAuditGetterSetters">
+	@Override
+	public CFDbKeyHash256 getCreatedByUserId() {
+		return( createdByUserId );
+	}
+
+	@Override
+	public void setJustPubCreatedByUserId( CFDbKeyHash256 value ) {
+		createdByUserId = value;
+	}
+
+	@Override
+	public LocalDateTime getCreatedAt() {
+		return( createdAt );
+	}
+
+	@Override
+	public void setJustPubCreatedAt( LocalDateTime value ) {
+		createdAt = value;
+	}
+
+	@Override
+	public CFDbKeyHash256 getUpdatedByUserId() {
+		return( updatedByUserId );
+	}
+
+	@Override
+	public void setJustPubUpdatedByUserId( CFDbKeyHash256 value ) {
+		updatedByUserId = value;
+	}
+
+	@Override
+	public LocalDateTime getUpdatedAt() {
+		return( updatedAt );
+	}
+
+	@Override
+	public void setJustPubUpdatedAt( LocalDateTime value ) {
+		updatedAt = value;
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffDataGetterSetters"
+		>$iterate DataColumns( each implJustPubBuffColumnGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubBuffColumnGetterSetter">$switch IsPublic yes reallyImplJustPubBuffColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubBuffColumnGetterSetter">$implJustPubBuffColumnGetter$$implJustPubBuffColumnSetter$</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubBuffColumnGetter">$switch IsPublic yes reallyImplJustPubBuffColumnGetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubBuffColumnGetter">$implJustPubColumnGetter$</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubBuffColumnSetter">$switch IsPublic yes reallyImplJustPubBuffColumnSetter default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubBuffColumnSetter">$implJustPubColumnSetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffColumnGetterSetter">$switch IsPublic yes reallyImplJustPubBuffColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffColumnGetterSetter">$reference Column implJustPubBuffColumnGetterSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffColumnGetter">$switch IsPublic yes reallyImplJustPubBuffColumnGetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffColumnGetter">$reference Column implJustPubBuffColumnGetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffColumnSetter">$switch IsPublic yes reallyImplJustPubBuffColumnSetter default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffColumnSetter">$reference Column implJustPubBuffColumnSetter$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffInheritSuper">$switch IsPublic yes reallyImplJustPubBuffInheritSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffInheritSuper">
+	extends $DefSchemaName$PubBuff$reference SuperClassRelation reference ToTable TableName$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffRequiredRevisionAttr">$switch IsPublic yes reallyImplJustPubBuffRequiredRevisionAttr default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffRequiredRevisionAttr">
+	protected int requiredRevision;</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEquals">$switch IsPublic yes reallyImplJustPubBuffEquals default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEquals">
+	@Override
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$ rhs ) {$switch HasSuperClassRelation no implJustPubBuffEqualsOptAuditColumns default empty$$iterate Columns( each implJustPubEqualsCmpAttr)$
+			return( true );
+		}$implJustPubBuffEqualsHistory$$iterate Index( each maybeJustPubBuffImplEqualsCmpKey)$$switch IsPublic yes implJustPubBuffEqualsPublicObjects default empty$
+		else {$switch HasSuperClassRelation no implJustPubBuffEqualsReturnFalse default implJustPubBuffEqualsReturnSuper$
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsPubectedObjects">$switch IsPublic yes reallyImplJustPubBuffEqualsPubectedObjects default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsPubectedObjects">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$ rhs ) {$switch HasSuperClassRelation no implJustPubBuffEqualsOptAuditColumns default empty$$iterate Columns( each implJustPubEqualsCmpAttr )$
+			return( true );
+		}$implJustPubBuffEqualsHistory$$iterate Index( each maybeJustPubBuffImplEqualsCmpKey )$$switch IsPublic yes implJustPubBuffEqualsPublicObjects default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsPublicObjects">$switch IsPublic yes reallyImplJustPubBuffEqualsPublicObjects default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsPublicObjects">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$ rhs ) {$switch HasSuperClassRelation no implJustPubBuffEqualsOptAuditColumns default empty$$iterate Columns( each implJustPubPubEqualsCmpAttr )$
+			return( true );
+		}$implJustPubPubPubBuffEqualsHistory$$iterate Index( each maybeJustPubPubPubBuffImplEqualsCmpKey )$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeJustPubPubPubBuffImplEqualsCmpKey">$switch IsPublic yes reallyMaybeJustPubPubPubBuffImplEqualsCmpKey default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyMaybeJustPubPubPubBuffImplEqualsCmpKey">$switch IsPublic yes maybeJustPubBuffImplEqualsCmpKey default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsHistory">$switch IsPublic yes reallyImplJustPubBuffEqualsHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsHistory">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$H rhs ) {$iterate Columns( each implJustPubEqualsCmpAttr)$
+			return( true );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$reference BaseClass TableName$HPKey ) {
+			I$DefSchemaName$Pub$reference BaseClass TableName$HPKey rhs = (I$DefSchemaName$Pub$reference BaseClass TableName$HPKey)obj;$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJustPubEqualsCmpAttr)$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubEqualsCmpAttr">$switch IsPublic yes implEqualsCmpAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubEqualsCmpAttr">$reference Column implJustPubEqualsCmpAttr$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffEqualsHistory">$switch IsPublic yes reallyImplJustPubPubPubBuffEqualsHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffEqualsHistory">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$H rhs ) {$iterate Columns( each implJustPubPubEqualsCmpAttr)$
+			return( true );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$reference BaseClass TableName$HPKey rhs ) {$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJustPubPubEqualsCmpAttr)$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Object" Name="implJustPubPubEqualsCmpAttr">$switch IsPublic yes reallyImplJustPubPubEqualsCmpAttr default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyImplJustPubPubEqualsCmpAttr">$switch IsPublic yes implJustPubEqualsCmpAttr default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsOptAuditColumns"
+		>$switch HasAuditColumns yes implJustPubBuffEqualsAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsAuditColumns">$switch IsPublic yes reallyImplJustPubBuffEqualsAuditColumns default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsAuditColumns">
+			if( ! getCreatedByUserId().equals( rhs.getCreatedByUserId() ) ) {
+				return( false );
+			}
+			if( ! getCreatedAt().equals( rhs.getCreatedAt() ) ) {
+				return( false );
+			}
+			if( ! getUpdatedByUserId().equals( rhs.getUpdatedByUserId() ) ) {
+				return( false );
+			}
+			if( ! getUpdatedAt().equals( rhs.getUpdatedAt() ) ) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsReturnFalse">$switch IsPublic yes reallyImplJustPubBuffEqualsReturnFalse default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsReturnFalse">
+			return( false );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffEqualsReturnSuper">$switch IsPublic yes reallyImplJustPubBuffEqualsReturnSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffEqualsReturnSuper">
+			boolean retval = super.equals( obj );
+			return( retval );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCode">$switch IsPublic yes reallyImplJustPubBuffGetHashCode default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffGetHashCode">
+	@Override
+	public int hashCode() {$switch HasSuperClassRelation no implJustPubBuffGetHashCodeInitHashCode default implJustPubBuffGetHashCodeInitSuper$$switch HasSuperClassRelation no implJustPubBuffGetHashCodeOptAuditColumns default empty$$switch HasSuperClassRelation no implJustPubBuffGetHashCodeColumns default implJustPubBuffGetHashCodeData$
+		return( hashCode &amp; 0x7fffffff );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeOptAuditColumns"
+		>$switch HasAuditColumns yes implJustPubBuffGetHashCodeAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeAuditColumns">$switch IsPublic yes reallyImplJustPubBuffGetHashCodeAuditColumns default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffGetHashCodeAuditColumns">
+		hashCode = hashCode + getCreatedByUserId().hashCode();
+		hashCode = hashCode + getCreatedAt().hashCode();
+		hashCode = hashCode + getUpdatedByUserId().hashCode();
+		hashCode = hashCode + getUpdatedAt().hashCode();</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeColumns"
+		>$iterate Columns( each implJustPubGetHashCodeAttr )$</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeData"
+		>$iterate DataColumns( each implJustPubGetHashCodeAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeInitHashCode">$switch IsPublic yes reallyImplJustPubBuffGetHashCodeInitHashCode default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffGetHashCodeInitHashCode">
+		int hashCode = 0;</GenRule>
+	<GenRule GenDef="Table" Name="implJustPubBuffGetHashCodeInitSuper">$switch IsPublic yes reallyImplJustPubBuffGetHashCodeInitSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffGetHashCodeInitSuper">
+		int hashCode = super.hashCode();</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareTo">$switch IsPublic yes reallyImplJustPubBuffCompareTo default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareTo">
+	@Override
+	public int compareTo( Object obj ) {
+		int cmp;
+		if( obj == null ) {
+			return( -1 );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$ rhs ) {$switch HasSuperClassRelation yes implJustPubBuffCompareInvokeSuperRetVal default implJustPubBuffCompareInitRetVal$$switch HasSuperClassRelation no implJustPubBuffCompareOptAuditColumns default empty$$implJustPubBuffCompareHierarchy$
+			return( 0 );
+ 		}$implJustPubBuffCompareToHistory$$iterate Index( each maybeJustPubBuffImplCompareToIndex )$$switch IsPublic yes implJustPubBuffCompareToPublicObjects default empty$
+		else {$switch HasSuperClassRelation no implJustPubBuffCompareThrowCannotCompare default implJustPubBuffCompareInvokeSuper$
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareToPublicObjects">$switch IsPublic yes reallyImplJustPubBuffCompareToPublicObjects default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareToPublicObjects">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$ rhs ) {$switch HasSuperClassRelation yes implJustPubBuffCompareInvokeSuperRetVal default implJustPubBuffCompareInitRetVal$$switch HasSuperClassRelation no implJustPubBuffCompareOptAuditColumns default empty$$implJustPubPubPubBuffCompareHierarchy$
+			return( 0 );
+		}$implJustPubPubPubBuffCompareToHistory$$iterate Index( each maybeJustPubPubPubBuffImplCompareToIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareToHistory">$switch IsPublic yes reallyImplJustPubBuffCompareToHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareToHistory">
+		else if( obj instanceof I$DefSchemaName$Pub$reference BaseClass TableName$HPKey rhs ) {$implJustPubHPKeyCompareToRequiredRevision$$reference PrimaryKeyIndex iterate Columns( each implJustPubCompareToAttr )$
+			return( 0 );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$H rhs ) {$switch HasSuperClassRelation yes implJustPubBuffCompareInvokeSuperRetVal default implJustPubBuffCompareInitRetVal$$switch HasSuperClassRelation yes implJustPubBuffCompareData default implJustPubBuffCompareColumns$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffCompareToHistory">$switch IsPublic yes reallyImplJustPubPubPubBuffCompareToHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffCompareToHistory">
+		else if( obj instanceof I$DefSchemaName$Pub$reference BaseClass TableName$HPKey rhs ) {$implJustPubHPKeyCompareToRequiredRevision$$reference PrimaryKeyIndex iterate Columns( each implJustPubPubCompareToAttr )$
+			return( 0 );
+		}
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$H rhs ) {$switch HasSuperClassRelation yes implJustPubBuffCompareInvokeSuperRetVal default implJustPubBuffCompareInitRetVal$$switch HasSuperClassRelation yes implJustPubPubPubBuffCompareData default implJustPubPubPubBuffCompareColumns$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareOptAuditColumns"
+		>$switch HasAuditColumns yes implJustPubBuffCompareAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareAuditColumns">$switch IsPublic yes reallyImplJustPubBuffCompareAuditColumns default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareAuditColumns">
+			{
+				cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+
+				cmp = getCreatedAt().compareTo( rhs.getCreatedAt() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+
+				cmp = getUpdatedByUserId().compareTo( rhs.getUpdatedByUserId() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+
+				cmp = getUpdatedAt().compareTo( rhs.getUpdatedAt() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}</GenRule>
+
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareHierarchy"
+		>$switch HasSuperClassRelation yes implJustPubBuffCompareData default implJustPubBuffCompareColumns$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffCompareHierarchy"
+		>$switch HasSuperClassRelation yes implJustPubPubPubBuffCompareData default implJustPubPubPubBuffCompareColumns$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareData"
+		>$iterate DataColumns( each implJustPubCompareToAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffCompareData"
+		>$iterate DataColumns( each implJustPubPubCompareToAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareColumns"
+		>$iterate Columns( each implJustPubCompareToAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffCompareColumns"
+		>$iterate Columns( each implJustPubPubCompareToAttr empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareThrowCannotCompare">$switch IsPublic yes reallyImplJustPubBuffCompareThrowCannotCompare default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareThrowCannotCompare">
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareInvokeSuperRetVal">$switch IsPublic yes reallyImplJustPubBuffCompareInvokeSuperRetVal default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareInvokeSuperRetVal">
+			cmp = super.compareTo( rhs );
+			if( cmp != 0 ) {
+				return( cmp );
+			}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareInitRetVal">$switch IsPublic yes reallyImplJustPubBuffCompareInitRetVal default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareInitRetVal">
+			cmp = 0;</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffCompareInvokeSuper">$switch IsPublic yes reallyImplJustPubBuffCompareInvokeSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffCompareInvokeSuper">
+			cmp = super.compareTo( obj );
+			return( cmp );</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeJustPubBuffImplCompareToIndex">$switch IsPublic yes reallyMaybeJustPubBuffImplCompareToIndex default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeJustPubPubPubBuffImplCompareToIndex">$switch IsPublic yes reallyMaybeJustPubPubPubBuffImplCompareToIndex default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="reallyMaybeJustPubBuffImplCompareToIndex"
+		>$switch IsPrimaryIndex yes empty default implJustPubBuffCompareToIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="reallyMaybeJustPubPubPubBuffImplCompareToIndex"
+		>$switch IsPrimaryIndex yes empty default implJustPubPubPubBuffCompareToIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJustPubBuffCompareToIndex">$switch IsPublic yes reallyImplJustPubBuffCompareToIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubBuffCompareToIndex">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$By$Suffix$Key rhs ) {$iterate Columns( each implJustPubCompareToAttr )
+$			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implJustPubPubPubBuffCompareToIndex">$switch IsPublic yes reallyImplJustPubPubPubBuffCompareToIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyImplJustPubPubPubBuffCompareToIndex">
+		else if( obj instanceof I$DefSchemaName$Pub$TableName$By$Suffix$Key rhs ) {$iterate Columns( each implJustPubPubCompareToAttr )
+$			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetWithCast">$switch IsPublic yes reallyImplJustPubBuffSetWithCast default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetWithCast">
+		if( src instanceof $DefSchemaName$PubBuff$TableName$ ) {
+			setJustPub$TableName$( ($DefSchemaName$PubBuff$TableName$)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"$DefSchemaName$PubBuff$TableName$" );
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetWithCast">$switch IsPublic yes reallyImplJustPubPubPubBuffSetWithCast default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffSetWithCast">
+		if( src instanceof $DefSchemaName$PubPubBuff$TableName$ ) {
+			setJustPub$TableName$( ($DefSchemaName$PubPubBuff$TableName$)src );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"src",
+				src,
+				"$DefSchemaName$PubPubBuff$TableName$" );
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetDirect">$switch IsPublic yes reallyImplJustPubBuffSetDirect default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetDirect">
+		setJustPub$TableName$( src );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetDirect">$switch IsPublic yes reallyImplJustPubPubPubBuffSetDirect default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffSetDirect">
+		setJustPub$TableName$( src );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSet">$switch IsPublic yes reallyImplJustPubBuffSet default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSet">
+	@Override
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$ src ) {$switch HasSuperClassRelation yes implJustPubBuffSetWithCast default implJustPubBuffSetDirect$
+	}
+
+	@Override
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$ src ) {$switch HasSuperClassRelation yes implJustPubBuffSetInvokeSuper default implJustPubBuffSetCopyPKey$$switch HasSuperClassRelation no implJustPubBuffSetCopyRevision default empty$$switch HasSuperClassRelation no implJustPubBuffSetOptAuditColumns default empty$$iterate Relation(each maybeJustPubBuffCopySetSchemaTableDataRelation empty empty)$$iterate DataColumns( each maybeJustPubBuffSetCopyDataAttr empty empty )$
+	}
+$implJustPubBuffSetHistory$$switch IsPublic yes implJustPubPubPubBuffSet default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSet">$switch IsPublic yes reallyImplJustPubPubPubBuffSet default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffSet">
+	@Override
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$ src ) {$switch HasSuperClassRelation yes implJustPubPubPubBuffSetWithCast default implJustPubPubPubBuffSetDirect$
+	}
+
+	@Override
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$ src ) {$switch HasSuperClassRelation yes implJustPubBuffSetInvokeSuper default implJustPubBuffSetCopyPKey$$switch HasSuperClassRelation no implJustPubPubPubBuffSetCopyRevision default empty$$switch HasSuperClassRelation no implJustPubPubPubBuffSetOptAuditColumns default empty$$iterate Relation(each maybeJustPubPubPubBuffCopySetSchemaTableDataRelation empty empty)$$iterate DataColumns( each maybeJustPubPubPubBuffSetCopyDataAttr empty empty )$
+	}
+$implJustPubPubPubBuffSetHistory$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetHistory">$switch IsPublic yes reallyImplJustPubBuffSetHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetHistory">
+	@Override
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$H src ) {$switch HasSuperClassRelation yes implJustPubHPubBuffSetWithCast default implJustPubBuffSetDirect$
+	}
+
+	@Override
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$H src ) {$switch HasSuperClassRelation yes implJustPubBuffSetInvokeSuper default implJustPubBuffSetHCopyPKey$$iterate Relation(each maybeJustPubBuffCopySetSchemaTableHDataRelation empty empty)$$iterate DataColumns( each maybeJustPubBuffSetCopyDataAttr empty empty )$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetHistory">$switch IsPublic yes reallyImplJustPubPubPubBuffSetHistory default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffSetHistory">
+	@Override
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$H src ) {$switch HasSuperClassRelation yes implJustPubPubHPubBuffSetWithCast default implJustPubPubPubBuffSetDirect$
+	}
+
+	@Override
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$H src ) {$switch HasSuperClassRelation yes implJustPubBuffSetInvokeSuper default implJustPubBuffSetHCopyPKey$$iterate Relation(each maybeJustPubPubPubBuffCopySetSchemaTableHDataRelation empty empty)$$iterate DataColumns( each maybeJustPubPubPubBuffSetCopyDataAttr empty empty )$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetOptAuditColumns"
+		>$switch HasAuditColumns yes implJustPubBuffSetAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetOptAuditColumns"
+		>$switch HasAuditColumns yes implJustPubBuffSetAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetAuditColumns">$switch IsPublic yes reallyImplJustPubBuffSetAuditColumns default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetAuditColumns">
+		setJustPubCreatedByUserId( src.getCreatedByUserId() );
+		setJustPubCreatedAt( src.getCreatedAt() );
+		setJustPubUpdatedByUserId( src.getUpdatedByUserId() );
+		setJustPubUpdatedAt( src.getUpdatedAt() );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetCopyPKey"
+		>$reference BaseClass iterate Relation(each maybeJustPubBuffSetCopySchemaTablePKeyRelation empty empty)$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each maybeJustPubBuffSetCopyPKeyAttr )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetCopyPKey"
+		>$reference BaseClass iterate Relation(each maybeJustPubPubPubBuffSetCopySchemaTablePKeyRelation empty empty)$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each maybeJustPubPubPubBuffSetCopyPKeyAttr )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetHCopyPKey"
+		>$reference BaseClass iterate Relation(each maybeJustPubBuffSetHCopySchemaTablePKeyRelation empty empty)$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each maybeJustPubBuffSetCopyPKeyAttr )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetHCopyPKey"
+		>$reference BaseClass iterate Relation(each maybeJustPubPubPubBuffSetHCopySchemaTablePKeyRelation empty empty)$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each maybeJustPubPubPubBuffSetCopyPKeyAttr )$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubBuffSetCopySchemaTablePKeyRelation">$switch IsPublic yes reallyMaybeJustPubBuffSetCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubBuffSetCopySchemaTablePKeyRelation">$switch HasDefSchema yes empty default setJustPubBuffCopySchemaTablePrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTablePrimaryKeyRelation">$switch IsPublic yes reallySetJustPubBuffCopySchemaTablePrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTablePrimaryKeyRelation">$switch IsSuperiorPrimaryKeyRelation yes setJustPubBuffCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTablePKeyRelation">$switch IsPublic yes reallySetJustPubBuffCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTablePKeyRelation">$switch ToTableHasDefSchema yes setJustPubBuffCopySchemaTableRelationship default setJustPubBuffCopySchemaTableRelationship$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubPubPubBuffSetCopySchemaTablePKeyRelation">$switch IsPublic yes reallyMaybeJustPubPubPubBuffSetCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubPubPubBuffSetCopySchemaTablePKeyRelation">$switch HasDefSchema yes empty default setJustPubPubPubBuffCopySchemaTablePrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTablePrimaryKeyRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTablePrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTablePrimaryKeyRelation">$switch IsSuperiorPrimaryKeyRelation yes setJustPubPubPubBuffCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTablePKeyRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTablePKeyRelation">$switch ToTableHasDefSchema yes setJustPubPubPubBuffCopySchemaTable default setJustPubPubPubBuffCopySchemaTable$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubBuffSetHCopySchemaTablePKeyRelation">$switch IsPublic yes reallyMaybeJustPubBuffSetHCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubBuffSetHCopySchemaTablePKeyRelation">$switch HasDefSchema yes empty default setJustPubBuffHCopySchemaTablePrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffHCopySchemaTablePrimaryKeyRelation">$switch IsPublic yes reallySetJustPubBuffHCopySchemaTablePrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffHCopySchemaTablePrimaryKeyRelation">$switch IsSuperiorPrimaryKeyRelation yes setJustPubBuffCopySchemaTableRelationship default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubPubPubBuffSetHCopySchemaTablePKeyRelation">$switch IsPublic yes reallyMaybeJustPubPubPubBuffSetHCopySchemaTablePKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubPubPubBuffSetHCopySchemaTablePKeyRelation">$switch HasDefSchema yes empty default setJustPubPubPubBuffHCopySchemaTablePrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffHCopySchemaTablePrimaryKeyRelation">$switch IsPublic yes reallySetJustPubPubPubBuffHCopySchemaTablePrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffHCopySchemaTablePrimaryKeyRelation">$switch IsSuperiorPrimaryKeyRelation yes setJustPubPubPubBuffCopySchemaTableRelationship default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTableRelationship">$switch IsPublic yes reallySetJustPubBuffCopySchemaTableRelationship default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTableRelationship">$switch IsToIndexUnique yes setJustPubBuffCopySchemaTableSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTableSingleton">$switch IsPublic yes reallySetJustPubBuffCopySchemaTableSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTableSingleton">
+		setJustPub$OptionalOrRequired$$RelationType$$Suffix$(src.get$OptionalOrRequired$$RelationType$$Suffix$());</GenRule>
+
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTableRelationship">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTableRelationship default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTableRelationship">$switch IsToIndexUnique yes setJustPubPubPubBuffCopySchemaTableSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTableSingleton">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTableSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTableSingleton">$switch IsPublic yes reallySetPubPubBuffCopySchemaTableSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetPubPubBuffCopySchemaTableSingleton">
+		setJustPub$OptionalOrRequired$$RelationType$$Suffix$(src.get$OptionalOrRequired$$RelationType$$Suffix$());</GenRule>
+
+	<!-- Primary key attributes always get setJustPub when copying an object, knowing that they'll be applied to the PKey object or intrinsic column specifically, regardless of the relationship interface that can also be used to alter primary key columns via invocation of the PKey attribute getters and setJustPubters involved in the relationship implJustPubementation.  In fact, many attributes should be producing "Internal" setJustPubters to force the programmer to use the relationship interfaces in preference to the attribute interfaces. Using the attribute interfaces actualJustPubly breaks the JPA implJustPubementations; they have to be invoked via relationship setJustPubter. -->
+	<GenRule GenDef="IndexCol" Name="maybeJustPubBuffSetCopyPKeyAttr">$switch IsPublic yes reallyMaybeJustPubBuffSetCopyPKeyAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubBuffSetCopyPKeyAttr">$switch HasDefSchema yes empty default setJustPubBuffCopyPKeyAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="setJustPubBuffCopyPKeyAttr">$switch IsPublic yes reallySetJustPubBuffCopyPKeyAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallySetJustPubBuffCopyPKeyAttr">
+		setJustPub$reference Column implJustPubColumnAttrOptionality$$reference Column Name$(src.get$reference Column implJustPubColumnAttrOptionality$$reference Column Name$());</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeJustPubPubPubBuffSetCopyPKeyAttr">$switch IsPublic yes reallyMaybeJustPubPubPubBuffSetCopyPKeyAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyMaybeJustPubPubPubBuffSetCopyPKeyAttr">$switch HasDefSchema yes empty default setJustPubPubPubBuffCopyPKey$</GenRule>
+	<GenRule GenDef="IndexCol" Name="setJustPubPubPubBuffCopyPKeyAttr">$switch IsPublic yes reallySetJustPubPubPubBuffCopyPKeyAttr default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallySetJustPubPubPubBuffCopyPKeyAttr">
+		setJustPub$reference Column implJustPubColumnAttrOptionality$$reference Column Name$(src.get$reference Column implJustPubColumnAttrOptionality$$reference Column Name$());</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubBuffCopySetSchemaTableHDataRelation">$switch IsPublic yes reallyMaybeJustPubBuffCopySetSchemaTableHDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubBuffCopySetSchemaTableHDataRelation">$switch HasDefSchema yes empty default setJustPubBuffCopySchemaTableInSuperiorHDataRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTableInSuperiorHDataRelation">$switch IsPublic yes reallySetJustPubBuffCopySchemaTableInSuperiorHDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTableInSuperiorHDataRelation">$switch IsSuperiorDataRelation yes setJustPubBuffCopySchemaTableRelationship default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubPubPubBuffCopySetSchemaTableHDataRelation">$switch IsPublic yes reallyMaybeJustPubPubPubBuffCopySetSchemaTableHDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubPubPubBuffCopySetSchemaTableHDataRelation">$switch HasDefSchema yes empty default setJustPubPubPubBuffCopySchemaTableInSuperiorHDataRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTableInSuperiorHDataRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTableInSuperiorHDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTableInSuperiorHDataRelation">$switch IsSuperiorDataRelation yes setJustPubPubPubBuffCopySchemaTableRelationship default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubBuffCopySetSchemaTableDataRelation">$switch IsPublic yes reallyMaybeJustPubBuffCopySetSchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubBuffCopySetSchemaTableDataRelation">$switch HasDefSchema yes empty default setJustPubBuffCopySchemaTableInSuperiorDataRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTableInSuperiorDataRelation">$switch IsPublic yes reallySetJustPubBuffCopySchemaTableInSuperiorDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTableInSuperiorDataRelation">$switch IsSuperiorDataRelation yes setJustPubBuffCopySchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubBuffCopySchemaTableDataRelation">$switch IsPublic yes reallySetJustPubBuffCopySchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubBuffCopySchemaTableDataRelation">$switch ToTableHasDefSchema yes setJustPubBuffCopySchemaTableRelationship default setJustPubBuffCopySchemaTableRelationship$</GenRule>
+	<GenRule GenDef="Value" Name="maybeJustPubBuffSetCopyDataAttr">$switch IsPublic yes reallyMaybeJustPubBuffSetCopyDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyMaybeJustPubBuffSetCopyDataAttr">$switch HasDefSchema yes empty default setJustPubBuffCopyDataAttrIfNotInPrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubBuffCopyDataAttrIfNotInPrimaryKeyRelation">$switch IsPublic yes reallySetJustPubBuffCopyDataAttrIfNotInPrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubBuffCopyDataAttrIfNotInPrimaryKeyRelation">$switch InPrimaryKeyRelation yes empty default setJustPubBuffCopyNonSuperiorDataAttr$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubBuffCopyNonSuperiorDataAttr">$switch IsPublic yes reallySetJustPubBuffCopyNonSuperiorDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubBuffCopyNonSuperiorDataAttr">$setJustPubBuffCopyDataAttr$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubBuffCopyDataAttr">$switch IsPublic yes reallySetJustPubBuffCopyDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubBuffCopyDataAttr">
+		setJustPub$implJustPubColumnAttrOptionality$$Name$(src.get$implJustPubColumnAttrOptionality$$Name$());</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeJustPubPubPubBuffCopySetSchemaTableDataRelation">$switch IsPublic yes reallyMaybeJustPubPubPubBuffCopySetSchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyMaybeJustPubPubPubBuffCopySetSchemaTableDataRelation">$switch HasDefSchema yes empty default setJustPubPubPubBuffCopySchemaTableInSuperiorDataRelation$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTableInSuperiorDataRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTableInSuperiorDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTableInSuperiorDataRelation">$switch IsSuperiorDataRelation yes setJustPubPubPubBuffCopySchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="setJustPubPubPubBuffCopySchemaTableDataRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopySchemaTableDataRelation default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallySetJustPubPubPubBuffCopySchemaTableDataRelation">$switch ToTableHasDefSchema yes setJustPubPubPubBuffCopySchemaTableRelationship default setJustPubPubPubBuffCopySchemaTableRelationship$</GenRule>
+	<GenRule GenDef="Value" Name="maybeJustPubPubPubBuffSetCopyDataAttr">$switch IsPublic yes reallyMaybeJustPubPubPubBuffSetCopyDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyMaybeJustPubPubPubBuffSetCopyDataAttr">$switch HasDefSchema yes empty default setJustPubPubPubBuffCopyDataAttrIfNotInPrimaryKeyRelation$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubPubPubBuffCopyDataAttrIfNotInPrimaryKeyRelation">$switch IsPublic yes reallySetJustPubPubPubBuffCopyDataAttrIfNotInPrimaryKeyRelation default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubPubPubBuffCopyDataAttrIfNotInPrimaryKeyRelation">$switch InPrimaryKeyRelation yes empty default setJustPubPubPubBuffCopyNonSuperiorDataAttr$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubPubPubBuffCopyNonSuperiorDataAttr">$switch IsPublic yes reallySetJustPubPubPubBuffCopyNonSuperiorDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubPubPubBuffCopyNonSuperiorDataAttr">$setJustPubPubPubBuffCopyDataAttr$</GenRule>
+	<GenRule GenDef="Value" Name="setJustPubPubPubBuffCopyDataAttr">$switch IsPublic yes reallySetJustPubPubPubBuffCopyDataAttr default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallySetJustPubPubPubBuffCopyDataAttr">$switch IsPublic yes setJustPubBuffCopyDataAttr default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubSchemaPubBuffTableToString">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableToString default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubSchemaPubBuffTableToString">
+	@Override
+	public String getXmlAttrFragment() {
+		String ret = $switch HasSuperClassRelation yes implToStringEmitSuper default implJustPubToStringEmitPKeyXmlAttrFragment$$switch HasSuperClassRelation no implToStringEmitXmlClassCode default empty$$switch HasSuperClassRelation no implToStringEmitXmlRevision default empty$$iterate Columns( each implJustPubToStringEmitXmlAttr )$;
+		return( ret );
+	}
+
+	@Override
+	public String toString() {
+		String ret = "&lt;$SchemaName$PubBuff$TableName$" + getXmlAttrFragment() + "/&gt;";
+		return( ret );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetCopyRevision">$switch IsPublic yes reallyImplJustPubBuffSetCopyRevision default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetCopyRevision">
+		setJustPubRequiredRevision( src.getRequiredRevision() );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubPubPubBuffSetCopyRevision">$switch IsPublic yes reallyImplJustPubPubPubBuffSetCopyRevision default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubPubPubBuffSetCopyRevision">
+		setJustPubRequiredRevision( src.getRequiredRevision() );</GenRule>
+
+	<GenRule GenDef="Table" Name="implJustPubBuffSetInvokeSuper">$switch IsPublic yes reallyImplJustPubBuffSetInvokeSuper default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyImplJustPubBuffSetInvokeSuper">
+		super.set$reference SuperClassRelation reference ToTable TableName$( src );</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubBuffSetCopyDataCol"
+		>$switch ColumnInPrimaryIndex yes empty default implJustPubBuffSetCopyCol$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubPubPubBuffSetCopyDataCol"
+		>$switch ColumnInPrimaryIndex yes empty default implJustPubPubPubBuffSetCopyCol$</GenRule>
+
+	<GenRule GenDef="Value" Name="implJustPubBuffSetCopyCol">$switch IsPublic yes reallyImplJustPubBuffSetCopyCol default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubBuffSetCopyCol">$switch IsPublic yes implJustPubBuffSetCopyCol default empty$</GenRule>
+	<GenRule GenDef="Value" Name="implJustPubPubPubBuffSetCopyCol">$switch IsPublic yes reallyImplJustPubPubPubBuffSetCopyCol default empty$</GenRule>
+	<GenRule GenDef="Value" Name="reallyImplJustPubPubPubBuffSetCopyCol">$switch IsPublic yes implJustPubBuffSetCopyCol default empty$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffSetCopyCol">$reference Column implJustPubBuffSetCopyCol$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubBuffSetCopyPKeyCol">$switch IsPublic yes reallyImplJustPubBuffSetCopyPKeyCol default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubBuffSetCopyPKeyCol">$switch IsPublic yes implJustPubBuffSetCopyPKeyCol default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJustPubPubPubBuffSetCopyPKeyCol">$switch IsPublic yes reallyImplJustPubPubPubBuffSetCopyPKeyCol default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyImplJustPubPubPubBuffSetCopyPKeyCol">$switch IsPublic yes implJustPubBuffSetCopyPKeyCol default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterInst">
+	@Override
+	public I$reference ToTable DefSchemaName$Pub$reference ToTable Name$ get$OptionalOrRequired$$RelationType$$Suffix$() {$implJustPubSchemaPubBuffTableRelationSingletonPubGetter$
+	}
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTableRelationDuplicatePubGetter">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTableRelationDuplicatePubGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTableRelationDuplicatePubGetter">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$[] targetArr = targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$;
+		if( targetArr != null ) {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;(targetArr.length);
+			for (int idx = 0; idx &lt; targetArr.length; idx++) {
+				results.add(targetArr[idx]);
+			}
+			return(results);
+		}
+		else {
+			List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; results = new ArrayList&lt;&gt;();
+			return(results);
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseArgsRequired">$switch IsPublic yes reallyImplJustPubUseArgsRequired default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseArgsRequired">
+		if (found == null) {
+			throw new CFNullArgumentException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", 0, "found");
+		}
+		else if (found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$) {
+			super.set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns( first passArg each commaPassArg empty empty )$);$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubUseArgsOptional">$switch IsPublic yes reallyImplJustPubUseArgsOptional default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubUseArgsOptional">
+		if (found == null || (found != null &amp;&amp; ((found instanceof I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$)$reference ToTable switch IsPublic yes emitOrIsInstanceOfPubRec default empty$))) {
+			super.set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns( first passArg each commaPassArg empty empty )$);$iterate Columns(each implJustPubSchemaPubBuffTableSetAttrArgColumn)$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "set$OptionalOrRequired$$RelationType$$Suffix$-args", "found", found, "I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$$reference ToTable switch IsPublic yes emitCommaToPubRecTypeName default empty$");
+		}</GenRule>
+
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterArgsSingletonBody">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		return(targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$);</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubSchemaPubBuffTablePubRelationGetterArgsBody">$switch ToIndexIsPublic yes reallyImplSchemaPubBuffTablePubRelationGetterArgsBody default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplSchemaPubBuffTablePubRelationGetterArgsBody">$switch ToIndexIsUnique yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterSingletonBody default implJustPubColumnAttrPubBuffPKeyWrapRelationDuplicatePubGetterArgsBody$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterArgsBody">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterArgsSingletonBody default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="implJustPubColumnAttrPubBuffPKeyWrapRelationSingletonPubGetterBody">$switch IsPublic yes reallyImplJustPubSchemaPubBuffTablePubRelationGetterSingletonBody default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyImplJustPubSchemaPubBuffTablePubRelationGetterSingletonBody">
+		I$reference ToTable DefSchemaName$PubSchema targetBacking$reference ToTable DefSchemaName$ = I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$();
+		if (targetBacking$reference ToTable DefSchemaName$ == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$()");
+		}
+		I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Table targetTable = targetBacking$reference ToTable DefSchemaName$.getTable$reference ToTable TableName$();
+		if (targetTable == null) {
+			throw new CFNullArgumentException(getClass(), "get$OptionalOrRequired$$RelationType$$Suffix$", 0, "I$reference ToTable DefSchemaName$PubSchema.getBacking$reference ToTable DefSchemaName$().getTable$reference ToTable TableName$()");
+		}
+		return(targetTable.$switch IsToIndexPrimaryKeyIndex yes derefPubBuffTableRelationPKeyReadDerivedViaAttrs default derefPubBuffTableRelationDataReadDerivedViaAttrs$);</GenRule>
+
+</RuleSet>

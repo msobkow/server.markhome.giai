@@ -1,0 +1,140 @@
+#!/bin/bash
+export SAVE_MY_DIR=`pwd`
+export WEBDATA_PACKAGE_NAME=ycf
+export BUILD_STAMP="2.13.42-snapshot-202611070000"
+export WEBDATA_PACKAGE_VERSION="${BUILD_STAMP}"
+
+if [ "$1" == "reset" ]
+then
+    unset dtm
+    unset dt_tens
+    unset dt_ones
+    unset curdate
+    unset logroot
+fi
+if [ "$curdate" == "" ]; then
+    export dtm="`date +%M`"
+    export dt_tens="${dtm:0:1}"
+    export dt_ones="${dtm:1:1}"
+    export dtintro="`date +%Y%m%d%H`"
+    if [ "$dt_ones" == "0" ]
+    then
+        export curdate="${dtintro}${dt_tens}0"
+    elif [ "$dt_ones" == "1" ]
+    then
+        export curdate="${dtintro}${dt_tens}0"
+    elif [ "$dt_ones" == "2" ]
+    then
+        export curdate="${dtintro}${dt_tens}0"
+    elif [ "$dt_ones" == "3" ]
+    then
+        export curdate="${dtintro}${dt_tens}0"
+    elif [ "$dt_ones" == "4" ]
+    then
+        export curdate="${dtintro}${dt_tens}0"
+    else
+        export curdate="${dtintro}${dt_tens}5"
+    fi
+#   echo dtm="$dtm"
+#   echo dt_tens="$dt_tens"
+#   echo dt_ones="$dt_ones"
+#   echo dtintro="$dtintro"
+#   echo curdate="$curdate"
+fi
+
+export MODULE_DIR_TREE="ycf ycf/server.markhome.ycf ycf/server.markhome.ycf/ycf-v3_1/secure ycf/server.markhome.ycf-v3_1.intnet ycf/server.markhome.ycf/ycf-v3_1/busmodel ycf/bin-v3_1 ycf/server.markhome.ycf/bin-v3_1 ycf/server.markhome.ycf/ycf-v3_1/bin-v3_1 ycf/server.markhome.ycf/ycf-v3_1/secure/bin-v3_1 server.markhome.ycf/ycf-v3_1/intnet/bin-v3_1 server.markhome.ycf/ycf-v3_1/busmodel/bin-v3_1 ycf/server.markhome.ycf/src ycf/server.markhome.ycf/ycf-v3_1/src server.markhome.ycf/ycf-v3_1/secure/src server.markhome.ycf/ycf-v3_1/intnet/src server.markhome.ycf/ycf-v3_1/busmodel/src
+
+export MODULE_FILES="ycf/pom.xml server.markhome.ycf/ycf-v3_1/secure/pom.xml server.markhome.ycf/ycf-v3_1/intnet/pom.xml server.markhome.ycf/ycf-v3_1/busmodel/pom.xml server.markhome.ycf/README.* server.markhome.ycf/*.md server.markhome.ycf/ycf-v3_1/*.md server.markhome.ycf/ycf-v3_1/secure/*.md server.markhome.ycf/ycf-v3_1/intnet/*.md server.markhome.ycf/ycf-v3_1/busmodel/*.md server.markhome.ycf/ycf-v3_1/secure/README.* server.markhome.ycf/ycf-v3_1/intnet/README.* server.markhome.ycf/ycf-v3_1/busmodel/README.* server.markhome.ycf/LICENS* server.markhome.ycf/ycf-v3_1/LICENS* server.makhome.ycf.ycf-v3_1/secure/LICENS* server.markhome.ycf/ycf-v3_1/intnet/LICENS* server.markhome.ycf/ycf-v3_1/busmodel/LICENS* server.marhome.ycf/ycf-v3_1/Apache* server.markhome.ycf.ycf-v3_1/Apache* server.markhome.ycf.ycf-v3_1/secure/Apache* server.markhome.ycf/ycf-v3_1/intnet/Apache* server.markhome.ycf/Gpl* server.markhome.ycf/ycf-v3_1/Gpl* server.markhome.ycf/ycf-v3_1/busmodel/Gpl* server.markhome.ycf/APACHE* server.markhome.ycf.ycf-v3_1/APACHE* server.markhome.ycf/ycf-v3_1/secure/APACHE* server.markhome.ycf/ycf-v3_1/intnet/APACHE* server.markhome.ycf/ycf-v3_1/busmodel/APACHE* ycf/GPL* server.markhome.ycf.ycf-v3_1/GPL* server.markhome.ycf/ycf-v3_1/busmodel/GPL* server.markhome.ycf/gpl* server.markhome.ycf/ycf-v3_1/busmodel/gpl* server.markhome.ycf/apache* server.markhome.ycf/ycf-v3_1/apache* server.markyome.ycf/ycf-v3_1/secure/apache* server.markhome.ycf/ycf-v3_1/intnet/apache*"
+
+export USER_OPT_DIR=/opt/${USER}
+if [ ! -d ${USER_OPT_DIR} ]
+then
+	sudo mkdir ${USER_OPT_DIR}
+	sudo chown ${USER}:${USER} ${USER_OPT_DIR}
+	sudo chmod 755 ${USER_OPT_DIR}
+fi
+
+export USER_HTML_DIR=${USER_OPT_DIR}/html
+if [ ! -d ${USER_HTML_DIR} ]
+then
+	mkdir ${USER_HTML_DIR}
+fi
+
+export USER_PUBLIC_HTML_DIR=${USER_HTML_DIR}/public
+if [ ! -d ${USER_PUBLIC_HTML_DIR} ]
+then
+	mkdir ${USER_PUBLIC_HTML_DIR}
+fi
+
+export USER_YCF_PUBLIC_HTML_DIR=${USER_PUBLIC_HTML_DIR}/ycf
+if [ ! -d ${USER_YCF_PUBLIC_HTML_DIR} ]
+then
+	mkdir ${USER_YCF_PUBLIC_HTML_DIR}
+fi
+
+export WEBDATA_COPY_TO_DEV_DIR=${USER_YCF_PUBLIC_HTML_DIR}
+export WEBDATA_COPY_TO_PROD_DIR=/opt/ycf/website/html/
+
+export CURRENT_DATE_TIME=$(date '+%Y-%m-%d %H:%M')
+#export WEBDATA_COPIED_GIT_ADD=pushd $WEBDATA_COPY_TO_DIR; git add .; popd
+#export WEBDATA_COPIED_GIT_COMMIT="pushd $WEBDATA_COPY_TO_DIR; git commit -m \"${CURRENT_DATE_TIME} CST Update website with ${WEBDATA_PACKAGE_NAME}-${WEBDATA_PACKAGE_VERSION} documentation and resources\"; popd"
+#export WEBDATA_COPIED_GIT_PUSH="pushd $WEBDATA_COPY_TO_DIR; git push; popd"
+#export WEBDATA_COPIED_GIT_REMOVE_TAG="pushd $WEBDATA_COPY_TO_DIR; git tag -d ${WEBDATA_PACKAGE_VERSION}; git tag -d current; git commit -m \"${CURRENT_DATE_TIME} CST Remove old tag ${WEBDATA_PACKAGE_VERSION}\"; git push --tags; popd"
+#export WEBDATA_COPIED_GIT_SET_TAG="pushd $WEBDATA_COPY_TO_DIR; git tag ${WEBDATA_PACKAGE_VERSION}; git tag current; git commit -m \"${CURRENT_DATE_TIME} CST Reset tags ${WEBDATA_PACKAGE_VERSION} and current\"; git push --tags; popd"
+
+# Determine run state
+if [ "$BUILD_STAMP" == "" ]; then
+	export DO_RESET=Y
+elif [ "$1" == "reset" ]; then
+	export DO_RESET=Y
+else
+	export DO_RESET=N
+fi
+
+if [ "$DO_RESET" == "Y" ]
+then
+	#export BUILD_STAMP=`date '+%Y-%m-%d-%Hh%M'`
+	export BUILD_STAMP="snapshot-202611070000"
+
+	export TMPDIR=/opt/${USER}
+	if [ ! -d $TMPDIR ]; then
+		sudo mkdir $TMPDIR
+		sudo chown $USER:$USER $TMPDIR
+		sudo chmod 755 $TMPDIR
+	fi
+
+	# Fixed: Added LC_ALL=C for cross-platform OS compatibility (Linux/macOS)
+	RANDOM_STR=$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
+
+	export TMP_DIR=${TMPDIR}/${RANDOM_STR}
+	if [ ! -d $TMP_DIR ]; then
+		mkdir $TMP_DIR
+	fi
+fi
+
+echo MODULE_DIR_TREE=${MODULE_DIR_TREE}
+echo MODULE_FILES=${MODULE_FILES}
+
+#echo WEBDATA_DEV_MAKE_DIRS_COMMAND=${WEBDATA_DEV_MAKE_DIRS_COMMAND}
+#echo WEBDATA_PROD_MAKE_DIRS_COMMAND=${WEBDATA_PROD_MAKE_DIRS_COMMAND}
+cd ${USER_YCF_PUBLIC_HTML_DIR}
+	for adir in ${MODULE_DIR_TREE}
+	do
+		#echo Preparing user development module directory ${USER_YCF_PUBLIC_HTML_DIR}/${adir}
+		if [ ! -d ${USER_YCF_PUBLIC_HTML_DIR}/${adir} ]
+		then
+			mkdir ${USER_YCF_PUBLIC_HTML_DIR}/${adir}
+		fi
+	done
+cd $SAVE_MY_DIR
+
+cd ${WEBDATA_COPY_TO_PROD_DIR}
+	for adir in ${MODULE_DIR_TREE}
+	do
+		#echo Preparing production module directory ${WEBDATA_COPY_TO_PROD_DIR}/${adir}
+		if [ ! -d ${WEBDATA_COPY_TO_PROD_DIR}/${adir} ]
+		then
+			mkdir ${WEBDATA_COPY_TO_PROD_DIR}/${adir}
+		fi
+	done
+cd $SAVE_MY_DIR

@@ -1,0 +1,105 @@
+/*
+ *  MSS Code Factory CFCore 2.13 MssCF
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *	
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ */
+
+package org.msscf.msscf.v2_13.cfcore.MssCF;
+
+import org.msscf.msscf.v2_13.cflib.CFLib.*;
+import org.msscf.msscf.v2_13.cflib.CFLib.xml.*;
+import org.msscf.msscf.v2_13.cfcore.CFGenKb.*;
+import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+import org.msscf.msscf.v2_13.cfcore.CFGenKbObj.*;
+
+public class MssCFGenReferenceObj
+extends CFGenKbGenReferenceObj
+{
+	protected ICFGenKbDefClassObj detailClass = null;
+	public ICFGenKbDefClassObj getDetailClass()
+	{
+		return (detailClass);
+	}
+
+	public void setDetailClass( ICFGenKbDefClassObj value )
+	{
+		detailClass = value;
+	}
+
+	public MssCFGenReferenceObj()
+	{
+		super();
+	}
+
+	public MssCFGenReferenceObj(MssCFEngine schema)
+	{
+		super( schema );
+	}
+
+	public MssCFGenReferenceObj(
+		MssCFEngine engine,
+		String toolset,
+		String scopeDefClassName,
+		String genDefClassName,
+		String itemName,
+		String detailClassName )
+	{
+		super( engine );
+		requiredLookupToolSet = schema.getToolSetTableObj().readToolSetByNameIdx(toolset);
+		CFGenKbGenItemBuff genItemBuff = getGenItemBuff();
+
+		genItemBuff.setRequiredToolSetId( requiredLookupToolSet.getRequiredId() );
+
+		if (scopeDefClassName != null && scopeDefClassName.length() > 0) {
+			if (scopeDefClassName.equals("*")) {
+				scopeDefClassName = "Object";
+			}
+			else {
+				scopeDefClassName = engine.fixGenDefName( scopeDefClassName );
+			}
+			optionalLookupScopeDef = schema.getDefClassTableObj().readDefClassByNameIdx(scopeDefClassName);
+			genItemBuff.setOptionalScopeDefId( optionalLookupScopeDef.getRequiredId() );
+		}
+		else {
+			optionalLookupScopeDef = null;
+			genItemBuff.setOptionalScopeDefId( null );
+		}
+
+		genDefClassName = engine.fixGenDefName( genDefClassName );
+		requiredLookupGenDef = schema.getDefClassTableObj().readDefClassByNameIdx(genDefClassName);
+		genItemBuff.setRequiredGenDefId( requiredLookupGenDef.getRequiredId() );
+
+		genItemBuff.setRequiredName( itemName );
+
+		detailClass = schema.getDefClassTableObj().readDefClassByNameIdx(detailClassName);
+	}
+
+	public String expandBody(MssCFGenContext genContext)
+	{
+		final String S_ProcName = "MssCFGenReferenceObj.expandBody() ";
+		throw new RuntimeException( S_ProcName + "Cannot directly expand a reference" );
+	}
+
+	public ICFLibAnyObj dereference(MssCFGenContext genContext)
+	{
+		final String S_ProcName = "MssCFGenReferenceObj.dereference() ";
+		throw new RuntimeException( S_ProcName + "dereference() must be overridden by the implementation");
+	}
+}

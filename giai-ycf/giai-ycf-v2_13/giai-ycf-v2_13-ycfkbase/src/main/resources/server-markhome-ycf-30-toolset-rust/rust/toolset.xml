@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<ToolSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	Name="rust"
+	Revision="3.0"
+	Descr="Rust Rules">
+	<RuleSet Name="Top" />
+	<!-- RuleSet Name="RustBinGitIgnore" / -->
+	<!-- RuleSet Name="RustPubGitIgnore" / -->
+	<!-- RuleSet Name="RustProtGitIgnore" / -->
+	<!-- RuleSet Name="RustGitIgnore" / -->
+	<!-- RuleSet Name="RustJpaGitIgnore" / -->
+	<!-- RuleSet Name="RustJpaTestGitIgnore" / -->
+	<!-- RuleSet Name="RustAppSetupGitIgnore" / -->
+	<!-- RuleSet Name="RamProjectGitIgnore" / -->
+	<!-- RuleSet Name="RustRamTestGitIgnore" / -->
+	<!-- RuleSet Name="RustPubPomXml" / -->
+	<!-- RuleSet Name="RustProtPomXml" / -->
+	<!-- RuleSet Name="RustPomXml" / -->
+	<!-- RuleSet Name="RustJpaPomXml" / -->
+	<!-- RuleSet Name="RustJpaTestPomXml" / -->
+	<!-- RuleSet Name="RustRamPomXml" / -->
+	<!-- RuleSet Name="RustRamTestPomXml" / -->
+	<!-- RuleSet Name="RustAppSetupPomXml" / -->
+	<!-- RuleSet Name="resources/application.properties" / -->
+	<!-- RuleSet Name="resources/user-default.properties" / -->
+	<!-- RuleSet Name="resources/META-INF/persistence.xml" / -->
+	<!-- RuleSet Name="resourcesjpatest/application.properties" / -->
+	<!-- RuleSet Name="resourcesjpatest/user-default.properties" / -->
+	<!-- RuleSet Name="resourcesjpatest/schemajpatest/langs/en.properties" / -->
+	<!-- RuleSet Name="resourcesjpatest/schemajpatest/langs/propnames.txt" / -->
+	<!-- RuleSet Name="resourcesramtest/application.properties" / -->
+	<!-- RuleSet Name="resourcesramtest/user-default.properties" / -->
+	<!-- RuleSet Name="resourcesramtest/schemaramtest/langs/en.properties" / -->
+	<!-- RuleSet Name="resourcesramtest/schemaramtest/langs/propnames.txt" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubAuthorizationCallback.rust" / -->
+	<!-- RuleSet Name="src/schemapub/SchemaPubAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubSecurityService.rust" / -->
+	<!-- RuleSet Name="src/schemapub/SchemaPubTableData.rust" / -->
+	<!-- RuleSet Name="src/schemapub/SchemaPubRoleInfoDependencyComparator.rust" / -->
+	<!-- RuleSet Name="src/schemapub/SchemaPubRoleInfo.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubSchema.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTableFactory.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTableH.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTableHPKey.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTableIndexKey.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTable.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemapub/ISchemaPubTableTable.rust" / -->
+	<!-- RuleSet Name="src/schemapubbuff/buff/SchemaPubBuffTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemapubbuff/buff/SchemaPubBuffTable.rust" / -->
+	<!-- RuleSet Name="src/schemapubobj/IPubEditObj.rust" / -->
+	<!-- RuleSet Name="src/schemapubobj/IPubObj.rust" / -->
+	<!-- RuleSet Name="src/schemapubobj/ISchemaPubSchemaObj.rust" / -->
+	<!-- RuleSet Name="src/schemapubobj/ISchemaPubTableObj.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtAuthorizationCallback.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtSchema.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtSecurityControl.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtSecurityService.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTableFactory.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTableH.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTableHPKey.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTableIndexKey.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTable.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/ISchemaProtTableTable.rust" / -->
+	<!-- RuleSet Name="src/schemaprot/SchemaProtAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schemaprotbuff/buff/SchemaProtBuffTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemaprotbuff/buff/SchemaProtBuffTable.rust" / -->
+	<!-- RuleSet Name="src/schemaprotobj/IProtEditObj.rust" / -->
+	<!-- RuleSet Name="src/schemaprotobj/IProtObj.rust" / -->
+	<!-- RuleSet Name="src/schemaprotobj/ISchemaProtSchemaObj.rust" / -->
+	<!-- RuleSet Name="src/schemaprotobj/ISchemaProtTableObj.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaAuthorizationCallback.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaSecurityControl.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaSecurityService.rust" / -->
+	<!-- RuleSet Name="src/schema/SchemaAuthorization.rust" / -->
+	<!-- RuleSet Name="src/schema/SchemaSecurityCache.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaSchema.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaFactory.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTablePerms.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTableIndexKey.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTable.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTableHPKey.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTableH.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTableFactory.rust" / -->
+	<!-- RuleSet Name="src/schema/ISchemaTableTable.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaConfig.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaSchema.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaFactoryService.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaIdGenService.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaSchemaService.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaSecurityCache.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableIndexKey.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTable.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableHPKey.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableH.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableFactoryService.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableTable.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableRepository.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaTableService.rust" / -->
+	<!-- RuleSet Name="src/schemajpa/jpa/SchemaJpaHooksSchema.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffSchema.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffFactoryService.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTablePKey.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTableHPKey.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTableIndexKey.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTable.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTableH.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffTableFactoryService.rust" / -->
+	<!-- RuleSet Name="src/schemabuff/buff/SchemaBuffHooksSchema.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/ISchemaSchemaObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/ISchemaTableObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/IObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/IEditObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/SchemaSchemaObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/SchemaTableObj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/Obj.rust" / -->
+	<!-- RuleSet Name="src/schemaobj/EditObj.rust" / -->
+	<!-- RuleSet Name="src/schemaram/SchemaRamSchema.rust" / -->
+	<!-- RuleSet Name="src/schemaram/SchemaRamTableTable.rust" / -->
+	<!-- RuleSet Name="src/schemajpatest/SchemaJpaTest.rust" / -->
+	<!-- RuleSet Name="src/schemajpatest/spring/SchemaJpaTestStartupListener.rust" / -->
+	<!-- RuleSet Name="src/schemajpatest/spring/SchemaJpaTestTestSchema.rust" / -->
+	<!-- RuleSet Name="src/schemajpatest/spring/SchemaJpaTestConfiguration.rust" / -->
+	<!-- RuleSet Name="src/schemaramtest/SchemaRamTest.rust" / -->
+	<!-- RuleSet Name="src/schemaramtest/spring/SchemaRamTestStartupListener.rust" / -->
+	<!-- RuleSet Name="src/schemaramtest/spring/SchemaRamTestTestSchema.rust" / -->
+	<!-- RuleSet Name="src/schemaramtest/spring/SchemaRamTestConfiguration.rust" / -->
+	<!-- RuleSet Name="src/schemaappsetup/SchemaAppSetup.rust" / -->
+	<!-- RuleSet Name="src/schemaappsetup/fx/SchemaAppSetupFxApplication.rust" / -->
+</ToolSet>

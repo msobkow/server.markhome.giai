@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="JavaProtPomXml.xml"
+	Revision="3.0"
+	Descr="Java 25 package.schema protected pom.xml">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaProtJavaPomXml"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot"
+		SubPackageName=""
+		ExpansionClassName="JavaProtPomXml"
+		ExpansionKeyName="$SchemaName$JavaProtPomXml"
+		ExpansionFileName="pom.xml"
+>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;parent&gt;
+    &lt;groupId&gt;$lower DefTopProjectName$&lt;/groupId&gt;
+    &lt;artifactId&gt;$lower DefTopProjectName$.$DefVUnderVersion$&lt;/artifactId&gt;
+    &lt;version&gt;$DefDotVersion$.$GeneratingBuild$&lt;/version&gt;
+  &lt;/parent&gt;
+
+  &lt;groupId&gt;$lower DefTopProjectName$.$DefVUnderVersion$&lt;/groupId&gt;
+  &lt;artifactId&gt;$lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower SchemaName$prot&lt;/artifactId&gt;
+  &lt;version&gt;$DefDotVersion$.$GeneratingBuild$&lt;/version&gt;
+  &lt;name&gt;$lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower SchemaName$prot&lt;/name&gt;
+  &lt;description&gt;$TopProjectJustName$ $DefDotVersion$.$GeneratingBuild$ $DefSubProjectName$ $SchemaName$ - Protected package of foundation objects&lt;/description&gt;
+  &lt;url&gt;mailto:$AuthorEMail$&lt;/url&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+    &lt;xerces.version&gt;2.12.2&lt;/xerces.version&gt;
+    &lt;junit-jupiter.version&gt;6.0.1&lt;/junit-jupiter.version&gt;
+	&lt;logback.version&gt;1.5.22&lt;/logback.version&gt;
+	&lt;commons-codec.version&gt;1.21.0&lt;/commons-codec.version&gt;
+	&lt;commons-text.version&gt;1.15.0&lt;/commons-text.version&gt;
+	&lt;jaxb-api.version&gt;2.4.0-b180725.0427&lt;/jaxb-api.version&gt;
+	&lt;jakarta-annotation-api.version&gt;3.0.0&lt;/jakarta-annotation-api.version&gt;
+	&lt;jakarta-persistence-api.version&gt;3.2.0&lt;/jakarta-persistence-api.version&gt;
+	&lt;spring.version&gt;4.0.5&lt;/spring.version&gt;
+    &lt;cf.version&gt;3.1.42&lt;/cf.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;server.markhome.cf.v3_1&lt;/groupId&gt;
+      &lt;artifactId&gt;server.markhome.cf&lt;/artifactId&gt;
+      &lt;version&gt;3.1.$GeneratingBuild$&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;server.markhome.cf.v3_1&lt;/groupId&gt;
+      &lt;artifactId&gt;server.markhome.cf.dbutil&lt;/artifactId&gt;
+      &lt;version&gt;3.1.$GeneratingBuild$&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+        &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+		&lt;version&gt;$${logback.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    	&lt;groupId&gt;commons-codec&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
+		&lt;version&gt;$${commons-codec.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+        &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+		&lt;version&gt;$${junit-jupiter.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+        &lt;artifactId&gt;junit-jupiter-engine&lt;/artifactId&gt;
+		&lt;version&gt;$${junit-jupiter.version}&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
+      &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
+      &lt;version&gt;$${jaxb-api.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-text&lt;/artifactId&gt;
+      &lt;version&gt;$${commons-text.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+	&lt;dependency&gt;
+        &lt;groupId&gt;jakarta.annotation&lt;/groupId&gt;
+        &lt;artifactId&gt;jakarta.annotation-api&lt;/artifactId&gt;
+		&lt;version&gt;$${jakarta-annotation-api.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;
+	  &lt;version&gt;$${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;$iterate SchemaRefs( each emitPomSchemaRefPuCFCoreDependency empty empty )$$emitPomSchemaRefPuCFCoreDependency$$iterate SchemaRefs( each emitPomSchemaRefProCFCoreDependency empty empty )$
+  &lt;/dependencies&gt;
+
+	&lt;distributionManagement&gt;
+		&lt;repository&gt;
+			&lt;id&gt;nexus-releases&lt;/id&gt;
+			&lt;name&gt;Nexus release repository&lt;/name&gt;
+			&lt;url&gt;http://nexus3.$lower DefSchemaHostName$:8081/repository/$lower DefSchemaHostName$-hosted/&lt;/url&gt;
+		&lt;/repository&gt;
+		&lt;snapshotRepository&gt;
+			&lt;id&gt;nexus-snapshots&lt;/id&gt;
+			&lt;name&gt;Nexus release repository&lt;/name&gt;
+			&lt;url&gt;http://nexus3.$lower DefSchemaHostName$:8081/repository/$lower DefSchemaHostName$-hosted/&lt;/url&gt;
+		&lt;/snapshotRepository&gt;
+	&lt;/distributionManagement&gt;
+
+	&lt;build&gt;
+		&lt;extensions&gt;
+			&lt;extension&gt;
+				&lt;groupId&gt;org.apache.maven.wagon&lt;/groupId&gt;
+				&lt;artifactId&gt;wagon-ssh-external&lt;/artifactId&gt;
+				&lt;version&gt;3.5.3&lt;/version&gt;
+			&lt;/extension&gt;
+		&lt;/extensions&gt;
+    	&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;
+				&lt;version&gt;3.1.4&lt;/version&gt;
+				&lt;configuration&gt;
+					&lt;skip&gt;true&lt;/skip&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.sonatype.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;nexus-staging-maven-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.5.1&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;default-deploy&lt;/id&gt;
+						&lt;phase&gt;deploy&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;deploy&lt;/goal&gt;
+						&lt;/goals&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+				&lt;configuration&gt;
+					&lt;serverId&gt;nexus&lt;/serverId&gt;
+					&lt;nexusUrl&gt;http://nexus3.$lower DefSchemaHostName$:8081/repository/$lower DefSchemaHostName$-hosted/&lt;/nexusUrl&gt;
+					&lt;skipStaging&gt;true&lt;/skipStaging&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+      		&lt;plugin&gt;
+        		&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        		&lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+        		&lt;version&gt;3.5.3&lt;/version&gt;
+        		&lt;configuration&gt;
+          			&lt;useModulePath&gt;false&lt;/useModulePath&gt;
+        		&lt;/configuration&gt;
+      		&lt;/plugin&gt;
+			&lt;!-- plugin&gt;
+				&lt;groupId&gt;org.teavm&lt;/groupId&gt;
+				&lt;artifactId&gt;teavm-maven-plugin&lt;/artifactId&gt;
+				&lt;version&gt;0.15.0&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;compile-to-javascript&lt;/id&gt;
+						&lt;phase&gt;prepare-package&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;compile-javascript&lt;/goal&gt;
+						&lt;/goals&gt;
+						&lt;configuration&gt;
+							&lt;mainClass&gt;$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot.$reference ManufacturingSchema SchemaName$ProtLibraryEntry&lt;/mainClass&gt; 
+							&lt;targetDirectory&gt;$${project.build.directory}/generated-js&lt;/targetDirectory&gt;
+							&lt;targetFileName&gt;$reference ManufacturingSchema lower SchemaName$-prot-module.js&lt;/targetFileName&gt;
+							&lt;jsTargetType&gt;WEBASSEMBLY_GC&lt;/jsTargetType&gt;
+							&lt;jsModuleType&gt;ES2015&lt;/jsModuleType&gt;
+							&lt;minifying&gt;false&lt;/minifying&gt; 
+							&lt;optimizationLevel&gt;SIMPLE&lt;/optimizationLevel&gt;
+							&lt;sourceMapsGenerated&gt;true&lt;/sourceMapsGenerated&gt;
+							&lt;preservedClasses&gt;
+								&lt;string&gt;$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot.$reference ManufacturingSchema SchemaName$ProtLibraryEntry&lt;/string&gt;
+							&lt;/preservedClasses&gt;
+						&lt;/configuration&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+			&lt;/plugin--&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+
+  &lt;reporting&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.5.3&lt;/version&gt;&lt;!--$$NO-MVN-MAN-VER$$--&gt;
+            &lt;configuration&gt;
+                &lt;skipTests&gt;false&lt;/skipTests&gt;
+                &lt;useSystemClassLoader&gt;true&lt;/useSystemClassLoader&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-project-info-reports-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/reporting&gt;
+&lt;/project&gt;
+</GenFile>
+
+<GenRule GenDef="SchemaRef" Name="emitPomSchemaRefProCFCoreDependency">$reference RefSchema emitPomSchemaRefProCFCoreDependency$</GenRule>
+
+<GenRule GenDef="SchemaDef" Name="emitPomSchemaRefProCFCoreDependency">
+    &lt;dependency&gt;
+        &lt;groupId&gt;$lower DefTopProjectName$.$DefVUnderVersion$&lt;/groupId&gt;
+        &lt;artifactId&gt;$lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower SchemaName$prot&lt;/artifactId&gt;
+        &lt;version&gt;$DefDotVersion$.$GeneratingBuild$&lt;/version&gt;
+    &lt;/dependency&gt;</GenRule>
+
+</RuleSet>

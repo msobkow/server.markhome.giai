@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
+ *	
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleSet
+	xmlns="http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/Schema/SchemaTableIndexKey.java"
+	Revision="2.13"
+	Descr="Java 11 implementation of a $TableName$ $Suffix$ index key object.">
+
+	<GenRule GenDef="Index" Name="fileSchemaTableIndexKeyJava"
+		>$switch IsPrimaryIndex yes empty default implFileSchemaTableIndexKeyJava$</GenRule>
+
+	<GenFile GenDef="Index" Name="implFileSchemaTableIndexKeyJava"
+			GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$"
+		SourceBundle="java"
+		BasePackageName="$reference ManufacturingSchema lower JavaPackage$/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$"
+		ExpansionClassName="$SchemaName$$TableName$By$Suffix$KeyJava"
+		ExpansionKeyName="$SchemaName$$TableName$By$Suffix$KeyJava"
+		ExpansionFileName="$SchemaName$$TableName$By$Suffix$Key.java"
+>// Description: Java 11 implementation of a $TableName$ by $Suffix$ index key object.
+
+$MssSourceLicense$
+
+package server.markhome.msscf.cfcore.v3_1.$SchemaName$;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import org.msscf.msscf.cflib.CFLib.*;
+
+public class $SchemaName$$TableName$By$Suffix$Key$implementSchemaTableBySuffixKeyComparable$
+{$implSchemaTableBySuffixKeyColumnAttr$$implIndexKeyBaseConstructor$$implIndexKeyBaseColumns$$implIndexKeyEquals$$implIndexKeyGetHashCode$$implIndexKeyCompareTo$$implIndexKeyToString$}
+</GenFile>
+
+	<GenRule GenDef="Index" Name="implIndexKeyBaseColumns"
+		>$iterate Columns( each implColumnGetterSetter )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implSchemaTableBySuffixKeyColumnAttr"
+		>$iterate Columns( each implColumnAttr )$</GenRule>
+
+	<GenRule GenDef="Index" Name="extendSchemaTableBySuffixKey">
+	extends $poptop SchemaDef SchemaName$$TableName$By$Suffix$Key</GenRule>
+
+	<GenRule GenDef="Index" Name="implementSchemaTableBySuffixKeyComparable">
+	implements Comparable&lt;Object&gt;,
+		Serializable</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyInhConstructor">
+	public $SchemaName$$TableName$By$Suffix$Key() {
+		super();
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyBaseConstructor">
+	public $SchemaName$$TableName$By$Suffix$Key() {$iterate Columns( each implConstructorInitAttr )$
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyEquals">
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof $SchemaName$$TableName$By$Suffix$Key ) {
+			$SchemaName$$TableName$By$Suffix$Key rhs = ($SchemaName$$TableName$By$Suffix$Key)obj;$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else if( obj instanceof $SchemaName$$TableName$Buff ) {
+			$SchemaName$$TableName$Buff rhs = ($SchemaName$$TableName$Buff)obj;$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else {
+			return( false );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyGetHashCode">
+	public int hashCode() {
+		int hashCode = 0;$iterate Columns( each implGetHashCodeAttr )$
+		return( hashCode &amp; 0x7fffffff );
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyCompareTo">
+	public int compareTo( Object obj ) {
+		if( obj == null ) {
+			return( 1 );
+		}
+		else if( obj instanceof $SchemaName$$TableName$By$Suffix$Key ) {
+			$SchemaName$$TableName$By$Suffix$Key rhs = ($SchemaName$$TableName$By$Suffix$Key)obj;$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else if( obj instanceof $SchemaName$$TableName$Buff ) {
+			$SchemaName$$TableName$Buff rhs = ($SchemaName$$TableName$Buff)obj;$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implIndexKeyToString">
+	public String toString() {
+		String ret = "&lt;$SchemaName$$TableName$By$Suffix$"$iterate Columns( each implToStringEmitXmlAttr )$
+			+ "/&gt;";
+		return( ret );
+	}
+</GenRule>
+
+</RuleSet>

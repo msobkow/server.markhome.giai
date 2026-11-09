@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *
+ *	This program is part of MSS Code Factory 2.13, available under
+ *	a dual GPLv3/commercial license.
+ *
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleSet
+		xmlns="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+javafx"
+	Name="src/SchemaJavaFXTableAddPane.java"
+	Revision="2.13"
+	Descr="Java 11 JavaFX Add Pane for Table">
+
+	<GenFile GenDef="Table" Name="fileSchemaJavaFXTableAddPaneJava"
+			GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx"
+		SourceBundle="java"
+		BasePackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx"
+		ExpansionClassName="$SchemaName$JavaFX$TableName$TableAddPaneJava"
+		ExpansionKeyName="$SchemaName$JavaFX$TableName$TableAddPaneJava"
+		ExpansionFileName="$SchemaName$JavaFX$TableName$AddPane.java"
+>// Description: Java 11 JavaFX Add Pane implementation for $TableName$.
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$javafx;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import javafx.geometry.Orientation;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import org.msscf.msscf.cflib.CFLib.*;
+import org.msscf.msscf.cflib.CFLib.JavaFX.*;
+import org.apache.commons.codec.binary.Base64;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$poptop SchemaDef importJavaPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaNameObj empty empty )$$poptop SchemaDef importJavaPackageSchemaNameObj$
+
+/**
+ *	$SchemaName$JavaFX$TableName$AddPane JavaFX Add Pane implementation
+ *	for $TableName$.
+ */
+public class $SchemaName$JavaFX$TableName$AddPane
+extends CFSplitPane
+implements I$DefSchemaName$JavaFX$TableName$PaneCommon
+{
+	protected ICFFormManager cfFormManager = null;
+	protected I$SchemaName$JavaFXSchema javafxSchema = null;
+	protected ScrollPane attrScrollPane = null;
+	protected CFGridPane attrPane = null;
+$implConstructJavaFXTableAddPane$$implGetSetCFFormManager$$implGetJavaFXSchema$$implGetSetJavaFXFocusAddPane$$implSetPaneModeAddPane$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="implGetSetJavaFXFocusAddPane">
+	public ICFLibAnyObj getJavaFXFocus() {
+		ICFLibAnyObj obj;
+		if( attrPane != null ) {
+			obj = attrPane.getJavaFXFocus();
+		}
+		else {
+			obj = null;
+		}
+		return( obj );
+	}
+
+	public void setJavaFXFocus( ICFLibAnyObj value ) {
+		final String S_ProcName = "setJavaFXFocus";
+		if( ( value == null ) || ( value instanceof I$DefSchemaName$$TableName$Obj ) ) {
+			super.setJavaFXFocus( value );
+			if( ( attrPane != null ) &amp;&amp; ( attrPane.getJavaFXFocus() != value ) ) {
+				attrPane.setJavaFXFocus( value );
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException( getClass(),
+				S_ProcName,
+				"value",
+				value,
+				"I$DefSchemaName$$TableName$Obj" );
+		}
+	}
+
+	public void setJavaFXFocusAs$TableName$( I$DefSchemaName$$TableName$Obj value ) {
+		setJavaFXFocus( value );
+	}
+
+	public I$DefSchemaName$$TableName$Obj getJavaFXFocusAs$TableName$() {
+		return( (I$DefSchemaName$$TableName$Obj)getJavaFXFocus() );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implSetPaneModeAddPane">
+	public void setPaneMode( CFPane.PaneMode value ) {
+		CFPane.PaneMode oldValue = getPaneMode();
+		if( value == oldValue ) {
+			return;
+		}
+		try {
+			super.setPaneMode( value );
+			((I$DefSchemaName$JavaFX$TableName$PaneCommon)attrPane).setPaneMode( value );
+		}
+		catch( Throwable t ) {
+			super.setPaneMode( oldValue );
+			((I$DefSchemaName$JavaFX$TableName$PaneCommon)attrPane).setPaneMode( oldValue );
+			throw t;
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implConstructJavaFXTableAddPane">
+	public $SchemaName$JavaFX$TableName$AddPane( ICFFormManager formManager, I$SchemaName$JavaFXSchema argSchema, I$DefSchemaName$$TableName$Obj argFocus ) {
+		super();
+		final String S_ProcName = "construct-schema-focus";
+		if( formManager == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				1,
+				"formManager" );
+		}
+		cfFormManager = formManager;
+		if( argSchema == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				S_ProcName,
+				2,
+				"argSchema" );
+		}
+		// argFocus is optional; focus may be set later during execution as
+		// conditions of the runtime change.
+		javafxSchema = argSchema;
+		setJavaFXFocus( argFocus );
+		attrPane = argSchema.get$TableName$Factory().newAttrPane( cfFormManager, argFocus );
+		attrScrollPane = new ScrollPane( attrPane );
+		attrScrollPane.setFitToWidth( true );
+		attrScrollPane.setHbarPolicy( ScrollBarPolicy.NEVER );
+		attrScrollPane.setVbarPolicy( ScrollBarPolicy.AS_NEEDED );
+		attrScrollPane.setContent( attrPane );
+		setOrientation( Orientation.VERTICAL );
+		getItems().add( attrScrollPane );
+	}
+</GenRule>
+
+</RuleSet>

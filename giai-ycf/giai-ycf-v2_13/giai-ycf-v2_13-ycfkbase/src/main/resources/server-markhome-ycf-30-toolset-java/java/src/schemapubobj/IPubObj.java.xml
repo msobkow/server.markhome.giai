@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapubobj/IPubObj.java"
+	Revision="3.0"
+	Descr="Java 25 Public Table Object interface">
+
+	<GenRule GenDef="Table" Name="fileIPubObjJava">$switch IsPublic yes reallyFileIPubObjJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileIPubObjJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-pub/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pubobj"
+		ExpansionClassName="I$SchemaName$Pub$TableName$ObjJava"
+		ExpansionKeyName="I$SchemaName$Pub$TableName$ObjJava"
+		ExpansionFileName="I$SchemaName$Pub$TableName$Obj.java"
+>// Description: Java 25 Object interface for $SchemaName$Pub $TableName$.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pubobj;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$tabletweak CafePubObjImport$
+
+public interface I$SchemaName$Pub$TableName$Obj$iterate TableRefs( first declIPubObjInheritSchemaTableObjAndSuperclass each declCommaIPubObjInheritSchemaTableObj empty maybeDeclIPubObjInheritSuperClass )$
+{$declIPubObjMethods$
+}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="declIPubObjMethods"
+		>$switch HasSuperClassRelation yes empty default declIPubObjGetClassCode$$switch HasSuperClassRelation yes empty default declIPubObjRealise$$switch HasSuperClassRelation yes empty default declIPubObjForget$$switch HasSuperClassRelation yes empty default declIPubObjRead$$switch ThisHasChain yes declIPubObjMoveUp default empty$$switch ThisHasChain yes declIPubObjMoveDown default empty$$switch HasSuperClassRelation yes empty default declIPubObjBeginEdit$$switch HasSuperClassRelation yes empty default declIPubObjEndEdit$$switch HasSuperClassRelation yes empty default declIPubObjEditAccessors$$declIPubObjEditAsAccessors$$declIPubObjTableAccessors$$switch HasSuperClassRelation no declIPubObjSchemaAccessors default empty$$switch HasSuperClassRelation no declIPubObjRecAccessors default empty$$declIPubObjTableRecAccessors$$switch HasDefSchemaOrSuper no declIPubObjPKeyAccessors default empty$$switch HasSuperClassRelation no declIPubObjIsNewAccessors default empty$$iterate Relation( each declIPubObjRelationAccessors empty empty )$$iterate Columns( each declIPubObjColumnAccessors empty empty )$$switch HasSuperClassRelation yes empty default declIPubObjCopyPKeyToRec$$switch HasSuperClassRelation yes empty default declIPubObjCopyRecToPKey$$iterate ServerMethods( each declPubJavaObjServerMethod empty empty )$$tabletweak CafePubObjInterface$</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjInheritSchemaTableObjAndSuperclass">
+	extends I$reference SchemaDef SchemaName$Pub$TableName$Obj$poptop Table switch HasSuperClassRelation yes alsoIPubObjInheritSuperClass default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="alsoIPubObjInheritSuperClass">,
+		I$reference SuperClassRelation reference ToTable SchemaName$Pub$reference SuperClassRelation reference ToTable TableName$Obj</GenRule>
+
+	<GenRule GenDef="Table" Name="declCommaIPubObjInheritSchemaTableObj">,
+		I$reference SchemaDef SchemaName$Pub$TableName$Obj</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclIPubObjInheritSuperClass"
+		>$switch HasSuperClassRelation yes declIPubObjInheritSuperClass default MaybeExtendPubICFAnyObj$</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjInheritSuperClass">
+	extends I$reference SuperClassRelation reference ToTable DefSchemaName$Pub$reference SuperClassRelation reference ToTable TableName$Obj</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declPubJavaObjServerMethod">$switch IsPublic yes reallyDeclPubJavaObjServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclPubJavaObjServerMethod"
+		>$switch IsInstanceMethod yes declPubJavaObjInstServerProc default empty$</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declPubJavaObjInstServerProc">$switch IsPublic yes reallyDeclPubJavaObjInstServerProc default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclPubJavaObjInstServerProc">
+	boolean $leadlower Name$($iterate Params( first declServerMethodParamNoComma each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declPubJavaObjServerMethod">$switch IsPublic yes reallyDeclPubJavaObjServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclPubJavaObjServerMethod"
+		>$switch IsInstanceMethod yes declPubJavaObjInstServerObjFunc default empty$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declPubJavaObjInstServerObjFunc">$switch IsPublic yes reallyDeclPubJavaObjInstServerObjFunc default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclPubJavaObjInstServerObjFunc">
+	I$DefSchemaName$Pub$reference RetTable Name$Obj $leadlower Name$($iterate Params( first declServerMethodParamNoComma each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declPubJavaObjServerMethod">$switch IsPublic yes reallyDeclPubJavaObjServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclPubJavaObjServerMethod"
+		>$switch IsInstanceMethod yes declPubJavaObjInstServerListFunc default empty$</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declPubJavaObjInstServerListFunc">$switch IsPublic yes reallyDeclPubJavaObjInstServerListFunc default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclPubJavaObjInstServerListFunc">
+	List&lt;I$DefSchemaName$Pub$reference RetTable Name$Obj&gt; $leadlower Name$($iterate Params( first declServerMethodParamNoComma each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjGetClassCode">
+	/**
+	 *	Initially, the class code for an object is I$DefSchemaName$Pub$TableName$.CLASS_CODE, but the Obj layer relies on class code translation to map those
+	 *	backing store entities to a runtime set of front-facing classcodes that the clients download and use when talking to the server implementing this code base.
+	 *
+	 *	@return The runtime class code used by this object. Only after the system is fully booted are these values stable and reliable.
+	 */
+	int getClassCode();$switch HasAuditColumns yes declIPubObjGetAuditColumns default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjGetAuditColumns">
+	/**
+	 *	Get the user who created this instance.
+	 *
+	 *	@return	The I$SecSchemaName$PubSecUserObj instance who created this instance.
+	 */
+	I$SecSchemaName$PubSecUserObj getCreatedBy();
+
+	/**
+	 *	Get the LocalDateTime this instance was created.
+	 *
+	 *	@return	The LocalDateTime value for the creation time of the instance.
+	 */
+	LocalDateTime getCreatedAt();
+
+	/**
+	 *	Get the user who updated this instance.
+	 *
+	 *	@return	The I$SecSchemaName$PubSecUserObj instance who updated this instance.
+	 */
+	I$SecSchemaName$PubSecUserObj getUpdatedBy();
+
+	/**
+	 *	Get the LocalDateTime date-time this instance was updated.
+	 *
+	 *	@return	The LocalDateTime value for the create time of the instance.
+	 */
+	LocalDateTime getUpdatedAt();</GenRule>
+
+	<GenRule GenDef="Object" Name="PubImportCFCore">
+import server.markhome.cf.v3_1.cfcore.MssCF.*;</GenRule>
+
+	<GenRule GenDef="Table" Name="MaybeExtendPubICFAnyObj">$ExtendPubICFAnyObj$</GenRule>
+
+	<GenRule GenDef="Table" Name="ExtendPubICFAnyObj">
+	extends ICFAnyObj</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjBeginEdit">
+	/**
+	 *	Initialize and return a locked edition of this $TableName$ instance.
+	 *
+	 *	@return	The newly locked I$DefSchemaName$Pub$TableName$EditObj edition of this instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$EditObj beginEdit();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjEndEdit">
+	/**
+	 *	End this edition of this $TableName$ instance.
+	 *
+	 *	@throws	CFNotSupportedException if you try to end a read-only view.
+	 */
+	void endEdit();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjEditAccessors">
+	/**
+	 *	Get the current edition of this $TableName$ instance.
+	 *
+	 *	@return	The I$DefSchemaName$Pub$TableName$EditObj edition of this instance.
+	 */
+	I$DefSchemaName$Pub$TableName$EditObj getEdit();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjEditAsAccessors">
+	/**
+	 *	Get the current edition of this $TableName$ instance as a I$DefSchemaName$Pub$TableName$EditObj.
+	 *
+	 *	@return	The I$DefSchemaName$Pub$TableName$EditObj edition of this instance.
+	 */
+	I$DefSchemaName$Pub$TableName$EditObj getEditAs$TableName$();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjIsNewAccessors">
+	/**
+	 *	Is this a new instance?
+	 *
+	 *	@return	True if this is a new instance, otherwise false if it has
+	 *		been read, locked, or created.
+	 */
+	boolean getIsNew();
+
+	/**
+	 *	Indicate whether this is a new instance.
+	 *	&lt;p&gt;
+	 *	This method should only be used by implementation internals.
+	 *
+	 *	@param	True if this is a new instance, otherwise false.
+	 */
+	void setIsNew( boolean value );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjSchemaAccessors">
+	/**
+	 *	Get the I$DefSchemaName$PubSchemaObj schema cache which manages this instance.
+	 *
+	 *	@return	I$DefSchemaName$PubSchemaObj schema cache which manages this instance.
+	 */
+	I$DefSchemaName$PubSchemaObj getSchema();
+
+	/**
+	 *	Set the I$DefSchemaName$PubSchemaObj schema cache which manages this instance.
+	 *	Should only be used to install overloads of the buff implementation wired specifically to a transport implementation
+	 *	that eventually hits a server running a JPA backend.
+	 *
+	 *	@param schema	I$DefSchemaName$PubSchemaObj schema cache which manages this instance.
+	 */
+	void setSchema(I$DefSchemaName$PubSchemaObj schema);
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjTableAccessors">
+	/**
+	 *	Get the I$DefSchemaName$Pub$TableName$TableObj table cache which manages this instance.
+	 *
+	 *	@return	I$DefSchemaName$Pub$TableName$TableObj table cache which manages this instance.
+	 */
+	I$DefSchemaName$Pub$TableName$TableObj get$TableName$Table();
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIPubObjRelationAccessors">$switch IsPublic yes reallyDeclIPubObjRelationAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIPubObjRelationAccessors"
+		>$switch ToIndexIsUnique yes maybeDeclIPubObjRelationSingletonAccessors default maybeDeclIPubObjRelationCollectionAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeDeclIPubObjRelationSingletonAccessors"
+		>$switch RelationTypeTag Superclass empty default declIPubObjRelationSingletonAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeDeclIPubObjRelationCollectionAccessors"
+		>$switch RelationTypeTag Superclass empty default declIPubObjRelationCollectionAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIPubObjRelationSingletonAccessors">$switch IsPublic yes reallyDeclIPubObjRelationSingletonAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIPubObjRelationSingletonAccessors">
+	/**
+	 *	Get the $lower OptionalOrRequired$ I$reference ToTable SchemaName$Pub$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $lower OptionalOrRequired$ I$reference ToTable SchemaName$Pub$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 */
+	I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj get$OptionalOrRequired$$RelationTypeTag$$Suffix$();
+
+	/**
+	 *	Get the $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 */
+	I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj get$OptionalOrRequired$$RelationTypeTag$$Suffix$( boolean forceRead );
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIPubObjRelationCollectionAccessors">$switch IsPublic yes reallyDeclIPubObjRelationCollectionAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIPubObjRelationCollectionAccessors">
+	/**
+	 *	Get the array of $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj array of instances referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj[] array of instances referenced by the $Suffix$ key.
+	 */
+	List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj&gt; get$OptionalOrRequired$$RelationTypeTag$$Suffix$();
+
+	/**
+	 *	Get the array of $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj array of instances referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $lower OptionalOrRequired$ I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj[] array of instances referenced by the $Suffix$ key.
+	 */
+	List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$Obj&gt; get$OptionalOrRequired$$RelationTypeTag$$Suffix$( boolean forceRead );
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIPubObjColumnAccessors">$switch IsPublic yes reallyDeclIPubObjColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumnAccessors"
+		>$switch InSuperiorRelation yes declIPubObjColumnGetter default declIPubObjColumnGetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declIPubObjColumnGetter">$switch IsPublic yes reallyDeclIPubObjColumnGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumnGetter">$switch ColumnInPrimaryIndex	yes declIPubObjColumCFCorePKeyGetter default declIPubObjColumCFCoreDataGetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declIPubObjColumnGetterSetter">$switch IsPublic yes reallyDeclIPubObjColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumnGetterSetter">$switch ColumnInPrimaryIndex yes declIPubObjColumCFCorePKeyGetter default declIPubObjColumCFCoreDataGetter$$switch ColumnInPrimaryIndex yes declIPubObjColumCFCorePKeySetter default declIPubObjColumCFCoreDataSetter$</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIPubObjColumnAccessors">$switch IsPublic yes reallyDeclIPubObjColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumnAccessors"
+		>$switch InSuperiorRelation yes declIPubObjColumnGetter default declIPubObjColumnGetter$</GenRule>
+	<GenRule GenDef="Atom" Name="declIPubObjColumnGetter">$switch IsPublic yes reallyDeclIPubObjColumnGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumnGetter">$switch ColumnInPrimaryIndex	yes declIPubObjColumCFCorePKeyGetter default declIPubObjColumCFCoreDataGetter$</GenRule>
+	<GenRule GenDef="Atom" Name="declIPubObjColumnGetterSetter">$switch IsPublic yes reallyDeclIPubObjColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumnGetterSetter">$switch ColumnInPrimaryIndex yes declIPubObjColumCFCorePKeyGetter default declIPubObjColumCFCoreDataGetter$$switch ColumnInPrimaryIndex yes declIPubObjColumCFCorePKeySetter default declIPubObjColumCFCoreDataSetter$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIPubObjColumCFCorePKeyGetter">$switch IsPublic yes reallyDeclIPubObjColumCFCorePKeyGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumCFCorePKeyGetter">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 */
+	$implPubJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIPubObjColumCFCorePKeySetter">$switch IsPublic yes reallyDeclIPubObjColumCFCorePKeySetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumCFCorePKeySetter">
+	/**
+	 *	Set the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@param value The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$ value to be applied.
+	 */
+	void set$implColumnAttrOptionality$$Name$($implPubJavaAtomType$ value);
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIPubObjColumCFCorePKeyGetter">$switch IsPublic yes reallyDeclIPubObjColumCFCorePKeyGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumCFCorePKeyGetter">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 */
+	$implPubJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIPubObjColumCFCorePKeySetter">$switch IsPublic yes reallyDeclIPubObjColumCFCorePKeySetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumCFCorePKeySetter">
+	/**
+	 *	Set the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@param value The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$ value to be applied.
+	 */
+	void set$implColumnAttrOptionality$$Name$($implPubJavaAtomType$ value);
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIPubObjColumCFCoreDataGetter">$switch IsPublic yes reallyDeclIPubObjColumCFCoreDataGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumCFCoreDataGetter">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 */
+	$implPubJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIPubObjColumCFCoreDataSetter">$switch IsPublic yes reallyDeclIPubObjColumCFCoreDataSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIPubObjColumCFCoreDataSetter">
+	/**
+	 *	Set the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@param value The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$ value to be applied.
+	 */
+	void set$implColumnAttrOptionality$$Name$($implPubJavaAtomType$ value);
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIPubObjColumCFCoreDataGetter">$switch IsPublic yes reallyDeclIPubObjColumCFCoreDataGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumCFCoreDataGetter">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 */
+	$implPubJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIPubObjColumCFCoreDataSetter">$switch IsPublic yes reallyDeclIPubObjColumCFCoreDataSetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIPubObjColumCFCoreDataSetter">
+	/**
+	 *	Set the $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$.
+	 *
+	 *	@param value The $lower implColumnAttrOptionality$ $implPubJavaAtomType$ attribute $Name$ value to be applied.
+	 */
+	void set$implColumnAttrOptionality$$Name$($implPubJavaAtomType$ value);
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjPKeyAccessors">
+	/**
+	 *	Get the primary key of this instance.
+	 *
+	 *	@return	$IPubCompactedPrimaryIndexClass$ primary key for this instance.
+	 */
+	$IPubCompactedPrimaryIndexClass$ getPKey();
+
+	/**
+	 *	Set the primary key of this instance.
+	 *	&lt;p&gt;
+	 *	This method should only be invoked by implementation internals.
+	 *
+	 *	@param $IPubCompactedPrimaryIndexClass$ primary key value for this instance.
+	 */
+	void setPKey( $IPubCompactedPrimaryIndexClass$ value );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjRealise">
+	/**
+	 *	Realise this instance of a $TableName$.
+	 *
+	 *	@return	$DefSchemaName$Pub$TableName$Obj instance which should be subsequently referenced.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj realise();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjForget">
+	/**
+	 *	Forget this instance from the cache.
+	 *	&lt;p&gt;
+	 *	This method should only be invoked by implementation internals.
+	 */
+	void forget();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjCreate">
+	/**
+	 *	create() may return a different instance than the
+	 *	one used to invoke the operation.  All future references
+	 *	should be to the returned instance, not the original
+	 *	invoker.  You should lose all references to the original
+	 *	invoker.
+	 *
+	 *	@return	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj the reference to the created and realised instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj create();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjRead">
+	/**
+	 *	Re-read this instance by it's primary key.
+	 *
+	 *	@return	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj the reference to the cached or read (realised) instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj read();
+
+	/**
+	 *	Re-read this instance by it's primary key.
+	 *
+	 *	@return	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj the reference to the cached or read (realised) instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$Obj read( boolean forceRead );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjMoveUp">
+	/**
+	 *	Move this object up in the chain and refresh the cache.
+	 *
+	 *	@return	I$reference BaseClass DefSchemaName$Pub$TableName$Obj the reference to the moved and refreshed instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$TableName$Obj moveUp();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjMoveDown">
+	/**
+	 *	Move this object down in the chain and refresh the cache.
+	 *
+	 *	@return	I$reference BaseClass DefSchemaName$Pub$TableName$Obj the reference to the moved and refreshed instance.
+	 */
+	I$reference BaseClass DefSchemaName$Pub$TableName$Obj moveDown();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjUpdate">
+	/**
+	 *	Update this instance.
+	 *
+	 *	@throws	CFNotSupportedException if invoked on a read-only instance.
+	 */
+	void update();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjDelete">
+	/**
+	 *	Delete this instance.
+	 *
+	 *	@throws	CFNotSupportedException if invoked on a read-only instance.
+	 */
+	void deleteInstance();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjCopyPKeyToRec">
+	/**
+	 *	Internal use only.
+	 */
+	void copyPKeyToRec();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjCopyRecToPKey">
+	/**
+	 *	Internal use only.
+	 */
+	void copyRecToPKey();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjRecAccessors">
+	/**
+	 *	Get the I$DefSchemaName$Pub$TableName$ instance which currently backs this instance.
+	 *	&lt;p&gt;
+	 *	This value &lt;i&gt;will&lt;/i&gt; change for read-only instances, so you should
+	 *	not hold on to the value as a reference anywhere outside the current call stack.
+	 *
+	 *	@return	I$DefSchemaName$Pub$TableName$ instance which currently backs this object.
+	 */
+	I$DefSchemaName$Pub$TableName$ getRec();
+
+	/**
+	 *	Internal use only.
+	 */
+	void setRec( I$DefSchemaName$Pub$TableName$ value );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIPubObjTableRecAccessors">
+	/**
+	 *	Get the I$DefSchemaName$Pub$TableName$ instance which currently backs this instance.
+	 *	&lt;p&gt;
+	 *	This value &lt;i&gt;will&lt;/i&gt; change for read-only instances, so you should
+	 *	not hold on to the value as a reference anywhere outside the current call stack.
+	 *
+	 *	@return	I$DefSchemaName$Pub$TableName$ instance which currently backs this object.
+	 */
+	I$DefSchemaName$Pub$TableName$ get$TableName$Rec();
+</GenRule>
+
+</RuleSet>

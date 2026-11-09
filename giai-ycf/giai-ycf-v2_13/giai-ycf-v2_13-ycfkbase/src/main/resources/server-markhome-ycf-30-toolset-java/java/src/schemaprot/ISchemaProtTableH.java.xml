@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapub/ISchemaProtTableH.java"
+	Revision="3.0"
+	Descr="Java 25 protlic interface for a $TableName$ history object">
+
+	<GenRule GenDef="Table" Name="fileISchemaProtTableHJava">$switch IsProtected yes reallyFileISchemaProtTableHJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileISchemaProtTableHJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot"
+		ExpansionClassName="I$SchemaName$Prot$TableName$HJava"
+		ExpansionKeyName="I$SchemaName$Prot$TableName$HJava"
+		ExpansionFileName="I$SchemaName$Prot$TableName$H.java"
+>// Description: Java 25 protlic interface for a $TableName$ history object
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaProtPackageSchemaNameObj$$tabletweak CafeProtTableHImport$
+
+/**
+ *	I$SchemaName$Prot$TableName$H provides access to protlic history records matching the $SchemaName$Prot$TableName$ object change history.
+ */
+public interface I$SchemaName$Prot$TableName$H$switch HasDefSchema yes throwErrorCannotExtendSchemaProtRecHDefTablePubRecH default maybeExtendSchemaProtRecHTableRecHSuperRecH$
+{$maybeProtDeclRecHGetClassCode$$maybeDeclProtRecHOptImplAuditColumnAccessors$$switch HasSuperClassRelation no declProtRecHColumnGetterSetters default declProtRecHDataGetterSetters$$declProtRecHEquals$$declProtRecHGetHashCode$$declProtRecHCompareTo$$declProtRecHSet$$maybeDeclProtISchemaTableHToString$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="maybeExtendSchemaProtRecHTableRecHSuperRecH">$switch HasSuperClassRelation yes declProtRecHInheritSuperProtRecH default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtRecHOptImplAuditColumnAccessors">$switch HasSuperClassRelation no declProtRecHOptImplAuditColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="declProtRecHOptImplAuditColumnAccessors">$switch HasAuditColumns yes declProtRecHColumnOptAuditGetterSetters default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHPKeyAccessors">
+	public I$reference BaseClass SchemaName$Prot$reference BaseClass TableName$HPKey getProtPKey();
+	public void setProtPKey( I$reference BaseClass SchemaName$Prot$reference BaseClass TableName$HPKey pkey );
+	public CFDbKeyHash256 getAuditClusterId();
+	public void setAuditClusterId(CFDbKeyHash256 auditClusterId);
+	public LocalDateTime getAuditStamp();
+	public void setAuditStamp(LocalDateTime auditStamp);
+	public short getAuditActionId();
+	public void setAuditActionId(short auditActionId);
+	public int getRequiredRevision();
+	public void setRequiredRevision(int revision);
+	public CFDbKeyHash256 getAuditSessionId();
+	public void setAuditSessionId(CFDbKeyHash256 auditSessionId);
+</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtHJPAColumnOptAuditGetterSetters">$switch HasSuperClassRelation yes empty default declProtRecHColumnOptAuditGetterSetters$</GenRule>
+	<GenRule GenDef="Table" Name="declProtRecHColumnOptAuditGetterSetters"
+		>$switch HasAuditColumns yes declProtRecHColumnAuditGetterSetters default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHColumnAuditGetterSetters">
+	public CFDbKeyHash256 getCreatedByUserId();
+	public void setCreatedByUserId( CFDbKeyHash256 value );
+	public LocalDateTime getCreatedAt();
+	public void setCreatedAt( LocalDateTime value );
+	public CFDbKeyHash256 getUpdatedByUserId();
+	public void setUpdatedByUserId( CFDbKeyHash256 value );
+	public LocalDateTime getUpdatedAt();
+	public void setUpdatedAt( LocalDateTime value );
+</GenRule>
+
+	<GenRule GenDef="Atom" Name="declProtRecHPKeyAttrAccessors">$switch IsProtected yes reallyDeclProtRecHPKeyAttrAccessors default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclProtRecHPKeyAttrAccessors">
+	public $implIJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+	public void set$implColumnAttrOptionality$$Name$( $implIProtJavaAtomType$ $lower implColumnAttrOptionality$$Name$ );
+</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declProtRecHPKeyAttrAccessors">$switch IsProtected yes reallyDeclProtRecHPKeyAttrAccessors default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclProtRecHPKeyAttrAccessors">
+	public $implIJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+	public void set$implColumnAttrOptionality$$Name$( $implIProtJavaAtomType$ $lower implColumnAttrOptionality$$Name$ );
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declProtRecHPKeyAttrAccessors">$switch IsProtected yes reallyDeclProtRecHPKeyAttrAccessors default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="reallyDeclProtRecHPKeyAttrAccessors">
+	public $implIJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+	public void set$implColumnAttrOptionality$$Name$( $implIProtJavaAtomType$ $lower implColumnAttrOptionality$$Name$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHColumnGetterSetters"
+		>$declProtRecHPKeyAccessors$$reference PrimaryKeyIndex iterate Columns( each declProtRecHPKeyAttrAccessors empty empty )$$declProtRecHDataGetterSetters$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHDataGetterSetters"
+		>$iterate DataColumns( each declProtColumnGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHInheritSuperProtRecH"> extends I$reference SuperClassRelation reference ToTable DefSchemaName$Prot$reference SuperClassRelation reference ToTable TableName$H</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeProtDeclRecHGetClassCode">$switch HasSuperClassRelation yes empty default declProtRecHGetClassCode$</GenRule>
+	<GenRule GenDef="Table" Name="declProtRecHGetClassCode">
+	public int getClassCode();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHEquals">
+	@Override
+	public boolean equals( Object obj );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHGetHashCode">
+	@Override
+	public int hashCode();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHCompareTo">
+	//@Override
+	public int compareTo( Object obj );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHSetRec">
+	public void set( I$reference BaseClass DefSchemaName$Prot$reference BaseClass TableName$ src );$declProtRecHSetRecH$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHSetRecH">
+	public void set( I$reference BaseClass DefSchemaName$Prot$reference BaseClass TableName$H src );</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHSet">$switch HasSuperClassRelation yes empty default declProtRecHSetRec$
+	public void set$TableName$( I$DefSchemaName$Prot$TableName$ src );$declProtRecHSetDefRecH$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtRecHSetDefRecH">
+	public void set$TableName$( I$DefSchemaName$Prot$TableName$H src );</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtISchemaTableHToString">$switch HasDefSchemaOrSuper yes empty default declProtISchemaTableHToString$</GenRule>
+	<GenRule GenDef="Table" Name="declProtISchemaTableHToString">
+	public String getXmlAttrFragment();
+
+	@Override
+	public String toString();
+</GenRule>
+
+</RuleSet>

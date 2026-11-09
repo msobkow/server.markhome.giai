@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ *-->
+ <RuleCartridge
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd"
+		Name="server-markhome-ycf-30-toolset-java+saxloader"
+		Revision="3.0"
+		Descr="Java 25 SAX Parser implementation">
+	<Tool Name="java" />
+	<ToolSet Name="java" />
+	<!--UseCartridge Name="server-markhome-ycf-30-toolset-any" /-->
+	<!--UseCartridge Name="server-markhome-ycf-30-toolset-java" /-->
+	<!--UseCartridge Name="server-markhome-ycf-30-toolset-saxloader" /-->
+	<Tool Name="java" />
+	<Tool Name="saxloader" />
+	<ToolSet Name="java+saxloader" />
+</RuleCartridge>

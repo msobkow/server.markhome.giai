@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/Schema/jpa/SchemaJpaTableService.java"
+	Revision="3.0"
+	Descr="Java 25 Spring JPA Service for $TableName$">
+
+	<GenFile GenDef="Table" Name="fileSchemaJpaTableServiceJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-jpa/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa"
+		ExpansionClassName="$SchemaName$Jpa$TableName$ServiceJava"
+		ExpansionKeyName="$SchemaName$Jpa$TableName$ServiceJava"
+		ExpansionFileName="$SchemaName$Jpa$TableName$Service.java"
+>// Description: Java 25 Spring JPA Service for $TableName$
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$.jpa;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import jakarta.persistence.*;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$
+import $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$.*;
+
+/**
+ *	Service for the $SchemaName$$TableName$ entities defined in $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa
+ *	using the $SchemaName$$TableName$Repository to access them.
+ */
+@Service("$lower DefDbSchemaName$Jpa$TableName$Service")
+public class $SchemaName$Jpa$TableName$Service {
+$SchemaJpaTableServiceBody$$tabletweak JpaTableServiceCustomServices$
+}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="SchemaJpaTableServiceBody">
+	@Autowired
+	@Qualifier("$lower DefDbSchemaName$EntityManagerFactory")
+	private LocalContainerEntityManagerFactoryBean $lower DefDbSchemaName$EntityManagerFactory;
+
+	@Autowired
+	private $DefSchemaName$Jpa$TableName$Repository $lower DefDbSchemaName$$TableName$Repository;
+$declServiceCreate$$declServiceUpdate$$declServiceTableFinders$$declServiceTableLockers$$declServiceTableDeleters$</GenRule>
+
+	<GenRule GenDef="Table" Name="declJpaServiceFind">
+	/**
+	 *	Argument-cored find database instance for compatibility with the current MSS code factory code base.
+	 *$reference BaseClass reference PrimaryKeyIndex iterate Columns( each emitJpaColumnArgumentComment )$
+	 *
+	 *		@return The retrieved entity, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ find($reference BaseClass reference PrimaryKeyIndex iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.get($reference BaseClass reference PrimaryKeyIndex iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+$switch IsPrimaryIndexKeyAtomic yes empty default declJpaServiceFindByPKey$
+	/**
+	 *	Retrieve all entities from the repository
+	 *
+	 *		@return The list of retrieved entities, which may be empty
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public List&lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&gt; findAll() {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findAll() );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJpaServiceFindByPKey">
+	/**
+	 *	I$SchemaName$$TableName$PKey based find method for object-cored access.
+	 *
+	 *		@param key The key of the entity to be find.
+	 *
+	 *		@return The entity find, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ find(I$SchemaName$$TableName$PKey key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.get($reference BaseClass reference PrimaryKeyIndex iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declJpaServicePassDirectAttr">$leadlower reference Column implColumnAttrOptionality$$reference Column Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="commaDeclJpaServicePassDirectAttr">,
+			$declJpaServicePassDirectAttr$</GenRule>
+
+	<GenRule GenDef="Table" Name="declServiceTableLockers">$switch HasSuperClassRelation yes declInheritedServiceTableLockers default empty$
+	// $SchemaName$$TableName$ specified lock-by-index methods
+$iterate Index(each maybeDeclJpaServiceLocker empty empty)$</GenRule>
+
+	<GenRule GenDef="Table" Name="declInheritedServiceTableLockers">$reference SuperClassRelation reference ToTable declServiceTableLockers$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeDeclJpaServiceLocker">$switch IsPrimaryIndex yes maybeDeclJpaServiceLockerICFCoreTable default declJpaServiceLock$</GenRule>
+	<GenRule GenDef="Index" Name="maybeDeclJpaServiceLockerICFCoreTable">$switch TableHasSuperClassRelation yes empty default declJpaServiceLockPKey$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceLockPKey">
+	/**
+	 *	Argument-cored lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 *
+	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ lockBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+$switch IsPrimaryIndexKeyAtomic yes empty default declJpaServiceLockPKeyByObj$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceLockPKeyByObj">
+	/**
+	 *	I$SchemaName$$TableName$PKey based lock method for object-cored access.
+	 *
+	 *		@param key The key of the entity to be locked.
+	 *
+	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ lockBy$Suffix$(I$SchemaName$$TableName$PKey key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceLock">$switch IsPrimaryIndex yes empty default reallyDeclJpaServiceLock$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclJpaServiceLock">$switch IsUnique yes declJpaServiceLockSingle default declJpaServiceLockMultiple$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceLockSingle">
+	/**
+	 *	Argument-cored lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 *
+	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ lockBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key based lock method for object-cored access.
+	 *
+	 *		@param key The key of the entity to be locked.
+	 *
+	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ lockBy$Suffix$(I$SchemaName$$TableName$By$Suffix$Key key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceLockMultiple">
+	/**
+	 *	Argument-cored lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public List&lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&gt; lockBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key based lock method for object-cored access.
+	 *
+	 *		@param key The key of the entity to be locked.
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public List&lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&gt; lockBy$Suffix$(I$SchemaName$$TableName$By$Suffix$Key key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.lockBy$Suffix$($iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declServiceTableDeleters">$switch HasSuperClassRelation yes declInheritedServiceTableDeleters default empty$
+	// $SchemaName$$TableName$ specified delete-by-index methods
+$iterate Index(each maybeDeclJpaServiceDeleter empty empty)$</GenRule>
+
+	<GenRule GenDef="Table" Name="declInheritedServiceTableDeleters">$reference SuperClassRelation reference ToTable declServiceTableDeleters$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeDeclJpaServiceDeleter">$switch IsPrimaryIndex yes maybeDeclJpaServiceDeleterICFCoreTable default declJpaServiceDelete$</GenRule>
+	<GenRule GenDef="Index" Name="maybeDeclJpaServiceDeleterICFCoreTable">$switch TableHasSuperClassRelation yes empty default declJpaServiceDeleteByPKey$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceDeleteByPKey">
+	/**
+	 *	Argument-cored delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public void deleteBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		$lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.deleteBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$);
+	}
+$switch IsPrimaryIndexKeyAtomic yes empty default declJpaServiceDeleteByPKeyObj$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceDeleteByPKeyObj">
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key based lock method for object-cored access.
+	 *
+	 *		@param key The I$SchemaName$$TableName$By$Suffix$Key of the entity to be locked.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public void deleteBy$Suffix$(I$SchemaName$$TableName$PKey key) {
+		$lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.deleteBy$Suffix$($iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$);
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceDelete">
+	/**
+	 *	Argument-cored delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public void deleteBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		$lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.deleteBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$);
+	}
+
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key based lock method for object-cored access.
+	 *
+	 *		@param key The I$SchemaName$$TableName$By$Suffix$Key of the entity to be locked.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public void deleteBy$Suffix$(I$SchemaName$$TableName$By$Suffix$Key key) {
+		$lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.deleteBy$Suffix$($iterate Columns(first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$);
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="commaDeclJpaServicePassKeyAttr">, $declJpaServicePassKeyAttr$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declJpaServicePassKeyAttr">key.get$reference Column implColumnAttrOptionality$$reference Column Name$()</GenRule>
+
+	<GenRule GenDef="Table" Name="declServiceTableFinders">$switch HasSuperClassRelation yes declInheritedServiceTableFinders default declJpaServiceFind$
+	// $SchemaName$$TableName$ specified index finders
+$iterate Index(each maybeDeclJpaServiceFinder empty empty)$</GenRule>
+	<GenRule GenDef="Table" Name="declInheritedServiceTableFinders">$reference SuperClassRelation reference ToTable declServiceTableFinders$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declJpaServiceGetArgument">$reference Column implIJavaAtomType$ $leadlower reference Column implColumnAttrOptionality$$reference Column Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="commaDeclJpaServiceGetArgument">,
+		$declJpaServiceGetArgument$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="setJpaServiceKeyAttr">
+		key.set$reference Column implColumnAttrOptionality$$reference Column Name$( $leadlower reference Column implColumnAttrOptionality$$reference Column Name$ );</GenRule>
+
+	<GenRule GenDef="Index" Name="maybeDeclJpaServiceFinder">$switch IsPrimaryIndex yes empty default declJpaServiceFinder$</GenRule>
+	<GenRule GenDef="Index" Name="declJpaServiceFinder">$switch IsUnique yes declJpaServiceFindSingle default declJpaServiceFindList$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceFindSingle">
+	/**
+	 *	Find an entity using the columns of the I$SchemaName$$TableName$By$Suffix$Key as arguments.
+	 *$iterate Columns( each emitJpaColumnArgumentComment)$
+	 *
+	 *		@return The found entity, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ findBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key entity finder convenience method for object-cored access.
+	 *
+	 *		@param key The I$SchemaName$$TableName$By$Suffix$Key instance to use for the query arguments.
+	 *
+	 *		@return The found entity, or null if no such entity exists.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ findBy$Suffix$(I$SchemaName$$TableName$By$Suffix$Key key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findBy$Suffix$($iterate Columns( first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="commaDeclJpaServiceQueryColumnArg"> and $declJpaServiceQueryColumnArg$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declJpaServiceQueryColumnArg">r.$effDbColName$ = :$leadlower reference Column Name$</GenRule>
+
+	<GenRule GenDef="Index" Name="declJpaServiceFindList">
+	/**
+	 *	Find zero or more entities into a List using the columns of the I$SchemaName$$TableName$By$Suffix$Key as arguments.
+	 *$iterate Columns( each emitJpaColumnArgumentComment )$
+	 *
+	 *		@return List&amp;lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&amp;gt; of the found entities, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public List&lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&gt; findBy$Suffix$($iterate Columns(first declJpaServiceArgument each commaDeclJpaServiceArgument)$) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findBy$Suffix$($iterate Columns(first passArgDirect each commaPassArgDirect)$));
+	}
+
+	/**
+	 *	I$SchemaName$$TableName$By$Suffix$Key entity list finder convenience method for object-cored access.
+	 *
+	 *		@param key The I$SchemaName$$TableName$By$Suffix$Key instance to use for the query arguments.
+	 *
+	 *		@return The found entity list, which may be empty.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public List&lt;$poptop Table SchemaName$Jpa$poptop Table TableName$&gt; findBy$Suffix$(I$SchemaName$$TableName$By$Suffix$Key key) {
+		return( $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findBy$Suffix$($iterate Columns( first declJpaServicePassKeyAttr each commaDeclJpaServicePassKeyAttr)$));
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="commaDeclJpaServiceArgument">,
+		$declJpaServiceArgument$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declJpaServiceArgument">@Param("$reference Column leadlower Name$") $reference Column implIJavaAtomType$ $leadlower reference Column implColumnAttrOptionality$$reference Column Name$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="commaPassArgDirect">,
+			$passArgDirect$</GenRule>
+	<GenRule GenDef="IndexCol" Name="passArgDirect">$leadlower reference Column implColumnAttrOptionality$$reference Column Name$</GenRule>
+
+	<GenRule GenDef="Table" Name="declServiceCreate">
+	/**
+	 *	Create an entity, generating any database keys required along the way.
+	 *
+	 *		@param	data	The entity to be instantiated; must be a specific instance of $poptop Table SchemaName$Jpa$poptop Table TableName$, not a subclass.
+	 *
+	 *		@return The updated/created entity.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED,rollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ create($poptop Table SchemaName$Jpa$poptop Table TableName$ data) {
+		final String S_ProcName = "create";
+		if (data == null) {
+			return( null );
+		}$reference BaseClass reference PrimaryKeyIndex iterate Columns(each maybeServiceCreateStashGenerated)$$serviceCheckDataValid$
+		try {
+			if(data.getPKey() != null$switch IsPrimaryIndexKeyAtomic yes maybeCheckAndDataPKeyIsNull default empty$ &amp;&amp; $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.existsById(($JpaCompactedPrimaryIndexClass$)data.getPKey())) {
+				return( ($poptop Table SchemaName$Jpa$poptop Table TableName$)($lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findById(($JpaCompactedPrimaryIndexClass$)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() &lt;= 0) {
+				data.setRequiredRevision(1);
+			}$reference BaseClass reference PrimaryKeyIndex iterate Columns(each maybeServiceCreateGenerateId empty empty)$$switch IsTableAudited yes serviceCreateInitAuditColumns default empty$
+			return $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.save(data);
+		}
+		catch(Exception ex) {$reference BaseClass reference PrimaryKeyIndex iterate Columns(each maybeServiceCreateRestoreGenerated)$
+			throw new CFDbException(getClass(),
+				S_ProcName,
+				ex);
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeCheckAndDataPKeyIsNull">$switch IsAtomicIndexDbKey yes checkAndDataPKeyIsNull default empty$</GenRule>
+	<GenRule GenDef="Table" Name="checkAndDataPKeyIsNull"> &amp;&amp; !data.getPKey().isNull()</GenRule>
+	<GenRule GenDef="Table" Name="IsAtomicIndexDbKey">$reference BaseClass reference PrimaryKeyIndex iterate Columns(empty no lone IsDbKey first no each empty)$</GenRule>
+	<GenRule GenDef="IndexCol" Name="IsDbKey">$reference Column IsDbKey$</GenRule>
+	<GenRule GenDef="Value" Name="IsDbKey">$switch BaseModelAtomClass
+		DbKeyHash128Gen yes
+		DbKeyHash160Gen yes
+		DbKeyHash224Gen yes
+		DbKeyHash256Gen yes
+		DbKeyHash384Gen yes
+		DbKeyHash512Gen yes
+		DbKeyHash128Def yes
+		DbKeyHash160Def yes
+		DbKeyHash224Def yes
+		DbKeyHash256Def yes
+		DbKeyHash384Def yes
+		DbKeyHash512Def yes
+		default no$</GenRule>
+
+	<GenRule GenDef="Table" Name="declServiceCreateEnsurePKeyObjNotNull">
+		if (data.getPKey() == null) {
+			throw new CFNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.getPKey()");
+		}</GenRule>
+	<GenRule GenDef="Table" Name="IsTableAudited">$reference BaseClass HasAuditColumns$</GenRule>
+	
+	<GenRule GenDef="Table" Name="declServiceUpdate">
+	/**
+	 *	Update an existing entity.
+	 *
+	 *		@param	data	The entity to be updated.
+	 *
+	 *		@return The updated entity.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED,rollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $poptop Table SchemaName$Jpa$poptop Table TableName$ update($poptop Table SchemaName$Jpa$poptop Table TableName$ data) {
+		final String S_ProcName = "update";
+		if (data == null) {
+			return( null );
+		}$declServiceCreateEnsurePKeyObjNotNull$$serviceCheckDataValid$
+		// Ensure the entity exists and that the revision matches
+		$poptop Table SchemaName$Jpa$poptop Table TableName$ existing = $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.findById(($JpaCompactedPrimaryIndexClass$)(data.getPKey()))
+			.orElseThrow(() -> new CFCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
+		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
+			throw new CFCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
+		}$serviceUpdateApplyDataToExisting$$switch IsTableAudited yes serviceUpdateInitAuditColumns default empty$
+		// Save the changes we've made
+		return $lower poptop Table DefDbSchemaName$$poptop Table TableName$Repository.save(existing);
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="serviceUpdateApplyDataToExisting">$switch HasSuperClassRelation yes superServiceUpdateApplyDataToExisting default empty$
+		// Apply superior data relationships of $SchemaName$$TableName$ to existing object$iterate SuperiorDataRelations( each serviceUpdateApplyRelationship empty empty)$
+		// Apply data columns of $SchemaName$$TableName$ to existing object$iterate DataColumns( each serviceUpdateApplyDataColToExistingCol empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="superServiceUpdateApplyDataToExisting">$reference SuperClassRelation reference ToTable serviceUpdateApplyDataToExisting$</GenRule>
+	<GenRule GenDef="Value" Name="serviceUpdateApplyDataColToExistingCol">$serviceUpdateReallyApplyDataColToExistingCol$</GenRule>
+	<GenRule GenDef="Value" Name="serviceUpdateReallyApplyDataColToExistingCol">
+		existing.set$implColumnAttrOptionality$$Name$(data.get$implColumnAttrOptionality$$Name$());</GenRule>
+
+	<GenRule GenDef="Relation" Name="serviceUpdateApplyRelationship">$switch ToTableHasDefSchema yes serviceUpdateApplyNonCandidateRelationship default serviceUpdateApplyCandidateRelationship$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceUpdateApplyNonCandidateRelationship">$switch IsToIndexUnique yes serviceUpdateApplyNonCandidateSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceUpdateApplyCandidateRelationship">$switch IsToIndexUnique yes serviceUpdateApplyCandidateSingleton default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceUpdateApplyCandidateSingleton">
+		existing.set$OptionalOrRequired$$RelationType$$Suffix$(data.get$OptionalOrRequired$$RelationType$$Suffix$());</GenRule>
+	<GenRule GenDef="Relation" Name="serviceUpdateApplyNonCandidateSingleton">
+		existing.set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first passDataFromCol each commaPassDataFromCol)$);</GenRule>
+	<GenRule GenDef="RelationCol" Name="passDataFromCol">data.get$reference FromCol implColumnAttrOptionality$$reference FromCol Name$()</GenRule>
+	<GenRule GenDef="RelationCol" Name="commaPassDataFromCol">,
+			$passDataFromCol$</GenRule>
+
+	<GenRule GenDef="Table" Name="serviceUpdateInitAuditColumns">
+		// Update the audit columns
+		data.setUpdatedAt(LocalDateTime.now());</GenRule>
+
+	<GenRule GenDef="Table" Name="serviceCreateInitAuditColumns">
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);</GenRule>
+
+	<GenRule GenDef="Table" Name="serviceCheckDataValid">$switch HasSuperClassRelation yes serviceCheckInheritedDataValid default empty$$iterate SuperiorRelations(each serviceCheckRequiredSuperiorRelation empty empty)$$iterate DataColumns( each serviceCheckDataColValid empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="serviceCheckInheritedDataValid">$reference SuperClassRelation reference ToTable serviceCheckDataValid$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceCheckRequiredSuperiorRelation">$switch IsRequired yes serviceCheckUniqueRequiredSuperiorRelation no serviceDontCheckRequiredSuperiorRelation default errorUnrecognizedIsRequiredValue$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceCheckUniqueRequiredSuperiorRelation">$switch IsToIndexUnique yes serviceReallyCheckRequiredSuperiorRelation no serviceDontCheckRequiredSuperiorRelation default errorUnrecognizedIsToIndexUniqueValue$</GenRule>
+	<GenRule GenDef="Relation" Name="serviceDontCheckRequiredSuperiorRelation"></GenRule>
+	<GenRule GenDef="Relation" Name="serviceReallyCheckRequiredSuperiorRelation">
+		if (data.get$OptionalOrRequired$$RelationType$$Suffix$() == null) {
+			throw new CFUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"$RelationType$",
+				"$RelationType$",
+				"data.$lower OptionalOrRequired$$RelationType$$Suffix$",
+				"data.$lower OptionalOrRequired$$RelationType$$Suffix$",
+				"$reference ToTable TableName$",
+				"$reference ToTable TableName$",
+				null);
+		}</GenRule>
+	<GenRule GenDef="Atom" Name="serviceCheckDataColValid">$switch IsNullable yes empty default serviceEnsureDataColNotNull$$switch HasMinValue yes serviceCheckMinValue default empty$$switch HasMaxValue yes serviceCheckMaxValue default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="serviceCheckDataColValid">$switch IsNullable yes empty default serviceEnsureDataColNotNull$$switch HasMinValue yes serviceCheckMinValue default empty$$switch HasMaxValue yes serviceCheckMaxValue default empty$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceEnsureDataColNotNull"
+		>$switch BaseModelAtomClass
+			BlobDef serviceEnsureColObjNotNull
+			BoolDef empty
+			EnumDef serviceEnsureColObjNotNull
+			Int16Def empty
+			Int32Def empty
+			Int64Def empty
+			UInt16Def empty
+			UInt32Def empty
+			UInt64Def serviceEnsureColObjNotNull
+			Id16Gen empty
+			Id32Gen empty
+			Id64Gen empty
+			FloatDef empty
+			DoubleDef empty
+			NumberDef serviceEnsureColObjNotNull
+			StringDef serviceEnsureColObjNotNull
+			TokenDef serviceEnsureColObjNotNull
+			NmTokenDef serviceEnsureColObjNotNull
+			NmTokensDef serviceEnsureColObjNotNull
+			TextDef serviceEnsureColObjNotNull
+			DateDef serviceEnsureColObjNotNull
+			TimeDef serviceEnsureColObjNotNull
+			TimestampDef serviceEnsureColObjNotNull
+			TZDateDef serviceEnsureColObjNotNull
+			TZTimeDef serviceEnsureColObjNotNull
+			TZTimestampDef serviceEnsureColObjNotNull
+			DbKeyHash128Gen serviceEnsureColDbHashNotNull
+			DbKeyHash160Gen serviceEnsureColDbHashNotNull
+			DbKeyHash224Gen serviceEnsureColDbHashNotNull
+			DbKeyHash256Gen serviceEnsureColDbHashNotNull
+			DbKeyHash384Gen serviceEnsureColDbHashNotNull
+			DbKeyHash512Gen serviceEnsureColDbHashNotNull
+			DbKeyHash128Def serviceEnsureColDbHashNotNull
+			DbKeyHash160Def serviceEnsureColDbHashNotNull
+			DbKeyHash224Def serviceEnsureColDbHashNotNull
+			DbKeyHash256Def serviceEnsureColDbHashNotNull
+			DbKeyHash384Def serviceEnsureColDbHashNotNull
+			DbKeyHash512Def serviceEnsureColDbHashNotNull
+			Uuid6Gen serviceEnsureColObjNotNull
+			Uuid6Def serviceEnsureColObjNotNull
+			UuidGen serviceEnsureColObjNotNull
+			UuidDef serviceEnsureColObjNotNull
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceEnsureColObjNotNull">
+		if(data.get$implColumnAttrOptionality$$Name$() == null) {
+			throw new CFNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.$leadlower implColumnAttrOptionality$$Name$");
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceEnsureColDbHashNotNull">
+		if(data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+			throw new CFNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.$leadlower implColumnAttrOptionality$$Name$");
+		}</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeServiceCreateStashGenerated">$switch GenerateId yes serviceCreateStashGenerated default empty$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeServiceCreateGenerateId">$switch GenerateId yes serviceCreateGenerateId default empty$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateId">$switch BaseModelAtomClass
+			Id16Gen empty
+			Id32Gen empty
+			Id64Gen empty
+			DbKeyHash128Gen serviceCreateGenerateDbKeyHash128
+			DbKeyHash160Gen serviceCreateGenerateDbKeyHash160
+			DbKeyHash224Gen serviceCreateGenerateDbKeyHash224
+			DbKeyHash256Gen serviceCreateGenerateDbKeyHash256
+			DbKeyHash384Gen serviceCreateGenerateDbKeyHash384
+			DbKeyHash512Gen serviceCreateGenerateDbKeyHash512
+			UuidGen serviceCreateGenerateUuid
+			Uuid6Gen serviceCreateGenerateUuid6
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash128">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash128(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash160">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash160(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash224">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash224(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash256">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash256(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash384">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash384(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateDbKeyHash512">
+			if (data.get$implColumnAttrOptionality$$Name$() == null || data.get$implColumnAttrOptionality$$Name$().isNull()) {
+				data.set$implColumnAttrOptionality$$Name$(new CFDbKeyHash512(0));
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateUuid">
+			if (data.get$implColumnAttrOptionality$$Name$() == null) {
+				data.set$implColumnAttrOptionality$$Name$(UUID.randomUUID());
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateGenerateUuid6">
+			if (data.get$implColumnAttrOptionality$$Name$() == null) {
+				data.set$implColumnAttrOptionality$$Name$(CFUuid6.generateUuid6());
+				generated$implColumnAttrOptionality$$Name$ = true;
+			}</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="serviceCreateStashGenerated">
+		$implIJavaAtomType$ original$reference Column implColumnAttrOptionality$$reference Column Name$ = data$serviceDerefPKeyMember$.get$reference Column implColumnAttrOptionality$$reference Column Name$();
+		boolean generated$reference Column implColumnAttrOptionality$$reference Column Name$ = false;</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="serviceDerefPKeyMember">$switch IsPrimaryIndexKeyAtomic yes empty default derefPKeyMember$</GenRule>
+	<GenRule GenDef="Object" Name="derefPKeyMember">.getPKey()</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="maybeServiceCreateRestoreGenerated">$switch GenerateId yes serviceCreateRestoreGenerated default empty$</GenRule>
+	<GenRule GenDef="IndexCol" Name="serviceCreateRestoreGenerated">
+				if(generated$reference Column implColumnAttrOptionality$$reference Column Name$) {
+					data.set$reference Column implColumnAttrOptionality$$reference Column Name$(original$reference Column implColumnAttrOptionality$$reference Column Name$);
+				}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceCheckMinValue">$switch IsNullable yes serviceOptCheckMinValue default serviceReqCheckMinValue$</GenRule>
+	<GenRule GenDef="Value" Name="serviceCheckMaxValue">$switch IsNullable yes serviceOptCheckMaxValue default serviceReqCheckMaxValue$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckMinValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef empty
+			EnumDef empty
+			Id16Gen serviceReqCheckGenericMinValue
+			Id32Gen serviceReqCheckGenericMinValue
+			Id64Gen serviceReqCheckGenericMinValue
+			Int16Def serviceReqCheckGenericMinValue
+			Int32Def serviceReqCheckGenericMinValue
+			Int64Def serviceReqCheckGenericMinValue
+			UInt16Def serviceReqCheckGenericMinValue
+			UInt32Def serviceReqCheckGenericMinValue
+			UInt64Def serviceReqCheckObjectMinValue
+			FloatDef serviceReqCheckGenericMinValue
+			DoubleDef serviceReqCheckGenericMinValue
+			NumberDef serviceReqCheckObjectMinValue
+			DateDef serviceReqCheckObjectMinValue
+			TimeDef empty
+			TimestampDef serviceReqCheckObjectMinValue
+			TZDateDef serviceReqCheckObjectMinValue
+			TZTimeDef empty
+			TZTimestampDef serviceReqCheckObjectMinValue
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			StringDef empty
+			TokenDef empty
+			NmTokenDef empty
+			NmTokensDef empty
+			TextDef empty
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckGenericMinValue">
+		if( data.get$implColumnAttrOptionality$$Name$() &lt; I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE ) {
+			throw new CFArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$(),
+				I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckObjectMinValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE) &lt; 0) {
+			throw new CFArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$().toString(),
+				I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE.toString() );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckMaxValue"
+		>$switch BaseModelAtomClass
+			BoolDef empty
+			Id16Gen serviceReqCheckGenericMaxValue
+			Id32Gen serviceReqCheckGenericMaxValue
+			Id64Gen serviceReqCheckGenericMaxValue
+			Int16Def serviceReqCheckGenericMaxValue
+			Int32Def serviceReqCheckGenericMaxValue
+			Int64Def serviceReqCheckGenericMaxValue
+			UInt16Def serviceReqCheckGenericMaxValue
+			UInt32Def serviceReqCheckGenericMaxValue
+			UInt64Def serviceReqCheckObjectMaxValue
+			FloatDef serviceReqCheckGenericMaxValue
+			DoubleDef serviceReqCheckGenericMaxValue
+			NumberDef serviceReqCheckObjectMaxValue
+			DateDef serviceReqCheckObjectMaxValue
+			TimeDef empty
+			TimestampDef serviceReqCheckObjectMaxValue
+			TZDateDef serviceReqCheckObjectMaxValue
+			TZTimeDef empty
+			TZTimestampDef serviceReqCheckObjectMaxValue
+			StringDef empty
+			TokenDef empty
+			NmTokenDef empty
+			NmTokensDef empty
+			TextDef empty
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckGenericMaxValue">
+		if( data.get$implColumnAttrOptionality$$Name$() &gt; I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE ) {
+			throw new CFArgumentOverflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$(),
+				I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceReqCheckObjectMaxValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE) &gt; 0) {
+			throw new CFArgumentOverflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$().toString(),
+				I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE.toString() );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceOptCheckMinValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef empty
+			EnumDef empty
+			Id16Gen serviceOptCheckGenericMinValue
+			Id32Gen serviceOptCheckGenericMinValue
+			Id64Gen serviceOptCheckGenericMinValue
+			Int16Def serviceOptCheckGenericMinValue
+			Int32Def serviceOptCheckGenericMinValue
+			Int64Def serviceOptCheckGenericMinValue
+			UInt16Def serviceOptCheckGenericMinValue
+			UInt32Def serviceOptCheckGenericMinValue
+			UInt64Def serviceOptCheckObjectMinValue
+			FloatDef serviceOptCheckGenericMinValue
+			DoubleDef serviceOptCheckGenericMinValue
+			NumberDef serviceOptCheckObjectMinValue
+			DateDef serviceOptCheckObjectMinValue
+			TimeDef empty
+			TimestampDef serviceOptCheckObjectMinValue
+			TZDateDef serviceOptCheckObjectMinValue
+			TZTimeDef empty
+			TZTimestampDef serviceOptCheckObjectMinValue
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			StringDef serviceOptCheckObjectMinValue
+			TokenDef serviceOptCheckObjectMinValue
+			NmTokenDef serviceOptCheckObjectMinValue
+			NmTokensDef serviceOptCheckObjectMinValue
+			TextDef serviceOptCheckObjectMinValue
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceOptCheckGenericMinValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; data.get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE) &lt; 0) {
+			throw new CFArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$(),
+				I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE );
+		}</GenRule>
+	<GenRule GenDef="Value" Name="serviceOptCheckObjectMinValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; data.get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE) &lt; 0) {
+			throw new CFArgumentUnderflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$().toString(),
+				I$DefSchemaName$$TableName$.$upper Name$_MIN_VALUE.toString() );
+		}</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceOptCheckMaxValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef empty
+			EnumDef empty
+			Id16Gen serviceOptCheckGenericMaxValue
+			Id32Gen serviceOptCheckGenericMaxValue
+			Id64Gen serviceOptCheckGenericMaxValue
+			Int16Def serviceOptCheckGenericMaxValue
+			Int32Def serviceOptCheckGenericMaxValue
+			Int64Def serviceOptCheckGenericMaxValue
+			UInt16Def serviceOptCheckGenericMaxValue
+			UInt32Def serviceOptCheckGenericMaxValue
+			UInt64Def serviceOptCheckObjectMaxValue
+			FloatDef serviceOptCheckGenericMaxValue
+			DoubleDef serviceOptCheckGenericMaxValue
+			NumberDef serviceOptCheckObjectMaxValue
+			DateDef serviceOptCheckObjectMaxValue
+			TimeDef empty
+			TimestampDef serviceOptCheckObjectMaxValue
+			TZDateDef serviceOptCheckObjectMaxValue
+			TZTimeDef empty
+			TZTimestampDef serviceOptCheckObjectMaxValue
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			StringDef serviceOptCheckObjectMaxValue
+			TokenDef serviceOptCheckObjectMaxValue
+			NmTokenDef serviceOptCheckObjectMaxValue
+			NmTokensDef serviceOptCheckObjectMaxValue
+			TextDef serviceOptCheckObjectMaxValue
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="serviceOptCheckGenericMaxValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; data.get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE) &gt; 0) {
+			throw new CFArgumentOverflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$(),
+				I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE );
+		}</GenRule>
+	<GenRule GenDef="Value" Name="serviceOptCheckObjectMaxValue">
+		if( data.get$implColumnAttrOptionality$$Name$() != null &amp;&amp; data.get$implColumnAttrOptionality$$Name$().compareTo(I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE) &gt; 0) {
+			throw new CFArgumentOverflowException( getClass(),
+				S_ProcName,
+				0,
+				"get$implColumnAttrOptionality$$Name$()",
+				data.get$implColumnAttrOptionality$$Name$().toString(),
+				I$DefSchemaName$$TableName$.$upper Name$_MAX_VALUE.toString() );
+		}</GenRule>
+
+</RuleSet>

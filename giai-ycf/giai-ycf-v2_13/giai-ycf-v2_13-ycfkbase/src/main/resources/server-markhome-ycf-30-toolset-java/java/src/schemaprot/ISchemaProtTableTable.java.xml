@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapub/ISchemaProtTableTable.java"
+	Revision="3.0"
+	Descr="Java 25 protlic Table Interface">
+
+	<GenRule GenDef="Table" Name="fileISchemaProtTableTableJava">$switch IsProtected yes reallyFileISchemaProtTableTableJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileISchemaProtTableTableJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot"
+		ExpansionClassName="I$SchemaName$Prot$TableName$TableJava"
+		ExpansionKeyName="I$SchemaName$Prot$TableName$TableJava"
+		ExpansionFileName="I$SchemaName$Prot$TableName$Table.java">
+// Description: Java 25 protlic DbIO interface for $TableName$.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot;
+
+import java.lang.reflect.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaProtPackageSchemaNameObj$$tabletweak CafeProtTableTableImport$
+
+/*
+ *	$SchemaName$Prot$TableName$Table protlic database interface for $TableName$ has $ExplainCodeVis$.
+ */
+public interface I$SchemaName$Prot$TableName$Table$switch HasSuperClassRelation yes extendsSuperProtJavaSchemaTableTableNameTableTable default maybeExtendsProtJavaSchemaTableNamePubTableTable$
+{
+	public static final String TABLE_NAME = "$TableName$";
+$declProtCreateTable$
+$declProtUpdateTable$
+$declProtDeleteTable$
+$declProtReadTableDerivedByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default declProtReadTableDerivedByPKeyArgs$$declProtLockTableDerivedByPKey$$declProtReadAllTableDerived$$declProtReadTableDerivedByIndexes$$declProtReadTableRecByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default declProtReadTableRecByPKeyArgs$$declProtLockTableRecByPKey$$declProtReadAllTableRec$$declProtReadTableRecByIndexes$$switch HasChain yes declProtMoveUpTableRec default empty$$switch HasChain yes declProtMoveDownTableRec default empty$$iterate ServerMethods( each declProtServerMethod empty empty )$$tabletweak CafeProtTableTableInterface$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="commaProtPubTableNameTable">,
+	I$reference SchemaDef SchemaName$Pub$TableName$Table</GenRule>
+
+	<GenRule GenDef="Table" Name="extendsSuperProtJavaSchemaTableTableNameTableTable">$reallyExtendsSuperProtJavaSchemaTableTableNameTableTable$</GenRule>
+	<GenRule GenDef="Table" Name="reallyExtendsSuperProtJavaSchemaTableTableNameTableTable">
+extends I$reference SuperClassRelation reference ToTable reference SchemaDef SchemaName$Prot$reference SuperClassRelation reference ToTable TableName$Table$switch IsPublic yes commaExtendsProtJavaSchemaTableTableNamePubTableTable default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeExtendsProtJavaSchemaTableNamePubTableTable">$switch IsPublic yes reallyExtendsProtJavaSchemaTableTableNamePubTableTable default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyExtendsProtJavaSchemaTableTableNamePubTableTable">
+extends I$reference SchemaDef SchemaName$Pub$TableName$Table</GenRule>
+	<GenRule GenDef="Table" Name="commaExtendsProtJavaSchemaTableTableNamePubTableTable">,
+	I$reference SchemaDef SchemaName$Pub$TableName$Table</GenRule>
+
+	<GenRule GenDef="Table" Name="extendsProtCommaJavaSchemaTableTableNameTableTable">$switch IsProtected yes reallyExtendsProtCommaJavaSchemaTableTableNameTableTable default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyExtendsProtCommaJavaSchemaTableTableNameTableTable">,
+	I$reference SchemaDef SchemaName$Prot$TableName$Table</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declProtServerMethod">$switch IsProtected yes reallyDeclProtServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclProtServerMethod"
+		>$switch IsInstanceMethod yes declProtInstServerProc default declProtClassServerProc$</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declProtClassServerProc">$switch IsProtected yes reallyDeclProtClassServerProc default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclProtClassServerProc">
+	public boolean prot$leadlower Name$( I$DefSchemaName$ProtSchemaObj schemaObj$iterate Params( each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declProtInstServerProc">$switch IsProtected yes reallyDeclProtInstServerProc default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclProtInstServerProc">
+	public boolean prot$leadlower Name$( I$DefSchemaName$ProtSchemaObj schemaObj,
+		I$DefSchemaName$Prot$TableName$Obj obj$iterate Params( each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="Param" Name="declProtServerMethodParam">$switch IsProtected yes reallyDeclProtServerMethodParam default empty$</GenRule>
+	<GenRule GenDef="Param" Name="reallyDeclProtServerMethodParam">,
+		$implIProtJavaAtomType$ $leadlower Name$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declProtServerMethod">$switch IsProtected yes reallyDeclProtServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclProtServerMethod"
+		>$switch IsInstanceMethod yes declProtInstServerObjFunc default declProtClassServerObjFunc$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declProtClassServerObjFunc">$switch IsProtected yes reallyDeclProtClassServerObjFunc default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclProtClassServerObjFunc">
+	public $reference RetTable DefSchemaName$Prot$reference RetTable Name$ prot$leadlower Name$( I$reference RetTable DefSchemaName$ProtSchemaObj schemaObj$iterate Params( each declProtServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declProtInstServerObjFunc">$switch IsProtected yes reallyDeclProtInstServerObjFunc default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclProtInstServerObjFunc">
+	public I$reference RetTable DefSchemaName$Prot$reference RetTable Name$ prot$leadlower Name$( I$reference RetTable DefSchemaName$ProtSchemaObj schemaObj,
+		I$DefSchemaName$Prot$TableName$Obj obj$iterate Params( each declProtServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declProtServerMethod">$switch IsProtected yes reallyDeclProtServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclProtServerMethod"
+		>$switch IsInstanceMethod yes declProtInstServerListFunc default declProtClassServerListFunc$</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declProtClassServerListFunc">$switch IsProtected yes reallyDeclProtClassServerListFunc default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclProtClassServerListFunc">
+	public I$reference RetTable DefSchemaName$Prot$reference RetTable Name$[] prot$leadlower Name$( I$reference RetTable DefSchemaName$ProtSchemaObj schemaObj$iterate Params( each declProtServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declProtInstServerListFunc">$switch IsProtected yes reallyDeclProtInstServerListFunc default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclProtInstServerListFunc">
+	public I$reference RetTable DefSchemaName$Prot$reference RetTable Name$[] prot$leadlower Name$( I$reference RetTable DefSchemaName$ProtSchemaObj schemaObj,
+		I$DefSchemaName$Prot$TableName$Obj obj$iterate Params( each declProtServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReleasePreparedStatements">$switch IsProtected yes reallyDeclProtRelasePreparedStatements default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReleasePreparedStatements">
+	/**
+	 *	Release any prepared statements allocated by this instance.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 */
+	public void protreleasePreparedStatements();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableDerivedByPKey">$switch IsProtected yes reallyDeclProtReadTableDerivedByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedByPKey">
+	/**
+	 *	Read the derived $TableName$ record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protreadDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );$switch IsPublic yes maybeDeclProtReadTableDerivedByPubPKey default empty$
+</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtReadTableDerivedByPubPKey">$switch IsPrimaryIndexKeyAtomic yes empty default reallyDeclProtReadTableDerivedByPubPKey$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedByPubPKey">
+	/**
+	 *	Read the derived $TableName$ record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubreadDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Read the derived $TableName$ record instance by public primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protreadDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableDerivedByPKeyArgs">$switch IsProtected yes reallyDeclProtReadTableDerivedByPKeyArgs default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedByPKeyArgs">
+	/**
+	 *	Read the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protreadDerived( I$SecSchemaName$PubAuthorization Authorization$reference PrimaryKeyIndex iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtLockTableDerivedByPKey">$switch IsProtected yes reallyDeclProtLockTableDerivedByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtLockTableDerivedByPKey">
+	/**
+	 *	Lock the derived $TableName$ record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protlockDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );$switch IsPublic yes maybeDeclProtLockTableDerivedByPubPKey default empty$
+</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtLockTableDerivedByPubPKey">$switch IsPrimaryIndexKeyAtomic yes empty default reallyDeclProtLockTableDerivedByPubPKey$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtLockTableDerivedByPubPKey">
+	/**
+	 *	Lock the derived $TableName$ record instance by protected primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ publockDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Lock the derived $TableName$ record instance by public primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protlockDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadAllTableDerived">$switch IsProtected yes reallyDeclProtReadAllTableDerived default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadAllTableDerived">
+	/**
+	 *	Read all $TableName$ instances.
+	 *
+	 *	@param	Authorization	The session authorization information.	
+	 *
+	 *	@return An array of derived record instances, potentially with 0 elements in the set.
+	 */
+	public I$DefSchemaName$Prot$TableName$[] protreadProtAllDerived( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableDerivedByIndexes">$switch IsProtected yes reallyDeclProtReadTableDerivedByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedByIndexes"
+		>$switch HasSuperClassRelation yes declProtReadTableDerivedByInhIndexes default declProtReadTableDerivedBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableDerivedByInhIndexes">$switch IsProtected yes reallyDeclProtReadTableDerivedByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declProtReadTableDerivedByIndexes$$iterate Index( each declProtReadTableDerivedByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableDerivedBCFCoreIndexes">$switch IsProtected yes reallyDeclProtReadTableDerivedBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableDerivedBCFCoreIndexes"
+		>$iterate Index( each declProtReadTableDerivedByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableDerivedByNonPrimaryIndex">$switch IsProtected yes reallyDeclProtReadTableDerivedByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableDerivedByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declProtReadTableDerivedByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableDerivedByIndex">$switch IsProtected yes reallyDeclProtReadTableDerivedByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableDerivedByIndex"
+		>$switch IsUnique
+			yes declProtReadTableDerivedByUniqueIndex
+			default declProtReadTableDerivedByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableSuffix">$switch IsProtected yes reallyDeclProtReadTableSuffix default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableSuffix"
+		>$switch IsPrimaryIndex yes declProtReadTablCFCorePrimarySuffix default Suffix$</GenRule>
+	<GenRule GenDef="Index" Name="declProtReadTablCFCorePrimarySuffix">$switch IsProtected yes reallyDeclProtReadTablCFCorePrimarySuffix default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTablCFCorePrimarySuffix"
+		>$reference Table reference BaseClass reference PrimaryKeyIndex Suffix$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableDerivedByUniqueIndex">$switch IsProtected yes reallyDeclProtReadTableDerivedByUniqueIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableDerivedByUniqueIndex">
+	/**
+	 *	Read the derived $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protreadDerivedBy$declReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableDerivedByDuplicateIndex">$switch IsProtected yes reallyDeclProtReadTableDerivedByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableDerivedByDuplicateIndex">
+	/**
+	 *	Read an array of the derived $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	public I$DefSchemaName$Prot$poptop Table TableName$[] protreadDerivedBy$declProtReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableRecByPKey">$switch IsProtected yes reallyDeclProtReadTableRecByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableRecByPKey">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protreadRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+$switch IsPublic yes maybeDeclProtReadTablePubRecByPKey default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtReadTablePubRecByPKey">$switch IsPrimaryIndexKeyAtomic yes empty default reallyDeclProtReadTablePubRecByPKey$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTablePubRecByPKey">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protreadRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$TableName$ pubreadRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableRecByPKeyArgs">$switch IsProtected yes reallyDeclProtReadTableRecByPKeyArgs default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableRecByPKeyArgs">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protreadRec( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtLockTableRecByPKey">$switch IsProtected yes reallyDeclProtLockTableRecByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtLockTableRecByPKey">
+	/**
+	 *	Lock the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protlockRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+$switch IsPublic yes maybeDeclProtLockTableRecByPubPKey default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeDeclProtLockTableRecByPubPKey">$switch IsPrimaryIndexKeyAtomic yes empty default reallyDeclProtLockTableRecByPubPKey$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtLockTableRecByPubPKey">
+	/**
+	 *	Lock the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$TableName$ publockRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Lock the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protlockRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadAllTableRec">$switch IsProtected yes reallyDeclProtReadAllTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadAllTableRec">
+	/**
+	 *	Read all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	public I$DefSchemaName$Prot$TableName$[] protreadAllRec( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableRecByIndexes">$switch IsProtected yes reallyDeclProtReadTableRecByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableRecByIndexes"
+		>$switch HasSuperClassRelation yes declProtReadTableRecByInhIndexes default declProtReadTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableRecByInhIndexes">$switch IsProtected yes reallyDeclProtReadTableRecByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declProtReadTableRecByIndexes$$iterate Index( each declProtReadTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadTableRecBCFCoreIndexes">$switch IsProtected yes reallyDeclProtReadTableRecBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtReadTableRecBCFCoreIndexes"
+		>$iterate Index( each declProtReadTableRecByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableRecByNonPrimaryIndex">$switch IsProtected yes reallyDeclProtReadTableRecByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declProtReadTableRecSPs$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableRecSPs">$switch IsProtected yes reallyDeclProtReadTableRecSPs default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableRecSPs"
+		>$declProtReadTableRecByIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtPageTableRecByIndexes">$switch IsProtected yes reallyDeclProtPageTableRecByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtPageTableRecByIndexes"
+		>$switch HasSuperClassRelation yes declProtPageTableRecByInhIndexes default declProtPageTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtPageTableRecByInhIndexes">$switch IsProtected yes reallyDeclProtPageTableRecByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtPageTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declProtPageTableRecByIndexes$$iterate Index( each declProtPageTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtPageTableRecBCFCoreIndexes">$switch IsProtected yes reallyDeclProtPageTableRecBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtPageTableRecBCFCoreIndexes"
+		>$iterate Index( each declProtPageTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtPageTableRecByNonPrimaryIndex">$switch IsProtected yes reallyDeclProtPageTableRecByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtPageTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default maybe_declProtPageTableRecByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybe_pagedata_declProtPageTableRecByIndex">$switch IsProtected yes reallymaybe_pagedata_declProtPageTableRecByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallymaybe_pagedata_declProtPageTableRecByIndex"></GenRule>
+
+	<GenRule GenDef="Index" Name="maybe_declProtPageTableRecByIndex">$switch IsProtected yes reallymaybe_declProtPageTableRecByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallymaybe_declProtPageTableRecByIndex"
+		>$switch IsUnique yes empty default declProtPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableRecByUniqueIndex">$switch IsProtected yes reallyDeclProtReadTableRecByUniqueIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableRecByUniqueIndex">
+	/**
+	 *	Read the specific $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$poptop Table TableName$ protreadRecBy$declProtReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableRecByDuplicateIndex">$switch IsProtected yes reallyDeclProtReadTableRecByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtReadTableRecByDuplicateIndex">
+	/**
+	 *	Read an array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$poptop Table TableName$[] protreadRecBy$declProtReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declProtCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtPageAllTableRec">$switch IsProtected yes reallyDeclProtPageAllTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtPageAllTableRec">
+	/**
+	 *	Read a page of all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	public I$DefSchemaName$Prot$TableName$[] protpageAllRec( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declProtCommaOptPriorArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtPageTableRecByDuplicateIndex">$switch IsProtected yes reallyDeclProtPageTableRecByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtPageTableRecByDuplicateIndex">
+	/**
+	 *	Read a page array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Prot$poptop Table TableName$[] protpageRecBy$declReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declCommaColumnArg )$$poptop Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each declCommaOptPriorArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtMoveUpTableRec">$switch IsProtected yes reallyDeclProtMoveUpTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtMoveUpTableRec">
+	/**
+	 *	Move the specified record up in the chain (i.e. to the previous position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protmoveRecUp( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declProtCommaColumnArg )$,
+		int revision );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtMoveDownTableRec">$switch IsProtected yes reallyDeclProtMoveDownTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclProtMoveDownTableRec">
+	/**
+	 *	Move the specified record down in the chain (i.e. to the next position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	public I$poptop Table DefSchemaName$Prot$poptop Table TableName$ protmoveRecDown( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declCommaColumnArg )$,
+		int revision );
+</GenRule>
+
+	<GenRule GenDef="Object" Name="declProtCommaColumnArg">,
+		$declProtColumnArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declProtColumnArg"
+		>$implIProtJavaAtomType$ $Name$</GenRule>
+	<GenRule GenDef="Atom" Name="declProtColumnArg"
+		>$implIProtJavaAtomType$ $Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declProtColumnArg"
+		>$reference Column declProtColumnArg$</GenRule>
+
+	<GenRule GenDef="Object" Name="declProtCommaOptPriorArg">,
+		$declProtOptPriorArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declProtOptPriorArg"
+		>$implIProtJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="Atom" Name="declProtOptPriorArg"
+		>$implIProtJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declProtOptPriorArg"
+		>$reference Column declProtOptPriorArg$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtReadTableRecByIndex"
+		>$switch IsUnique
+			yes declProtReadTableRecByUniqueIndex
+			default declProtReadTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtPageTableRecByIndex"
+		>$switch IsUnique
+			yes empty
+			default declProtPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id16Gen" Name="declProtNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public short protnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public short protnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implProtNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implProtCommentKeyAttr">
+	 *
+	 *	@param	$Name$	The $poptop Table TableName$ key attribute of the instance generating the id.</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implProtNextIdGenDeclAttr">,
+		$implIProtJavaAtomType$ arg$Name$</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id32Gen" Name="declProtNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public int protnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public int protnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implProtNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id64Gen" Name="declProtNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public long protnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public long protnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implProtNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="UuidGen" Name="declProtNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public UUID protnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtCreateTable">
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protcreate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Prot$TableName$ rec );
+$switch IsPublic yes declProtCreatePubTable default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtCreatePubTable">
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	public I$DefSchemaName$Prot$TableName$ protcreate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtReadAllTable">
+	/**
+	 *	Read all the specific $TableName$ instances from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return	An array of the $TableName$ instances visible to the Authorization.
+	 */
+	public I$DefSchemaName$Prot$TableName$[] protreadAll$TableName$( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtUpdateTable">
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	public I$DefSchemaName$Prot$TableName$ protupdate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Prot$TableName$ rec );
+$switch IsPublic yes declProtUpdatePubTable default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtUpdatePubTable">
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	public I$DefSchemaName$Prot$TableName$ protupdate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTable">
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	public void protdelete$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Prot$TableName$ rec );$declProtDeleteTableByInheritedIndexes$
+$switch IsPublic yes declProtDeletePubTable default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeletePubTable">
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	public void protdelete$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );<!--$declProtDeleteTableByPubInheritedIndexes$-->
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableByInheritedIndexes"
+		>$switch HasSuperClassRelation yes declProtDeleteTableByInhIndexes default declProtDeleteTableBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableByPubInheritedIndexes"
+		>$switch HasSuperClassRelation yes declProtDeleteTableByPubInhIndexes default declProtDeleteTableByPuCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableByInhIndexes"
+		>$iterate Index( each declProtDeleteTableByNonPrimaryIndex empty empty )$$reference SuperClassRelation reference ToTable declProtDeleteTableByInheritedIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableByPubInhIndexes"
+		>$iterate Index( each declProtDeleteTableByPubNonPrimaryIndex empty empty )$$reference SuperClassRelation reference ToTable declProtDeleteTableByPubInheritedIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableBCFCoreIndexes"
+		>$iterate Index( each declProtDeleteTableBySpecialIndex empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDeleteTableByPuCFCoreIndexes"
+		>$iterate Index( each declProtDeleteTableByPubSpecialIndex empty empty )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declProtDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPubNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declProtDeleteTableByPubIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableBySpecialIndex"
+		>$switch IsPrimaryIndex yes declProtDeleteTableByPrimaryIndex default declProtDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPubSpecialIndex"
+		>$switch IsPrimaryIndex yes declProtDeleteTableByPubPrimaryIndex default declProtDeleteTableByPubIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByIndex">$switch IsProtected yes reallyDeclProtDeleteTableByIndex default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPubIndex">$switch IsProtected yes reallyDeclProtDeleteTableByPubIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtDeleteTableByIndex">
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each implProtNextIdGenDeclAttr )$ );
+
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Prot$TableName$By$Suffix$Key argKey );$switch IsPublic yes reallyDeclProtDeleteTableByPubIndex default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="reallyDeclProtDeleteTableByPubIndex">
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$By$Suffix$Key argKey );</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPrimaryIndex">$switch IsProtected yes reallyDeclProtDeleteTableByPrimaryIndex default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPubPrimaryIndex">$switch IsProtected yes reallyDeclProtDeleteTableByPubPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtDeleteTableByPrimaryIndex">$switch IsPrimaryIndexKeyAtomic yes empty default declProtDeleteTableByPrimaryIndexAttrs$
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The primary key identifying the instance to be deleted.
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		$IProtCompactedPrimaryIndexClass$ argKey );</GenRule>
+
+	<GenRule GenDef="Index" Name="reallyDeclProtDeleteTableByPubPrimaryIndex">
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The primary key identifying the instance to be deleted.
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ argKey );</GenRule>
+
+	<GenRule GenDef="Index" Name="declProtDeleteTableByPrimaryIndexAttrs">$switch IsProtected yes reallyDeclProtDeleteTableByPrimaryIndexAttrs default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclProtDeleteTableByPrimaryIndexAttrs">
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key attributes.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	public void protdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each implProtNextIdGenDeclAttr )$ );</GenRule>
+
+</RuleSet>

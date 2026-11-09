@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+javafx"
+	Name="src/schemajavafx/ISchemaJavaFXTableFactory.java"
+	Revision="3.0"
+	Descr="Java 25 JavaFX Display Element Factory Interface for Table">
+
+	<GenFile GenDef="Table" Name="fileISchemaJavaFXTableFactoryJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-javafx/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$javafx"
+		ExpansionClassName="I$SchemaName$JavaFX$TableName$TableFactoryJava"
+		ExpansionKeyName="I$SchemaName$JavaFX$TableName$TableFactoryJava"
+		ExpansionFileName="I$SchemaName$JavaFX$TableName$Factory.java"
+>// Description: Java 25 JavaFX Display Element Factory Interface for $TableName$.
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$javafx;
+
+import java.math.*;
+import java.time.*;
+import java.text.*;
+import java.util.*;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.Inz;
+import server.markhome.cf.javafx.*;
+import org.apache.commons.codec.binaryCFCore64;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$poptop SchemaDef importJavaPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaNameObj empty empty )$$poptop SchemaDef importJavaPackageSchemaNameObj$
+
+/**
+ *	I$SchemaName$JavaFX$TableName$Factory JavaFX Display Element Factory Interface
+ *	for $TableName$.
+ */
+public interface I$SchemaName$JavaFX$TableName$Factory
+{$declJavaFXTableFactoryNewAttrPane$$declJavaFXTableFactoryNewListPane$$declJavaFXTableFactoryNewPickerPane$$declJavaFXTableFactoryNewEltTabPane$$declJavaFXTableFactoryNewAskDeleteForm$$declJavaFXTableFactoryNewAddPane$$declJavaFXTableFactoryNewViewEditPane$$switch IsInstantiable yes maybeDeclJavaFXTableFactoryNewFinderForm default empty$$declJavaFXTableFactoryNewPickerForm$$declJavaFXTableFactoryNewAddForm$$declJavaFXTableFactoryNewViewEditForm$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="maybeDeclJavaFXTableFactoryNewFinderForm"
+		>$switch HasContainer no declJavaFXTableFactoryNewFinderForm default containerCheckDeclJavaFXTableFactoryNewFinderForm$</GenRule>
+
+	<GenRule GenDef="Table" Name="containerCheckDeclJavaFXTableFactoryNewFinderForm"
+		>$switch ContainerIsTenantOrCluster yes declJavaFXTableFactoryNewFinderForm default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="ContainerName"
+		>$reference ContainerRelation reference ToTable TableName$</GenRule>
+
+	<GenRule GenDef="Table" Name="ContainerIsTenantOrCluster"
+		>$switch ContainerName Tenant yes Cluster yes default no$</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewAttrPane">
+	public CFGridPane newAttrPane( ICFFormManager formManager, I$DefSchemaName$$TableName$Obj javaFXFocus );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewAskDeleteForm">
+	public CFBorderPane newAskDeleteForm( ICFFormManager formManager, I$DefSchemaName$$TableName$Obj javaFXFocus, ICFDeleteCallback callback );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewFinderForm">
+	public CFBorderPane newFinderForm( ICFFormManager formManager );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewPickerForm">
+	public CFBorderPane newPickerForm( ICFFormManager formManager,
+		I$DefSchemaName$$TableName$Obj javaFXFocus,
+		$switch HasContainer yes implISchemaJavaFXTableContainerObjInterface default implISchemaJavaFXTableContainerAnyInterface$ argContainer$implConstructJavaFXTableListPaneDataCollection$,
+		I$DefSchemaName$JavaFX$TableName$Chosen whenChosen );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewAddForm">
+	public CFBorderPane newAddForm( ICFFormManager formManager, I$DefSchemaName$$TableName$Obj javaFXFocus, ICFFormClosedCallback closeCallback, boolean allowSave );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewViewEditForm">
+	public CFBorderPane newViewEditForm( ICFFormManager formManager, I$DefSchemaName$$TableName$Obj javaFXFocus, ICFFormClosedCallback closeCallback, boolean cameFromAdd );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewListPane">
+	public CFBorderPane newListPane( ICFFormManager formManager,
+		$switch HasContainer yes implISchemaJavaFXTableContainerObjInterface default implISchemaJavaFXTableContainerAnyInterface$ argContainer,
+		I$DefSchemaName$$TableName$Obj argFocus$implConstructJavaFXTableListPaneDataCollection$,
+		ICFRefreshCallback refreshCallback,
+		boolean sortByChain );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewPickerPane">
+	public CFBorderPane newPickerPane( ICFFormManager formManager,
+		I$DefSchemaName$$TableName$Obj argFocus,
+		$switch HasContainer yes implISchemaJavaFXTableContainerObjInterface default implISchemaJavaFXTableContainerAnyInterface$ argContainer$implConstructJavaFXTableListPaneDataCollection$,
+		I$DefSchemaName$JavaFX$TableName$Chosen whenChosen );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewEltTabPane">
+	public CFTabPane newEltTabPane( ICFFormManager formManger, I$DefSchemaName$$TableName$Obj javaFXFocus );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewAddPane">
+	public CFSplitPane newAddPane( ICFFormManager formManger, I$DefSchemaName$$TableName$Obj javaFXFocus );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declJavaFXTableFactoryNewViewEditPane">
+	public CFSplitPane newViewEditPane( ICFFormManager formManger, I$DefSchemaName$$TableName$Obj javaFXFocus );
+</GenRule>
+
+</RuleSet>

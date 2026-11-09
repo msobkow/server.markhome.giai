@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schema/jpa/SchemaJpaTableTable.java"
+	Revision="3.0"
+	Descr="Java JPA Table Implementation">
+
+	<GenFile GenDef="Table" Name="fileSchemaJpaTableTableJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-jpa/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa"
+		ExpansionClassName="$SchemaName$Jpa$TableName$TableJava"
+		ExpansionKeyName="$SchemaName$Jpa$TableName$TableJava"
+		ExpansionFileName="$SchemaName$Jpa$TableName$Table.java">
+// Description: Java 25 DbIO implementation for $TableName$.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa;
+
+import java.lang.reflect.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$poptop SchemaDef importJavaPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaNameObj empty empty )$$poptop SchemaDef importJavaPackageSchemaNameObj$$JavaTableImport$
+import $reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.jpa.$DefSchemaName$JpaHooksSchema;
+
+/*
+ *	$SchemaName$Jpa$TableName$Table database implementation for $TableName$
+ */
+public class $SchemaName$Jpa$TableName$Table implements I$SchemaName$$TableName$Table
+{
+	protected $SchemaName$JpaSchema schema;
+
+$implJpaConstructTable$$methJpaTableCanCreateTableName$$methJpaTableCanReadTableName$$methJpaTableCanUpdateTableName$$methJpaTableCanDeleteTableName$$switch IsMutable yes methJpaTableCanMutateTableName default empty$$implJpaCreateTable$$implJpaUpdateTable$$implJpaDeleteTable$$implJpaReadTableDerivedByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default implJpaReadTableDerivedByPKeyArgs$$implJpaLockTableDerivedByPKey$$implJpaReadAllTableDerived$$implJpaReadTableDerivedByIndexes$$implJpaReadTableRecByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default implJpaReadTableRecByPKeyArgs$$implJpaLockTableRecByPKey$$implJpaReadAllTableRec$$implJpaReadTableRecByIndexes$$switch HasChain yes implJpaMoveUpTableRec default empty$$switch HasChain yes implJpaMoveDownTableRec default empty$$iterate ServerMethods( each implJpaServerMethod empty empty )$$JavaTableInterface$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="implJpaConstructTable">
+	public $SchemaName$Jpa$TableName$Table(I$DefSchemaName$Schema schema) {
+		if( schema == null ) {
+			throw new CFNullArgumentException(getClass(), "constructor", 1, "schema" );
+		}
+		if (schema instanceof $SchemaName$JpaSchema) {
+			this.schema = ($SchemaName$JpaSchema)schema;
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "constructor", "schema", schema, "$SchemaName$JpaSchema");
+		}
+	}
+</GenRule>
+
+
+	<GenRule GenDef="ServerProc" Name="implJpaServerMethod"
+		>$switch IsInstanceMethod yes implJpaInstServerProc default implJpaClassServerProc$</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="implJpaClassServerProc">
+	@Override
+	public boolean $leadlower Name$( I$DefSchemaName$SchemaObj schemaObj$iterate Params( each implJpaServerMethodParam empty empty )$ )
+	{
+		throw new CFNotImplementedYetException(getClass(), "$leadlower Name$");
+	}
+</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="implJpaInstServerProc">
+	@Override
+	public boolean $leadlower Name$( I$DefSchemaName$SchemaObj schemaObj,
+		I$DefSchemaName$$TableName$Obj obj$iterate Params( each implJpaServerMethodParam empty empty )$ )
+	{
+		throw new CFNotImplementedYetException(getClass(), "$leadlower Name$");
+	}
+</GenRule>
+
+	<GenRule GenDef="Param" Name="implJpaServerMethodParam">,
+		$implIJavaAtomType$ $leadlower Name$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="implJpaServerMethod"
+		>$switch IsInstanceMethod yes implJpaInstServerObjFunc default implJpaClassServerObjFunc$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="implJpaClassServerObjFunc">
+	$reference RetTable DefSchemaName$$reference RetTable Name$ $leadlower Name$( I$reference RetTable DefSchemaName$SchemaObj schemaObj$iterate Params( each implJpaServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="implJpaInstServerObjFunc">
+	@Override
+	public I$reference RetTable DefSchemaName$$reference RetTable Name$ $leadlower Name$( I$reference RetTable DefSchemaName$SchemaObj schemaObj,
+		I$DefSchemaName$$TableName$Obj obj$iterate Params( each implJpaServerMethodParam empty empty )$ )
+	{
+		throw new CFNotImplementedYetException(getClass(), "$leadlower Name$");
+	}
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="implJpaServerMethod"
+		>$switch IsInstanceMethod yes implJpaInstServerListFunc default implJpaClassServerListFunc$</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="implJpaClassServerListFunc">
+	@Override
+	public I$reference RetTable DefSchemaName$$reference RetTable Name$[] $leadlower Name$( I$reference RetTable DefSchemaName$SchemaObj schemaObj$iterate Params( each implJpaServerMethodParam empty empty )$ )
+	{
+		throw new CFNotImplementedYetException(getClass(), "$leadlower Name$");
+	}
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="implJpaInstServerListFunc">
+	@Override
+	public I$reference RetTable DefSchemaName$$reference RetTable Name$[] $leadlower Name$( I$reference RetTable DefSchemaName$SchemaObj schemaObj,
+		I$DefSchemaName$$TableName$Obj obj$iterate Params( each implJpaServerMethodParam empty empty )$ )
+	{
+		throw new CFNotImplementedYetException(getClass(), "$leadlower Name$");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableDerivedByPKey">
+	/**
+	 *	Read the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ readDerived( I$SecSchemaName$Authorization Authorization,
+		$ICompactedPrimaryIndexClass$ PKey )
+	{
+		final String S_ProcName = "readDerived";$implJpaTableReadSecurityChecks$
+		I$poptop Table DefSchemaName$$poptop Table TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().find(PKey);$implJpaTableFilterAndReturnRetval$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="methJpaTableCanCreateTableName">
+	protected boolean canCreate$TableName$(String S_ProcName, I$SecSchemaName$Authorization Authorization) {
+		if (Authorization == null) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization");
+		}
+		boolean permissionGranted = false;
+		CFDbKeyHash256 authUserId = Authorization.getSecUserId();$poptop Table tabletweak CafePreCreateTableSecurity$$poptop SchemaDef schematweak CafePreCreateSchemaSecurity$
+		if ((!permissionGranted) &amp;&amp; (authUserId == null || authUserId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization.getSecUserId()");
+		}
+		// Check for "system" user
+		CFDbKeyHash256 systemId = I$SecSchemaName$Schema.getSystemId();
+		if ((!permissionGranted) &amp;&amp; (systemId != null &amp;&amp; !systemId.isNull() &amp;&amp; systemId.equals(authUserId))) {
+			permissionGranted = true;
+		}
+		else if ((!permissionGranted) &amp;&amp; (systemId == null || systemId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "I$SecSchemaName$Schema.getSystemId()");
+		}$switch SecScope
+			TenantGroup implJpaTableTenantCreateSecurityChecks
+			Tenant implJpaTableTenantCreateSecurityChecks
+			ClusterGroup implJpaTableClusterCreateSecurityChecks
+			Cluster implJpaTableClusterCreateSecurityChecks
+			System implJpaTableSystemCreateSecurityChecks
+			Global implJpaTableSystemCreateSecurityChecks
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$
+		return( permissionGranted );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableCreateSecurityChecks">
+		boolean permissionGranted = canCreate$TableName$(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "create$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaTableCreateSecurityChecks">$poptop Table implJpaTableCreateSecurityChecks$</GenRule>
+
+	<GenRule GenDef="Table" Name="methJpaTableCanReadTableName">
+	protected boolean canRead$TableName$(String S_ProcName, I$SecSchemaName$Authorization Authorization) {
+		if (Authorization == null) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization");
+		}
+		boolean permissionGranted = false;
+		CFDbKeyHash256 authUserId = Authorization.getSecUserId();$poptop Table tabletweak CafePreReadTableSecurity$$poptop SchemaDef schematweak CafePreReadSchemaSecurity$
+		if ((!permissionGranted) &amp;&amp; (authUserId == null || authUserId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization.getSecUserId()");
+		}
+		// Check for "system" user
+		CFDbKeyHash256 systemId = I$SecSchemaName$Schema.getSystemId();
+		if ((!permissionGranted) &amp;&amp; (systemId != null &amp;&amp; !systemId.isNull() &amp;&amp; systemId.equals(authUserId))) {
+			permissionGranted = true;
+		}
+		else if ((!permissionGranted) &amp;&amp; (systemId == null || systemId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "I$SecSchemaName$Schema.getSystemId()");
+		}$switch SecScope
+			TenantGroup implJpaTableTenantReadSecurityChecks
+			Tenant implJpaTableTenantReadSecurityChecks
+			ClusterGroup implJpaTableClusterReadSecurityChecks
+			Cluster implJpaTableClusterReadSecurityChecks
+			System implJpaTableSystemReadSecurityChecks
+			Global implJpaTableGlobalReadSecurityChecks
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$
+		return( permissionGranted );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableReadSecurityChecks">
+		boolean permissionGranted = canRead$TableName$(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "read$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaTableReadSecurityChecks">
+		boolean permissionGranted = false;$indextweak CafePreReadIndexSecurityCheck$
+		if (!permissionGranted) {
+			permissionGranted = canRead$poptop Table TableName$(S_ProcName, Authorization);
+		}
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "read$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$poptop Table TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="methJpaTableCanUpdateTableName">
+	protected boolean canUpdate$TableName$(String S_ProcName, I$SecSchemaName$Authorization Authorization) {
+		if (Authorization == null) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization");
+		}
+		boolean permissionGranted = false;
+		CFDbKeyHash256 authUserId = Authorization.getSecUserId();$poptop Table tabletweak CafePreUpdateTableSecurity$$poptop SchemaDef schematweak CafePreUpdateSchemaSecurity$
+		if ((!permissionGranted) &amp;&amp; (authUserId == null || authUserId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization.getSecUserId()");
+		}
+		// Check for "system" user
+		CFDbKeyHash256 systemId = I$SecSchemaName$Schema.getSystemId();
+		if ((!permissionGranted) &amp;&amp; (systemId != null &amp;&amp; !systemId.isNull() &amp;&amp; systemId.equals(authUserId))) {
+			permissionGranted = true;
+		}
+		else if ((!permissionGranted) &amp;&amp; (systemId == null || systemId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "I$SecSchemaName$Schema.getSystemId()");
+		}$switch SecScope
+			TenantGroup implJpaTableTenantUpdateSecurityChecks
+			Tenant implJpaTableTenantUpdateSecurityChecks
+			ClusterGroup implJpaTableClusterUpdateSecurityChecks
+			Cluster implJpaTableClusterUpdateSecurityChecks
+			System implJpaTableSystemUpdateSecurityChecks
+			Global implJpaTableSystemUpdateSecurityChecks
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$
+		return( permissionGranted );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableUpdateSecurityChecks">
+		boolean permissionGranted = canUpdate$TableName$(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "update$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaTableUpdateSecurityChecks">$poptop Table implJpaTableUpdateSecurityChecks$</GenRule>
+
+	<GenRule GenDef="Table" Name="methJpaTableCanDeleteTableName">
+	protected boolean canDelete$TableName$(String S_ProcName, I$SecSchemaName$Authorization Authorization) {
+		if (Authorization == null) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization");
+		}
+		boolean permissionGranted = false;
+		CFDbKeyHash256 authUserId = Authorization.getSecUserId();$poptop Table tabletweak CafePreDeleteTableSecurity$$poptop SchemaDef schematweak CafePreDeleteSchemaSecurity$
+		if ((!permissionGranted) &amp;&amp; (authUserId == null || authUserId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization.getSecUserId()");
+		}
+		// Check for "system" user
+		CFDbKeyHash256 systemId = I$SecSchemaName$Schema.getSystemId();
+		if ((!permissionGranted) &amp;&amp; (systemId != null &amp;&amp; !systemId.isNull() &amp;&amp; systemId.equals(authUserId))) {
+			permissionGranted = true;
+		}
+		else if ((!permissionGranted) &amp;&amp; (systemId == null || systemId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "I$SecSchemaName$Schema.getSystemId()");
+		}$switch SecScope
+			TenantGroup implJpaTableTenantDeleteSecurityChecks
+			Tenant implJpaTableTenantDeleteSecurityChecks
+			ClusterGroup implJpaTableClusterDeleteSecurityChecks
+			Cluster implJpaTableClusterDeleteSecurityChecks
+			System implJpaTableSystemDeleteSecurityChecks
+			Global implJpaTableSystemDeleteSecurityChecks
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$
+		return( permissionGranted );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableDeleteSecurityChecks">
+		boolean permissionGranted = canDelete$TableName$(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "delete$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaTableDeleteSecurityChecks">$poptop Table implJpaTableDeleteSecurityChecks$</GenRule>
+
+	<GenRule GenDef="Table" Name="methJpaTableCanMutateTableName">
+	protected boolean canMutate$TableName$(String S_ProcName, I$SecSchemaName$Authorization Authorization) {
+		if (Authorization == null) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization");
+		}
+		boolean permissionGranted = false;
+		CFDbKeyHash256 authUserId = Authorization.getSecUserId();$poptop Table tabletweak CafePreMutateTableSecurity$$poptop SchemaDef schematweak CafePreMutateSchemaSecurity$
+		if ((!permissionGranted) &amp;&amp; (authUserId == null || authUserId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "Authorization.getSecUserId()");
+		}
+		// Check for "system" user
+		CFDbKeyHash256 systemId = I$SecSchemaName$Schema.getSystemId();
+		if ((!permissionGranted) &amp;&amp; (systemId != null &amp;&amp; !systemId.isNull() &amp;&amp; systemId.equals(authUserId))) {
+			permissionGranted = true;
+		}
+		else if ((!permissionGranted) &amp;&amp; (systemId == null || systemId.isNull())) {
+			throw new CFNullArgumentException(getClass(), S_ProcName, 0, "I$SecSchemaName$Schema.getSystemId()");
+		}$switch SecScope
+			TenantGroup implJpaTableTenantMutateSecurityChecks
+			Tenant implJpaTableTenantMutateSecurityChecks
+			ClusterGroup implJpaTableClusterMutateSecurityChecks
+			Cluster implJpaTableClusterMutateSecurityChecks
+			System implJpaTableSystemMutateSecurityChecks
+			Global implJpaTableSystemMutateSecurityChecks
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$
+		return( permissionGranted );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableMutateSecurityChecks">
+		boolean permissionGranted = canMutate$TableName$(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFPermissionDeniedException(getClass(), S_ProcName, "mutate$poptop Table lower TableName$", I$SchemaName$Schema.SCHEMA_NAME, I$SchemaName$$TableName$Table.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$$s' denied attempting to access %1$$s.%2$$s for user id %3$$s"
+		}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaTableMutateSecurityChecks">$poptop Table implJpaTableMutateSecurityChecks$</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantCreateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), Authorization.getSecClusterId(), Authorization.getSecTenantId(), "create$lower poptop Table TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterCreateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), Authorization.getSecClusterId(), "create$lower poptop Table TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableSystemCreateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfSystemGroup(Authorization.getSecUserId(), "create$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantReadSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), Authorization.getSecClusterId(), Authorization.getSecTenantId(), "read$lower poptop Table TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterReadSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), Authorization.getSecClusterId(), "read$lower poptop Table TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableGlobalReadSecurityChecks">
+		// SecScope Global means anyone can read the table any time
+		permissionGranted = true;</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableSystemReadSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfSystemGroup(Authorization.getSecUserId(), "read$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantUpdateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), I$SecSchemaName$Schema.getSysTenantId(), "update$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterUpdateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), "update$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableSystemUpdateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfSystemGroup(Authorization.getSecUserId(), "update$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantDeleteSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), I$SecSchemaName$Schema.getSysTenantId(), "delete$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterDeleteSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), "delete$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableSystemDeleteSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfSystemGroup(Authorization.getSecUserId(), "delete$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantMutateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), I$SecSchemaName$Schema.getSysTenantId(), "mutate$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterMutateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), I$SecSchemaName$Schema.getSysClusterId(), "mutate$poptop Table lower TableName$");
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableSystemMutateSecurityChecks">
+		if(!permissionGranted) {
+			permissionGranted = I$SecSchemaName$Schema.getSecurityService().isMemberOfSystemGroup(Authorization.getSecUserId(), "mutate$poptop Table lower TableName$");
+		}</GenRule>
+		
+		<GenRule GenDef="Table" Name="baseCustomSingleFilter">$poptop Table tabletweak CafePostReadTableSecurityCustomFilterRetval$</GenRule>
+		<GenRule GenDef="Table" Name="truncCustomSingleFilter">$gentrunc 100 baseCustomSingleFilter$</GenRule>
+		<GenRule GenDef="Table" Name="hasCustomSingleFilter">$switch truncCustomSingleFilter empty no default yes$</GenRule>
+		
+		<GenRule GenDef="Table" Name="implJpaTableFilterAndReturnRetval">$switch hasCustomSingleFilter yes expandCustomSingleFilter default noCustomSingleFilter$</GenRule>
+
+		<GenRule GenDef="Table" Name="expandCustomSingleFilter">$baseCustomSingleFilter$
+		return(retval);</GenRule>
+		
+		<GenRule GenDef="Table" Name="noCustomSingleFilter">$switch SecScope
+			TenantGroup implJpaTableTenantGroupFilterRetval
+			Tenant implJpaTableTenantFilterRetval
+			ClusterGroup implJpaTableClusterGroupFilterRetval
+			Cluster implJpaTableClusterFilterRetval
+			System empty
+			Global empty
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$$poptop Table tabletweak CafePostReadTableSecurityFilterRetval$</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantGroupFilterRetval">$implJpaTableTenantFilterRetval$
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableTenantFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+			String effDataGroupName = "toberetrieved";
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, effDataGroupName)) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantFilterRetval">
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableTenantFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "read$poptop Table lower TableName$")) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterGroupFilterRetval">$implJpaTableClusterFilterRetval$
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableClusterFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			String effDataGroupName = "toberetrieved";
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, effDataGroupName)) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterFilterRetval">
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableClusterFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "read$poptop Table lower TableName$")) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Object" Name="implJpaTableClusterFindForRetval">$poptop Table implJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="implJpaTableClusterFindForRetval">
+				I$SecSchemaName$Cluster cluster = retval.$resolveJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="resolveJpaTableClusterFindForRetval">$switch HasOwner yes checkJpaTableOwnerCluster default maybeCheckJpaTableContainerCluster$</GenRule>
+		<GenRule GenDef="Table" Name="checkJpaTableOwnerCluster">$switch OwnerIsCluster yes implDereferenceOwnerAsCluster default maybeCheckJpaTableContainerCluster$</GenRule>
+		<GenRule GenDef="Table" Name="OwnerIsCluster">$reference OwnerRelation reference ToTable switch TableName Cluster yes default no$</GenRule>
+		<GenRule GenDef="Table" Name="implDereferenceOwnerAsCluster">get$reference OwnerRelation OptionalOrRequired$$reference OwnerRelation RelationType$$reference OwnerRelation Suffix$();</GenRule>
+		
+		<GenRule GenDef="Table" Name="maybeCheckJpaTableContainerCluster">$switch HasContainer yes checkJpaTableContainerCluster default maybeRecurseSuperResolveJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="checkJpaTableContainerCluster">$switch ContainerIsCluster yes implDereferenceContainerAsCluster default maybeChaseContainerRelationResolveJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="ContainerIsCluster">$reference ContainerRelation reference ToTable switch TableName Cluster yes default no$</GenRule>
+		<GenRule GenDef="Table" Name="implDereferenceContainerAsCluster">get$reference ContainerRelation OptionalOrRequired$$reference ContainerRelation RelationType$$reference ContainerRelation Suffix$();</GenRule>
+		<GenRule GenDef="Table" Name="maybeChaseContainerRelationResolveJpaTableClusterFindForRetval">$switch HasContainer yes reallyChaseContainerResolveJpaTableClusterFindForRetval default maybeRecurseSuperResolveJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="reallyChaseContainerResolveJpaTableClusterFindForRetval">get$reference ContainerRelation OptionalOrRequired$$reference ContainerRelation RelationType$$reference ContainerRelation Suffix$().$reference ContainerRelation reference ToTable resolveJpaTableClusterFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="maybeRecurseSuperResolveJpaTableClusterFindForRetval">$switch HasSuperClassRelation yes reallyRecurseSuperResolveJpaTableClusterFindForRetval default empty$</GenRule>
+		<GenRule GenDef="Table" Name="reallyRecurseSuperResolveJpaTableClusterFindForRetval">$reference SuperClassRelation reference ToTable resolveJpaTableClusterFindForRetval$</GenRule>
+
+		<GenRule GenDef="Object" Name="implJpaTableTenantFindForRetval">$poptop Table implJpaTableTenantFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="implJpaTableTenantFindForRetval">
+				I$SecSchemaName$Tenant tenant = retval.$resolveJpaTableTenantFindForRetval$
+				I$SecSchemaName$Cluster cluster = tenant.getRequiredContainerCluster();</GenRule>
+		<GenRule GenDef="Table" Name="resolveJpaTableTenantFindForRetval">$switch HasOwner yes checkJpaTableOwnerTenant default maybeCheckJpaTableContainerTenant$</GenRule>
+		<GenRule GenDef="Table" Name="checkJpaTableOwnerTenant">$switch OwnerIsTenant yes implDereferenceOwnerAsTenant default maybeCheckJpaTableContainerTenant$</GenRule>
+		<GenRule GenDef="Table" Name="OwnerIsTenant">$reference OwnerRelation reference ToTable switch TableName Tenant yes default no$</GenRule>
+		<GenRule GenDef="Table" Name="implDereferenceOwnerAsTenant">get$reference OwnerRelation OptionalOrRequired$$reference OwnerRelation RelationType$$reference OwnerRelation Suffix$();</GenRule>
+		
+		<GenRule GenDef="Table" Name="maybeCheckJpaTableContainerTenant">$switch HasContainer yes checkJpaTableContainerTenant default maybeRecurseSuperResolveJpaTableTenantFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="checkJpaTableContainerTenant">$switch ContainerIsTenant yes implDereferenceContainerAsTenant default maybeChaseContainerRelationResolveJpaTableTenantFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="ContainerIsTenant">$reference ContainerRelation reference ToTable switch TableName Tenant yes default no$</GenRule>
+		<GenRule GenDef="Table" Name="implDereferenceContainerAsTenant">get$reference ContainerRelation OptionalOrRequired$$reference ContainerRelation RelationType$$reference ContainerRelation Suffix$();</GenRule>
+		<GenRule GenDef="Table" Name="maybeChaseContainerRelationResolveJpaTableTenantFindForRetval">$switch HasContainer yes reallyChaseContainerResolveJpaTableTenantFindForRetval default maybeRecurseSuperResolveJpaTableTenantFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="reallyChaseContainerResolveJpaTableTenantFindForRetval">get$reference ContainerRelation OptionalOrRequired$$reference ContainerRelation RelationType$$reference ContainerRelation Suffix$().$reference ContainerRelation reference ToTable resolveJpaTableTenantFindForRetval$</GenRule>
+		<GenRule GenDef="Table" Name="maybeRecurseSuperResolveJpaTableTenantFindForRetval">$switch HasSuperClassRelation yes reallyRecurseSuperResolveJpaTableTenantFindForRetval default empty$</GenRule>
+		<GenRule GenDef="Table" Name="reallyRecurseSuperResolveJpaTableTenantFindForRetval">$reference SuperClassRelation reference ToTable resolveJpaTableTenantFindForRetval$</GenRule>
+
+		<GenRule GenDef="Table" Name="baseCustomDupFilter">$poptop Table tabletweak CafePostReadTableSecurityCustomFilterRetlist$</GenRule>
+		<GenRule GenDef="Table" Name="truncCustomDupFilter">$gentrunc 100 baseCustomDupFilter$</GenRule>
+		<GenRule GenDef="Table" Name="hasCustomDupFilter">$switch truncCustomDupFilter empty no default yes$</GenRule>
+		
+		<GenRule GenDef="Table" Name="implJpaTableFilterRetlist">$switch hasCustomDupFilter yes expandCustomDupFilter default noCustomDupFilter$</GenRule>
+
+		<GenRule GenDef="Table" Name="expandCustomDupFilter">$baseCustomDupFilter$</GenRule>
+
+		<GenRule GenDef="Table" Name="noCustomDupFilter">$switch SecScope
+			TenantGroup implJpaTableTenantGroupFilterRetlist
+			Tenant implJpaTableTenantFilterRetlist
+			ClusterGroup implJpaTableClusterGroupFilterRetlist
+			Cluster implJpaTableClusterFilterRetlist
+			System empty
+			Global empty
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$$poptop Table tabletweak CafePostReadTableSecurityFilterRetlist$$poptop SchemaDef schematweak CafePostReadSchemaSecurityFilterRetlist$</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantGroupFilterRetlist">$implJpaTableTenantFilterRetlist$
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableTenantFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+				String effDataGroupName = "toberetrieved";
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, effDataGroupName)) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableTenantFilterRetlist">
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableTenantFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "read$poptop Table lower TableName$")) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterGroupFilterRetlist">$implJpaTableClusterFilterRetlist$
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableClusterFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				String effDataGroupName = "toberetrieved";
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, effDataGroupName)) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Table" Name="implJpaTableClusterFilterRetlist">
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableClusterFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "read$poptop Table lower TableName$")) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableFilterAndReturnRetval">$poptop Table switch SecScope
+			TenantGroup implJpaTableTenantGroupFilterRetval
+			Tenant implJpaTableTenantFilterRetval
+			ClusterGroup implJpaTableClusterGroupFilterRetval
+			Cluster implJpaTableClusterFilterRetval
+			System empty
+			Global empty
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$$poptop Table tabletweak CafePostReadTableSecurityFilterRetval$$indextweak CafePostReadIndexSecurityFilterRetval$
+		return(retval);</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableTenantGroupFilterRetval">$implJpaTableTenantFilterRetval$
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableTenantFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+			String effDataGroupName = "toberetrieved";
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, effDataGroupName)) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableTenantFilterRetval">
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableTenantFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "read$poptop Table lower TableName$")) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableClusterGroupFilterRetval">$implJpaTableClusterFilterRetval$
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableClusterFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			String effDataGroupName = "toberetrieved";
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, effDataGroupName)) {
+				retval = null;
+			}
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableClusterFilterRetval">
+		if(retval != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {$implJpaTableClusterFindForRetval$
+			CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+			if (!I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "read$poptop Table lower TableName$")) {
+				retval = null;
+			}
+		}</GenRule>
+
+
+
+
+
+
+
+
+
+
+		<GenRule GenDef="Index" Name="baseCustomDupIndexFilter">$poptop Table tabletweak CafePostReadIndexSecurityCustomFilterRetlist$</GenRule>
+		<GenRule GenDef="Index" Name="truncCustomDupIndexFilter">$gentrunc 100 baseCustomDupIndexFilter$</GenRule>
+		<GenRule GenDef="Index" Name="hasCustomDupIndexFilter">$switch truncCustomDupIndexFilter empty no default yes$</GenRule>
+		
+		<GenRule GenDef="Index" Name="implJpaTableFilterRetlist">$switch hasCustomDupIndexFilter yes expandCustomDupIndexFilter default noCustomDupIndexFilter$</GenRule>
+		<GenRule GenDef="Index" Name="noCustomDupIndexFilter">$switch HasCustomDupFilter yes expandCustomDupFilter default reallyNoCustomDupIndexFilter$</GenRule>
+		<GenRule GenDef="Index" Name="expandCustomDupIndexFilter">$baseCustomDupIndexFilter$</GenRule>
+
+		<GenRule GenDef="Index" Name="reallyNoCustomDupIndexFilter">$switch SecScope
+			TenantGroup implJpaTableTenantGroupFilterRetlist
+			Tenant implJpaTableTenantFilterRetlist
+			ClusterGroup implJpaTableClusterGroupFilterRetlist
+			Cluster implJpaTableClusterFilterRetlist
+			System empty
+			Global empty
+			default errorUnrecognizedSecScopeInSchemaJpaTableTableDotJavaDotXml$$poptop Table tabletweak CafePostReadTableSecurityFilterRetlist$$poptop SchemaDef schematweak CafePostReadSchemaSecurityFilterRetlist$</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableTenantGroupFilterRetlist">$implJpaTableTenantFilterRetlist$
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableTenantFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+				String effDataGroupName = "toberetrieved";
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, effDataGroupName)) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableTenantFilterRetlist">
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableTenantFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFDbKeyHash256 effTenantId = tenant.getRequiredId();
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "read$poptop Table lower TableName$")) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableClusterGroupFilterRetlist">$implJpaTableClusterFilterRetlist$
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableClusterFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				String effDataGroupName = "toberetrieved";
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, effDataGroupName)) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+		<GenRule GenDef="Index" Name="implJpaTableClusterFilterRetlist">
+		if(retlist != null &amp;&amp; !I$SecSchemaName$Schema.getSystemId().equals(Authorization.getSecUserId())) {
+			ArrayList&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; finallist = new ArrayList&lt;&gt;();
+			for (var retval: retlist) {$implJpaTableClusterFindForRetval$
+				CFDbKeyHash256 effClusterId = cluster.getRequiredId();
+				if (I$SecSchemaName$Schema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "read$poptop Table lower TableName$")) {
+					finallist.add(retval);
+				}
+			}
+			retlist = finallist;
+		}</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableDerivedByPKeyArgs">
+	/**
+	 *	Read the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ readDerived( I$SecSchemaName$Authorization Authorization$reference PrimaryKeyIndex iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readDerived";$implJpaTableReadSecurityChecks$
+		I$poptop Table DefSchemaName$$poptop Table TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().find($reference PrimaryKeyIndex iterate Columns( first implJpaPassColumnArg each implJpaCommaPassColumnArg )$);$implJpaTableFilterAndReturnRetval$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaLockTableDerivedByPKey">
+	/**
+	 *	Lock the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ lockDerived( I$SecSchemaName$Authorization Authorization,
+		$ICompactedPrimaryIndexClass$ PKey )
+	{
+		final String S_ProcName = "lockDerived";$implJpaTableUpdateSecurityChecks$
+		I$poptop Table DefSchemaName$$poptop Table TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().lockBy$reference BaseClass reference PrimaryKeyIndex Suffix$(PKey);$implJpaTableFilterAndReturnRetval$
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadAllTableDerived">
+	/**
+	 *	Read all $TableName$ instances.
+	 *
+	 *	@param	Authorization	The session authorization information.	
+	 *
+	 *	@return An array of derived record instances, potentially with 0 elements in the set.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$[] readAllDerived( I$SecSchemaName$Authorization Authorization ) {
+		final String S_ProcName = "readAllDerived";$implJpaTableReadSecurityChecks$
+		List&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; retlist = schema.getJpaHooksSchema().get$poptop Table TableName$Service().findAll();$implJpaTableFilterRetlist$
+		I$DefSchemaName$$poptop Table TableName$[] retset = new I$DefSchemaName$$poptop Table TableName$[retlist.size()];
+		int idx = 0;
+		for ($DefSchemaName$Jpa$poptop Table TableName$ cur: retlist) {
+			retset[idx++] = cur;
+		}
+		return( retset );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableDerivedByIndexes"
+		>$switch HasSuperClassRelation yes implJpaReadTableDerivedByInhIndexes default implJpaReadTableDerivedBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableDerivedByInhIndexes"
+		>$reference SuperClassRelation reference ToTable implJpaReadTableDerivedByIndexes$$iterate Index( each implJpaReadTableDerivedByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableDerivedBCFCoreIndexes"
+		>$iterate Index( each implJpaReadTableDerivedByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableDerivedByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default implJpaReadTableDerivedByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableDerivedByIndex"
+		>$switch IsUnique
+			yes implJpaReadTableDerivedByUniqueIndex
+			default implJpaReadTableDerivedByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableSuffix"
+		>$switch IsPrimaryIndex yes implJpaReadTablCFCorePrimarySuffix default Suffix$</GenRule>
+	<GenRule GenDef="Index" Name="implJpaReadTablCFCorePrimarySuffix"
+		>$reference Table reference BaseClass reference PrimaryKeyIndex Suffix$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableDerivedByUniqueIndex">
+	/**
+	 *	Read the derived $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ readDerivedBy$implJpaReadTableSuffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readDerivedBy$implJpaReadTableSuffix$";$implJpaTableReadSecurityChecks$
+		I$poptop Table DefSchemaName$$poptop Table TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().$switch IsPrimaryIndex yes implReadTableDerivedByUniquePKeyIndex default implReadTableDerivedByUniqueOtherIndex$($iterate Columns( first implJpaPassColumnArg each implJpaCommaPassColumnArg )$);$implJpaTableFilterAndReturnRetval$
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implReadTableDerivedByUniquePKeyIndex">find</GenRule>
+	<GenRule GenDef="Index" Name="implReadTableDerivedByUniqueOtherIndex">findBy$implJpaReadTableSuffix$</GenRule>
+	
+	<GenRule GenDef="Index" Name="implJpaReadTableDerivedByDuplicateIndex">
+	/**
+	 *	Read an array of the derived $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	@Override
+	public I$DefSchemaName$$poptop Table TableName$[] readDerivedBy$implJpaReadTableSuffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readDerivedBy$implJpaReadTableSuffix$";$implJpaTableReadSecurityChecks$
+		List&lt;$DefSchemaName$Jpa$poptop Table TableName$&gt; retlist = schema.getJpaHooksSchema().get$poptop Table TableName$Service().findBy$implJpaReadTableSuffix$($iterate Columns( first implJpaPassColumnArg each implJpaCommaPassColumnArg )$);$implJpaTableFilterRetlist$
+		I$DefSchemaName$$poptop Table TableName$[] retset = new I$DefSchemaName$$poptop Table TableName$[retlist.size()];
+		int idx = 0;
+		for ($DefSchemaName$Jpa$poptop Table TableName$ cur: retlist) {
+			retset[idx++] = cur;
+		}
+		return( retset );
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableRecByPKey">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$ readRec( I$SecSchemaName$Authorization Authorization,
+		$ICompactedPrimaryIndexClass$ PKey )
+	{
+		final String S_ProcName = "readRec";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readRec");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableRecByPKeyArgs">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$ readRec( I$SecSchemaName$Authorization Authorization$reference PrimaryKeyIndex iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readRec";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readRec-args");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaLockTableRecByPKey">
+	/**
+	 *	Lock the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$ lockRec( I$SecSchemaName$Authorization Authorization,
+		$ICompactedPrimaryIndexClass$ PKey )
+	{
+		final String S_ProcName = "lockRec";$implJpaTableUpdateSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "lockRec");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadAllTableRec">
+	/**
+	 *	Read all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$[] readAllRec( I$SecSchemaName$Authorization Authorization ) {
+		final String S_ProcName = "readAllRec";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readAllRec");
+	}
+
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableRecByIndexes"
+		>$switch HasSuperClassRelation yes implJpaReadTableRecByInhIndexes default implJpaReadTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable implJpaReadTableRecByIndexes$$iterate Index( each implJpaReadTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadTableRecBCFCoreIndexes"
+		>$iterate Index( each implJpaReadTableRecByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default implJpaReadTableRecSPs$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableRecSPs"
+		>$implJpaReadTableRecByIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaPageTableRecByIndexes"
+		>$switch HasSuperClassRelation yes implJpaPageTableRecByInhIndexes default implJpaPageTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaPageTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable implJpaPageTableRecByIndexes$$iterate Index( each implJpaPageTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaPageTableRecBCFCoreIndexes"
+		>$iterate Index( each implJpaPageTableRecByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaPageTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default implJpaPageTableRecSPs$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybe_implJpaPageTableRecByIndex"
+		>$switch IsUnique yes empty default implJpaPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableRecByUniqueIndex">
+	/**
+	 *	Read the specific $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$poptop Table TableName$ readRecBy$implJpaReadTableSuffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readRecBy$implJpaReadTableSuffix$";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readRecBy$implJpaReadTableSuffix$");
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableRecByDuplicateIndex">
+	/**
+	 *	Read an array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$poptop Table TableName$[] readRecBy$implJpaReadTableSuffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "readRecBy$implJpaReadTableSuffix$";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readRecBy$implJpaReadTableSuffix$");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaPageAllTableRec">
+	/**
+	 *	Read a page of all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$[] pageAllRec( I$SecSchemaName$Authorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJpaCommaOptPriorArg )$ )
+	{
+		final String S_ProcName = "pageAllRec";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "pageAllRec");
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaPageTableRecByDuplicateIndex">
+	/**
+	 *	Read a page array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public I$DefSchemaName$$poptop Table TableName$[] pageRecBy$implJpaReadTableSuffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$$poptop Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJpaCommaOptPriorArg )$ )
+	{
+		final String S_ProcName = "pageRecBy$implJpaReadTableSuffix$";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "pageRecBy$implJpaReadTableSuffix$");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaMoveUpTableRec">
+	/**
+	 *	Move the specified record up in the chain (i.e. to the previous position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ moveRecUp( I$SecSchemaName$Authorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJpaCommaColumnArg )$,
+		int revision )
+	{
+		final String S_ProcName = "moveRecUp";$implJpaTableUpdateSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "moveRecUp");
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaMoveDownTableRec">
+	/**
+	 *	Move the specified record down in the chain (i.e. to the next position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	@Override
+	public I$poptop Table DefSchemaName$$poptop Table TableName$ moveRecDown( I$SecSchemaName$Authorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implJpaCommaColumnArg )$,
+		int revision )
+	{
+		final String S_ProcName = "moveRecDown";$implJpaTableUpdateSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "moveRecDown");
+	}
+</GenRule>
+
+	<GenRule GenDef="Object" Name="implJpaCommaColumnArg">,
+		$implJpaColumnArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="implJpaColumnArg"
+		>$implIJavaAtomType$ arg$Name$</GenRule>
+	<GenRule GenDef="Atom" Name="implJpaColumnArg"
+		>$implIJavaAtomType$ arg$Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJpaColumnArg"
+		>$reference Column implJpaColumnArg$</GenRule>
+
+	<GenRule GenDef="Object" Name="implJpaCommaPassColumnArg">,
+		$implJpaPassColumnArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="implJpaPassColumnArg"
+		>arg$Name$</GenRule>
+	<GenRule GenDef="Atom" Name="implJpaPassColumnArg"
+		>arg$Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJpaPassColumnArg"
+		>$reference Column implJpaPassColumnArg$</GenRule>
+
+	<GenRule GenDef="Object" Name="implJpaCommaOptPriorArg">,
+		$implJpaOptPriorArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="implJpaOptPriorArg"
+		>$implIJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="Atom" Name="implJpaOptPriorArg"
+		>$implIJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="implJpaOptPriorArg"
+		>$reference Column implJpaOptPriorArg$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaReadTableRecByIndex"
+		>$switch IsUnique
+			yes implJpaReadTableRecByUniqueIndex
+			default implJpaReadTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaPageTableRecByIndex"
+		>$switch IsUnique
+			yes empty
+			default implJpaPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaCreateTable">
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$ create$TableName$( I$SecSchemaName$Authorization Authorization,
+		I$DefSchemaName$$TableName$ rec )
+	{
+		final String S_ProcName = "create$TableName$";$implJpaTableCreateSecurityChecks$
+		if (rec == null) {
+			throw new CFNullArgumentException(getClass(), "create$TableName$", 1, "rec");
+		}
+		else if (rec instanceof $DefSchemaName$Jpa$TableName$) {
+			$DefSchemaName$Jpa$TableName$ jparec = ($DefSchemaName$Jpa$TableName$)rec;$switch IsTableAudited yes implJpaTableCreateInitAuditColumns default empty$
+			$DefSchemaName$Jpa$TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().create(jparec);$implJpaTableFilterAndReturnRetval$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "create$TableName$", "rec", rec, "$DefSchemaName$Jpa$TableName$");
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableCreateInitAuditColumns">
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaReadAllTable">
+	/**
+	 *	Read all the specific $TableName$ instances from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return	An array of the $TableName$ instances visible to the Authorization.
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$[] readAll$TableName$( I$SecSchemaName$Authorization Authorization ) {
+		final String S_ProcName = "readAll$TableName$";$implJpaTableReadSecurityChecks$
+		throw new CFNotImplementedYetException(getClass(), "readAll$TableName$");
+	}
+
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaUpdateTable">
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	@Override
+	public I$DefSchemaName$$TableName$ update$TableName$( I$SecSchemaName$Authorization Authorization,
+		I$DefSchemaName$$TableName$ rec )
+	{
+		final String S_ProcName = "update$TableName$";$implJpaTableUpdateSecurityChecks$
+		if (rec == null) {
+			throw new CFNullArgumentException(getClass(), "update$TableName$", 1, "rec");
+		}
+		else if (rec instanceof $DefSchemaName$Jpa$TableName$) {
+			$DefSchemaName$Jpa$TableName$ jparec = ($DefSchemaName$Jpa$TableName$)rec;$switch IsTableAudited yes implJpaTableUpdateInitAuditColumns default empty$
+			$DefSchemaName$Jpa$TableName$ retval = schema.getJpaHooksSchema().get$poptop Table TableName$Service().update(jparec);$implJpaTableFilterAndReturnRetval$
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "update$TableName$", "rec", rec, "$DefSchemaName$Jpa$TableName$");
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaTableUpdateInitAuditColumns">
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaDeleteTable">
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	@Override
+	public void delete$TableName$( I$SecSchemaName$Authorization Authorization,
+		I$DefSchemaName$$TableName$ rec )
+	{
+		final String S_ProcName = "delete$TableName$";$implJpaTableDeleteSecurityChecks$
+		if (rec == null) {
+			return;
+		}
+		if (rec instanceof $DefSchemaName$Jpa$TableName$) {
+			$DefSchemaName$Jpa$TableName$ jparec = ($DefSchemaName$Jpa$TableName$)rec;
+			schema.getJpaHooksSchema().get$poptop Table TableName$Service().deleteBy$reference BaseClass reference PrimaryKeyIndex Suffix$(jparec.getPKey());
+		}
+		else {
+			throw new CFUnsupportedClassException(getClass(), "delete$TableName$", "rec", rec, "$DefSchemaName$Jpa$TableName$");
+		}
+
+		throw new CFNotImplementedYetException(getClass(), "delete$TableName$");
+	}
+$implJpaDeleteTableByInheritedIndexes$
+</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaDeleteTableByInheritedIndexes"
+		>$switch HasSuperClassRelation yes implJpaDeleteTableByInhIndexes default implJpaDeleteTableBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaDeleteTableByInhIndexes"
+		>$iterate Index( each implJpaDeleteTableByNonPrimaryIndex empty empty )$$reference SuperClassRelation reference ToTable implJpaDeleteTableByInheritedIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="implJpaDeleteTableBCFCoreIndexes"
+		>$iterate Index( each implJpaDeleteTableBySpecialIndex empty empty )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default implJpaDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableBySpecialIndex"
+		>$switch IsPrimaryIndex yes implJpaDeleteTableByPrimaryIndex default implJpaDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByIndex">
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	@Override
+	public void delete$poptop Table TableName$By$Suffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "delete$poptop Table TableName$By$Suffix$";$implJpaTableDeleteSecurityChecks$
+		schema.getJpaHooksSchema().get$poptop Table TableName$Service().deleteBy$Suffix$($iterate Columns( first implJpaPassColumnArg each implJpaCommaPassColumnArg )$);
+	}
+
+
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	@Override
+	public void delete$poptop Table TableName$By$Suffix$( I$SecSchemaName$Authorization Authorization,
+		I$DefSchemaName$$TableName$By$Suffix$Key argKey )
+	{
+		final String S_ProcName = "delete$poptop Table TableName$By$Suffix$";$implJpaTableDeleteSecurityChecks$
+		schema.getJpaHooksSchema().get$poptop Table TableName$Service().deleteBy$Suffix$($iterate Columns( first implJpaPassKeyColumnArg each implJpaCommaPassKeyColumnArg )$);
+	}
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implJpaCommaPassKeyColumnArg">,
+			$implJpaPassKeyColumnArg$</GenRule>
+			
+	<GenRule GenDef="IndexCol" Name="implJpaPassKeyColumnArg">argKey.get$reference Column implColumnAttrOptionality$$reference Column Name$()</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByPrimaryIndex">$switch IsPrimaryIndexKeyAtomic yes empty default implJpaDeleteTableByPrimaryIndexAttrs$
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The primary key identifying the instance to be deleted.
+	 */
+	@Override
+	public void delete$poptop Table TableName$By$Suffix$( I$SecSchemaName$Authorization Authorization,
+		$ICompactedPrimaryIndexClass$ argKey )
+	{
+		final String S_ProcName = "delete$poptop Table TableName$By$Suffix$";$implJpaTableDeleteSecurityChecks$
+		schema.getJpaHooksSchema().get$poptop Table TableName$Service().deleteBy$Suffix$($switch IsPrimaryIndexKeyAtomic yes implJpaDeleteTableByDirectPrimaryIndex default implJpaDeleteTableByDerefPrimaryIndex$);
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByDerefPrimaryIndex">$iterate Columns( first implJpaPassKeyColumnArg each implJpaCommaPassKeyColumnArg )$</GenRule>
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByDirectPrimaryIndex">argKey</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaDeleteTableByPrimaryIndexAttrs">
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key attributes.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	@Override
+	public void delete$poptop Table TableName$By$Suffix$( I$SecSchemaName$Authorization Authorization$iterate Columns( each implJpaCommaColumnArg )$ )
+	{
+		final String S_ProcName = "delete$poptop Table TableName$By$Suffix$";$implJpaTableDeleteSecurityChecks$
+		schema.getJpaHooksSchema().get$poptop Table TableName$Service().deleteBy$Suffix$($iterate Columns( first implJpaPassColumnArg each implJpaCommaPassColumnArg )$);
+	}
+</GenRule>
+
+</RuleSet>

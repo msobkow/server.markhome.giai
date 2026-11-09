@@ -1,0 +1,7 @@
+The business application models delivered with MSS Code Factory
+2.13 are under a variety of licenses, including Apache V2,
+Commercial/LGPLv3, Commercial/GPLv3, Commercial/Share, and
+Commercial/Core licenses so copies of each of the five license
+texts are included in the top level project directory, and in
+the model directory, but you have to check the individual models
+to know which license applies to that particular file.

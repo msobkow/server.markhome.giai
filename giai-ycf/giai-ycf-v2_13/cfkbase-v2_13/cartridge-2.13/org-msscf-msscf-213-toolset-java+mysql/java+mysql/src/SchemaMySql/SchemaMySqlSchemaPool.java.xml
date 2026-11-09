@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow
+ *
+ *	This program is part of MSS Code Factory 2.13, available under
+ *	a dual GPLv3/commercial license.
+ *
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleSet
+	xmlns="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd https://msobkow.github.io/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java+mysql"
+	Name="src/SchemaMySqlSchemaPool.java"
+	Revision="2.13"
+	Descr="Java 11 implementation of a $SchemaName$ schema pool.">
+
+	<GenFile GenDef="SchemaDef" Name="fileSchemaMySqlSchemaPoolJava"
+			GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$mysql"
+		SourceBundle="java"
+		BasePackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$mysql/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$mysql"
+		ExpansionClassName="$SchemaName$MySqlSchemaPoolJava"
+		ExpansionKeyName="$SchemaName$MySqlSchemaPoolJava"
+		ExpansionFileName="$SchemaName$MySqlSchemaPool.java"
+>// Description: Java 11 implementation of a MySQL $SchemaName$ schema pool.
+
+$MssSourceLicense$
+
+package $lower DefTopProjectName$.$DefVUnderVersion$.$lower DefSubProjectName$.$lower DefSchemaName$mysql;
+
+import java.util.*;
+
+import org.msscf.msscf.cflib.CFLib.*;$iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$$importJavaPackageSchemaName$
+
+public class $SchemaName$MySqlSchemaPool
+extends $SchemaName$SchemaPool
+{$implSchemaMySqlSchemaPoolConstructor$$implSchemaMySqlSchemaPoolToBeOverloaded$}
+</GenFile>
+
+	<GenRule GenDef="SchemaDef" Name="implSchemaMySqlSchemaPoolConstructor">
+	public $SchemaName$MySqlSchemaPool() {
+		setJndiName( "java:comp/env/$DbSchemaName$ConnectionPool" );
+	}
+</GenRule>
+
+	<GenRule GenDef="SchemaDef" Name="implSchemaMySqlSchemaPoolToBeOverloaded">
+	/**
+	 *	You need to overload the implementation of newInstance() to return
+	 *	connected instances of your backing store.
+	 */
+	public I$SchemaName$Schema newInstance() {
+		I$SchemaName$Schema inst = new $SchemaName$MySqlSchema();
+		return( inst );
+	}
+</GenRule>
+
+</RuleSet>

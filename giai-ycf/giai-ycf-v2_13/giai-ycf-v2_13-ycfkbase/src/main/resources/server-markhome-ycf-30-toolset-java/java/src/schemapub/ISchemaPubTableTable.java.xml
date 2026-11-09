@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapub/ISchemaPubTableTable.java"
+	Revision="3.0"
+	Descr="Java 25 public Table Interface">
+
+	<GenRule GenDef="Table" Name="fileISchemaPubTableTableJava">$switch IsPublic yes reallyFileISchemaPubTableTableJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileISchemaPubTableTableJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-pub/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pub"
+		ExpansionClassName="I$SchemaName$Pub$TableName$TableJava"
+		ExpansionKeyName="I$SchemaName$Pub$TableName$TableJava"
+		ExpansionFileName="I$SchemaName$Pub$TableName$Table.java">
+// Description: Java 25 public DbIO interface for $TableName$.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$pub;
+
+import java.lang.reflect.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$poptop SchemaDef importJavaPubPackageSchemaNameObj$$tabletweak CafePubTableTableImport$
+
+/*
+ *	$SchemaName$Pub$TableName$Table public database interface for $TableName$ has $ExplainCodeVis$.
+ */
+public interface I$SchemaName$Pub$TableName$Table$iterate TableRefs( first extendsPubJavaSchemaTableNameTable each extendsPubCommaJavaSchemaTableNameTable empty empty )$
+{
+	public static final String TABLE_NAME = "$TableName$";
+$declPubCreateTable$
+$declPubUpdateTable$
+$declPubDeleteTable$
+$declPubReadTableDerivedByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default declPubReadTableDerivedByPKeyArgs$$declPubLockTableDerivedByPKey$$declPubReadAllTableDerived$$declPubReadTableDerivedByIndexes$$declPubReadTableRecByPKey$$switch IsPrimaryIndexKeyAtomic yes empty default declPubReadTableRecByPKeyArgs$$declPubLockTableRecByPKey$$declPubReadAllTableRec$$declPubReadTableRecByIndexes$$switch HasChain yes declPubMoveUpTableRec default empty$$switch HasChain yes declPubMoveDownTableRec default empty$$iterate ServerMethods( each declPubServerMethod empty empty )$$tabletweak CafePubTableTableInterface$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="extendsPubJavaSchemaTableNameTable">$switch IsPublic yes reallyExtendsPubJavaSchemaTableName default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyExtendsPubJavaSchemaTableNameTable">
+extends I$reference SchemaDef SchemaName$Pub$TableName$Table</GenRule>
+
+	<GenRule GenDef="Table" Name="extendsPubCommaJavaSchemaTableNameTable">$switch IsPublic yes reallyExtendsPubCommaJavaSchemaTableNameTable default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyExtendsPubCommaJavaSchemaTableNameTable">,
+	I$reference SchemaDef SchemaName$Pub$TableName$Table</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declPubServerMethod">$switch IsPublic yes reallyDeclPubServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclPubServerMethod"
+		>$switch IsInstanceMethod yes declPubInstServerProc default declPubClassServerProc$</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declPubClassServerProc">$switch IsPublic yes reallyDeclPubClassServerProc default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclPubClassServerProc">
+	public boolean pub$leadlower Name$( I$DefSchemaName$PubSchemaObj schemaObj$iterate Params( each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerProc" Name="declPubInstServerProc">$switch IsPublic yes reallyDeclPubInstServerProc default empty$</GenRule>
+	<GenRule GenDef="ServerProc" Name="reallyDeclPubInstServerProc">
+	public boolean pub$leadlower Name$( I$DefSchemaName$PubSchemaObj schemaObj,
+		I$DefSchemaName$Pub$TableName$Obj obj$iterate Params( each declServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="Param" Name="declPubServerMethodParam">$switch IsPublic yes reallyDeclPubServerMethodParam default empty$</GenRule>
+	<GenRule GenDef="Param" Name="reallyDeclPubServerMethodParam">,
+		$implPubJavaAtomType$ $leadlower Name$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declPubServerMethod">$switch IsPublic yes reallyDeclPubServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclPubServerMethod"
+		>$switch IsInstanceMethod yes declPubInstServerObjFunc default declPubClassServerObjFunc$</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declPubClassServerObjFunc">$switch IsPublic yes reallyDeclPubClassServerObjFunc default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclPubClassServerObjFunc">
+	public $reference RetTable DefSchemaName$Pub$reference RetTable Name$ pub$leadlower Name$( I$reference RetTable DefSchemaName$PubSchemaObj schemaObj$iterate Params( each declPubServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerObjFunc" Name="declPubInstServerObjFunc">$switch IsPublic yes reallyDeclPubInstServerObjFunc default empty$</GenRule>
+	<GenRule GenDef="ServerObjFunc" Name="reallyDeclPubInstServerObjFunc">
+	public I$reference RetTable DefSchemaName$Pub$reference RetTable Name$ pub$leadlower Name$( I$reference RetTable DefSchemaName$PubSchemaObj schemaObj,
+		I$DefSchemaName$Pub$TableName$Obj obj$iterate Params( each declPubServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declPubServerMethod">$switch IsPublic yes reallyDeclPubServerMethod default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclPubServerMethod"
+		>$switch IsInstanceMethod yes declPubInstServerListFunc default declPubClassServerListFunc$</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declPubClassServerListFunc">$switch IsPublic yes reallyDeclPubClassServerListFunc default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclPubClassServerListFunc">
+	public I$reference RetTable DefSchemaName$Pub$reference RetTable Name$[] pub$leadlower Name$( I$reference RetTable DefSchemaName$PubSchemaObj schemaObj$iterate Params( each declPubServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="ServerListFunc" Name="declPubInstServerListFunc">$switch IsPublic yes reallyDeclPubInstServerListFunc default empty$</GenRule>
+	<GenRule GenDef="ServerListFunc" Name="reallyDeclPubInstServerListFunc">
+	public I$reference RetTable DefSchemaName$Pub$reference RetTable Name$[] pub$leadlower Name$( I$reference RetTable DefSchemaName$PubSchemaObj schemaObj,
+		I$DefSchemaName$Pub$TableName$Obj obj$iterate Params( each declPubServerMethodParam empty empty )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReleasePreparedStatements">$switch IsPublic yes reallyDeclPubRelasePreparedStatements default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReleasePreparedStatements">
+	/**
+	 *	Release any prepared statements allocated by this instance.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 */
+	public void pubreleasePreparedStatements();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableDerivedByPKey">$switch IsPublic yes reallyDeclPubReadTableDerivedByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableDerivedByPKey">
+	/**
+	 *	Read the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be read.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubreadDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableDerivedByPKeyArgs">$switch IsPublic yes reallyDeclPubReadTableDerivedByPKeyArgs default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableDerivedByPKeyArgs">
+	/**
+	 *	Read the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubreadDerived( I$SecSchemaName$PubAuthorization Authorization$reference PrimaryKeyIndex iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubLockTableDerivedByPKey">$switch IsPublic yes reallyDeclPubLockTableDerivedByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubLockTableDerivedByPKey">
+	/**
+	 *	Lock the derived $TableName$ record instance by primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ publockDerived( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadAllTableDerived">$switch IsPublic yes reallyDeclPubReadAllTableDerived default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadAllTableDerived">
+	/**
+	 *	Read all $TableName$ instances.
+	 *
+	 *	@param	Authorization	The session authorization information.	
+	 *
+	 *	@return An array of derived record instances, potentially with 0 elements in the set.
+	 */
+	public I$DefSchemaName$Pub$TableName$[] pubreadPubAllDerived( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableDerivedByIndexes">$switch IsPublic yes reallyDeclPubReadTableDerivedByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableDerivedByIndexes"
+		>$switch HasSuperClassRelation yes declPubReadTableDerivedByInhIndexes default declPubReadTableDerivedBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableDerivedByInhIndexes">$switch IsPublic yes reallyDeclPubReadTableDerivedByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableDerivedByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declPubReadTableDerivedByIndexes$$iterate Index( each declPubReadTableDerivedByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableDerivedBCFCoreIndexes">$switch IsPublic yes reallyDeclPubReadTableDerivedBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableDerivedBCFCoreIndexes"
+		>$iterate Index( each declPubReadTableDerivedByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableDerivedByNonPrimaryIndex">$switch IsPublic yes reallyDeclPubReadTableDerivedByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableDerivedByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declPubReadTableDerivedByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableDerivedByIndex">$switch IsPublic yes reallyDeclPubReadTableDerivedByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableDerivedByIndex"
+		>$switch IsUnique
+			yes declPubReadTableDerivedByUniqueIndex
+			default declPubReadTableDerivedByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableSuffix">$switch IsPublic yes reallyDeclPubReadTableSuffix default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableSuffix"
+		>$switch IsPrimaryIndex yes declPubReadTablCFCorePrimarySuffix default Suffix$</GenRule>
+	<GenRule GenDef="Index" Name="declPubReadTablCFCorePrimarySuffix">$switch IsPublic yes reallyDeclPubReadTablCFCorePrimarySuffix default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTablCFCorePrimarySuffix"
+		>$reference Table reference BaseClass reference PrimaryKeyIndex Suffix$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableDerivedByUniqueIndex">$switch IsPublic yes reallyDeclPubReadTableDerivedByUniqueIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableDerivedByUniqueIndex">
+	/**
+	 *	Read the derived $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubreadDerivedBy$declReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableDerivedByDuplicateIndex">$switch IsPublic yes reallyDeclPubReadTableDerivedByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableDerivedByDuplicateIndex">
+	/**
+	 *	Read an array of the derived $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	public I$DefSchemaName$Pub$poptop Table TableName$[] pubreadDerivedBy$declPubReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableRecByPKey">$switch IsPublic yes reallyDeclPubReadTableRecByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableRecByPKey">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$TableName$ pubreadRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableRecByPKeyArgs">$switch IsPublic yes reallyDeclPubReadTableRecByPKeyArgs default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableRecByPKeyArgs">
+	/**
+	 *	Read the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$TableName$ pubreadRec( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubLockTableRecByPKey">$switch IsPublic yes reallyDeclPubLockTableRecByPKey default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubLockTableRecByPKey">
+	/**
+	 *	Lock the specific $TableName$ record instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance to be locked.
+	 *
+	 *	@return The record instance for the specified primary key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$TableName$ publockRec( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadAllTableRec">$switch IsPublic yes reallyDeclPubReadAllTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadAllTableRec">
+	/**
+	 *	Read all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	public I$DefSchemaName$Pub$TableName$[] pubreadAllRec( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableRecByIndexes">$switch IsPublic yes reallyDeclPubReadTableRecByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableRecByIndexes"
+		>$switch HasSuperClassRelation yes declPubReadTableRecByInhIndexes default declPubReadTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableRecByInhIndexes">$switch IsPublic yes reallyDeclPubReadTableRecByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declPubReadTableRecByIndexes$$iterate Index( each declPubReadTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadTableRecBCFCoreIndexes">$switch IsPublic yes reallyDeclPubReadTableRecBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubReadTableRecBCFCoreIndexes"
+		>$iterate Index( each declPubReadTableRecByIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableRecByNonPrimaryIndex">$switch IsPublic yes reallyDeclPubReadTableRecByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declPubReadTableRecSPs$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableRecSPs">$switch IsPublic yes reallyDeclPubReadTableRecSPs default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableRecSPs"
+		>$declPubReadTableRecByIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubPageTableRecByIndexes">$switch IsPublic yes reallyDeclPubPageTableRecByIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubPageTableRecByIndexes"
+		>$switch HasSuperClassRelation yes declPubPageTableRecByInhIndexes default declPubPageTableRecBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubPageTableRecByInhIndexes">$switch IsPublic yes reallyDeclPubPageTableRecByInhIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubPageTableRecByInhIndexes"
+		>$reference SuperClassRelation reference ToTable declPubPageTableRecByIndexes$$iterate Index( each declPubPageTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubPageTableRecBCFCoreIndexes">$switch IsPublic yes reallyDeclPubPageTableRecBCFCoreIndexes default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubPageTableRecBCFCoreIndexes"
+		>$iterate Index( each declPubPageTableRecByNonPrimaryIndex )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubPageTableRecByNonPrimaryIndex">$switch IsPublic yes reallyDeclPubPageTableRecByNonPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubPageTableRecByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default maybe_declPubPageTableRecByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="maybe_pagedata_declPubPageTableRecByIndex">$switch IsPublic yes reallymaybe_pagedata_declPubPageTableRecByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallymaybe_pagedata_declPubPageTableRecByIndex"></GenRule>
+
+	<GenRule GenDef="Index" Name="maybe_declPubPageTableRecByIndex">$switch IsPublic yes reallymaybe_declPubPageTableRecByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallymaybe_declPubPageTableRecByIndex"
+		>$switch IsUnique yes empty default declPubPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableRecByUniqueIndex">$switch IsPublic yes reallyDeclPubReadTableRecByUniqueIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableRecByUniqueIndex">
+	/**
+	 *	Read the specific $poptop Table TableName$ record instance identified by the unique key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return The record instance for the specified key, or null if there is
+	 *		no such existing key value.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$poptop Table TableName$ pubreadRecBy$declPubReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableRecByDuplicateIndex">$switch IsPublic yes reallyDeclPubReadTableRecByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubReadTableRecByDuplicateIndex">
+	/**
+	 *	Read an array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$poptop Table TableName$[] pubreadRecBy$declPubReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declPubCommaColumnArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubPageAllTableRec">$switch IsPublic yes reallyDeclPubPageAllTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubPageAllTableRec">
+	/**
+	 *	Read a page of all the specific $TableName$ record instances.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return All the specific $TableName$ instances in the database accessible for the Authorization.
+	 */
+	public I$DefSchemaName$Pub$TableName$[] pubpageAllRec( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declPubCommaOptPriorArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubPageTableRecByDuplicateIndex">$switch IsPublic yes reallyDeclPubPageTableRecByDuplicateIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubPageTableRecByDuplicateIndex">
+	/**
+	 *	Read a page array of the specific $poptop Table TableName$ record instances identified by the duplicate key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFNotSupportedException thrown by client-side implementations.
+	 */
+	public I$DefSchemaName$Pub$poptop Table TableName$[] pubpageRecBy$declReadTableSuffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each declCommaColumnArg )$$poptop Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each declCommaOptPriorArg )$ );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubMoveUpTableRec">$switch IsPublic yes reallyDeclPubMoveUpTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubMoveUpTableRec">
+	/**
+	 *	Move the specified record up in the chain (i.e. to the previous position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubmoveRecUp( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declPubCommaColumnArg )$,
+		int revision );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubMoveDownTableRec">$switch IsPublic yes reallyDeclPubMoveDownTableRec default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclPubMoveDownTableRec">
+	/**
+	 *	Move the specified record down in the chain (i.e. to the next position.)
+	 *
+	 *	@return	The refreshed record after it has been moved
+	 */
+	public I$poptop Table DefSchemaName$Pub$poptop Table TableName$ pubmoveRecDown( I$SecSchemaName$PubAuthorization Authorization$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declCommaColumnArg )$,
+		int revision );
+</GenRule>
+
+	<GenRule GenDef="Object" Name="declPubCommaColumnArg">,
+		$declPubColumnArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declPubColumnArg"
+		>$implPubJavaAtomType$ $Name$</GenRule>
+	<GenRule GenDef="Atom" Name="declPubColumnArg"
+		>$implPubJavaAtomType$ $Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declPubColumnArg"
+		>$reference Column declPubColumnArg$</GenRule>
+
+	<GenRule GenDef="Object" Name="declPubCommaOptPriorArg">,
+		$declPubOptPriorArg$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declPubOptPriorArg"
+		>$implPubJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="Atom" Name="declPubOptPriorArg"
+		>$implPubJavaOptAtomType$ prior$Name$</GenRule>
+	<GenRule GenDef="IndexCol" Name="declPubOptPriorArg"
+		>$reference Column declPubOptPriorArg$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubReadTableRecByIndex"
+		>$switch IsUnique
+			yes declPubReadTableRecByUniqueIndex
+			default declPubReadTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubPageTableRecByIndex"
+		>$switch IsUnique
+			yes empty
+			default declPubPageTableRecByDuplicateIndex$</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id16Gen" Name="declPubNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public short pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public short pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implPubNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implPubCommentKeyAttr">
+	 *
+	 *	@param	$Name$	The $poptop Table TableName$ key attribute of the instance generating the id.</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implPubNextIdGenDeclAttr">,
+		$implPubJavaAtomType$ arg$Name$</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id32Gen" Name="declPubNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public int pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public int pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implPubNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="Id64Gen" Name="declPubNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public long pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+
+	/**
+	 *	Get the next $Name$ id generator value.$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCommentKeyAttr empty empty )$
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public long pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization$reference Dispenser reference BaseClass reference PrimaryKeyIndex iterate Columns( each implPubNextIdGenDeclAttr )$ );
+</GenRule>
+
+	<GenRule ScopeDef="Table" GenDef="UuidGen" Name="declPubNextIdGen">
+	/**
+	 *	Get the next $Name$ id generator value.
+	 *
+	 *	@param	PKey	The primary key of the $TableName$ instance generating the id.
+	 *
+	 *	@throws CFNotSupportedException thrown by client-side implementations.
+	 *
+	 *	@return The next id value as generated by the cluster database.
+	 */
+	public UUID pubnext$Name$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ PKey );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubCreateTable">
+	/**
+	 *	Create the instance in the database, and update the specified record
+	 *	with the assigned primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be created.
+	 */
+	public I$DefSchemaName$Pub$TableName$ pubcreate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubReadAllTable">
+	/**
+	 *	Read all the specific $TableName$ instances from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@return	An array of the $TableName$ instances visible to the Authorization.
+	 */
+	public I$DefSchemaName$Pub$TableName$[] pubreadAll$TableName$( I$SecSchemaName$PubAuthorization Authorization );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubUpdateTable">
+	/**
+	 *	Update the instance in the database, and update the specified record
+	 *	with any calculated changes imposed by the associated stored procedure.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be updated
+	 */
+	public I$DefSchemaName$Pub$TableName$ pubupdate$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubDeleteTable">
+	/**
+	 *	Delete the instance from the database.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	rec	The instance interface to be deleted.
+	 */
+	public void pubdelete$TableName$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$ rec );$declPubDeleteTableByInheritedIndexes$
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubDeleteTableByInheritedIndexes"
+		>$switch HasSuperClassRelation yes declPubDeleteTableByInhIndexes default declPubDeleteTableBCFCoreIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubDeleteTableByInhIndexes"
+		>$iterate Index( each declPubDeleteTableByNonPrimaryIndex empty empty )$$reference SuperClassRelation reference ToTable declPubDeleteTableByInheritedIndexes$</GenRule>
+
+	<GenRule GenDef="Table" Name="declPubDeleteTableBCFCoreIndexes"
+		>$iterate Index( each declPubDeleteTableBySpecialIndex empty empty )$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubDeleteTableByNonPrimaryIndex"
+		>$switch IsPrimaryIndex yes empty default declPubDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubDeleteTableBySpecialIndex"
+		>$switch IsPrimaryIndex yes declPubDeleteTableByPrimaryIndex default declPubDeleteTableByIndex$</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubDeleteTableByIndex">$switch IsPublic yes reallyDeclPubDeleteTableByIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubDeleteTableByIndex">
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	public void pubdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each implPubNextIdGenDeclAttr )$ );
+
+	/**
+	 *	Delete the $poptop Table TableName$ instances identified by the key $Suffix$.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	public void pubdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		I$DefSchemaName$Pub$TableName$By$Suffix$Key argKey );</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubDeleteTableByPrimaryIndex">$switch IsPublic yes reallyDeclPubDeleteTableByPrimaryIndex default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubDeleteTableByPrimaryIndex">$switch IsPrimaryIndexKeyAtomic yes empty default declPubDeleteTableByPrimaryIndexAttrs$
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The primary key identifying the instance to be deleted.
+	 */
+	public void pubdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization,
+		$IPubCompactedPrimaryIndexClass$ argKey );</GenRule>
+
+	<GenRule GenDef="Index" Name="declPubDeleteTableByPrimaryIndexAttrs">$switch IsPublic yes reallyDeclPubDeleteTableByPrimaryIndexAttrs default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyDeclPubDeleteTableByPrimaryIndexAttrs">
+	/**
+	 *	Delete the $poptop Table TableName$ instance identified by the primary key attributes.
+	 *
+	 *	@param	Authorization	The session authorization information.$iterate Columns( each implCommentKeyAttr empty empty )$
+	 */
+	public void pubdelete$poptop Table TableName$By$Suffix$( I$SecSchemaName$PubAuthorization Authorization$iterate Columns( each implPubNextIdGenDeclAttr )$ );</GenRule>
+
+</RuleSet>

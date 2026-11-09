@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schema/jpa/SchemaJpaTableHPKey.java"
+	Revision="3.0"
+	Descr="Java 25 JPA implementation of a $TableName$ history primary key object.">
+
+	<GenFile GenDef="Table" Name="fileSchemaJpaTableHPKeyJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-jpa/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa"
+		ExpansionClassName="$SchemaName$Jpa$TableName$HPKeyJava"
+		ExpansionKeyName="$SchemaName$Jpa$TableName$HPKeyJava"
+		ExpansionFileName="$SchemaName$Jpa$TableName$HPKey.java"
+>// Description: Java 25 JPA implementation of a $TableName$ history primary key object.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$
+import $reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.*;$poptop SchemaDef iterate SchemaRefs( each importJavaJpaPackageSchemaName empty empty )$
+
+/**
+ *	$SchemaName$Jpa$TableName$HPKey History Primary Key for $TableName$$reference PrimaryKeyIndex iterate Columns( each implColumnAttrComment )$
+ */
+public class $poptop SchemaDef SchemaName$Jpa$TableName$HPKey$switch HasDefSchema yes implSchemaTableHPKeyInheritDef default SchemaTableHPKeyImplementsComparable$
+{$SchemaTableHPKeyImplDefBody$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="SchemaTableHPKeyImplDefBody">$switch BaseHasHistory yes emitSchemaTableHPKeyImplDefBodyAuditClusterIdPreamble default empty$
+	protected CFDbKeyHash256 auditClusterId;
+$switch BaseHasHistory yes emitSchemaTableHPKeyImplDefBodyAuditStampPreamble default empty$
+	protected LocalDateTime auditStamp;
+$switch BaseHasHistory yes emitSchemaTableHPKeyImplDefBodyAuditActionPreamble default empty$
+	protected short auditActionId;
+$switch BaseHasHistory yes emitSchemaTableHPKeyImplDefBodyRequiredRevisionPreamble default empty$
+	protected int requiredRevision;
+$switch BaseHasHistory yes emitSchemaTableHPKeyImplDefBodyAuditSessionIdPreamble default empty$
+	protected CFDbKeyHash256 auditSessionId;
+$switch BaseHasHistory yes emitSchemaTableHPKeyImplJpaColumns default emitSchemaTableHPKeyImplColumns$
+$reference PrimaryKeyIndex implHPKeyConstructor$$poptop SchemaDef implAuditClusterIdGetterSetter$$poptop SchemaDef implAuditStampGetterSetter$$poptop SchemaDef implAuditActionIdGetterSetter$$poptop SchemaDef implRevisionGetterSetter$$poptop SchemaDef implAuditSessionIdGetterSetter$$reference PrimaryKeyIndex iterate Columns( each implInternalPubColumnGetterSetter )$$reference PrimaryKeyIndex implHPKeyEquals$$reference PrimaryKeyIndex implHPKeyGetHashCode$$reference PrimaryKeyIndex implHPKeyCompareTo$$reference PrimaryKeyIndex implHPKeyToString$</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplDefBodyAuditClusterIdPreamble">
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column=@Column(name="auditClusterId", nullable=false, length=CFDbKeyHash256.HASH_LENGTH) )
+	})</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplJpaColumns">$reference PrimaryKeyIndex iterate Columns( each implJpaColumnAttr )$</GenRule>
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplColumns">$reference PrimaryKeyIndex iterate Columns( each implColumnAttr )$</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplDefBodyAuditStampPreamble">
+	@Column(name="auditStamp", nullable=false)</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplDefBodyAuditActionPreamble">
+	@Column(name="auditAction", nullable=false)</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplDefBodyRequiredRevisionPreamble">
+	@Column(name="requiredRevision", nullable=false)</GenRule>
+
+	<GenRule GenDef="Table" Name="SchemaTableHPKeyInheritDef">
+	extends $DefSchemaName$Jpa$TableName$HPKey</GenRule>
+
+	<GenRule GenDef="Table" Name="emitSchemaTableHPKeyImplDefBodyAuditSessionIdPreamble">
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column=@Column(name="auditSessionId", nullable=false, length=CFDbKeyHash256.HASH_LENGTH) )
+	})</GenRule>
+
+	<GenRule GenDef="Index" Name="implJpaHPKeyAttributeOverrides">
+	@AttributeOverrides({
+		@AttributeOverride(name="auditClusterId", column = @Column( name="auditClusterId", nullable=false, length=CFDbKeyHash256.HASH_LENGTH ) ),
+		@AttributeOverride(name="auditStamp", column = @Column( name="auditStamp", nullable=false ) ),
+		@AttributeOverride(name="auditAction", column = @Column( name="auditAction", nullable=false ) ),
+		@AttributeOverride(name="requiredRevision", column = @Column( name="requiredRevision", nullable=false ) ),
+		@AttributeOverride(name="auditSessionId", column = @Column( name="auditSessionId", nullable=false, length=CFDbKeyHash256.HASH_LENGTH ) )$iterate Columns( each implJpaAttributeCommaColumnOverride )$
+	})</GenRule>
+
+	<GenRule GenDef="Table" Name="SchemaTableHPKeyImplementsComparable">
+	implements I$DefSchemaName$$TableName$HPKey, Comparable&lt;Object&gt;, Serializable</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyConstructor">
+	public $SchemaName$Jpa$TableName$HPKey() {
+		auditClusterId = I$SecSchemaName$$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditStamp = LocalDateTime.now();
+		auditActionId = 0;
+		requiredRevision = 1;
+		auditSessionId = CFDbKeyHash256.nullGet();$iterate Columns( each implConstructorInitAttr )$
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyGetHashCode">
+	@Override
+	public int hashCode() {
+		int hashCode = 0;
+		if( auditClusterId != null ) {
+			hashCode = hashCode + auditClusterId.hashCode();
+		}
+		if( auditStamp != null ) {
+			hashCode = hashCode + auditStamp.hashCode();
+		}
+		hashCode = hashCode + auditActionId;
+		hashCode = hashCode + requiredRevision;
+		if( auditSessionId != null ) {
+			hashCode = hashCode + auditSessionId.hashCode();
+		}$iterate Columns( each implGetHashCodeAttr )$
+		return( hashCode &amp; 0x7fffffff );
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareTo">
+	@Override
+	public int compareTo( Object obj ) {
+		int cmp;
+		if (obj == null) {
+			return( 1 );
+		}
+		if (obj == this) {
+			return( 0 );
+		}
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}$switch IsPrimaryIndexKeyAtomic yes implHPKeyCompareToAtomicAttr default implHPKeyCompareToCompositeKey$
+		else if (obj instanceof I$SchemaName$$TableName$H) {
+			I$SchemaName$$TableName$H rhs = (I$SchemaName$$TableName$H)obj;$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else if (obj instanceof I$SchemaName$$TableName$ rhs) {$iterate Columns(each implCompareToAttr empty empty )$
+			return( 0 );
+		}$switch TableIsProtected yes implHPKeyCompareToProt default empty$
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				"I$reference Table reference BaseClass SchemaName$$reference Table reference BaseClass TableName$PKey, I$reference Table reference BaseClass SchemaName$$reference Table reference BaseClass TableName$$emitPKeyHistoryClassNames$" );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToAtomicAttr"><!--
+		else if (obj instanceof $ICompactedPrimaryIndexClass$ rhs) {$reference PrimaryKeyIndex iterate Columns( each implCompareDirectlyToHAtomicRHS )$
+			return( 0 );
+		}--></GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implCompareDirectlyToHAtomicRHS"></GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToCompositeKey">
+		else if (obj instanceof I$reference Table reference BaseClass DefSchemaName$$reference Table reference BaseClass TableName$PKey rhs) {$reference Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToProt">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Prot$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}$switch IsPrimaryIndexKeyAtomic yes implHPKeyCompareToAtomicAttrProt default implHPKeyCompareToCompositeKeyProt$
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Prot$TableName$H rhs) {$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else if (obj instanceof I$SchemaName$Prot$TableName$ rhs) {$iterate Columns(each implCompareToAttr empty empty )$
+			return( 0 );
+		}$switch TableIsPublic yes implHPKeyCompareToPub default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToAtomicAttrProt"><!--
+		else if (obj instanceof $ICompactedPrimaryIndexClass$ rhs) {$reference PrimaryKeyIndex iterate Columns( each implCompareDirectlyToHAtomicRHSProt )$
+			return( 0 );
+		}--></GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implCompareDirectlyToHAtomicRHSProt"></GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToCompositeKeyProt">
+		else if (obj instanceof I$reference Table reference BaseClass DefSchemaName$Prot$reference Table reference BaseClass TableName$PKey rhs) {$reference Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToPub">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Pub$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}$switch IsPrimaryIndexKeyAtomic yes implHPKeyCompareToAtomicAttrPub default implHPKeyCompareToCompositeKeyPub$
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Pub$TableName$H rhs) {$implHPKeyCompareToAuditClusterId$$implHPKeyCompareToAuditStamp$$implHPKeyCompareToAuditActionId$$implHPKeyCompareToRequiredRevision$$implHPKeyCompareToAuditSessionId$$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else if (obj instanceof I$SchemaName$Pub$TableName$ rhs) {$iterate Columns(each implCompareToAttr empty empty )$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToAtomicAttrPub"><!--
+		else if (obj instanceof $ICompactedPrimaryIndexClass$ rhs) {$reference PrimaryKeyIndex iterate Columns( each implCompareDirectlyToHAtomicRHSPub )$
+			return( 0 );
+		}--></GenRule>
+
+	<GenRule GenDef="IndexCol" Name="implCompareDirectlyToHAtomicRHSPub"></GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyCompareToCompositeKeyPub">
+		else if (obj instanceof I$reference Table reference BaseClass DefSchemaName$Pub$reference Table reference BaseClass TableName$PKey rhs) {$reference Table reference BaseClass reference PrimaryKeyIndex iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyCompareToAuditClusterId">
+			if( getAuditClusterId() == null ) {
+				if( rhs.getAuditClusterId() != null ) {
+					return( -1 );
+				}
+			}
+			else if( rhs.getAuditClusterId() == null ) {
+				return( 1 );
+			}
+			else {
+				cmp = getAuditClusterId().compareTo( rhs.getAuditClusterId() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyCompareToAuditStamp">
+			if( getAuditStamp() == null ) {
+				if( rhs.getAuditStamp() != null ) {
+					return( -1 );
+				}
+			}
+			else if( rhs.getAuditStamp() == null ) {
+				return( 1 );
+			}
+			else {
+				cmp = getAuditStamp().compareTo( rhs.getAuditStamp() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyCompareToAuditActionId">
+			if( getAuditActionId() &lt; rhs.getAuditActionId() ) {
+				return( -1 );
+			}
+			else if( getAuditActionId() &gt; rhs.getAuditActionId() ) {
+				return( 1 );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyCompareToRequiredRevision">
+			if( getRequiredRevision() &lt; rhs.getRequiredRevision() ) {
+				return( -1 );
+			}
+			else if( getRequiredRevision() &gt; rhs.getRequiredRevision() ) {
+				return( 1 );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyCompareToAuditSessionId">
+			if( getAuditSessionId() == null ) {
+				if( rhs.getAuditSessionId() != null ) {
+					return( -1 );
+				}
+			}
+			else if( rhs.getAuditSessionId() == null ) {
+				return( 1 );
+			}
+			else {
+				cmp = getAuditSessionId().compareTo( rhs.getAuditSessionId() );
+				if( cmp != 0 ) {
+					return( cmp );
+				}
+			}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEquals">
+	@Override
+	public boolean equals( Object obj ) {
+		if (obj == null) {
+			return( false );
+		}
+		else if(obj == this) {
+			return( true );
+		}
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}$switch IsPrimaryIndexKeyAtomic no implHPKeyEqualsPKey default empty$
+		else if (obj instanceof I$SchemaName$$TableName$H rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else if (obj instanceof I$SchemaName$$TableName$ rhs) {$iterate Columns(each implEqualsCmpAttr empty empty )$
+			return( true );
+		}$switch TableIsProtected yes implHPKeyEqualsProt default empty$
+		else {
+			return( false );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEqualsPKey">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$$reference Table reference BaseClass TableName$PKey rhs) {$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEqualsProt">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Prot$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}$switch IsPrimaryIndexKeyAtomic no implHPKeyEqualsPKeyProt default empty$
+		else if (obj instanceof I$SchemaName$Prot$TableName$H rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else if (obj instanceof I$SchemaName$Prot$TableName$ rhs) {$iterate Columns(each implEqualsCmpAttr empty empty )$
+			return( true );
+		}$switch TableIsPublic yes implHPKeyEqualsPub default empty$</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEqualsPKeyProt">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Prot$reference Table reference BaseClass TableName$PKey rhs) {$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEqualsPub">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Pub$reference Table reference BaseClass TableName$HPKey rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}$switch IsPrimaryIndexKeyAtomic no implHPKeyEqualsPKeyPub default empty$
+		else if (obj instanceof I$SchemaName$Pub$TableName$H rhs) {$implHPKeyEqualsAuditClusterId$$implHPKeyEqualsAuditStamp$$implHPKeyEqualsAuditActionId$$implHPKeyEqualsRequiredRevision$$implHPKeyEqualsAuditSessionId$$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else if (obj instanceof I$SchemaName$Pub$TableName$ rhs) {$iterate Columns(each implEqualsCmpAttr empty empty )$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyEqualsPKeyPub">
+		else if (obj instanceof I$reference Table reference BaseClass SchemaName$Pub$reference Table reference BaseClass TableName$PKey rhs) {$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyEqualsAuditClusterId">
+			if (getAuditClusterId() != null) {
+				if (rhs.getAuditClusterId() != null) {
+					if ( ! getAuditClusterId().equals(rhs.getAuditClusterId())) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else if (rhs.getAuditClusterId() != null) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyEqualsAuditStamp">
+			if (getAuditStamp() != null) {
+				if (rhs.getAuditStamp() != null) {
+					if ( ! getAuditStamp().equals(rhs.getAuditStamp())) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else if (rhs.getAuditStamp() != null) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyEqualsAuditActionId">
+			if( getAuditActionId() != rhs.getAuditActionId() ) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyEqualsRequiredRevision">
+			if( getRequiredRevision() != rhs.getRequiredRevision() ) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Object" Name="implHPKeyEqualsAuditSessionId">
+			if (getAuditSessionId() != null &amp;&amp; !getAuditSessionId().isNull() ) {
+				if (rhs.getAuditSessionId() != null &amp;&amp; !rhs.getAuditSessionId().isNull() ) {
+					if ( ! getAuditSessionId().equals(rhs.getAuditSessionId())) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else if (rhs.getAuditSessionId() != null &amp;&amp; !rhs.getAuditSessionId().isNull() ) {
+				return( false );
+			}</GenRule>
+
+	<GenRule GenDef="Index" Name="implHPKeyToString">
+	@Override
+	public String getXmlAttrFragment() {
+		String ret = " auditClusterId=\"" + (auditClusterId != null ? auditClusterId.toString() : "null" ) + "\\""
+			+ " auditStamp=\\"" + (auditStamp != null ? CFXmlUtil.formatTimestamp(auditStamp) : "null") + "\\""
+			+ " auditAction=\\"" + auditActionId + "\\""
+			+ " requiredRevision=\\"" + requiredRevision + "\\""
+			+ " auditSessionId=\\"" + (getAuditSessionId() != null ? getAuditSessionId().toString() : "null") + "\\""$iterate Columns( each implToStringEmitXmlAttr )$;
+		return( ret );
+	}
+
+	@Override
+	public String toString() {
+		String ret = "&lt;$SchemaName$Jpa$TableName$HPKey" + getXmlAttrFragment() + "/&gt;";
+		return( ret );
+	}
+</GenRule>
+
+	<GenRule GenDef="Object" Name="implAuditClusterIdGetterSetter">
+	@Override
+	public CFDbKeyHash256 getAuditClusterId() {
+		return( auditClusterId );
+	}
+
+	@Override
+	public void setAuditClusterId( CFDbKeyHash256 value ) {
+		auditClusterId = value;
+	}
+</GenRule>
+
+	<GenRule GenDef="Object" Name="implAuditStampGetterSetter">
+	@Override
+	public LocalDateTime getAuditStamp() {
+		return( auditStamp );
+	}
+
+	@Override
+	public void setAuditStamp( LocalDateTime value ) {
+		auditStamp = value;
+	}
+</GenRule>
+
+	<GenRule GenDef="Object" Name="implAuditActionIdGetterSetter">
+	@Override
+	public short getAuditActionId() {
+		return( auditActionId );
+	}
+
+	@Override
+	public void setAuditActionId( short value ) {
+		auditActionId = value;
+	}
+</GenRule>
+
+	<GenRule GenDef="Object" Name="implAuditSessionIdGetterSetter">
+	@Override
+	public CFDbKeyHash256 getAuditSessionId() {
+		return( auditSessionId );
+	}
+
+	@Override
+	public void setAuditSessionId( CFDbKeyHash256 value ) {
+		auditSessionId = value;
+	}
+</GenRule>
+
+</RuleSet>

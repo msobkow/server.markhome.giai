@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemaprotobj/IProtEditObj.java"
+	Revision="3.0"
+	Descr="Java 25 Protected Edit Object interface">
+
+	<GenRule GenDef="Table" Name="fileIProtEditObjJava">$switch IsProtected yes reallyFileIProtEditObjJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="reallyFileIProtEditObjJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$protobj"
+		ExpansionClassName="I$SchemaName$Prot$TableName$EditObjJava"
+		ExpansionKeyName="I$SchemaName$Prot$TableName$EditObjJava"
+		ExpansionFileName="I$SchemaName$Prot$TableName$EditObj.java"
+>// Description: Java 25 Protected Instance Edit Object interface for $SchemaName$ $TableName$.
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$protobj;
+
+import java.math.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$switch HasDefSchema no importJavaProtPackageSchemaName default empty$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$tabletweak CafeProtEditObjImport$
+
+public interface I$SchemaName$Prot$TableName$EditObj
+	extends I$SchemaName$Prot$TableName$Obj$switch HasSuperClassRelation yes emitProtEditObjSuperObj default empty$$iterate TableRefs( each alsoProtExtendReferenceIProtEditObj empty empty )$
+{$switch HasSuperClassRelation yes empty default declIProtEditObjOrigIfNoDefSchema$$declIProtEditObjOrigAsCast$$switch HasSuperClassRelation yes empty default declIProtEditObjCreate$$switch HasSuperClassRelation yes empty default declIProtEditObjUpdate$$switch HasSuperClassRelation yes empty default declIProtEditObjDelete$$switch HasSuperClassRelation yes empty default declIProtEditObjOptAuditAccessors$$iterate Relation( each declIProtEditObjRelationAccessors empty empty )$$switch HasDefSchema yes empty default declIProtEditObjColumnAccessors$$switch HasSuperClassRelation yes empty default declProtCopyRecsAround$$tabletweak CafeProtEditObjInterface$
+}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="declProtCopyRecsAround">
+	public void copyRecToOrig();
+	public void copyOrigToRec();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="emitProtEditObjSuperObj">, I$reference SuperClassRelation reference ToTable SchemaName$Prot$reference SuperClassRelation reference ToTable TableName$EditObj</GenRule>
+	<GenRule GenDef="Table" Name="emitProtEditObjSchemaTableObj">I$DefSchemaName$Prot$TableName$Obj</GenRule>
+	<GenRule GenDef="Table" Name="emitProtEditObjAlsoExtenCFCoreIProtEditObj">, I$DefSchemaName$Prot$TableName$EditObj</GenRule>
+	<GenRule GenDef="Table" Name="alsoProtExtendReferenceIProtEditObj">, I$reference SchemaDef SchemaName$Prot$TableName$EditObj</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjOptAuditAccessors">$reallyDeclIProtEditObjOptAuditAccessors$</GenRule>
+
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjOptAuditAccessors"
+		>$switch HasAuditColumns yes declIProtEditObjAuditAccessors default empty$</GenRule>
+
+	<GenRule GenDef="Object" Name="emitProtObjInterfaceDataTypeSingletonSecUser">$poptop SchemaDef emitProtObjSchemaInterfaceDataTypeSingletonSecUser$</GenRule>
+	<GenRule GenDef="SchemaDef" Name="emitProtObjSchemaInterfaceDataTypeSingletonSecUser">$iterate Tables( each emitProtObjTableInterfaceDataTypeSingletonSecUser empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="emitProtObjTableInterfaceDataTypeSingletonSecUser">$switch Name SecUser reallyEmitProtObjTableInterfaceDataTypeSingletonSecUser default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyEmitProtObjTableInterfaceDataTypeSingletonSecUser">$emitProtObjInterfaceDataTypeSingleton$</GenRule>
+
+	<GenRule GenDef="Object" Name="emitProtObjInterfaceDataTypeSingletonSecSession">$poptop SchemaDef emitProtObjSchemaInterfaceDataTypeSingletonSecSession$</GenRule>
+	<GenRule GenDef="SchemaDef" Name="emitProtObjSchemaInterfaceDataTypeSingletonSecSession">$iterate Tables( each emitProtObjTableInterfaceDataTypeSingletonSecSession empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="emitProtObjTableInterfaceDataTypeSingletonSecSession">$switch Name SecSession reallyEmitProtObjTableInterfaceDataTypeSingletonSecSession default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyEmitProtObjTableInterfaceDataTypeSingletonSecSession">$emitProtObjInterfaceDataTypeSingleton$</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjAuditAccessors">
+	/**
+	 *	Set the user who created this instance.
+	 *
+	 *	@param	value	The $emitProtObjInterfaceDataTypeSingletonSecUser$ instance who created this instance.
+	 */
+	void setCreatedBy( $emitProtObjInterfaceDataTypeSingletonSecUser$ value );
+
+	/**
+	 *	Set the Calendar date-time this instance was created.
+	 *
+	 *	@param	value	The Calendar value for the create time of the instance.
+	 */
+	void setCreatedAt( LocalDateTime value );
+
+	/**
+	 *	Set the user who updated this instance.
+	 *
+	 *	@param	value	The $emitProtObjInterfaceDataTypeSingletonSecUser$ instance who updated this instance.
+	 */
+	void setUpdatedBy( $emitProtObjInterfaceDataTypeSingletonSecUser$ value );
+
+	/**
+	 *	Set the Calendar date-time this instance was updated.
+	 *
+	 *	@param	value	The Calendar value for the create time of the instance.
+	 */
+	void setUpdatedAt( LocalDateTime value );
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIProtEditObjRelationAccessors">$switch IsProtected yes seriouslyDeclIProtEditObjRelationAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="seriouslyDeclIProtEditObjRelationAccessors"
+		>$switch ToIndexIsUnique yes maybeDeclIProtEditObjRelationSingletonAccessors default maybeDeclIProtEditObjRelationDuplicateAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeDeclIProtEditObjRelationSingletonAccessors"
+		>$switch RelationTypeTag Superclass empty Components declIProtEditObjRelationSingletonGetter Children declIProtEditObjRelationSingletonGetter default declIProtEditObjRelationSingletonAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeDeclIProtEditObjRelationDuplicateAccessors"
+		>$switch RelationTypeTag Superclass empty default declIProtEditObjRelationDuplicateAccessors$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIProtEditObjRelationSingletonAccessors">$switch IsProtected yes reallyDeclIProtEditObjRelationSingletonAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIProtEditObjRelationSingletonAccessors">$declIProtEditObjRelationSingletonGetter$$declIProtEditObjRelationSingletonSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declIProtEditObjRelationSingletonGetter">$switch IsProtected yes reallyDeclIProtEditObjRelationSingletonGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIProtEditObjRelationSingletonGetter">
+	/**
+	 *	Get the $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 */
+	$emitProtObjInterfaceDataType$ get$OptionalOrRequired$$RelationTypeTag$$Suffix$();
+
+	/**
+	 *	Get the $lower OptionalOrRequired$ $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 *
+	 *	@return	The $lower OptionalOrRequired$ $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 */
+	$emitProtObjInterfaceDataType$ get$OptionalOrRequired$$RelationTypeTag$$Suffix$( boolean forceRead );
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIProtEditObjRelationSingletonSetter">$switch IsProtected yes reallyDeclIProtEditObjRelationSingletonSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIProtEditObjRelationSingletonSetter">
+	/**
+	 *	Set the $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance referenced by the $Suffix$ key.
+	 *
+	 *	@param	value	the $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instance to be referenced by the $Suffix$ key.
+	 */
+	void set$OptionalOrRequired$$RelationTypeTag$$Suffix$( $emitProtObjInterfaceDataType$ value );
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declIProtEditObjRelationDuplicateAccessors">$switch IsProtected yes reallyDeclIProtEditObjRelationDuplicateAccessors default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="reallyDeclIProtEditObjRelationDuplicateAccessors">
+	/**
+	 *	Get a list $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instances referenced by the $Suffix$ key.
+	 *
+	 *	@return	The (potentially empty) list of $reference ToTable emitProtObjInterfaceDataTypePrefix$$reference ToTable TableName$Obj instances referenced by the $Suffix$ key.
+	 */
+	$emitProtObjInterfaceDataType$ get$OptionalOrRequired$$RelationTypeTag$$Suffix$();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjColumnAccessors">$switch IsProtected yes reallyDeclIProtEditObjColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjColumnAccessors">$switch HasSuperClassRelation yes declIProtEditObjDataColumnAccessors default declIProtEditObjAllColumnAccessors$</GenRule>
+	<GenRule GenDef="Table" Name="declIProtEditObjDataColumnAccessors">$switch IsProtected yes reallyDeclIProtEditObjDataColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjDataColumnAccessors">$iterate DataColumns(each declIProtEditObjColumnAccessors empty empty)$</GenRule>
+	<GenRule GenDef="Table" Name="declIProtEditObjAllColumnAccessors">$switch IsProtected yes reallyDeclIProtEditObjAllColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjAllColumnAccessors">$iterate Columns(each declIProtEditObjColumnAccessors empty empty)$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumnAccessors">$switch IsProtected yes reallyDeclIProtEditObjColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumnAccessors"
+		>$switch InSuperiorRelation yes declIProtEditObjColumnGetter default declIProtEditObjColumnGetterSetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumnGetter">$switch IsProtected yes reallyDeclIProtEditObjColumnGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumnGetter">$switch ColumnInPrimaryIndex	yes declIProtEditObjColumCFCorePKeyGetter default declIProtEditObjColumCFCoreDataGetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumnGetterSetter">$switch IsProtected yes reallyDeclIProtEditObjColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumnGetterSetter">$switch ColumnInPrimaryIndex yes declIProtObjColumCFCorePKeyGetter default declIProtObjColumCFCoreDataGetter$$switch ColumnInPrimaryIndex yes declIProtObjColumCFCorePKeySetter default declIProtObjColumCFCoreDataSetter$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumCFCorePKeyGetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCorePKeyGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumCFCorePKeyGetter">$declIProtObjColumnGetter$</GenRule>	
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumCFCoreDataGetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreDataGetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumCFCoreDataGetter">$declIProtObjColumnGetter$</GenRule>	
+	
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumCFCorePKeySetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCorePKeySetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumCFCorePKeySetter">$declIProtObjColumnSetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumCFCoreDataSetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreDataSetter default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumCFCoreDataSetter">$declIProtObjColumnSetter$</GenRule>
+
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumCFCorePKeyGetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCorePKeyGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumCFCorePKeyGetter">$declIProtObjColumnGetter$</GenRule>	
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumCFCoreDataGetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreDataGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumCFCoreDataGetter">$declIProtObjColumnGetter$</GenRule>
+	
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumCFCorePKeySetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCorePKeySetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumCFCorePKeySetter">$declIProtObjColumnSetter$</GenRule>	
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumCFCoreDataSetter">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreDataSetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumCFCoreDataSetter">$declIProtObjColumnSetter$</GenRule>
+	
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumnAccessors">$switch IsProtected yes reallyDeclIProtEditObjColumnAccessors default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumnAccessors"
+		>$switch InSuperiorRelation yes declIProtEditObjColumnGetter default declIProtEditObjColumnGetterSetter$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumnGetter">$switch IsProtected yes reallyDeclIProtEditObjColumnGetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumnGetter">$switch ColumnInPrimaryIndex	yes declIProtObjColumCFCorePKeyGetter default declIProtObjColumCFCoreDataGetter$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumnGetterSetter">$switch IsProtected yes reallyDeclIProtEditObjColumnGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumnGetterSetter">$switch ColumnInPrimaryIndex yes declIProtObjColumCFCorePKeyGetter default declIProtObjColumCFCoreDataGetter$$switch ColumnInPrimaryIndex yes declIProtObjColumCFCorePKeySetter default declIProtObjColumCFCoreDataSetter$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjPKeyNonGenAccessors">$switch IsProtected yes reallyDeclIProtEditObjPKeyNonGenAccessors default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjPKeyNonGenAccessors"
+		>$switch GenerateId yes declIProtEditObjColumnDataAccessor default declIProtEditObjColumnDataAccessor$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjPKeyNonGenAccessors">$switch IsProtected yes reallyDeclIProtEditObjPKeyNonGenAccessors default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjPKeyNonGenAccessors"
+		>$switch GenerateId yes declIProtEditObjColumnDataAccessor default declIProtEditObjColumnDataAccessor$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumnDataAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnDataAccessor default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumnDataAccessor"
+		>$switch InSuperiorRelation no declIProtEditObjColumnRWDataAccessor default declIProtEditObjColumnDataAccessor$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumnDataAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnDataAccessor default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumnDataAccessor"
+		>$switch InSuperiorRelation no declIProtEditObjColumnRWDataAccessor default declIProtEditObjColumnDataAccessor$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumCFCoreROPKeyAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreROPKeyAccessor default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumCFCoreROPKeyAccessor"
+		>$switch HasSuperClassRelation no declIProtEditObjColumnROPKeyAccessor default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumCFCoreROPKeyAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumCFCoreROPKeyAccessor default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumCFCoreROPKeyAccessor"
+		>$switch HasSuperClassRelation no declIProtEditObjColumnROPKeyAccessor default empty$</GenRule>
+
+	<GenRule GenDef="TableCol" Name="declIProtEditObjColumnROAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnROAccessor default empty$</GenRule>
+	<GenRule GenDef="TableCol" Name="reallyDeclIProtEditObjColumnROAccessor"
+		>$switch ColumnInPrimaryIndex yes declIProtEditObjColumnROPKeyAccessor default declIProtEditObjColumnRODataAccessor$</GenRule>
+	<GenRule GenDef="Atom" Name="declIProtEditObjColumnROAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnROAccessor default empty$</GenRule>
+	<GenRule GenDef="Atom" Name="reallyDeclIProtEditObjColumnROAccessor"
+		>$switch ColumnInPrimaryIndex yes declIProtEditObjColumnROPKeyAccessor default declIProtEditObjColumnRODataAccessor$</GenRule>
+
+	<GenRule GenDef="Object" Name="declIProtEditObjColumnDataAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnDataAccessor default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeclIProtEditObjColumnDataAccessor">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implIJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $implIJavaAtomType$ value of the attribute $Name$.
+	 */
+	$implIJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+</GenRule>
+
+	<GenRule GenDef="Object" Name="declIProtEditObjColumnRWDataAccessor">$switch IsProtected yes reallyDeclIProtEditObjColumnRWDataAccessor default empty$</GenRule>
+	<GenRule GenDef="Object" Name="reallyDeclIProtEditObjColumnRWDataAccessor">
+	/**
+	 *	Get the $lower implColumnAttrOptionality$ $implIJavaAtomType$ attribute $Name$.
+	 *
+	 *	@return	The $implIJavaAtomType$ value of the attribute $Name$.
+	 */
+	$implIJavaAtomType$ get$implColumnAttrOptionality$$Name$();
+
+	/**
+	 *	Set the $lower implColumnAttrOptionality$ $implIJavaAtomType$ attribute $Name$.
+	 *
+	 *	@param	value	the $implIJavaAtomType$ value of the attribute $Name$.
+	 */
+	void set$implColumnAttrOptionality$$Name$( $implIJavaAtomType$ value );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjCreate">
+	/*
+	 *	create() may return a different instance than the
+	 *	one used to invoke the operation.  All future references
+	 *	should be to the returned instance, not the original
+	 *	invoker.  You should lose all references to the original
+	 *	invoker.
+	 *
+	 *	@return The created instance.
+	 */
+	$emitProtObjInterfaceDataType$ create();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjUpdate">
+	/*
+	 *	Update the instance.
+	 */
+	$emitProtEditObjInterfaceDataType$ update();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjDelete"
+		>$switch HasDefSchema yes empty default reallyDeclIProtEditObjDelete$</GenRule>
+
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjDelete">
+	/*
+	 *	Delete the instance.
+	 */
+	I$reference BaseClass DefSchemaName$Prot$reference BaseClass TableName$EditObj deleteInstance();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjOrigIfNoDefSchema"
+		>$switch HasDefSchema yes empty default reallyDeclIProtEditObjOrig$</GenRule>
+
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjOrig">
+	/*
+	 *	Get the original for this edition as the base type for the class hierarchy.
+	 *
+	 *	@return The original, non-modifiable instance as a base I$SchemaName$Prot$TableName$Obj.
+	 */
+	$emitProtObjInterfaceDataType$ getOrig();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declIProtEditObjOrigAsCast"
+		>$switch HasDefSchema yes empty default reallyDeclIProtEditObjOrigAsCast$</GenRule>
+
+	<GenRule GenDef="Table" Name="reallyDeclIProtEditObjOrigAsCast">
+	/*
+	 *	Get the original for this edition cast as the specified type.
+	 *
+	 *	@return The original, non-modifiable instance cast to a $emitProtObjInterfaceDataType$.
+	 */
+	$emitProtObjInterfaceDataType$ getOrigAs$TableName$();
+</GenRule>
+
+</RuleSet>

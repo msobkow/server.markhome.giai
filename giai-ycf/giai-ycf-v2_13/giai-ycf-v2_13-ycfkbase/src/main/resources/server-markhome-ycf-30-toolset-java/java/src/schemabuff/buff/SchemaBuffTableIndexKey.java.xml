@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schema/buff/SchemaBuffTableIndexKey.java"
+	Revision="3.0"
+	Descr="Java 25 implementation of a $TableName$ $Suffix$ index key buffer">
+
+	<GenRule GenDef="Index" Name="fileSchemaBuffTableIndexKeyJava"
+		>$switch IsPrimaryIndex yes empty default implFileSchemaBuffTableIndexKeyJava$</GenRule>
+
+	<GenFile GenDef="Index" Name="implFileSchemaBuffTableIndexKeyJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackage$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-core/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.buff"
+		ExpansionClassName="$SchemaName$Buff$TableName$By$Suffix$KeyJava"
+		ExpansionKeyName="$SchemaName$Buff$TableName$By$Suffix$KeyJava"
+		ExpansionFileName="$SchemaName$Buff$TableName$By$Suffix$Key.java"
+>// Description: Java 25 implementation of a $TableName$ by $Suffix$ index key buffer
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.buff;
+
+import java.lang.reflect.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaProtPackageSchemaName$$importJavaProtPackageSchemaNameObj$$importJavaPackageSchemaName$$importJavaPackageSchemaNameObj$$reference Table tabletweak CafeTableImport$$indextweak CafeIndexImport$
+
+public class $SchemaName$Buff$TableName$By$Suffix$Key$switch HasDefSchema yes buffSuffixKeyExtendsDefSchemaTableBySuffixKey default buffSuffixKeyImplementsISchemaTableBySuffixKeyComparable$
+{$switch HasDefSchema yes empty default implBuffSchemaTableBySuffixKeyColumnAttr$$switch HasDefSchema yes implBuffIndexKeyInhConstructor default implBuffIndexKeCFCoreConstructor$$switch HasDefSchema yes empty default implBuffIndexKeCFCoreColumns$$switch HasDefSchema yes empty default implBuffIndexKeyEquals$$switch HasDefSchema yes empty default implBuffIndexKeyGetHashCode$$switch HasDefSchema yes empty default implBuffIndexKeyCompareTo$$switch HasDefSchema yes empty default implBuffIndexKeyToString$}
+</GenFile>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeCFCoreColumns"
+		>$iterate Columns( each implDirectGetterSetter )$</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffSchemaTableBySuffixKeyColumnAttr"
+		>$iterate Columns( each implColumnAttr )$</GenRule>
+
+	<GenRule GenDef="Index" Name="buffSuffixKeyExtendsDefSchemaTableBySuffixKey">
+	extends $reference DefSchema SchemaName$Buff$TableName$By$Suffix$Key</GenRule>
+
+	<GenRule GenDef="Index" Name="buffSuffixKeyImplementsISchemaTableBySuffixKeyComparable">
+	implements I$DefSchemaName$$TableName$By$Suffix$Key, Comparable&lt;Object&gt;, Serializable</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeyInhConstructor">
+	public $SchemaName$Buff$TableName$By$Suffix$Key() {
+		super();
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeCFCoreConstructor">
+	public $SchemaName$Buff$TableName$By$Suffix$Key() {$iterate Columns( each implConstructorInitAttr )$
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeyEquals">
+	@Override
+	public boolean equals( Object obj ) {
+		if( obj == null ) {
+			return( false );
+		}
+		else if( obj instanceof I$SchemaName$$TableName$By$Suffix$Key ) {
+			I$SchemaName$$TableName$By$Suffix$Key rhs = (I$SchemaName$$TableName$By$Suffix$Key)obj;$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else if( obj instanceof I$SchemaName$$TableName$) {
+			I$SchemaName$$TableName$ rhs = (I$SchemaName$$TableName$)obj;$iterate Columns( each implEqualsCmpAttr )$
+			return( true );
+		}
+		else {
+			return( false );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeyGetHashCode">
+	@Override
+	public int hashCode() {
+		int hashCode = 0;$iterate Columns( each implGetHashCodeAttr )$
+		return( hashCode &amp; 0x7fffffff );
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeyCompareTo">
+	@Override
+	public int compareTo( Object obj ) {
+		int cmp;
+		if( obj == null ) {
+			return( 1 );
+		}
+		else if( obj instanceof I$SchemaName$$TableName$By$Suffix$Key ) {
+			I$SchemaName$$TableName$By$Suffix$Key rhs = (I$SchemaName$$TableName$By$Suffix$Key)obj;$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else if( obj instanceof I$SchemaName$$TableName$ ) {
+			I$SchemaName$$TableName$ rhs = (I$SchemaName$$TableName$)obj;$iterate Columns( each implCompareToAttr )$
+			return( 0 );
+		}
+		else {
+			throw new CFUnsupportedClassException( getClass(),
+				"compareTo",
+				"obj",
+				obj,
+				null );
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Index" Name="implBuffIndexKeyToString">
+	@Override
+	public String getXmlAttrFragment() {
+		String ret = ""$iterate Columns( each implToStringEmitXmlAttr )$;
+		return( ret );
+	}
+
+	@Override
+	public String toString() {
+		String ret = "&lt;$SchemaName$Buff$TableName$By$Suffix$Key" + getXmlAttrFragment() + "/&gt;";
+		return( ret );
+	}
+</GenRule>
+
+</RuleSet>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schema/jpa/SchemaJpaTableFactoryService.java"
+	Revision="3.0"
+	Descr="Java 25 Factory service implementation for $TableName$ JPA objects">
+
+	<GenFile GenDef="Table" Name="fileSchemaJpaTableFactoryServiceJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-jpa/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa"
+		ExpansionClassName="$SchemaName$Jpa$TableName$FactoryServiceJava"
+		ExpansionKeyName="$SchemaName$Jpa$TableName$FactoryServiceJava"
+		ExpansionFileName="$SchemaName$Jpa$TableName$FactoryService.java">
+// Description: Java 25 Factory service implementation for $TableName$ JPA objects
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$.jpa;
+
+import java.lang.reflect.*;
+import java.net.*;
+import java.rmi.*;
+import java.sql.*;
+import java.text.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;$poptop SchemaDef iterate SchemaRefs( each importJavaPackageSchemaName empty empty )$
+import $reference ManufacturingSchema lower JavaPackage$.$lower reference ManufacturingSchema SchemaName$.*;$poptop SchemaDef iterate SchemaRefs( each importJavaJpaPackageSchemaName empty empty )$
+
+/*
+ *	Java 25 Factory service implementation for $TableName$ JPA objects.
+ */
+public class $SchemaName$Jpa$TableName$FactoryService
+    implements I$SchemaName$$TableName$Factory
+{$implJpaFactoryServiceConstruct$$switch HasSuperClassRelation no implJpaNewPKey default empty$$switch HasSuperClassRelation no maybeImplJpaNewHPKey default empty$$iterate Index( each implJpaNewNonPrimaryIndexKey )$$implJpaNewRec$$implJpaNewHRec$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="implJpaFactoryServiceConstruct">
+    public $poptop SchemaDef SchemaName$Jpa$TableName$FactoryService() { }
+</GenRule>
+
+    <GenRule GenDef="Index" Name="implJpaNewNonPrimaryIndexKey"
+	>$switch IsPrimaryIndex yes empty default implJpaNewIndexKey$</GenRule>
+
+    <GenRule GenDef="Index" Name="implJpaNewIndexKey">
+    @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+    public I$DefSchemaName$$TableName$By$Suffix$Key newBy$Suffix$Key() {
+		I$DefSchemaName$$TableName$By$Suffix$Key key = new $DefSchemaName$Jpa$TableName$By$Suffix$Key();
+	return( key );
+    }
+
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $DefSchemaName$Jpa$TableName$By$Suffix$Key ensureBy$Suffix$Key(I$DefSchemaName$$TableName$By$Suffix$Key key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof $DefSchemaName$Jpa$TableName$By$Suffix$Key) {
+			return( ($DefSchemaName$Jpa$TableName$By$Suffix$Key)key );
+		}
+		else {
+			$DefSchemaName$Jpa$TableName$By$Suffix$Key mapped = new $DefSchemaName$Jpa$TableName$By$Suffix$Key();$iterate Columns( each implBuffCopyKeyAttrToMapped )$
+			return( mapped );
+		}
+	}
+</GenRule>
+
+    <GenRule GenDef="Table" Name="implJpaNewPKey"
+            >$switch HasDefSchema no ifNotAtomicJpaImplNewPKey default empty$</GenRule>
+    <GenRule GenDef="Table" Name="ifNotAtomicJpaImplNewPKey">$switch IsPrimaryIndexKeyAtomic yes empty default reallyJpaImplNewPKey$</GenRule>
+    <GenRule GenDef="Table" Name="reallyJpaImplNewPKey">
+    @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+    public I$DefSchemaName$$reference BaseClass TableName$PKey newPKey() {
+        I$DefSchemaName$$reference BaseClass TableName$PKey pkey = new $DefSchemaName$Jpa$reference BaseClass TableName$PKey();
+        return( pkey );
+    }
+
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $DefSchemaName$Jpa$reference BaseClass TableName$PKey ensurePKey(I$DefSchemaName$$reference BaseClass TableName$PKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof $DefSchemaName$Jpa$reference BaseClass TableName$PKey) {
+			return( ($DefSchemaName$Jpa$reference BaseClass TableName$PKey)key );
+		}
+		else {
+			$DefSchemaName$Jpa$reference BaseClass TableName$PKey mapped = new $DefSchemaName$Jpa$reference BaseClass TableName$PKey();$reference BaseClass reference PrimaryKeyIndex iterate Columns( each maybeImplBuffCopyKeyAttrToMapped )$
+			return( mapped );
+		}
+	}
+</GenRule>
+
+    <GenRule GenDef="Table" Name="maybeImplJpaNewHPKey">$implJpaNewHPKey$</GenRule>
+
+    <GenRule GenDef="Table" Name="implJpaNewHPKey">
+    @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+    public I$DefSchemaName$$reference BaseClass TableName$HPKey newHPKey() {
+        I$DefSchemaName$$reference BaseClass TableName$HPKey hpkey = new $DefSchemaName$Jpa$reference BaseClass TableName$HPKey();
+        return( hpkey );
+    }
+
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $DefSchemaName$Jpa$reference BaseClass TableName$HPKey ensureHPKey(I$DefSchemaName$$reference BaseClass TableName$HPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof $DefSchemaName$Jpa$reference BaseClass TableName$HPKey) {
+			return( ($DefSchemaName$Jpa$reference BaseClass TableName$HPKey)key );
+		}
+		else {
+			$DefSchemaName$Jpa$reference BaseClass TableName$HPKey mapped = new $DefSchemaName$Jpa$reference BaseClass TableName$HPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());$reference BaseClass reference PrimaryKeyIndex iterate Columns( each implBuffCopyKeyAttrToMapped )$
+			return( mapped );
+		}
+	}
+</GenRule>
+
+    <GenRule GenDef="Table" Name="implJpaNewRec">
+    @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+    public I$DefSchemaName$$TableName$ newRec() {
+        I$DefSchemaName$$TableName$ rec = new $DefSchemaName$Jpa$TableName$();
+        return( rec );
+    }
+
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $DefSchemaName$Jpa$TableName$ ensureRec(I$DefSchemaName$$TableName$ rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof $DefSchemaName$Jpa$TableName$) {
+			return( ($DefSchemaName$Jpa$TableName$)rec );
+		}
+		else {
+			switch(rec.getClassCode()) {
+				case I$DefSchemaName$$TableName$.CLASS_CODE: {
+					$DefSchemaName$Jpa$TableName$ mapped = new $DefSchemaName$Jpa$TableName$();
+					mapped.set(rec);
+					return( mapped ); }$iterate TableSubClasses( each SchemaJpaTableFactoryServiceEnsureRec empty empty )$
+				default:
+					throw new CFUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of $DefSchemaName$$TableName$",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of $DefSchemaName$$TableName$");
+			}
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="SchemaJpaTableFactoryServiceEnsureRec">
+				case I$DefSchemaName$$TableName$.CLASS_CODE: {
+					$DefSchemaName$Jpa$TableName$ mapped = new $DefSchemaName$Jpa$TableName$();
+					mapped.set((I$DefSchemaName$$TableName$)rec);
+					return(mapped); }$iterate TableSubClasses( each SchemaJpaTableFactoryServiceEnsureRec empty empty )$</GenRule>
+
+    <GenRule GenDef="Table" Name="implJpaNewHRec">
+    @Override
+    public I$DefSchemaName$$TableName$H newHRec() {
+        I$DefSchemaName$$TableName$H hrec = new $DefSchemaName$Jpa$TableName$H();
+        return( hrec );
+    }
+
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$lower DefDbSchemaName$TransactionManager")
+	public $DefSchemaName$Jpa$TableName$H ensureHRec(I$DefSchemaName$$TableName$H hrec) {
+		if( hrec == null ) {
+			return( null );
+		}
+		else if (hrec instanceof $DefSchemaName$Jpa$TableName$H) {
+			return( ($DefSchemaName$Jpa$TableName$H)hrec );
+		}
+		else {
+			switch(hrec.getClassCode()) {
+				case I$DefSchemaName$$TableName$.CLASS_CODE: {
+					$DefSchemaName$Jpa$TableName$H mapped = new $DefSchemaName$Jpa$TableName$H();
+					mapped.set(hrec);
+					return( mapped ); }$iterate TableSubClasses( each SchemaJpaTableFactoryServiceEnsureHRec empty empty )$
+				default:
+					throw new CFUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of $DefSchemaName$$TableName$",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of $DefSchemaName$$TableName$");
+			}
+		}
+	}
+</GenRule>
+
+	<GenRule GenDef="Table" Name="SchemaJpaTableFactoryServiceEnsureHRec">
+				case I$DefSchemaName$$TableName$.CLASS_CODE: {
+					$DefSchemaName$Jpa$TableName$H mapped = new $DefSchemaName$Jpa$TableName$H();
+					mapped.set((I$DefSchemaName$$TableName$H)hrec);
+					return(mapped); }$iterate TableSubClasses( each SchemaJpaTableFactoryServiceEnsureHRec empty empty )$</GenRule>
+
+</RuleSet>

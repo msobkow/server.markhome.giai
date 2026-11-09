@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="rust"
+	Name="Top"
+	Revision="3.0"
+	Descr="Top level rules for creating Rust files">
+
+	<GenRule GenDef="Object" Name="ExplainCodeVis">$switch CodeVis
+		Public ExplainCodeVisPublic
+		Protected ExplainCodeVisProtected
+		default ExplainCodeVisPrivate$</GenRule>
+	<GenRule GenDef="Object" Name="ExplainCodeVisPublic">CodeVis Public, meaning that any user interface or referencing schema can access it</GenRule>
+	<GenRule GenDef="Object" Name="ExplainCodeVisProtected">CodeVis Protected, meaning that any only user interfaces and application code specific to the defining schema can access it</GenRule>
+	<GenRule GenDef="Object" Name="ExplainCodeVisPrivate">CodeVis Private, meaning that only the back-end code for the schema implementation can access it, and even the code specific user interface cannot</GenRule>
+
+	<GenRule GenDef="MinorVersion" Name="top"
+		><!--$iterate SchemaDef( each schemaRustPubFiles )$$iterate SchemaDef( each schemaRustProtFiles )$$iterate SchemaDef( each schemaFiles )$--></GenRule>
+
+	<GenRule GenDef="Relation" Name="ToTableHasClassCode"
+		>$reference ToTable HasClassCode$</GenRule>
+
+	<GenRule GenDef="Relation" Name="ToTableHasLookupIndex"
+		>$reference ToTable HasLookupIndex$</GenRule>
+
+	<GenRule GenDef="Relation" Name="ToTableHasInheritedLookupIndex"
+		>$reference ToTable HasInheritedLookupIndex$</GenRule>
+
+	<GenRule GenDef="Relation" Name="FromTableHasClassCode"
+		>$reference FromTable HasClassCode$</GenRule>
+
+	<GenRule GenDef="Relation" Name="FromTableHasLookupIndex"
+		>$reference FromTable HasLookupIndex$</GenRule>
+
+	<GenRule GenDef="Relation" Name="FromTableHasInheritedLookupIndex"
+		>$reference FromTable HasInheritedLookupIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="HasInheritedLookupIndex"
+		>$switch HasLookupIndex yes yes default maybeInheritedLookupIndex$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeInheritedLookupIndex"
+		>$switch HasSuperClassRelation yes inheritedLookupIndex default no$</GenRule>
+
+	<GenRule GenDef="Table" Name="inheritedLookupIndex"
+		>$reference SuperClassRelation reference ToTable HasInheritedLookupIndex$</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="ToTableHasClassCode"
+		>$reference Relation reference ToTable HasClassCode$</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="ToTableHasLookupIndex"
+		>$reference Relation reference ToTable HasLookupIndex$</GenRule>
+
+	<GenRule ScopeDef="MinorVersion" GenDef="SchemaDef" Name="schemaRustPubFiles"
+		><!--$fileSchemaRustPubGitIgnore$$fileSchemaRustPubPomXml$$fileSchemaPubISchemaRust$$fileSchemaISchemaPubFactoryRust$$fileSchemaPubBuffFactoryServiceRust$$fileSchemaPubBuffHooksSchemaRust$$fileSchemaPubBuffSchemaRust$$iterate SchemaRefs( each empty empty fileISchemaPubAuthorizationRust )$$iterate SchemaRefs( each empty empty fileISchemaPubAuthorizationCallbackRust )$$iterate SchemaRefs( each empty empty fileSchemaPubAuthorizationRust )$$iterate SchemaRefs( empty fileISchemaPubSecurityServiceRust each empty )$$iterate SchemaRefs( empty fileSchemaPubSecurityCacheRust each empty )$$iterate SchemaRefs( each empty empty fileSchemaPubTableDataRust )$$iterate SchemaRefs( each empty empty fileSchemaPubRoleInfoRust )$$iterate SchemaRefs( each empty empty fileSchemaPubRoleInfoDependencyComparatorRust )$$fileSchemaPubBuffHooksSchemaRust$$fileISchemaPubSchemaObjRust$$fileSchemaITablePubPermsRust$$iterate DefSchemaPublicTables( each tablePubFiles empty empty )$--></GenRule>
+
+	<GenRule ScopeDef="MinorVersion" GenDef="SchemaDef" Name="schemaRustProtFiles"
+		><!--$fileSchemaRustProtGitIgnore$$fileSchemaProtRustPomXml$$fileSchemaProtISchemaRust$$fileISchemaProtSchemaObjRust$$fileSchemaISchemaProtFactoryRust$$fileSchemaProtBuffFactoryServiceRust$$fileSchemaProtBuffHooksSchemaRust$$fileSchemaProtBuffSchemaRust$$iterate SchemaRefs( each empty empty fileISchemaProtAuthorizationRust )$$iterate SchemaRefs( each empty empty fileISchemaProtAuthorizationCallbackRust )$$iterate SchemaRefs( each empty empty fileSchemaProtAuthorizationRust )$$iterate SchemaRefs( empty fileISchemaProtSecurityServiceRust each empty )$$iterate SchemaRefs( empty fileISchemaProtSecurityControlRust each empty )$$iterate SchemaRefs( empty fileSchemaProtSecurityCacheRust each empty )$$fileSchemaProtBuffHooksSchemaRust$$fileISchemaProtSchemaObjRust$$fileSchemaSchemaProtObjRust$$fileSchemaITableProtPermsRust$$iterate DefSchemaProtectedTables( each tableProtFiles empty empty )$--></GenRule>
+
+	<GenRule ScopeDef="MinorVersion" GenDef="SchemaDef" Name="schemaRustFiles"
+		><!--$fileSchemaRustGitIgnore$$fileSchemaBinGitIgnore$$fileSchemaCoreGitIgnore$$fileSchemaRustPomXml$$fileSchemaRustJpaPomXml$$fileResourcesApplicationProperties$$fileResourcesUserDefaultProperties$$fileResourcesMetaInfPersistenceXml$$fileSchemaRamGitIgnore$$fileSchemaRustRamPomXml$$fileSchemaISchemaRust$$fileSchemaISchemaFactoryRust$$fileSchemaJpaFactoryServiceRust$$fileSchemaBuffFactoryServiceRust$$fileSchemaJpaConfigRust$$fileSchemaJpaSchemaRust$$iterate SchemaRefs( empty fileSchemaJpaSecurityCacheRust each empty )$$fileSchemaBuffHooksSchemaRust$$fileSchemaJpaHooksSchemaRust$$fileSchemaBuffSchemaRust$$iterate SchemaRefs( each empty empty fileISchemaAuthorizationRust )$$iterate SchemaRefs( each empty empty fileISchemaAuthorizationCallbackRust )$$iterate SchemaRefs( each empty empty fileSchemaAuthorizationRust )$$iterate SchemaRefs( empty fileISchemaSecurityControlRust each empty )$$iterate SchemaRefs( empty fileISchemaSecurityServiceRust each empty )$$iterate SchemaRefs( empty fileSchemaSecurityCacheRust each empty )$$fileSchemaBuffHooksSchemaRust$$fileISchemaSchemaObjRust$$fileSchemaSchemaObjRust$$fileSchemaITablePermsRust$$fileSchemaRustJpaGitIgnore$$fileSchemaRustJpaTestGitIgnore$$fileSchemaRustJpaTestPomXml$$fileSchemaJpaTestRust$$fileSchemaJpaTestEnProperties$$fileSchemaJpaTestPropnamesTxt$$fileSchemaJpaTestApplicationProperties$$fileResourcesJpaTestUserDefaultProperties$$fileSchemaJpaTestStartupListenerRust$$fileSchemaRustRamTestGitIgnore$$fileSchemaRustRamTestPomXml$$fileSchemaRamTestRust$$fileSchemaRamTestEnProperties$$fileSchemaRamTestPropnamesTxt$$fileSchemaRamTestApplicationProperties$$fileResourcesRamTestUserDefaultProperties$$fileSchemaRamTestStartupListenerRust$$fileSchemaRustAppSetupGitIgnore$$fileSchemaRustAppSetupPomXml$$fileSchemaAppSetupRust$$fileSchemaAppSetupFxApplicationRust$$fileSchemaJpaIdGenServiceRust$$fileSchemaJpaSchemaServiceRust$$iterate SchemaRefs( each fileSchemaJpaTestTestSchemaRust empty empty )$$fileSchemaJpaTestTestSchemaRust$$iterate SchemaRefs( each fileSchemaRamTestTestSchemaRust empty empty )$$fileSchemaRamTestTestSchemaRust$$fileSchemaJpaTestConfigurationRust$$fileSchemaRamTestConfigurationRust$$fileSchemaRamSchemaRust$$iterate SchemaTables( each tableFiles empty empty )$--></GenRule>
+
+	<GenRule GenDef="Table" Name="tablePubFiles">$switch IsPublic yes reallyTablePubFiles default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyTablePubFiles"
+		><!--$switch HasDefSchema yes empty default tablePubFilesNoDefSchema$$fileISchemaPubTableObjRust$$fileIPubObjRust$$fileIPubEditObjRust$$fileSchemaPubTableObjRust$$filePubObjRust$$filePubEditObjRust$$iterate Index( each indexPubFiles )$--></GenRule>
+
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="tableProtFiles">$switch IsProtected yes reallyTableProtFiles default empty$</GenRule>
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="reallyTableProtFiles"
+		><!--$switch HasDefSchema yes empty default tableProtFilesNoDefSchema$$fileISchemaProtTableObjRust$$fileIProtObjRust$$fileIProtEditObjRust$$fileSchemaProtTableObjRust$$fileProtObjRust$$fileProtEditObjRust$$iterate Index( each indexProtFiles )$--></GenRule>
+
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="tableFiles"
+		><!--$switch HasDefSchema yes empty default tableFilesNoDefSchema$$fileISchemaTableObjRust$$fileIObjRust$$fileIEditObjRust$$fileSchemaTableObjRust$$fileObjRust$$fileEditObjRust$$fileSchemaRamTableTableRust$$iterate Index( each indexFiles )$--></GenRule>
+
+	<GenRule GenDef="Table" Name="tablePubFilesNoDefSchema">$switch IsPublic yes reallyTablePubFilesNoDefSchema default empty$</GenRule>
+	<GenRule GenDef="Table" Name="reallyTablePubFilesNoDefSchema"
+		><!--$fileISchemaPubTableTableRust$$fileSchemaPubBuffTableTableRust$$fileISchemaPubTableFactoryRust$$fileSchemaPubBuffTableFactoryServiceRust$$switch HasSuperClassRelation yes empty default fileISchemaPubTablePKeyRust$$fileISchemaPubTableRust$$iterate Index( each fileISchemaPubTableIndexKeyRust empty empty )$$fileISchemaPubTableHRust$$switch HasSuperClassRelation yes empty default fileISchemaPubTableHPKeyRust$$switch HasSuperClassRelation yes empty default fileSchemaPubBuffTablePKeyRust$$switch HasSuperClassRelation yes empty default maybeFileSchemaPubBuffTableHPKeyRust$$fileSchemaPubBuffTableRust$$fileSchemaPubBuffTableHRust$$iterate Index( each indexPubFilesNoDefSchema empty empty )$$fileISchemaPubTableObjRust$$fileIPubObjRust$$fileIPubEditObjRust$$fileSchemaPubTableObjRust$$fileSchemaPubTableEditObj$--></GenRule>
+
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="tableProtFilesNoDefSchema"
+		><!--$fileISchemaProtTableTableRust$$fileSchemaProtBuffTableTableRust$$fileISchemaProtTableFactoryRust$$fileSchemaProtBuffTableFactoryServiceRust$$switch HasSuperClassRelation yes empty default fileISchemaProtTablePKeyRust$$fileISchemaProtTableRust$$iterate Index( each fileISchemaProtTableIndexKeyRust )$$fileISchemaProtTableTableRust$$fileISchemaProtTableHRust$$switch HasSuperClassRelation yes empty default fileISchemaProtTableHPKeyRust$$switch HasSuperClassRelation yes empty default fileSchemaProtBuffTablePKeyRust$$switch HasSuperClassRelation yes empty default maybeFileSchemaProtBuffTableHPKeyRust$$fileSchemaProtBuffTableRust$$fileSchemaProtBuffTableHRust$$iterate Index( each indexProtFilesNoDefSchema empty empty )$$fileISchemaProtTableObjRust$$fileISchemaProtTableEditObjRust$$fileSchemaProtTableObjRust$$<fileSchemaProtTableEditObj$--></GenRule>
+
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="tableFilesNoDefSchema"
+		>$fileISchemaTableTableRust$$fileSchemaJpaTableTableRust$$fileSchemaBuffTableTableRust$$fileISchemaTableFactoryRust$$fileSchemaJpaTableFactoryServiceRust$$fileSchemaBuffTableFactoryServiceRust$$switch HasSuperClassRelation yes empty default fileISchemaTablePKeyRust$$fileISchemaTableRust$$iterate Index( each fileISchemaTableIndexKeyRust )$$fileISchemaTableTableRust$$fileISchemaTableHRust$$switch HasSuperClassRelation yes empty default fileISchemaTableHPKeyRust$$switch HasSuperClassRelation yes empty default fileSchemaJpaTablePKeyRust$$switch HasSuperClassRelation yes empty default maybeFileSchemaJpaTableHPKeyRust$$fileSchemaJpaTableRust$$fileSchemaJpaTableHRust$$switch HasSuperClassRelation yes empty default fileSchemaBuffTablePKeyRust$$switch HasSuperClassRelation yes empty default maybeFileSchemaBuffTableHPKeyRust$$fileSchemaBuffTableRust$$fileSchemaBuffTableHRust$$iterate Index( each indexFilesNoDefSchema empty empty )$$fileSchemaJpaTableRepositoryRust$$fileSchemaJpaTableServiceRust$$fileISchemaTableObjRust$$fileISchemaTableEditObjRust$$fileSchemaTableObjRust$$fileSchemaTableEditObj$</GenRule>
+
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="maybeFileSchemaJpaTableHPKeyRust"><!--$fileSchemaJpaTableHPKeyRust$--></GenRule>
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="maybeFileSchemaBuffTableHPKeyRust"><!--$fileSchemaBuffTableHPKeyRust$--></GenRule>
+	<GenRule ScopeDef="SchemaDef" GenDef="Table" Name="maybeFileSchemaPubBuffTableHPKeyRust"><!--$fileSchemaPubBuffTableHPKeyRust$--></GenRule>
+
+	<GenRule GenDef="Index" Name="indexPubFilesNoDefSchema"><!--$switch IsPublic yes reallyIndexPubFilesNoDefSchema default empty$--></GenRule>
+	<GenRule GenDef="Index" Name="reallyIndexPubFilesNoDefSchema"><!--$fileISchemaPubTableIndexKeyRust$$switch IsPrimaryIndex no fileSchemaPubBuffTableIndexKeyRust default empty$--></GenRule>
+
+	<GenRule GenDef="Index" Name="indexProtFilesNoDefSchema">$switch IsProtected yes reallyIndexProtFilesNoDefSchema default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyIndexProtFilesNoDefSchema"
+		><!--$fileProtISchemaTableIndexKeyRust$$switch IsPrimaryIndex no fileSchemaProtBuffTableIndexKeyRust default empty$--></GenRule>
+
+	<GenRule GenDef="Index" Name="indexFilesNoDefSchema"
+		><!--$switch IsPrimaryIndex no fileSchemaJpaTableIndexKeyRust default empty$$switch IsPrimaryIndex no fileSchemaBuffTableIndexKeyRust default empty$--></GenRule>
+
+	<GenRule GenDef="Index" Name="indexPubFiles">$switch IsPublic yes reallyIndexPubFiles default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyIndexPubFiles"></GenRule>
+
+	<GenRule GenDef="Index" Name="indexProtFiles">$switch IsProtected yes reallyIndexProtFiles default empty$</GenRule>
+	<GenRule GenDef="Index" Name="reallyIndexProtFiles"></GenRule>
+
+	<GenRule GenDef="Index" Name="indexFiles"></GenRule>
+
+	<GenRule GenDef="Relation" Name="ContainerStyle">$popto TableDef ContainerStyle$</GenRule>
+	<GenRule GenDef="Table" Name="ContainerStyle"
+		>$switch ContainerStyleInternal
+			Single ContainerStyleSingle
+			None ContainerStyleNone
+			empty ContainerStyleMultiple
+			default ContainerStyleMultiple$</GenRule>
+
+	<GenRule GenDef="Table" Name="ContainerStyleInternal"
+		>$iterate ContainerRelations( lone ContainerStyleSingle empty SuperOrContainerStyleNone each ContainerStyleYada )$</GenRule>
+
+	<GenRule GenDef="Object" Name="SuperOrContainerStyleNone"
+		>$switch ObjectTableHasSuperClassRelation yes SuperContainerStyle default ContainerStyleNone$</GenRule>
+
+	<GenRule GenDef="Object" Name="SuperContainerStyle"
+		>$popto Table reference SuperClassRelation reference ToTable ContainerStyleInternal$</GenRule>
+
+	<GenRule GenDef="Object" Name="ContainerStyleYada">Yada</GenRule>
+	<GenRule GenDef="Object" Name="ContainerStyleSingle">Single</GenRule>
+	<GenRule GenDef="Object" Name="ContainerStyleNone">None</GenRule>
+	<GenRule GenDef="Object" Name="ContainerStyleMultiple">Multiple</GenRule>
+
+</RuleSet>

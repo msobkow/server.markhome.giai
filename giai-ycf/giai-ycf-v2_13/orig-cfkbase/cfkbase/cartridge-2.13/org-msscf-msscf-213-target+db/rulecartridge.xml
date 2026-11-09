@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	MSS Code Factory 2.13 CFKBase - Code Factory Knowledge Base
+ *
+ *	Copyright (C) 2016-2026 Mark Stephen Sobkow (mailto:mark.sobkow@gmail.com)
+ *	
+ *	This program is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	This program is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU General Public License
+ *	along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	
+ *	If you wish to modify and use this code without publishing your changes,
+ *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
+ *	for a commercial license at mark.sobkow@gmail.com
+ * -->
+<RuleCartridge
+		xmlns="http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xsi:schemaLocation="http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd http://msscf.org:8088/msscf/2.0.13/xsd/cfgenkb-2.13-cartridge.xsd"
+		Name="org-msscf-msscf-213-target+db"
+		Revision="2.13"
+		Descr="MSS Code Factory Database Scripts">
+	<Tool Name="any" />
+	<Tool Name="db2luw" />
+	<Tool Name="mssql" />
+	<Tool Name="mysql" />
+	<Tool Name="oracle" />
+	<Tool Name="pgsql" />
+	<UseCartridge Name="server-markhome-msscf-30-toolset-any" />
+	<UseCartridge Name="org-msscf-msscf-213-toolset-db2luw" />
+	<UseCartridge Name="org-msscf-msscf-213-toolset-mssql" />
+	<UseCartridge Name="org-msscf-msscf-213-toolset-mysql" />
+	<UseCartridge Name="org-msscf-msscf-213-toolset-oracle" />
+	<UseCartridge Name="org-msscf-msscf-213-toolset-pgsql" />
+	<ToolSet Name="any" />
+	<ToolSet Name="db2luw" />
+	<ToolSet Name="mssql" />
+	<ToolSet Name="mysql" />
+	<ToolSet Name="oracle" />
+	<ToolSet Name="pgsql" />
+</RuleCartridge>

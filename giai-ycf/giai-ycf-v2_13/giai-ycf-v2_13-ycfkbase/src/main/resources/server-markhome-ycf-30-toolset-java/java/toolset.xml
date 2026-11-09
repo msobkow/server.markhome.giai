@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<ToolSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd"
+	Name="java"
+	Revision="3.0"
+	Descr="Java 25 Rules">
+	<RuleSet Name="Top" />
+	<RuleSet Name="BinGitIgnore" />
+	<RuleSet Name="JavaPubGitIgnore" />
+	<RuleSet Name="JavaProtGitIgnore" />
+	<RuleSet Name="JavaGitIgnore" />
+	<RuleSet Name="JavaJpaGitIgnore" />
+	<RuleSet Name="JavaJpaTestGitIgnore" />
+	<RuleSet Name="JavaAppSetupGitIgnore" />
+	<RuleSet Name="RamProjectGitIgnore" />
+	<RuleSet Name="JavaRamTestGitIgnore" />
+	<RuleSet Name="JavaPubPomXml" />
+	<RuleSet Name="JavaProtPomXml" />
+	<RuleSet Name="JavaPomXml" />
+	<RuleSet Name="JavaJpaPomXml" />
+	<RuleSet Name="JavaJpaTestPomXml" />
+	<RuleSet Name="JavaRamPomXml" />
+	<RuleSet Name="JavaRamTestPomXml" />
+	<RuleSet Name="JavaAppSetupPomXml" />
+	<RuleSet Name="resources/application.properties" />
+	<RuleSet Name="resources/user-default.properties" />
+	<RuleSet Name="resources/META-INF/persistence.xml" />
+	<RuleSet Name="resourcesjpatest/application.properties" />
+	<RuleSet Name="resourcesjpatest/user-default.properties" />
+	<RuleSet Name="resourcesjpatest/schemajpatest/langs/en.properties" />
+	<RuleSet Name="resourcesjpatest/schemajpatest/langs/propnames.txt" />
+	<RuleSet Name="resourcesramtest/application.properties" />
+	<RuleSet Name="resourcesramtest/user-default.properties" />
+	<RuleSet Name="resourcesramtest/schemaramtest/langs/en.properties" />
+	<RuleSet Name="resourcesramtest/schemaramtest/langs/propnames.txt" />
+	<RuleSet Name="src/schemapub/ISchemaPubAuthorization.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubAuthorizationCallback.java" />
+	<RuleSet Name="src/schemapub/SchemaPubAuthorization.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubSecurityService.java" />
+	<RuleSet Name="src/schemapub/SchemaPubTableData.java" />
+	<RuleSet Name="src/schemapub/SchemaPubRoleInfoDependencyComparator.java" />
+	<RuleSet Name="src/schemapub/SchemaPubRoleInfo.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubSchema.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTableFactory.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTableH.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTableHPKey.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTableIndexKey.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTable.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTablePKey.java" />
+	<RuleSet Name="src/schemapub/ISchemaPubTableTable.java" />
+	<RuleSet Name="src/schemapubbuff/buff/SchemaPubBuffTablePKey.java" />
+	<RuleSet Name="src/schemapubbuff/buff/SchemaPubBuffTable.java" />
+	<RuleSet Name="src/schemapubobj/IPubEditObj.java" />
+	<RuleSet Name="src/schemapubobj/IPubObj.java" />
+	<RuleSet Name="src/schemapubobj/ISchemaPubSchemaObj.java" />
+	<RuleSet Name="src/schemapubobj/ISchemaPubTableObj.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtAuthorizationCallback.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtAuthorization.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtSchema.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtSecurityControl.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtSecurityService.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTableFactory.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTableH.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTableHPKey.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTableIndexKey.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTable.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTablePKey.java" />
+	<RuleSet Name="src/schemaprot/ISchemaProtTableTable.java" />
+	<RuleSet Name="src/schemaprot/SchemaProtAuthorization.java" />
+	<RuleSet Name="src/schemaprotbuff/buff/SchemaProtBuffTablePKey.java" />
+	<RuleSet Name="src/schemaprotbuff/buff/SchemaProtBuffTable.java" />
+	<RuleSet Name="src/schemaprotobj/IProtEditObj.java" />
+	<RuleSet Name="src/schemaprotobj/IProtObj.java" />
+	<RuleSet Name="src/schemaprotobj/ISchemaProtSchemaObj.java" />
+	<RuleSet Name="src/schemaprotobj/ISchemaProtTableObj.java" />
+	<RuleSet Name="src/schema/ISchemaAuthorization.java" />
+	<RuleSet Name="src/schema/ISchemaAuthorizationCallback.java" />
+	<RuleSet Name="src/schema/ISchemaSecurityControl.java" />
+	<RuleSet Name="src/schema/ISchemaSecurityService.java" />
+	<RuleSet Name="src/schema/SchemaAuthorization.java" />
+	<RuleSet Name="src/schema/SchemaSecurityCache.java" />
+	<RuleSet Name="src/schema/ISchemaSchema.java" />
+	<RuleSet Name="src/schema/ISchemaFactory.java" />
+	<RuleSet Name="src/schema/ISchemaTablePerms.java" />
+	<RuleSet Name="src/schema/ISchemaTablePKey.java" />
+	<RuleSet Name="src/schema/ISchemaTableIndexKey.java" />
+	<RuleSet Name="src/schema/ISchemaTable.java" />
+	<RuleSet Name="src/schema/ISchemaTableHPKey.java" />
+	<RuleSet Name="src/schema/ISchemaTableH.java" />
+	<RuleSet Name="src/schema/ISchemaTableFactory.java" />
+	<RuleSet Name="src/schema/ISchemaTableTable.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaConfig.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaSchema.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaFactoryService.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaIdGenService.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaSchemaService.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaSecurityCache.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTablePKey.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableIndexKey.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTable.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableHPKey.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableH.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableFactoryService.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableTable.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableRepository.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaTableService.java" />
+	<RuleSet Name="src/schemajpa/jpa/SchemaJpaHooksSchema.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffSchema.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffFactoryService.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTablePKey.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTableHPKey.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTableIndexKey.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTable.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTableH.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffTableFactoryService.java" />
+	<RuleSet Name="src/schemabuff/buff/SchemaBuffHooksSchema.java" />
+	<RuleSet Name="src/schemaobj/ISchemaSchemaObj.java" />
+	<RuleSet Name="src/schemaobj/ISchemaTableObj.java" />
+	<RuleSet Name="src/schemaobj/IObj.java" />
+	<RuleSet Name="src/schemaobj/IEditObj.java" />
+	<RuleSet Name="src/schemaobj/SchemaSchemaObj.java" />
+	<RuleSet Name="src/schemaobj/SchemaTableObj.java" />
+	<RuleSet Name="src/schemaobj/Obj.java" />
+	<RuleSet Name="src/schemaobj/EditObj.java" />
+	<RuleSet Name="src/schemaram/SchemaRamSchema.java" />
+	<RuleSet Name="src/schemaram/SchemaRamTableTable.java" />
+	<RuleSet Name="src/schemajpatest/SchemaJpaTest.java" />
+	<RuleSet Name="src/schemajpatest/spring/SchemaJpaTestStartupListener.java" />
+	<RuleSet Name="src/schemajpatest/spring/SchemaJpaTestTestSchema.java" />
+	<RuleSet Name="src/schemajpatest/spring/SchemaJpaTestConfiguration.java" />
+	<RuleSet Name="src/schemaramtest/SchemaRamTest.java" />
+	<RuleSet Name="src/schemaramtest/spring/SchemaRamTestStartupListener.java" />
+	<RuleSet Name="src/schemaramtest/spring/SchemaRamTestTestSchema.java" />
+	<RuleSet Name="src/schemaramtest/spring/SchemaRamTestConfiguration.java" />
+	<RuleSet Name="src/schemaappsetup/SchemaAppSetup.java" />
+	<RuleSet Name="src/schemaappsetup/fx/SchemaAppSetupFxApplication.java" />
+	<RuleSet Name="RustBinGitIgnore" />
+	<RuleSet Name="RustGitIgnore" />
+</ToolSet>

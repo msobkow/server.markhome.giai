@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *	server.markhome.ycf-ycfkbase - Yorkton Code Fractal Knowledge Base
+ *
+ *	Copyright 2016-2026 Mark Stephen Sobkow (mark.sobkow@gmail.com)
+ *
+ *	Licensed under the GNU General Public License, Version 3.0 (the "License") or under Commercial License
+ *	(the "Commercial License") from Mark Stephen Sobkow. You may not use this file nor derive variations
+ *	of it except in compliance with the License or Commercial License.
+ *
+ *	You may obtain a copy of the License at:
+ *
+ *      http://gnu.org/
+ *
+ *	The terms of the Commercial Licenses are tailored to the needs of the client.
+ *
+ *	Unless required by applicable law or agreed to in writing, software distributed under the Licenses
+ *	is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *	implied.  See the Licenses for the specific language governing permissions and limitations under the Licenses.
+ *
+ *	SPDX-License-Identifier: GPL-3.0
+ * -->
+<RuleSet
+	xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd"
+	ToolSet="java"
+	Name="src/schemapub/ISchemaProtTable.java"
+	Revision="3.0"
+	Descr="Java 25 protected interface for a $TableName$ record implementation">
+
+	<GenRule GenDef="Table" Name="fileISchemaProtTableJava">$switch IsProtected yes inrealityFileISchemaProtTableJava default empty$</GenRule>
+	<GenFile GenDef="Table" Name="inrealityFileISchemaProtTableJava"
+		GenerateOnce="false"
+		ModuleName="$reference ManufacturingSchema lower JavaPackageName$"
+		SourceBundle="java"
+		BasePackageName="$TopProjectDomainName$/$TopProjectMfgVersion$/$reference ManufacturingSchema SchemaProjectName$-prot/src/main/java"
+		SubPackageName="$reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot"
+		ExpansionClassName="I$SchemaName$Prot$TableName$Java"
+		ExpansionKeyName="I$SchemaName$Prot$TableName$Java"
+		ExpansionFileName="I$SchemaName$Prot$TableName$.java"
+>// Description: Java 25 protected interface for a $TableName$ record implementation
+
+$MssSourceLicense$
+
+package $reference ManufacturingSchema lower JavaPackage$.$reference ManufacturingSchema lower SchemaName$prot;
+
+import java.io.Serializable;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+import org.apache.commons.codec.binaryCFCore64;
+import org.apache.commons.text.StringEscapeUtils;
+import server.markhome.cf.*;
+import server.markhome.cf.dbutil.*;
+import server.markhome.cf.CFXmlUtil;$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaName empty empty )$$importJavaPubPackageSchemaName$$poptop SchemaDef iterate SchemaRefs( each importJavaPubPackageSchemaNameObj empty empty )$$importJavaPubPackageSchemaNameObj$$importJavaProtPackageSchemaNameObj$$tabletweak CafeProtTableImport$
+
+/**
+ *	I$SchemaName$Prot$TableName$ persistence instances have $ExplainCodeVis$.
+ */
+public interface I$SchemaName$Prot$TableName$$switch HasDefSchema yes extendProtectivelySchemaRecTableRec default extendProtectivelySchemaRecTableRecSuperRec$
+{$switch HasDefSchema yes empty default declProtSchemaTableRecMinValues$$switch HasDefSchema yes empty default declProtSchemaTableRecMaxValues$$switch HasDefSchema yes empty default declProtSchemaTableRecInitValues$$switch HasDefSchema no declRecStaticClassCode default empty$
+$switch HasDefSchema no maybeProtDeclRecGetClassCode default empty$$switch HasDefSchema no maybeProtDeclRecOptImplAuditColumnAccessors default empty$$switch HasSuperClassRelation no declProtColumnAttrPKeyAccessors default empty$$switch HasDefSchemaOrSuper no declRevisionGetterSetter default empty$$declProtSchemaTableSuperiorRelations$$declProtSchemaTableSubservientRelations$$switch HasDefSchema no declProtDataGetterSetters default empty$$declProtEqualsObject$$declProtGetHashCode$$declProtCompareToObject$$declGenuineProtSet$$declProtSchemaTableToString$}
+</GenFile>
+
+	<GenRule GenDef="Table" Name="extendProtectivelySchemaRecTableRec"> extends I$reference DefSchema SchemaName$Prot$TableName$</GenRule>
+
+	<GenRule GenDef="Object" Name="extendProtectivelySchemaRecTableRecSuperRec">$popto Table extendProtectivelySchemaRecTableRecSuperRec$</GenRule>
+
+	<GenRule GenDef="Table" Name="extendProtectivelySchemaRecTableRecSuperRec">$switch HasSuperClassRelation yes declProtInheritSuper default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtInheritSuper">
+	extends I$DefSchemaName$Prot$reference SuperClassRelation reference ToTable TableName$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnAttrPKeyAccessors">$switch IsPrimaryIndexKeyAtomic yes declProtColumnAttrPKeyColumnAccessors default declProtColumnAttrPKeyInstanceAccessors$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnAttrPKeyInstanceAccessors">
+	public I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Prot$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey getPKey();
+	public void setPKey(I$reference BaseClass reference PrimaryKeyIndex DefSchemaName$Prot$reference BaseClass reference PrimaryKeyIndex reference Table TableName$PKey pkey );$switch IsPrimaryIndexKeyAtomic yes empty default declProtColumnAttrPKeyColumnWrappers$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNormalGetter">$switch IsToIndexUnique yes declProtSchemaTableRelationNormalGetterInst default declProtSchemaTableRelationNormalGetterList$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNormalGetterInst">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNormalGetterInst default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNormalGetterInst">
+	public I$reference ToTable DefSchemaName$Prot$reference ToTable Name$ get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNormalGetterList">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNormalGetterList default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNormalGetterList">
+	public List&lt;I$reference ToTable DefSchemaName$Prot$reference ToTable Name$&gt; get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationPubGetter">$switch IsToIndexUnique yes declProtSchemaTableRelationPubGetterInst default declProtSchemaTableRelationPubGetterList$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationPubGetterInst">$switch IsProtected yes inrealityDeclProtSchemaTableRelationPubGetterInst default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationPubGetterInst">
+	public I$reference ToTable DefSchemaName$Pub$reference ToTable Name$ get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationPubGetterList">$switch IsProtected yes inrealityDeclProtSchemaTableRelationPubGetterList default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationPubGetterList">
+	public List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable Name$&gt; get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableSuperiorRelations">$iterate SuperiorDataRelations( each maybeProtDeclProtSchemaTableRelationGetterSetter empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTableSuperiorPKeyRelations">$iterate SuperiorPrimaryKeyRelations( each maybeProtDeclProtSchemaTableRelationGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableSubservientRelations">$iterate SubservientDataRelations( each declProtSchemaTableRelationGetter empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTableSubservientPKeyRelations">$iterate SubservientPrimaryKeyRelations( each declProtSchemaTableRelationGetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeProtDeclProtSchemaTableRelationGetterSetter">$switch IsProtected yes inrealityMaybeProtDeclProtSchemaTableRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityMaybeProtDeclProtSchemaTableRelationGetterSetter">$switch HasDefSchema yes declProtSchemaTableRelationGetterPubSetter default declProtSchemaTableRelationGetterNormalSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationGetterPubSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationGetterPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationGetterPubSetter">$switch IsSuperiorRelation yes declProtSchemaTableRelationGetterPubSetter default declProtSchemaTableRelationPubGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationGetterNormalSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationGetterNormalSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationGetterNormalSetter">$switch IsSuperiorRelation yes declProtSchemaTableRelationGetterSetter default declProtSchemaTableRelationGetter$</GenRule>
+	
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationGetterSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationGetterSetter">$declProtSchemaTableRelationGetter$$switch IsToIndexUnique yes maybeProtDeclProtSchemaTableRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeProtDeclProtSchemaTableRelationSetter">$switch IsProtected yes inrealityMaybeProtDeclProtSchemaTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityMaybeProtDeclProtSchemaTableRelationSetter">$switch ToTableHasDefSchema yes declProtSchemaTableRelationPubSetter default declProtSchemaTableRelationNormalSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationSetterArgs">$switch IsProtected yes inrealityDeclProtSchemaTableRelationSetterArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationSetterArgs">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declSetArgColumn each declCommaSetArgColumn)$);
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationPubSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationPubSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationPubSetter">$declProtSchemaTableRelationSetterArgs$
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj);
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNormalSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNormalSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNormalSetter">$declProtSchemaTableRelationSetterArgs$
+$switch FromTableIsProtected yes declProtSchemaTableRelationSetterProt default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationSetterProt">$switch IsProtected yes inrealityDeclProtSchemaTableRelationSetterProt default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationSetterProt">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Prot$reference ToTable TableName$ argObj);
+$switch FromTableIsPublic yes declProtSchemaTableRelationSetterPub default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationSetterPub">$switch IsProtected yes inrealityDeclProtSchemaTableRelationSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationSetterPub">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj);
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationGetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationGetter">
+	public $emitProtInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtEqualsObject">
+	public boolean equals( Object obj );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTablePKeyWrappers">$declProtSchemaTablePKeyRelationAccessors$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTablePKeyRelationAccessors">$declProtSchemaTableSuperiorPKeyRelations$$declProtSchemaTableSubservientPKeyRelations$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationGetterSetter">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationGetterSetter">
+	public $emitProtInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$();
+$switch IsToIndexUnique yes declProtSchemaTablePKeyColRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationSetter">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetter">$switch ToTableHasDefSchema yes declProtSchemaTablePKeyColRelationSetterPubWithArgs default declProtSchemaTablePKeyColRelationSetterNormal$</GenRule>
+	
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationSetterNormal">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationSetterNormal default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetterNormal">$switch FromIndexIsAtomicPrimaryKeyIndex yes empty default inrealityDeclProtSchemaTablePKeyColRelationSetterByArgs$$switch FromTableIsProtected yes declProtSchemaTablePKeyColRelationSetterProt default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationSetterPubWithArgs">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationSetterPubWithArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetterPubWithArgs">$switch FromIndexIsAtomicPrimaryKeyIndex yes empty default inrealityDeclProtSchemaTablePKeyColRelationSetterByArgs$
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj);</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationSetterProt">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationSetterProt default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetterProt">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Prot$reference ToTable TableName$ argObj);$switch FromTableIsPublic yes declProtSchemaTablePKeyColRelationSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationSetterPub">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetterPub">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj);</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationSetterByArgs">$switch IsProtected yes trulyReallyDeclProtSchemaTablePKeyColRelationSetterByArgs default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="trulyReallyDeclProtSchemaTablePKeyColRelationSetterByArgs">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declSetArgColumn each declCommaSetArgColumn)$);</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationGetter">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationGetter">$declProtSchemaTablePKeyColRelationNonCandidateGetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTablePKeyColRelationNonCandidateGetter">$switch IsProtected yes inrealityDeclProtSchemaTablePKeyColRelationNonCandidateGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTablePKeyColRelationNonCandidateGetter">
+	public $emitProtInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$();
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeProtDeclProtSchemaTablePKeyColRelationSetter">$switch IsProtected yes inrealityMaybeProtDeclProtSchemaTablePKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityMaybeProtDeclProtSchemaTablePKeyColRelationSetter">$switch HasDefSchema yes declProtSuperiorSchemaTablePKeyColRelationSetterPub default declProtSuperiorSchemaTablePKeyColRelationSetterNormal$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSuperiorSchemaTablePKeyColRelationSetterNormal">$switch IsProtected yes inrealityDeclProtSuperiorSchemaTablePKeyColRelationSetterNormal default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSuperiorSchemaTablePKeyColRelationSetterNormal">$switch IsSuperiorRelation yes declPrimarySchemaTablePKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declPrimarySchemaTablePKeyColRelationSetter">$switch IsProtected yes inrealityDeclPrimarySchemaTablePKeyColRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclPrimarySchemaTablePKeyColRelationSetter">$switch IsRelationInPrimaryIndex yes declProtSchemaTablePKeyColRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeProtDeclProtSchemaTableDataRelationGetterSetter">$switch IsProtected yes inrealityMaybeProtDeclProtSchemaTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityMaybeProtDeclProtSchemaTableDataRelationGetterSetter">$switch IsRelationInPrimaryIndex no declProtSchemaTableRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSuperiorSchemaTableDataRelationGetterSetter">$switch IsProtected yes inrealityDeclProtSuperiorSchemaTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSuperiorSchemaTableDataRelationGetterSetter">$switch IsSuperiorRelation yes declProtDataSchemaTableDataRelationGetterSetter default declProtDataSchemaTableDataRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtDataSchemaTableDataRelationGetterSetter">$switch IsProtected yes inrealityDeclProtDataSchemaTableDataRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtDataSchemaTableDataRelationGetterSetter">$switch IsRelationInPrimaryIndex no declProtSchemaTableRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableDataRelationGetter">$switch IsProtected yes inrealityDeclProtSchemaTableDataRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableDataRelationGetter">$switch IsRelationInPrimaryIndex no declProtSchemaTableRelationGetter default empty$</GenRule>
+	
+	<GenRule GenDef="Value" Name="maybeProtDeclTableConstructorInitAttr">$declConstructorInitAttr$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNonCandidateGetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNonCandidateGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNonCandidateGetter">
+	public $emitProtInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$();
+</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNonCandidateGetterSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNonCandidateGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNonCandidateGetterSetter">
+	public $emitProtInterfaceDataType$ get$OptionalOrRequired$$RelationType$$Suffix$();
+$switch IsToIndexUnique yes potentiallyDeclProtSchemaTableRelationSetter default empty$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationNonCandidateSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationNonCandidateSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationNonCandidateSetter">$potentiallyDeclProtSchemaTableRelationSetter$</GenRule>
+<!--$switch FromTableIsProtected yes declProtSchemaJpaTableEmbedPKeyRelationAtomicCandidateSetterProt default empty$
+</GenRule-->
+
+	<GenRule GenDef="Relation" Name="declProtSuperiorSchemaTableRelationSetter">$switch IsProtected yes inrealityDeclProtSuperiorSchemaTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSuperiorSchemaTableRelationSetter">$switch IsSuperiorRelation yes declProtNotInPrimarySchemaTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtNotInPrimarySchemaTableRelationSetter">$switch IsProtected yes inrealityDeclNotInPrimarySchemaTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclNotInPrimarySchemaTableRelationSetter">$switch IsRelationInPrimaryIndex yes empty default declProtSchemaTableRelationSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSuperiorTableNonCandidateRelationSetter">$switch IsProtected yes inrealityDeclProtSuperiorTableNonCandidateRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSuperiorTableNonCandidateRelationSetter">$switch IsSuperiorRelation yes declProtNotInPrimarySchemaNonCandidateRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtNotInPrimarySchemaNonCandidateRelationSetter">$switch IsProtected yes inrealityDeclNotInPrimarySchemaNonCandidateRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclNotInPrimarySchemaNonCandidateRelationSetter">$switch IsRelationInPrimaryIndex yes empty default declProtSchemaTableRelationNonCandidateSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtSchemaTableRelationSetter">$switch IsProtected yes inrealityDeclProtSchemaTableRelationSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtSchemaTableRelationSetter">
+$switch FromTableIsProtected yes declProtSchemaJpaTableEmbedPKeyRelationAtomicCandidateSetterProt default empty$
+	public void set$OptionalOrRequired$$RelationType$$Suffix$($iterate Columns(first declSetArgColumn each declCommaSetArgColumn)$);
+</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="declProtSchemaTableProtRelationSetterClearAttr">$switch RelationIsProtected yes inrealityDeclProtSchemaTableProtRelationSetterClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="inrealityDeclProtSchemaTableProtRelationSetterClearAttr">$switch IsProtected yes declProtSchemaTableRelationSetterClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="declProtSchemaTablePubRelationSetterClearAttr">$switch RelationIsProtected yes inrealityDeclProtSchemaTablePubRelationSetterClearAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="inrealityDeclProtSchemaTablePubRelationSetterClearAttr">$switch IsPublic yes declProtSchemaTableRelationSetterClearAttr default empty$</GenRule>
+
+	<GenRule GenDef="RelationCol" Name="declProtSchemaTableProtRelationSetterCopyToAttr">$switch RelationIsProtected yes inrealityDeclProtSchemaTableProtRelationSetterCopyToAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="inrealityDeclProtSchemaTableProtRelationSetterCopyToAttr">$switch IsProtected yes declProtSchemaTableRelationSetterCopyToAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="declProtSchemaTablePubRelationSetterCopyToAttr">$switch RelationIsProtected yes inrealityDeclProtSchemaTablePubRelationSetterCopyToAttr default empty$</GenRule>
+	<GenRule GenDef="RelationCol" Name="inrealityDeclProtSchemaTablePubRelationSetterCopyToAttr">$switch IsPublic yes declProtSchemaTableRelationSetterCopyToAttr default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTablCFCoreConstruct">
+	public $poptop SchemaDef SchemaName$$TableName$();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableInhConstruct">
+	public $poptop SchemaDef SchemaName$$TableName$();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnAttrPKeyColumnAccessors">
+	public $reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implIProtJavaOptAtomType first empty each empty empty empty )$ getPKey();
+	public void setPKey($reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implIProtJavaOptAtomType first empty each empty empty empty )$ $leadlower reference BaseClass reference PrimaryKeyIndex iterate Columns( lone implColumnAttrOptionality first empty each empty empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( lone Name first empty each empty empty empty )$);$declProtColumnAttrPKeyAttrAccessors$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnAttrPKeyAttrAccessors">$iterate SuperiorPrimaryKeyRelations( each declProtColumnAttrPKeyWrapRelationGetterSetter empty empty )$$iterate SubservientPrimaryKeyRelations( each declProtSchemaTablePKeyColRelationGetter empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declProtNonSuperiorColumnGetterSetter empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtColumnAttrPKeyColumnWrappers">$iterate SuperiorPrimaryKeyRelations( each declProtColumnAttrPKeyWrapRelationGetterSetter empty empty )$$iterate SubservientPrimaryKeyRelations( each declProtSchemaTablePKeyColRelationGetter empty empty )$$reference BaseClass reference PrimaryKeyIndex iterate Columns( each declProtPKeyWrapColumnGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declProtNonSuperiorColumnGetterSetter">$declProtColumnGetterSetter$</GenRule>
+	<GenRule GenDef="TableCol" Name="declProtNonSuperiorColumnGetterSetter">$declProtColumnGetterSetter$</GenRule>
+	<GenRule GenDef="Atom" Name="declProtNonSuperiorColumnGetterSetter">$declProtColumnGetterSetter$</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationGetterSetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationGetterSetter">$switch IsToIndexUnique yes declProtColumnAttrPKeyWrapRelationSingletonGetterSetter default declProtColumnAttrPKeyWrapRelationDuplicateGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonGetterSetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonGetterSetter">$switch ToTableHasDefSchema yes declProtColumnAttrPKeyWrapRelationSingletonPubGetterSetter default declProtColumnAttrPKeyWrapRelationSingletonNormalGetterSetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationDuplicateGetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationDuplicateGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationDuplicateGetter">$switch ToTableHasDefSchema yes declProtColumnAttrPKeyWrapRelationDuplicatePubGetter default declProtColumnAttrPKeyWrapRelationDuplicateNormalGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonPubGetterSetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonPubGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonPubGetterSetter">
+	public I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ get$OptionalOrRequired$$RelationType$$Suffix$();
+$switch IsToIndexUnique yes declProtColumnAttrPKeyWrapRelationSingletonSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationDuplicatePubGetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationDuplicatePubGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationDuplicatePubGetter">
+	public List&lt;I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$&gt; get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonNormalGetterSetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonNormalGetterSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonNormalGetterSetter">
+	public I$reference ToTable DefSchemaName$Prot$reference ToTable TableName$ get$OptionalOrRequired$$RelationType$$Suffix$();
+$switch IsToIndexUnique yes declProtColumnAttrPKeyWrapRelationSingletonNormalSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationDuplicateNormalGetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationDuplicateNormalGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationDuplicateNormalGetter">
+	public List&lt;I$reference ToTable DefSchemaName$Prot$reference ToTable TableName$&gt; get$OptionalOrRequired$$RelationType$$Suffix$();</GenRule>
+
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonNormalSetter">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonNormalSetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonNormalSetter">$declProtSchemaTableRelationSetterArgs$
+$switch FromTableIsProtected yes declProtColumnAttrPKeyWrapRelationSingletonSetterProt default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonSetterProt">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonSetterProt default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonSetterProt">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Prot$reference ToTable TableName$ argObj);
+$switch FromTableIsPublic yes declProtColumnAttrPKeyWrapRelationSingletonSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="declProtColumnAttrPKeyWrapRelationSingletonSetterPub">$switch IsProtected yes inrealityDeclProtColumnAttrPKeyWrapRelationSingletonSetterPub default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityDeclProtColumnAttrPKeyWrapRelationSingletonSetterPub">
+	public void set$OptionalOrRequired$$RelationType$$Suffix$(I$reference ToTable DefSchemaName$Pub$reference ToTable TableName$ argObj);
+</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declProtPKeyWrapColumnGetterSetter">$inrealityDeclPKeyWrapColumnGetterSetter$</GenRule>
+	<GenRule GenDef="IndexCol" Name="inrealityDeclPKeyWrapColumnGetterSetter">
+	public $reference Column implIProtJavaAtomType$ get$reference Column implColumnAttrOptionality$$reference Column Name$();
+$declProtPKeyWrapColumnSetter$</GenRule>
+
+	<GenRule GenDef="IndexCol" Name="declProtPKeyWrapColumnSetter">
+	public void set$reference Column implColumnAttrOptionality$$reference Column Name$($reference Column implIProtJavaAtomType$ value);
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtGetClassCode">
+	public int getClassCode();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtPKeyGetterSetters">
+		>$switch HasSuperClassRelation no declProtColumnOptAuditGetterSetters default empty$$iterate Columns( each declProtNonSuperiorColumnGetterSetter )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnOptAuditGetterSetters"
+		>$switch HasAuditColumns yes declProtColumnAuditGetterSetters default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnAuditGetterSetters">
+	public CFDbKeyHash256 getCreatedByUserId();
+
+	public void setCreatedByUserId( CFDbKeyHash256 value );
+
+	public LocalDateTime getCreatedAt();
+
+	public void setCreatedAt( LocalDateTime value );
+
+	public CFDbKeyHash256 getUpdatedByUserId();
+
+	public void setUpdatedByUserId( CFDbKeyHash256 value );
+
+	public LocalDateTime getUpdatedAt();
+
+	public void setUpdatedAt( LocalDateTime value );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtDataGetterSetters"
+		>$iterate DataColumns( each declProtNonSuperiorColumnGetterSetter empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtEquals">
+	public boolean equals( Object obj );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtGetHashCode">
+	public int hashCode();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtCompareToObject">
+	public int compareTo( Object obj );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuinelySet">
+	public void set( I$reference BaseClass DefSchemaName$$reference BaseClass TableName$ src );
+
+	public void set$TableName$( I$DefSchemaName$$TableName$ src );
+$declGenuinelySetHistory$$switch IsProtected yes declGenuineProtSet default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuineProtSet">
+	public void set( I$reference BaseClass DefSchemaName$Prot$reference BaseClass TableName$ src );
+
+	public void set$TableName$( I$DefSchemaName$Prot$TableName$ src );
+$declGenuineProtSetHistory$$switch IsPublic yes declGenuinePubSet default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuinePubSet">
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$ src );
+
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$ src );
+$declGenuinePubSetHistory$</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuinelySetHistory">
+	public void set( I$reference BaseClass DefSchemaName$$reference BaseClass TableName$H src );
+
+	public void set$TableName$( I$DefSchemaName$$TableName$H src );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuineProtSetHistory">
+	public void set( I$reference BaseClass DefSchemaName$Prot$reference BaseClass TableName$H src );
+
+	public void set$TableName$( I$DefSchemaName$Prot$TableName$H src );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declGenuinePubSetHistory">
+	public void set( I$reference BaseClass DefSchemaName$Pub$reference BaseClass TableName$H src );
+
+	public void set$TableName$( I$DefSchemaName$Pub$TableName$H src );
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableToString">
+	public String getXmlAttrFragment();
+
+	public String toString();
+</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecMinValues"
+		>$switch HasSuperClassRelation yes declProtSchemaTableRecDataMinValues default declProtSchemaTableRecAllMinValues$</GenRule>
+	
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecDataMinValues">$iterate DataColumns( each maybeProtDeclMinValue empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecAllMinValues">$iterate Columns( each maybeProtDeclMinValue empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecMaxValues"
+		>$switch HasSuperClassRelation yes declProtSchemaTableRecDataMaxValues default declProtSchemaTableRecAllMaxValues$</GenRule>
+	
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecDataMaxValues">$iterate DataColumns( each maybeProtDeclMaxValue empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecAllMaxValues">$iterate Columns( each maybeProtDeclMaxValue empty empty )$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecInitValues"
+		>$switch HasSuperClassRelation yes declProtSchemaTableRecDataInitValues default declProtSchemaTableRecAllInitValues$</GenRule>
+	
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecDataInitValues">$iterate DataColumns( each maybeProtDeclInitValue empty empty )$</GenRule>
+	<GenRule GenDef="Table" Name="declProtSchemaTableRecAllInitValues">$switch HasAuditColumns yes declAuditColumnInitValues default empty$$iterate Columns( each maybeProtDeclInitValue empty empty )$</GenRule>
+
+	<GenRule GenDef="Object" Name="declProtSchemaTableRecColumns"
+		>$popto Table declProtSchemaTableRecColumns$</GenRule>
+
+	<GenRule GenDef="Table" Name="extendProtSchemaRecTableRec"> extends I$reference DefSchema SchemaName$$TableName$</GenRule>
+
+	<GenRule GenDef="Object" Name="extendProtSchemaRecTableRecSuperRec">$popto Table extendProtSchemaRecTableRecSuperRec$</GenRule>
+
+	<GenRule GenDef="Table" Name="extendProtSchemaRecTableRecSuperRec">$switch HasSuperClassRelation yes declProtInheritSuper default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeProtDeclRecOptImplAuditColumnAccessors">$switch HasSuperClassRelation no declRecOptDeclAuditColumnAccessors default empty$</GenRule>
+
+	<GenRule GenDef="Value" Name="maybeProtDeclInitValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef declInitValueIfSpecified
+			EnumDef declInitValue
+			Id16Gen declInitValue
+			Id32Gen declInitValue 
+			Id64Gen declInitValue
+			Int16Def declInitValue
+			Int32Def declInitValue
+			Int64Def declInitValue
+			UInt16Def declInitValue
+			UInt32Def declInitValue
+			UInt64Def declInitValue
+			FloatDef declInitValueIfSpecified
+			DoubleDef declInitValueIfSpecified
+			NumberDef declInitValue
+			DateDef declInitValueIfSpecified
+			TimeDef declInitValueIfSpecified
+			TimestampDef declInitValueIfSpecified
+			TZDateDef declInitValueIfSpecified
+			TZTimeDef declInitValueIfSpecified
+			TZTimestampDef declInitValueIfSpecified
+			DbKeyHash128Gen declInitValueIfSpecified
+			DbKeyHash160Gen declInitValueIfSpecified
+			DbKeyHash224Gen declInitValueIfSpecified
+			DbKeyHash256Gen declInitValueIfSpecified
+			DbKeyHash384Gen declInitValueIfSpecified
+			DbKeyHash512Gen declInitValueIfSpecified
+			DbKeyHash128Def declInitValueIfSpecified
+			DbKeyHash160Def declInitValueIfSpecified
+			DbKeyHash224Def declInitValueIfSpecified
+			DbKeyHash256Def declInitValueIfSpecified
+			DbKeyHash384Def declInitValueIfSpecified
+			DbKeyHash512Def declInitValueIfSpecified
+			Uuid6Gen declInitValueIfSpecified
+			Uuid6Def declInitValueIfSpecified
+			UuidGen declInitValueIfSpecified
+			UuidDef declInitValueIfSpecified
+			StringDef declInitValueIfSpecified
+			TokenDef declInitValueIfSpecified
+			NmTokenDef declInitValueIfSpecified
+			NmTokensDef declInitValueIfSpecified
+			TextDef declInitValueIfSpecified
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="maybeProtDeclMinValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef empty
+			EnumDef declMinValue
+			Id16Gen declMinValueIfSpecified
+			Id32Gen declMinValueIfSpecified
+			Id64Gen declMinValueIfSpecified
+			Int16Def declMinValueIfSpecified
+			Int32Def declMinValueIfSpecified
+			Int64Def declMinValueIfSpecified
+			UInt16Def declMinValueIfSpecified
+			UInt32Def declMinValueIfSpecified
+			UInt64Def declMinValueIfSpecified
+			FloatDef declMinValueIfSpecified
+			DoubleDef declMinValueIfSpecified
+			NumberDef declMinValueIfSpecified
+			DateDef empty
+			TimeDef empty
+			TimestampDef empty
+			TZDateDef empty
+			TZTimeDef empty
+			TZTimestampDef empty
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			StringDef empty
+			TokenDef empty
+			NmTokenDef empty
+			NmTokensDef empty
+			TextDef empty
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Value" Name="maybeProtDeclMaxValue"
+		>$switch BaseModelAtomClass
+			BlobDef empty
+			BoolDef empty
+			EnumDef declMaxValue
+			Id16Gen declMaxValueIfSpecified
+			Id32Gen declMaxValueIfSpecified 
+			Id64Gen declMaxValueIfSpecified
+			Int16Def declMaxValueIfSpecified
+			Int32Def declMaxValueIfSpecified
+			Int64Def declMaxValueIfSpecified
+			UInt16Def declMaxValueIfSpecified
+			UInt32Def declMaxValueIfSpecified
+			UInt64Def declMaxValueIfSpecified
+			FloatDef declMaxValueIfSpecified
+			DoubleDef declMaxValueIfSpecified
+			NumberDef declMaxValueIfSpecified
+			DateDef empty
+			TimeDef empty
+			TimestampDef empty
+			TZDateDef empty
+			TZTimeDef empty
+			TZTimestampDef empty
+			DbKeyHash128Gen empty
+			DbKeyHash160Gen empty
+			DbKeyHash224Gen empty
+			DbKeyHash256Gen empty
+			DbKeyHash384Gen empty
+			DbKeyHash512Gen empty
+			DbKeyHash128Def empty
+			DbKeyHash160Def empty
+			DbKeyHash224Def empty
+			DbKeyHash256Def empty
+			DbKeyHash384Def empty
+			DbKeyHash512Def empty
+			Uuid6Gen empty
+			Uuid6Def empty
+			UuidGen empty
+			UuidDef empty
+			StringDef empty
+			TokenDef empty
+			NmTokenDef empty
+			NmTokensDef empty
+			TextDef empty
+			default ErrorUnrecognizeCFCoreModelAtomClass$</GenRule>
+
+	<GenRule GenDef="Table" Name="maybeProtDeclRecGetClassCode">$switch HasSuperClassRelation yes empty default declRecGetClassCode$</GenRule>
+	
+	<GenRule GenDef="Table" Name="maybeProtDeclRecOptAuditColumnAttrAccessors"
+		>$switch HasAuditColumns yes declRecAuditColumnAttrIfNoSchemaDefOrSuper default empty$</GenRule>
+
+	<GenRule GenDef="Table" Name="declProtColumnGetterSetters"
+		>$iterate Columns( each declProtNonSuperiorColumnGetterSetter )$</GenRule>
+
+	<GenRule GenDef="Relation" Name="maybeProtDeclProtSchemaTableRelationGetter">$switch IsProtected yes inrealityMaybeProtDeclProtSchemaTableRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityMaybeProtDeclProtSchemaTableRelationGetter">$switch RelationType Superclass empty Unknown empty default attemptDeclProtSchemaTableRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="attemptDeclProtSchemaTableRelationGetter">$switch IsProtected yes inrealityAttemptDeclProtSchemaTableRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityAttemptDeclProtSchemaTableRelationGetter">$switch IsRelationInPrimaryIndex yes empty default candidacyDeclProtSchemaTableRelationGetter$</GenRule>
+	<GenRule GenDef="Relation" Name="candidacyDeclProtSchemaTableRelationGetter">$switch IsProtected yes inrealityCandidacyDeclProtSchemaTableRelationGetter default empty$</GenRule>
+	<GenRule GenDef="Relation" Name="inrealityCandidacyDeclProtSchemaTableRelationGetter">$switch ToTableHasDefSchema yes declProtSchemaTableRelationPubGetter default declProtSchemaTableRelationNormalGetter$</GenRule>
+
+</RuleSet>
